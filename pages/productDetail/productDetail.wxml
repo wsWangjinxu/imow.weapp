@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    哈哈哈a
+  </view>
+  <view class="userinfo">
+    <text class="user-motto">{{motto}}</text>    
+  </view>
+</view>
