@@ -1,8 +1,9 @@
 {
-  "pages":[
-    "pages/cart/cart",
+  "pages":[  
+    "pages/productDetail/productDetail",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/cart/cart"
   ],
   "window":{
     "backgroundTextStyle":"light",

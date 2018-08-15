@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="productTitle box">
+  <view class='name'>EPT20-15ET2 1.5t全电动搬运车 中力小金刚二代</view> 
+  <view class='like'>
+    <van-icon name="like-o" style='font-size:46rpx;'/>
+    <view><text>收藏</text></view>
+  </view> 
+</view>
+
+<view class="priceBox box">
+  <view class='flexBox'>
+    <text class='flex1'>阿母价</text>
+    <text class='price1 flex2'>￥9900~11000</text>
+    <text style='color:#9b9b9b;'>已售 123件</text>
+  </view> 
+  <view class='flexBox' style='margin-top:24rpx;'>
+    <text class='flex1'>代理价</text>
+    <text class='price2 flex2'>￥8900~10000</text>
+    <view>
+      <view  class='tip'>阿母团购日</view>
+    </view>
+  </view>
+</view>
+<view class="box">
+  <view class="flexBox">
+    <text class="flex1">优惠</text>
+    <text class="flex2">阿母币可抵扣300~500元</text>
+    <view class="flex1"></view> 
+  </view> 
+  <view class="flexBox">
+    <view class="flex1"></view> 
+    <view class="flex2">
+      <text>满16800减300券</text>
+      <text>满26800减500券</text>
+    </view>  
+    <view class="flex1"></view>  
+  </view>
+  <view class="flexBox">
+    <text class="flex1">店铺活动</text>
+    <text class="flex2">部分产品参加满500包邮</text>
+    <view>查看活动产品</view>
+  </view>
+</view>
+
+<view class="box send">
+  <view>
+    <text>配送</text>
+    <text>浙江安吉 至</text>
+    <text>广东广州</text>
+  </view> 
+  <view>
+    <text>物流费</text>
+    <text>￥0.00</text>
+    <text>享受满五百包邮(新疆西藏海南除外)</text>
+  </view>
+</view>
+
+<view class="box send">
+  <view>
+    <text>产品政策</text>
+    <text>XXXXXXXXXXXXXXXX</text>
+    <text> > </text>
+  </view> 
+  <view>
+    <text>产品承诺</text>
+    <text>7天无理由</text>
+  </view>
+</view>
+
+<view class="box send">
+  <view>
+    <text>配送</text>
+    <text>浙江安吉 至</text>
+    <text>广东广州</text>
+  </view> 
+  <view>
+    <text>物流费</text>
+    <text>￥0.00</text>
+    <text>享受满五百包邮(新疆西藏海南除外)</text>
+  </view>
+</view>
