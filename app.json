@@ -1,8 +1,9 @@
 {
   "pages":[  
+    "pages/productDetail/productDetail",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/productDetail/productDetail"
+    "pages/logs/logs"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",

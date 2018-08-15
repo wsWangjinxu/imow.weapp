@@ -1,21 +1,82 @@
 /**index.wxss**/
-.userinfo {
+page{
+  background-color: #f2f2f2;
+}
+
+swiper{
+  width: 100%;
+  height: 750rpx;
+}
+
+swiper-item image{
+  width: 100%;
+  height: 100%;
+}
+
+.box{
+  padding: 34rpx 42rpx 43rpx;
+  background-color: white;
+  font-size: 24rpx;
+  color: #3a3a3a;
+}
+
+.productTitle{
+  margin-bottom:16rpx;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.productTitle .name{
+  color:#313131;
+  width: 580rpx;
+  font-size: 32rpx;
+  font-weight: bold;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.like{
+  text-align:center;
+  color: #fe0000;
 }
 
-.usermotto {
-  margin-top: 200px;
+.priceBox{
+  border-bottom: 1px solid #cccccc; 
+}
+
+.flexBox{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex1{
+  flex: 1;
+}
+
+.flex2{
+  flex: 3;
+}
+
+.price1{
+  color:#323232;
+  font-weight:600; 
+}
+
+.price2{
+  color:#fe0000;
+  font-weight:1200;
+  font-size:30rpx
+}
+
+.tip{
+  padding: 8rpx 16rpx;
+  font-size: 18rpx;
+  border: 1px #fe0000 solid;
+  border-radius: 30rpx;
+  color: #fe0000;
+  font-weight: 600;
+}
+
+
+.send{
+  margin-top:16rpx;
+  margin-bottom:16rpx;
 }

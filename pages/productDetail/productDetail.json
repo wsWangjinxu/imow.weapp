@@ -1,6 +1,14 @@
-{
+{ 
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "商品详情",
+  "backgroundColor": "blue",
+  "backgroundTextStyle": "light",
   "usingComponents": {
     "van-button": "/vantui/button/index",
+    "van-icon": "/vantui/icon/index",
+    "van-field": "/vantui/field/index",
     "test": "/components/test/test"
   }
+  
 }
