@@ -1,6 +1,10 @@
 {
   "usingComponents": {
     "van-button": "/vantui/button/index",
-    "test": "/components/test/test"
+    "van-icon": "/vantui/icon/index",
+    "van-search": "/vantui/search/index",
+    "van-tab": "/vantui/tab/index",
+    "navCircle": "/components/index/navCircle/navCircle",
+    "product": "/components/index/product/product"
   }
 }

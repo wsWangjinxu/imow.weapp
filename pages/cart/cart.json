@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "shopTitle": "/components/order/shopTitle/shopTitle",
+    "product": "/components/order/product/product",
+    "payBar": "/components/order/payBar/payBar"
+  }
+}

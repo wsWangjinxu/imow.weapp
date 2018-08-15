@@ -1,0 +1,83 @@
+/* 购物车和确认订单 */
+.product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx 36rpx 40rpx 10rpx;
+  background-color: #fff;
+  border-bottom: 1px solid  #cbcbcb; 
+}
+
+.product .single {
+  flex: 1;
+  margin-top: 85rpx;
+}
+
+.ctn {
+  flex: 15;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.product image {
+  width: 170rpx;
+  height: 170rpx;
+  margin-right: 26rpx;
+  flex: none;
+}
+
+.product .detail {
+  margin-top: -16rpx;
+}
+
+
+.product .title {
+  font-size: 26rpx;
+  font-weight: bold;
+  line-height: 20rpx;
+}
+
+.standard {
+  font-size: 24rpx;
+  background-color: #f2f2f2;
+  padding: 10rpx;
+  border-radius: 8rpx;
+  margin-top: 6rpx;
+  margin-bottom: 10rpx;
+  color: #a2a2a2;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price text {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #fb0000;
+}
+
+/* 活动 */
+.activity {
+  font-size: 26rpx;
+  height: 80rpx;
+  background-color: #fff;
+  line-height: 80rpx;
+  padding-left: 10rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: -20rpx;
+}
+
+.activity text {
+  display: inline-block;
+  border: 1px solid #fb0000;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #fb0000;
+}

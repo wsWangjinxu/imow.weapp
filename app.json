@@ -1,12 +1,45 @@
 {
   "pages":[
+    "pages/cart/cart",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#fe0000",
+    "navigationBarTitleText": "阿母工业",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#626262",
+    "selectedColor": "#ee0000",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "精选",
+        "iconPath": "static/icon/jx.png",
+        "selectedIconPath": "static/icon/jx-red.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "喜欢",
+        "iconPath": "static/icon/collect.png",
+        "selectedIconPath": "static/icon/collect-red.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "static/icon/cart.png",
+        "selectedIconPath": "static/icon/cart-red.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "static/icon/my.png",
+        "selectedIconPath": "static/icon/my-red.png"
+      }
+    ]
   }
 }

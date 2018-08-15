@@ -4,33 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    list: [
-      {
-        id: '101',
-        title: '猜你喜欢'
-      },
-      {
-        id: '102',
-        title: '搬运设备'
-      },
-      {
-        id: '103',
-        title: '五金工具'
-      },
-      {
-        id: '104',
-        title: '仓储车间'
-      },
-      {
-        id: '105',
-        title: '清洁环保'
-      }
-    ],
-    selectedId: '101'
+    
   },
   //事件处理函数
   bindViewTap: function () {

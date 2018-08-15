@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "zan-checkbox": "/vantui/checkbox/index"
+  }
+}

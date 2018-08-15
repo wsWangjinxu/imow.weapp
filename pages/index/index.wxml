@@ -1,15 +1,17 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-    <van-button type="default">默认按钮</van-button>
-    <test></test>
-  </view>
+<view>
+    <van-search slot="title" placeholder="搜索 商品/品牌/店铺"></van-search>
+    <swiper indicator-dots="true">
+        <swiper-item><image mode="scaleToFill" src="http://dummyimage.com/200x100/fb0a2a" /></swiper-item>
+        <swiper-item><image mode="scaleToFill" src="http://dummyimage.com/200x100/fb0a2a" /></swiper-item>
+    </swiper>
+    <view class="nav-block">
+      <navCircle wx:for="{{8}}" :imgSrc="http://dummyimage.com/200x100/fb0a2a" ></navCircle>    
+    </view>
+    <view class="ad">
+        <image src="http://dummyimage.com/200x100/fb0a2a"></image>
+    </view>
+    <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
+    <view class="product-container">
+        <product wx:for="{{8}}"></product>
+    </view>
 </view>

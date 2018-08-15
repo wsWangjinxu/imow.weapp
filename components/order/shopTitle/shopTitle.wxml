@@ -1,0 +1,11 @@
+<!--components/index/navCircle.wxml-->
+<view class="shopTitle">
+  <view class="top">
+    <view>
+      <checkbox></checkbox>  <text class="icon">工厂店</text><text>浙江中力机械有限公司</text>  
+    </view>  
+    <text style="font-size:24rpx;">正在分批发货中</text>
+  </view>
+  <view class="orderNum">订单号：73255569876</view>
+</view>
+

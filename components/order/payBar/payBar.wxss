@@ -1,0 +1,46 @@
+.payBar {
+  margin-top: 16rpx;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 107rpx;
+  padding-left: 10rpx;
+}
+
+.detail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.detail view {
+  display: flex;
+  flex-direction: column;
+  font-size: 22rpx;
+  text-align: right;
+  padding-right: 20rpx;
+}
+
+.detail view text:first-child {
+  font-weight: bold;
+  color: #fe0000;
+}
+
+.detail navigator {
+  height: 107rpx;
+  line-height: 107rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  background-color: #fe0000;
+  color: #fffbff;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+
+
+
