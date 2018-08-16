@@ -1,0 +1,72 @@
+.product {
+  border-bottom: 1px solid #cbcbcb;
+}
+
+.ctn {
+  flex: 15;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  padding: 20rpx;
+}
+
+.ctn image {
+  width: 170rpx;
+  height: 170rpx;
+  margin-right: 26rpx;
+  flex: none;
+}
+
+.ctn .title {
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 20rpx;
+}
+
+.ctn .detail {
+  margin-top: -16rpx;
+}
+
+.ctn .standard {
+  font-size: 24rpx;
+  background-color: #f2f2f2;
+  padding: 10rpx;
+  border-radius: 8rpx;
+  margin-top: 6rpx;
+  margin-bottom: 10rpx;
+  color: #a2a2a2;
+}
+
+.ctn .Price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #fb0000;
+  font-size: 26rpx;
+}
+
+.kitTitle {
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: white;
+  padding-left: 20rpx;
+  zoom: 65%;
+  padding-top: 25rpx;
+}
+
+.kitTitle text {
+  display: inline-block;
+  color: white;
+  background-color: #fb0000;
+  border-radius: 5px;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-left: 10rpx;
+
+}

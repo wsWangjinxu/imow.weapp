@@ -14,7 +14,11 @@ Component({
     },
     activity: {
       type:Boolean,
-      value: true
+      value: false
+    },
+    overdue: {
+      type: Boolean,
+      value: false
     }
   },
 

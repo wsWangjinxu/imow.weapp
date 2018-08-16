@@ -1,0 +1,150 @@
+/* 购物车和确认订单 */
+.product {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx 36rpx 40rpx 0rpx;
+  background-color: #fff;
+  border-bottom: 1px solid  #cbcbcb; 
+}
+
+.product .single {
+  flex: none;
+  margin-top: 85rpx;
+  margin-right: 10rpx;
+}
+
+.notSingleProduct {
+  flex-direction: column!important;
+}
+
+.ctn {
+  flex: 15;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+
+.product image {
+  width: 170rpx;
+  height: 170rpx;
+  margin-right: 26rpx;
+  flex: none;
+}
+
+.product .detail {
+  margin-top: -16rpx;
+}
+
+
+.product .title {
+  font-size: 26rpx;
+  font-weight: bold;
+  line-height: 20rpx;
+}
+
+.standard {
+  font-size: 24rpx;
+  background-color: #f2f2f2;
+  padding: 10rpx;
+  border-radius: 8rpx;
+  margin-top: 6rpx;
+  margin-bottom: 10rpx;
+  color: #a2a2a2;
+}
+
+.singlePrice, .Price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.singlePrice text { 
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #fb0000;
+}
+
+.Price text {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* 活动 */
+.activity {
+  font-size: 26rpx;
+  height: 80rpx;
+  background-color: #fff;
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: -20rpx;
+}
+
+/* 活动标题 */
+.activity text {
+  display: inline-block;
+  border: 1px solid #fb0000;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #fb0000;
+}
+
+/* 组合套餐 */
+
+/* 套餐标题 */
+.kitTitle {
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: white;
+  padding-left: 20rpx;
+}
+
+.kitTitle checkbox text {
+  display: inline-block;
+  color: white;
+  background-color: #fb0000;
+  border-radius: 5px;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-bottom: -20rpx;
+  margin-left: 10rpx;
+}
+
+/* 总计 */
+.totalMoney {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20rpx;
+  flex: 2;
+  height: 60rpx;
+}
+
+.totalMoney text {
+  color: #fb0000;
+  font-weight: bold;
+}
+
+/* 失效 */
+.overdue {
+  position: absolute;
+  margin-left: -63rpx;
+  font-size: 20rpx;
+  margin-top: 70rpx;
+  background-color: #bcbcbc;
+  color: white;
+  border-radius: 15rpx;
+  height: 30rpx;
+  line-height: 30rpx;padding: 0 10rpx;
+
+}

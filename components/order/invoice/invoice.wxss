@@ -1,0 +1,16 @@
+.invoice {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+.invoice text {
+  font-size: 28rpx;
+  line-height: 1.6
+}
+
+.invoice text:first-child {
+  font-size: 34rpx;
+  line-height: 2;
+}
