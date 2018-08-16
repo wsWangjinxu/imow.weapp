@@ -16,75 +16,188 @@
   </view> 
 </view>
 
-<view class="priceBox box">
-  <view class='flexBox'>
-    <text class='flex1'>阿母价</text>
-    <text class='price1 flex2'>￥9900~11000</text>
-    <text style='color:#9b9b9b;'>已售 123件</text>
-  </view> 
-  <view class='flexBox' style='margin-top:24rpx;'>
-    <text class='flex1'>代理价</text>
-    <text class='price2 flex2'>￥8900~10000</text>
-    <view>
+<view class='box priceBox'>
+  <van-row>
+    <van-col span="5">
+      <text>阿母价</text>
+    </van-col>
+    <van-col span="14">
+      <text class='price1'>￥9900~11000</text>  
+    </van-col>
+    <van-col span="5" style="text-align:center">
+      <text style='color:#9b9b9b;'>已售 123件</text>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
+      <text>代理价</text>
+    </van-col>
+    <van-col span="14">
+      <text class='price2'>￥8900~10000</text> 
+    </van-col>
+    <van-col span="5" class="center">
       <view  class='tip'>阿母团购日</view>
-    </view>
-  </view>
-</view>
+    </van-col>
+  </van-row>
+</view> 
+
 <view class="box">
-  <view class="flexBox">
-    <text class="flex1">优惠</text>
-    <text class="flex2">阿母币可抵扣300~500元</text>
-    <view class="flex1"></view> 
-  </view> 
-  <view class="flexBox">
-    <view class="flex1"></view> 
-    <view class="flex2">
-      <text>满16800减300券</text>
-      <text>满26800减500券</text>
-    </view>  
-    <view class="flex1"></view>  
+  <van-row>
+    <van-col span="5">
+      <text>优惠</text>
+    </van-col>
+    <van-col span="14">
+      <text>阿母币可抵扣300~500元</text>  
+    </van-col>
+  </van-row>
+  <view style='padding-left:138rpx;color:#ff3233'>
+    <text style='padding-right:34rpx'>满16800减300券</text>
+    <text>满26800减500券</text>
   </view>
-  <view class="flexBox">
-    <text class="flex1">店铺活动</text>
-    <text class="flex2">部分产品参加满500包邮</text>
-    <view>查看活动产品</view>
+  <van-row>
+    <van-col span="5">
+      <text>店铺活动</text>
+    </van-col>
+    <van-col span="19">
+      <text>部分产品参加满500包邮</text>
+      <view style=''>查看活动产品</view>
+    </van-col>   
+  </van-row>
+</view>
+
+<view class='box send'>
+  <van-row>
+    <van-col span="5">
+      <text>配送</text>
+    </van-col>
+    <van-col span="14">
+      <text>浙江安吉 至</text><text>广东广州</text>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
+      <text>物流费</text>
+    </van-col>
+    <van-col span="19">
+      <text>￥0.00</text>
+      <text> 享受满五百包邮 (新疆西藏海南除外)</text>
+    </van-col>
+  </van-row>
+</view> 
+
+<view class="box send">
+  <van-row>
+    <van-col span="5">
+      <text>产品政策</text>
+    </van-col>
+    <van-col span="18">
+      <text>XXXXXXXXXXXXXXXX</text>
+    </van-col>
+    <van-col span="1">
+      <text> > </text>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
+      <text>产品承诺</text>
+    </van-col>
+    <van-col span="14">
+      <text>7天无理由</text>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
+      <text>支付方式</text>
+    </van-col>
+    <van-col span="18">
+      <text>承兑汇票.网银汇款.店铺余额.支付宝.微信</text>
+    </van-col>
+    <van-col span="1">
+      <text> > </text>
+    </van-col>
+  </van-row>
+</view>
+
+<view> 
+  <van-cell-group>
+    <van-cell
+      title="选择"
+      is-link
+      arrow-direction="left"
+      value="规格、交期、支付类型"
+      border="{{ false }}"
+      url=""
+    />
+  </van-cell-group>
+</view>
+
+<view class="box shopName"> 
+  <van-row>
+    <van-col span="5">
+      <image class='logo' src='/static/imgs/logo.png'></image>
+    </van-col>
+    <van-col span="14">
+      <text style='font-weight:800;'>浙江中力机械有限公司</text>     
+    </van-col>
+    <van-col span="4">
+      <text style='color:#fe0000;'>进店看看</text>
+    </van-col>
+    <van-col span="1">
+      <text> > </text>
+    </van-col>
+  </van-row>
+</view>
+
+<view class="box"> 
+  <view class='title'>
+    <text>产品介绍</text>
+    <image src='/static/imgs/titleBg.png'></image>
+  </view>
+  <view class="section tc">
+    <video class="productVideo" id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls>
+    </video>  
+  </view>
+
+  <view class='productImg'>
+    <image mode="widthFix" src='https://dummyimage.com/684x1000/fb0a2a'></image>
+  </view>
+
+  <view class='title'>
+    <text>规格与包装</text>
+    <image src='/static/imgs/titleBg.png'></image>
+  </view> 
+  <view class='productImg'>
+   <image mode="widthFix" src='https://dummyimage.com/750x600/fb0a2a'></image>
+  </view>
+
+  <view class='title'>
+    <text>售后保障</text>
+    <image src='/static/imgs/titleBg.png'></image>
+  </view>
+  <view class='shouhou'>
+      <text>保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。</text>
   </view>
 </view>
 
-<view class="box send">
-  <view>
-    <text>配送</text>
-    <text>浙江安吉 至</text>
-    <text>广东广州</text>
-  </view> 
-  <view>
-    <text>物流费</text>
-    <text>￥0.00</text>
-    <text>享受满五百包邮(新疆西藏海南除外)</text>
-  </view>
-</view>
-
-<view class="box send">
-  <view>
-    <text>产品政策</text>
-    <text>XXXXXXXXXXXXXXXX</text>
-    <text> > </text>
-  </view> 
-  <view>
-    <text>产品承诺</text>
-    <text>7天无理由</text>
-  </view>
-</view>
-
-<view class="box send">
-  <view>
-    <text>配送</text>
-    <text>浙江安吉 至</text>
-    <text>广东广州</text>
-  </view> 
-  <view>
-    <text>物流费</text>
-    <text>￥0.00</text>
-    <text>享受满五百包邮(新疆西藏海南除外)</text>
-  </view>
+<view class='footer'>
+  <van-row>
+    <van-col span="4">
+      <view  class="button1">
+        <van-icon name="wap-home" />
+        <text>首页</text>
+      </view>    
+    </van-col>
+    <van-col span="4">
+      <view  class="button2">
+        <van-icon name="cart" />
+        <text>购物车</text>
+      </view>   
+    </van-col>
+    <van-col span="8">
+      <view class="button3">加入购物车</view>
+    </van-col>
+    <van-col span="8" class="button4">
+      <view class="button4">立即购买</view>
+    </van-col>
+  </van-row>
 </view>

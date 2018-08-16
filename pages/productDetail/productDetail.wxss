@@ -14,7 +14,7 @@ swiper-item image{
 }
 
 .box{
-  padding: 34rpx 42rpx 43rpx;
+  padding: 34rpx 36rpx 43rpx;
   background-color: white;
   font-size: 24rpx;
   color: #3a3a3a;
@@ -47,17 +47,10 @@ swiper-item image{
   justify-content: space-between;
 }
 
-.flex1{
-  flex: 1;
-}
-
-.flex2{
-  flex: 3;
-}
-
 .price1{
   color:#323232;
   font-weight:600; 
+  text-align:center;
 }
 
 .price2{
@@ -73,10 +66,124 @@ swiper-item image{
   border-radius: 30rpx;
   color: #fe0000;
   font-weight: 600;
+  width: 90rpx;
+  margin: 0 auto;
 }
-
 
 .send{
   margin-top:16rpx;
   margin-bottom:16rpx;
+}
+
+.logo{
+  width: 102rpx;
+  height: 28rpx;
+  background-color: blue;
+}
+
+.shopName{
+  margin-top:16rpx;
+  margin-bottom:16rpx;
+}
+
+.tc{
+  margin-top: 40rpx;
+}
+
+.tc .productVideo{
+  width: 100%
+}
+
+.productImg{
+  margin-top: 26rpx;
+  margin-bottom: 26rpx;
+  text-align:center;
+}
+
+.productImg image{
+  width:100%;
+}
+
+.title{
+  width: 413rpx;
+  height: 30rpx;
+  text-align: center;
+  line-height: 30rpx;
+  margin: auto;
+  /* background-image: url("https://dummyimage.com/413x27");
+  background-size:100% 100%;  
+  background-repeat:no-repeat; */
+  font-size: 26rpx;
+  font-weight: bold;
+  position: relative;
+}
+
+.title image{
+  width: 100%;
+  height: 100%;
+}
+
+.title text{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.shouhou{
+  margin-top:26rpx;
+  margin-bottom:108rpx
+}
+
+.footer{
+  height: 108rpx;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  background-color:#fff;
+	z-index: 100;
+  text-align: center;  
+  border-top: 1px solid #cccccc;
+}
+
+.button1{
+  height: 108rpx;
+  padding-top:14rpx;
+  display: flex;
+  flex-direction: column ;
+  font-size: 40rpx;
+  color: #676767;
+  border-right: 1px solid #cccccc;
+}
+
+.button1 text{
+  font-size: 18rpx;
+}
+
+.button2 text{
+  font-size: 18rpx;
+}
+
+.button2{
+  padding-top:14rpx;
+  display: flex;
+  flex-direction: column ;
+  font-size: 40rpx;
+  color: #676767;
+}
+
+.button3{
+  line-height: 108rpx;
+  font-size: 40rpx;
+  background-color: #fe9900;
+  color:white;
+  font-weight: 600
+}
+
+.button4{
+  line-height: 108rpx; 
+  font-size: 40rpx;
+  background-color: #fe0000;
+  color:white;
+  font-weight: 600
 }

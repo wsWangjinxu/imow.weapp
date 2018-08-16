@@ -7,8 +7,6 @@
   "usingComponents": {
     "van-button": "/vantui/button/index",
     "van-icon": "/vantui/icon/index",
-    "van-cell": "/vantui/cell/index",
-    "van-cell-group": "/vantui/cell-group/index",
     "van-row": "/vantui/row/index",
     "van-col": "/vantui/col/index",
     "test": "/components/test/test"
