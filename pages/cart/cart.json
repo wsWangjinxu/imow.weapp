@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "shopTitle": "/components/order/shopTitle/shopTitle",
-    "product": "/components/order/product/product",
+    "product": "/components/order/product/cartProduct/cartProduct",
     "payBar": "/components/order/payBar/payBar"
   }
 }

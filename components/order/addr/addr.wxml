@@ -1,0 +1,10 @@
+<navigator url="" redirect hover-class="className">
+<view class="addr">
+  <view class="addrDetail">
+    <view>张三 13282123626 <text>默认</text></view>
+    <view>浙江省 杭州市 下城区 永华街121号 浙江中力机械有限公司</view>
+  </view>
+  <van-icon name="arrow"></van-icon>
+</view>
+</navigator>
+

@@ -1,0 +1,182 @@
+/* 确认订单 */
+
+.flow .invoice--invoice {
+  margin-top: 18rpx;
+}
+
+.pick {
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.pick view:first-child {
+  margin-top: 18rpx; 
+  font-size: 34rpx;
+  margin-bottom: 18rpx;
+}
+
+.pick-item {
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+}
+
+.pick-item .addrBtn {
+  color: #fb0200;
+  text-decoration: underline;
+}
+
+.pick-item view view {
+  display: flex;
+  flex-direction: row;
+}
+
+.pick-item .omit {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  width: 70%;
+}
+
+.invoiceAddr {
+  border-top: 1px solid #cccccc; 
+  background-color: #fff;
+}
+
+.invoiceAddrTitle{
+  font-size: 34rpx;
+  padding-left:20rpx;
+  margin-top: 25rpx;
+}
+
+.invoiceAddr .addr--addr {
+  margin-top: -20rpx; 
+}
+
+.productList {
+  background-color: #fff;
+}
+
+.discount {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.discount .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 25rpx 30rpx;
+  border-bottom: 1px solid #cccccc;
+}
+
+.discount .item view:first-child {
+  flex: 1
+}
+
+.discount .item view:last-child {
+  flex: 5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.discount .item view:last-child text {
+  flex: 6;
+}
+
+.discount .item view:last-child checkbox {
+  flex: 1;
+}
+
+/* 服务协议 */
+.duty {
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.duty  view {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 32rpx;
+  color: #fb0200;
+  text-decoration: underline;
+}
+
+.duty  view  navigator {
+  margin-right: 10rpx;
+}
+
+.money {
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  padding: 30rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.money view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.money view:first-child {
+  line-height: 2.2;
+}
+
+.money view:first-child text:last-child {
+  font-weight: bold;
+}
+
+/* 提交订单 */
+.submit {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding-top: 80rpx;
+  font-size: 28rpx;
+}
+
+.submit > view {
+  border-top: 1px solid #cccccc;
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  line-height: 100rpx;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.submit > view view:first-child {
+  flex: 3;
+}
+
+.submit > view view:first-child text {
+  font-weight: bold;
+  color: #fb0200;
+}
+
+.submit > view view:last-child {
+  font-size: 40rpx;
+  color: #fff;
+  background-color: #fb0200;
+  flex: 1.5;
+  margin-top: -1px;
+}
+
+

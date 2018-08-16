@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-tab": "/vantui/tab/index",
+    "addr": "/components/order/addr/addr",
+    "invoice": "/components/order/invoice/invoice",
+    "shopTitle": "/components/order/shopTitle/shopTitle",
+    "product": "/components/order/product/product/product",
+    "van-button": "/vantui/button/index"
+  },
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fe0000",
+    "navigationBarTitleText": "我的订单",
+    "navigationBarTextStyle":"white"
+}

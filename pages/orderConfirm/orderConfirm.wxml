@@ -1,0 +1,83 @@
+<view class="orderConfirm">
+    <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
+    <view wx:if="{{false}}" class="flow">
+      <addr></addr>
+        <invoice></invoice>
+        <view class="invoiceAddr">
+          <view class="invoiceAddrTitle">发票寄送</view>
+          <addr></addr>
+        </view>
+    </view>
+    <view class="pick">
+      <view>选择自提点</view>
+      <view class="pick-item">
+        <checkbox></checkbox>
+        <view>
+          <text>浙江杭州工厂（浙江省杭州市下城区永华街121号浙江中力机械）</text>
+          <view>
+            <text class="omit">以下车型可供自提：EPT20-15ET EPEPT20-15ETEPT20-15ET EPEPT20-15ETEPT20-15ET EPEPT20-15ET EPEPT20-15ET EP</text><text class="addrBtn">查看详细车辆</text>
+          </view>
+        </view>
+      </view>
+      <view class="pick-item">
+        <checkbox></checkbox>
+        <view>
+          <text>浙江杭州工厂（浙江省杭州市下城区永华街121号浙江中力机械）</text>
+          <view>
+            <text class="omit">以下车型可供自提：EPT20-15ET EPEPT20-15ETEPT20-15ET EPEPT20-15ETEPT20-15ET EPEPT20-15ET EPEPT20-15ET EP</text><text class="addrBtn">查看详细车辆</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="productList">
+      <shopTitle></shopTitle>
+      <product></product>
+      <product></product>
+      <product></product>
+    </view>
+    <view class="discount">
+      <view class="item">
+        <view>备注</view>
+        <view>选填：填写内容已和卖家协商确认</view>
+      </view>
+      <view class="item">
+        <view>阿母币</view>
+        <view>
+          <text>抵扣使用200阿母币</text><checkbox></checkbox>
+        </view>
+      </view>
+      <view class="item">
+        <view>优惠券</view>
+        <view>
+          <text>商品参与阿母团购日活动，使用满20000减200优惠券</text><checkbox></checkbox>
+        </view>
+      </view>
+    </view>
+    <view class="duty">
+      <view><navigator url="" redirect hover-class="className">售后协议</navigator><checkbox></checkbox></view>  
+      <view><navigator url="" redirect hover-class="className">服务协议</navigator><checkbox></checkbox></view>  
+    </view>
+    <view class="money">
+      <view>
+        <text>订单总额（不含运费）</text>
+        <text>￥57200.00</text>
+      </view>
+      <view>
+        <text>商品总价</text>
+        <text>￥57600.00</text>
+      </view>
+      <view>
+        <text>阿母币</text>
+        <text>-￥200.00</text>
+      </view>
+      <view>
+        <text>优惠券</text>
+        <text>-￥200.00</text>
+      </view>
+    </view>
+    <view class="submit">
+      <view>
+        <view>订单总额（不含运费）<text>￥57200000.00</text></view><view class="submitBtn">提交订单</view>   
+      </view>
+    </view>
+</view>
