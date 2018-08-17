@@ -1,0 +1,85 @@
+<!--index.wxml-->
+<view class="box head">
+  <van-row>
+    <van-col span="10">
+      <view class="productImg">
+        <image src="https://dummyimage.com/250x250/fb0a2a"></image>
+      </view>
+    </van-col>
+    <van-col span="14">
+      <view class='price'>￥8900</view>
+    </van-col>
+    <van-col span="10">
+      <view class='textFont'>型号： <text>CPC30-T3</text></view>
+      <view class='textFont'>载重： <text>3000</text>KG</view>
+      <view class='textFont'>起升高度： <text>3000</text>mm</view>
+      <view class='textFont'>门架类型： <text>两级宽视野</text></view>
+      <view class='textFont'>类型： <text>液力传动</text></view>
+    </van-col>
+  </van-row>
+</view>
+
+<view class='hr'></view>
+
+<view class='box'>
+  <view class='titleName'>SKU号</view>
+  <view class='skuItems'>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+    <view class='skuItem'>01F02E074</view>
+  </view>    
+</view>
+
+<view class='hr'></view>
+
+<view class='box'>
+  <view class='titleName'>交期</view>
+  <view>
+    <view class='skuItem'>现货</view>
+    <view class='skuItem'>14天</view>
+    <view class='skuItem'>20天</view>
+    <view class='skuItem'>30天</view>
+  </view> 
+</view>
+
+<view class='hr'></view>
+
+<view class='box'>
+  <view class='titleName'>支付类型</view>
+  <view>
+    <view class='skuItem'>全款</view>
+    <view class='skuItem'>定金</view>
+  </view> 
+  <text>可 承兑汇票.网银汇款.店铺余额 支付</text>
+</view>
+
+<view class='hr'></view>
+
+<view class='box'>
+  <van-row>
+    <van-col span="14">
+      <view class='titleName2'>购买数量</view>
+    </van-col>
+    <van-col span="10">
+      <van-stepper value="{{ 1 }}" bind:change="onChange" />
+    </van-col>
+  </van-row>
+</view>
+
+<view class='footer'>
+  <van-row>
+    <van-col span="12">
+      <view class="button3">加入购物车</view>
+    </van-col>
+    <van-col span="12" class="button4">
+      <view class="button4">立即购买</view>
+    </van-col>
+  </van-row>
+</view>

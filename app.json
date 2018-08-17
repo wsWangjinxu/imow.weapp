@@ -1,9 +1,11 @@
 {
-  "pages":[  
+  "pages":[   
     "pages/addressList/addressList",
     "pages/my/my",
     "pages/orderDetail/orderDetail",
     "pages/order/order",
+    "pages/checkPay/checkPay",
+    "pages/buy/buy",
     "pages/orderConfirm/orderConfirm",    
     "pages/cart/cart",
     "pages/productDetail/productDetail",
@@ -49,4 +51,5 @@
       }
     ]
   }
+  
 }

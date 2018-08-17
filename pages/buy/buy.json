@@ -9,6 +9,7 @@
     "van-icon": "/vantui/icon/index",
     "van-row": "/vantui/row/index",
     "van-col": "/vantui/col/index",
+    "van-stepper": "/vantui/stepper/index",
     "test": "/components/test/test"
   }
 

@@ -1,0 +1,167 @@
+/**index.wxss**/
+page{
+  background-color: #f2f2f2;
+  padding-bottom: 108rpx
+}
+
+.box{
+  padding: 34rpx 36rpx 43rpx;
+  background-color: white;
+  font-size: 24rpx;
+  color: #3e3e3e;
+}
+
+.titleName{
+  font-size: 28rpx;
+  font-weight: bold;   
+  margin-bottom: 22rpx;
+}
+
+.getSelf{
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.getSelfItem{
+  margin-top: 16rpx;
+  line-height: 28rpx;
+}
+
+.getSelfItem1{
+  margin-bottom: 38rpx;
+}
+
+.getSelfItem :nth-child(1){
+  display: inline-block;
+  color: #8e8e8e;
+  width: 510rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+.getSelfItem :nth-child(2){
+  display: inline-block;
+  color: #fe0000;
+}
+
+.payment{
+  margin-bottom: 16rpx; 
+}
+
+.paymentItem2{
+  margin: 38rpx 0;
+}
+
+.paymentText{
+  width: 430rpx;
+}
+
+.surePay{
+  margin-bottom: 22rpx;
+}
+
+.surePayNum{
+  color:#fe0000;
+  font-weight: bolder;
+  font-size: 30rpx; 
+}
+
+.textRight{
+  text-align: right;
+}
+
+.footer{
+  height: 108rpx;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+  background-color:#fff;
+	z-index: 100;
+  text-align: center;  
+  border-top: 1px solid #cccccc;
+}
+
+.button1{
+  height: 108rpx;
+  text-align: center;
+  line-height: 108rpx;
+  color: #676767;
+}
+
+.button2{
+  height: 108rpx;
+  text-align: center;
+  line-height: 108rpx;
+  color: #fe0000;
+}
+
+.button3{
+  line-height: 108rpx;
+  font-size: 40rpx;
+  background-color: #fe9900;
+  color:white;
+  font-weight: 600
+}
+
+.button4{
+  line-height: 108rpx; 
+  font-size: 40rpx;
+  background-color: #fe0000;
+  color:white;
+  font-weight: 600
+}
+
+
+/* 下拉框 */
+.select_box{
+  background: #fff;
+  width: 144rpx;
+  border: 1px solid #cccccc;
+  position: relative;
+}
+.select{
+  box-sizing: border-box;
+  width: 100%;
+  height: 33rpx;
+  border:1px solid #efefef;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding-LEFT: 20rpx;
+}
+.select_text{
+  font-size: 20rpx;
+  font-weight: bold;
+  flex: 1;
+}
+.select_img{
+  display: block;
+  transition:transform 0.3s;
+  text-align: center;
+  line-height: 40rpx;
+  height: 33rpx;
+  width: 33rpx;
+}
+.select_img_rotate{
+  transform:rotate(90deg); 
+}
+.option_box{
+  position: absolute;
+  top: 34rpx;
+  width: 100%;
+  border:1px solid #efefef;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+}
+.option{
+  display: block;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  border-bottom: 1px solid #efefef;
+  padding: 10rpx;
+}
