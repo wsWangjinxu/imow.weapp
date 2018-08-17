@@ -1,0 +1,168 @@
+<!--index.wxml-->
+<view class='box'>
+  <view class='titleName'>订单摘要</view>
+  <van-row>
+    <van-col span="4">
+      <text>买家昵称:</text>
+    </van-col>
+    <van-col span="20">
+      <text>阿母工业123</text>  
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="4">
+      <text>卖家昵称:</text>
+    </van-col>
+    <van-col span="20">
+      <text>中力机械</text>  
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="4">
+      <text>订单商品:</text>
+    </van-col>
+    <van-col span="20">
+      <text>1.5吨经济型电动搬运车(小金刚二代) EPT20-15ET2</text>  
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="4">
+      <text>购买时间:</text>
+    </van-col>
+    <van-col span="20">
+      <text>2018年6月18日 15:06:48</text>  
+    </van-col>
+  </van-row>
+</view> 
+
+<view class='box getSelf'>
+  <view class='titleName'>自提</view>
+  <view>浙江杭州工厂(浙江省杭州市下城区永华街121号浙江中力机械)</view>
+  <view class='getSelfItem getSelfItem1'>   
+    <view>以下车型可供自提：EPT20-15ET2 EPT20-15ET2 EPT20-15ET2 EPT20-15ET2</view>
+    <view>查看详细车辆</view>
+  </view>
+
+  <view>浙江安吉工厂(浙江省安吉县递铺镇霞泉村中力工业园)</view>
+  <view class='getSelfItem'>   
+    <view>以下车型可供自提：EPT20-15ET2 EPT20-15ET2 </view>
+    <view>查看详细车辆</view>
+  </view>
+</view> 
+
+<view class='box payment'>
+  <view class='titleName'>支付方式</view>
+  <checkbox-group bindchange="checkboxChange">
+  <van-row>
+    <van-col span="6">
+      <text>信用分支付</text>
+    </van-col>
+    <van-col span="16">
+      <view class='paymentText'>本次将使用300元信用分支付，您的剩余可用信用分为0元。</view>   
+    </van-col>
+    <van-col span="2">
+      <checkbox value="信用分" checked="" color='red'/>  
+    </van-col>
+  </van-row>
+  <view class='paymentItem2'>
+    <van-row>    
+        <van-col span="6">
+          <text>店铺余额支付</text>
+        </van-col>
+        <van-col span="16">
+          <view class='paymentText'>本次将使用300元店铺余额支付，您的剩余可用信用分为0元。</view>  
+        </van-col>
+        <van-col span="2">
+          <checkbox value="店铺余额" checked="" color='red'/> 
+        </van-col>  
+    </van-row>
+  </view> 
+  <van-row>
+    <van-col span="6">
+      <view class='select_box'>
+        <view class='select' catchtap='selectTap'>
+            <text class='select_text'>{{selectData[index]}}</text>
+            <view class='select_img {{show&&"select_img_rotate"}}'><van-icon name="arrow" /></view>
+            <!-- <image class='select_img {{show&&"select_img_rotate"}}' src='/image/gobottom.png'></image>          -->
+        </view>
+        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+        </view>
+      </view>
+    </van-col>
+    <van-col span="16">
+      <view class='paymentText'>支付<text>53200元</text> </view> 
+    </van-col>
+    <van-col span="2">
+      <checkbox value="网银" checked="" color='red'/>  
+    </van-col>
+  </van-row>
+  </checkbox-group>
+</view> 
+
+<view class='box'>
+  <view class='surePay'>
+    <van-row>
+      <van-col span="5">
+        <text>本次应付款</text>
+      </van-col>
+      <van-col span="19">
+        <view class="surePayNum textRight">￥57200.00</view>  
+      </van-col>
+    </van-row>
+  </view> 
+  <van-row>
+    <van-col span="5">
+      <text>订单总额</text>
+    </van-col>
+    <van-col span="19">
+      <view class="textRight">￥57200.00</view>  
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
+      <text>商品总价</text>
+    </van-col>
+    <van-col span="19">
+      <view style="text-align: right">￥57200.00</view>  
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
+      <text>阿母币</text>
+    </van-col>
+    <van-col span="19">
+      <view style="text-align: right">-￥200.00</view>  
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
+      <text>优惠券</text>
+    </van-col>
+    <van-col span="19">
+      <view style="text-align: right">-￥200.00</view>  
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
+      <text>运费</text>
+    </van-col>
+    <van-col span="19">
+      <view style="text-align: right">￥0.00</view>  
+    </van-col>
+  </van-row>
+</view>
+
+<view class='footer'>
+  <van-row>
+    <van-col span="8">
+      <view class='button1'>本次应付款</view>    
+    </van-col>
+    <van-col span="8">
+      <view class='button2'>￥57200.00</view>
+    </van-col>
+    <van-col span="8" class="button4">
+      <view class="button4">提交订单</view>
+    </van-col>
+  </van-row>
+</view>

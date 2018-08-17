@@ -1,5 +1,6 @@
 {
-  "pages":[    
+  "pages":[   
+    "pages/checkPay/checkPay",
     "pages/buy/buy",
     "pages/orderConfirm/orderConfirm",    
     "pages/cart/cart",
