@@ -1,8 +1,15 @@
 <view>
   <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
   <view class="shopList">
-    <shopTitle></shopTitle>
-    <view class="settleBar"><text>共1件商品</text><text>合计：￥89000.00（含运费￥200.00）</text></view>
-    <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
+    <view wx:for="{{3}}">
+      <shopTitle></shopTitle>
+      <product></product>
+      <product></product>
+      <view class="settleBar"><text>共1件商品</text><text>合计：￥89000.00（含运费￥200.00）</text></view>
+      <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
+    </view>
+  </view>
+  <view class="footer">
+    <image src="http://dummyimage.com/200x100/fb0a2a" />
   </view>
 </view>

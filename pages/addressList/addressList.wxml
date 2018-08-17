@@ -1,0 +1,15 @@
+<view class="addressList">
+  <block wx:for="{{3}}">
+    <view class="item">
+      <checkbox></checkbox>
+      <view>
+        <text>张亮亮 13282123621</text>
+        <text>浙江省杭州市下城区石桥街道永华街121号</text>
+      </view>
+      <van-icon style="font-size: 40rpx;" name="edit"></van-icon>
+    </view>
+  </block>
+  <view class="add">
+    <van-cell  icon="add" title="新增收货地址" is-link></van-cell>
+  </view>
+</view>

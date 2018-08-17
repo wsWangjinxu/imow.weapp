@@ -1,0 +1,156 @@
+<view class="orderDetail">
+  <van-notice-bar scrollable="true" left-icon="/static/icon/warning.png" text="提示：为保障账户安全，请至电脑端进行订单操作"></van-notice-bar>
+  <view class="status">
+    <text>分批发货中</text>
+    <text>订单号：7321576520768</text>
+    <text>您的货物正在分批发货中，请耐心等候。</text>
+  </view>
+  <van-steps direction="vertical" steps="{{steps}}" active="{{active}}"></van-steps>
+  <view class="detailTable">
+    <view class="tableHeader">
+      <text>订单明细</text>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="tableCtn">
+      <view>
+        <text class="text1">日期</text>
+        <text class="text2">交易类型</text>
+        <text class="text3">明细</text>
+        <text class="text4">备注</text>
+      </view>
+      <block wx:for="{{10}}">
+      <view>
+        <text class="text1">2018-06-29</text>
+        <text class="text2">付款</text>
+        <text class="text3">您已支付￥500.00元</text>
+        <text class="text4">第二次分批发货</text> 
+      </view>
+      </block>
+    </view>
+  </view>
+  <view class="consignee">
+    <view>收货人信息</view>
+    <view>
+      <text>收货人</text>
+      <text>张三</text>
+    </view>
+    <view>
+      <text>地址</text>
+      <text>杭州市下城区永华街121号浙江中力机械设备有限公司</text>
+    </view>
+    <view>
+      <text>手机号码</text>
+      <text>13282123626</text>
+    </view>
+  </view>
+  <view class="remark">
+    <view>订单备注</view>
+    <text>这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注</text>
+  </view>
+  <view class="payInfo">
+    <view>付款信息</view>
+    <view>
+      <text>商品总价</text>
+      <text>￥11500.00</text>
+    </view>
+    <view>
+      <text>阿母币</text>
+      <text>￥11500.00</text>
+    </view>
+    <view>
+      <text>优惠券</text>
+      <text>￥11500.00</text>
+    </view>
+    <view>
+      <text>总运费</text>
+      <text>￥11500.00</text>
+    </view>
+    <view>
+      <text>订单金额</text>
+      <text>￥11500.00</text>
+    </view>
+    <view>
+      <text>定金</text>
+      <text>￥11500.00</text>
+    </view>
+    <view>
+      <text>实付款</text>
+      <text>￥11500.00</text>
+    </view>
+  </view>
+  <view class="invoice">
+    <view>发票信息</view>
+    <view>
+      <text>发票类型</text>
+      <text>增值税专用发票</text>
+    </view>
+    <view>
+      <text>发票抬头</text>
+      <text>安吉阿母工业设备有限公司</text>
+    </view>
+    <view>
+      <text>发票内容</text>
+      <text>商品明细</text>
+    </view>
+    <view>
+      <text>收件人</text>
+      <text>张三</text>
+    </view>
+    <view>
+      <text>寄送地址</text>
+      <text>杭州市下城区永华街121号</text>
+    </view>
+    <view class="margin">
+      <text>开票号</text>
+      <text>123456789</text>
+    </view>
+    <view>
+      <text>开票时间</text>
+      <text>2018-5-12  10:50</text>
+    </view>
+    <view>
+      <text>开票金额</text>
+      <text>￥500.00</text>
+    </view>
+  </view>
+  <view class="shopProduct">
+    <shopTitle></shopTitle>
+    <orderProduct></orderProduct>
+    <view class="settleBar"><text>共1件商品</text><text>合计：￥89000.00（含运费￥200.00）</text></view>
+    <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
+  </view>
+  <view class="total">
+    <view>
+      <text>商品总额</text>
+      <text>￥115000.00</text>
+    </view>
+    <view>
+      <text>阿母币</text>
+      <text>-￥600.00</text>
+    </view>
+    <view>
+      <text>优惠券</text>
+      <text>-￥1000.00</text>
+    </view>
+    <view>
+      <text>运费</text>
+      <text>￥500.00</text>
+    </view>
+    <view>
+      <text>订单总额</text>
+      <text>￥113900.00</text>
+    </view>
+    <view>
+      <text>实付款</text>
+      <text>￥113900.00</text>
+    </view>
+  </view>
+  <view class="contact">
+    <view><van-icon class="icon" name="chat"></van-icon> <text> 联系卖家</text></view>
+    <view><van-icon class="icon" name="phone"></van-icon> <text> 拨打电话</text></view>
+  </view>
+</view>

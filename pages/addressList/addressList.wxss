@@ -1,0 +1,35 @@
+.addressList {
+  padding-bottom: 88rpx;
+}
+
+.addressList .item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 26rpx;
+  padding: 40rpx 20rpx;
+  background-color: #fff;
+  border-top: 1px solid #cccccc; 
+}
+
+.addressList .item view {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+}
+
+.addressList .item checkbox {
+  flex: 0.5;
+  zoom: 65%;
+}
+
+.addressList .add {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.addressList .left-icon-class {
+  color: #fd0207;
+}
