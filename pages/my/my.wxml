@@ -1,0 +1,43 @@
+<view class="my">
+  <view class="userInfo">
+    <van-icon style="align-self:flex-end;color:#626262;" name="setting"></van-icon>
+    <image src="http://dummyimage.com/200x100/fb0a2a" />
+    <text>阿母工业老王</text>
+  </view>
+  <view class="myOrder">
+    <view class="title">
+      <text>我的订单</text>
+      <view>查看全部订单<van-icon name="arrow"></van-icon></view>
+    </view>
+    <view class="ctn">
+      <view>
+        <van-icon name="pending-payment"></van-icon>
+        <text>待付款</text>
+      </view>
+      <view>
+        <van-icon name="pending-deliver"></van-icon>
+        <text>待发货</text>
+      </view>
+      <view>
+        <van-icon name="logistics"></van-icon>
+        <text>待收货</text>
+      </view>
+      <view>
+        <van-icon name="after-sale"></van-icon>
+        <text>退款/售后</text>
+      </view>
+    </view>
+  </view>
+  <view class="cell">
+    <van-cell title="收货地址" border="{{ false }}" is-link></van-cell>
+  </view>
+  <view class="cell">
+    <van-cell title="我的资产" border="{{ false }}" is-link></van-cell>
+  </view>
+  <view class="cell">
+    <van-cell title="优惠券" border="{{ false }}" is-link></van-cell>
+  </view>
+  <view class="cell">
+    <van-cell title="我的消息" border="{{ false }}" is-link></van-cell>
+  </view>
+</view>

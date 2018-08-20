@@ -1,0 +1,15 @@
+{ 
+  "usingComponents": {
+    "van-button": "/vantui/button/index",
+    "van-notice-bar": "/vantui/notice-bar/index",
+    "van-steps": "/vantui/steps/index",
+    "shopTitle": "/components/order/shopTitle/shopTitle",
+    "orderProduct": "/components/order/product/orderProduct/orderProduct",
+    "van-icon": "/vantui/icon/index"
+  },
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTitleText": "订单详情",
+  "navigationBarTextStyle":"white"
+  
+}

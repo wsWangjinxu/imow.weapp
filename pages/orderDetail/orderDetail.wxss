@@ -1,0 +1,203 @@
+.orderDetail .status {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+  font-size: 30rpx;
+  color: #9c9c9c;
+  background-color: #fff;
+  line-height: 1.6;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.orderDetail .status text:first-child {
+  font-size: 42rpx;
+  color: #81cc00; 
+  font-weight: bold;
+}
+
+.detailTable {
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.tableHeader {
+  display: flex;
+  flex-direction: row;
+  font-size: 34rpx;
+  height: 90rpx;
+  align-items: center;
+  padding: 0 40rpx;
+}
+
+.tableHeader .picker {
+  border: 1px solid #999999;
+  padding-right: 20rpx;
+  padding-left: 20rpx;
+  margin-left: 30rpx;
+  font-size: 24rpx;
+  color: #333333;
+  margin-bottom: -10rpx;
+}
+
+.tableCtn {
+  padding: 10rpx;
+}
+
+.tableCtn > view {
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  font-weight: bold;
+  height: 80rpx;
+  align-items: center;
+  border-bottom: 1px solid #cccccc;
+  text-align: center;
+}
+
+.tableCtn > view:first-child {
+  height: 40rpx;
+  background-color: #f2f2f2;
+  border-bottom: none;
+}
+
+.tableCtn > view .text1 {
+  flex: 2.5;
+}
+
+.tableCtn > view .text2 {
+  flex: 2;
+}
+
+.tableCtn > view .text3 {
+  flex: 4;
+}
+
+.tableCtn > view .text4 {
+  flex: 4;
+}
+
+.consignee, .payInfo, .invoice {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  padding: 40rpx;
+  background-color: #fff;
+  line-height: 1.6;
+  margin-top: 20rpx;
+}
+
+.consignee view:first-child, .payInfo view:first-child, .invoice view:first-child{
+  font-size: 34rpx;
+}
+
+.consignee view, .payInfo view, .invoice view {
+  display: flex;
+  flex-direction: row;
+}
+
+.consignee view text:first-child, .payInfo view text:first-child, .invoice view text:first-child {
+  flex: 1;
+}
+
+.consignee view text:last-child, .payInfo view text:last-child,.invoice view text:last-child {
+  flex: 4;
+}
+
+.remark {
+  padding: 40rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.remark view {
+  font-size: 34rpx;
+}
+
+.remark text {
+  font-size: 28rpx;
+}
+
+.margin {
+  margin-top: 30rpx;
+}
+
+.shopProduct {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.settleBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  background-color: white;
+  border-bottom: 1px solid #cbcbcb;
+}
+
+.settleBar  text {
+  flex: 3.5;
+  font-size: 30rpx;
+}
+
+.settleBar  text:first-child {
+  text-align: right;
+  font-size: 26rpx;
+  flex: 1;
+}
+
+.payBar {
+  height: 90rpx;
+  line-height: 80rpx;
+  text-align: right;
+  padding: 0 20rpx;
+  background-color: #fff;
+}
+
+.shopProduct .shopTitle--shopTitle {
+  background-color: #fff;
+}
+
+.total {
+  border-top: 1px solid #cccccc;
+  padding: 40rpx;
+  background-color: #fff;
+}
+
+.total view {
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 1.6;
+}
+
+.contact {
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 40rpx;
+  background-color: #fff;
+  margin: 20rpx 0;
+}
+
+.contact view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact view text {
+  color: #696969;
+}
+
+.contact>view:first-child {
+  border-right: 1px solid #cbcbcb;
+}
+
+.contact .icon {
+  color: #fe0002;
+}

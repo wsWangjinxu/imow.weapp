@@ -4,8 +4,8 @@
     "addr": "/components/order/addr/addr",
     "invoice": "/components/order/invoice/invoice",
     "shopTitle": "/components/order/shopTitle/shopTitle",
-    "product": "/components/order/product/product/product",
-    "van-button": "/vantui/button/index"
+    "van-button": "/vantui/button/index",
+    "product": "/components/order/product/orderProduct/orderProduct"
   },
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fe0000",

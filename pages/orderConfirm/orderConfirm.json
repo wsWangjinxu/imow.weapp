@@ -4,7 +4,7 @@
     "addr": "/components/order/addr/addr",
     "invoice": "/components/order/invoice/invoice",
     "shopTitle": "/components/order/shopTitle/shopTitle",
-    "product": "/components/order/product/product/product"
+    "product": "/components/order/product/confirmProduct/confirmProduct"
   },
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fe0000",
