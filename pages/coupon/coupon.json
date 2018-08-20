@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-tab": "/vantui/tab/index",
+    "im-coupon": "/components/my/coupon/im/im",
+    "shop-coupon": "/components/my/coupon/shop/shop"
+  },
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fe0000",
+    "navigationBarTitleText": "我的订单",
+    "navigationBarTextStyle":"white"
+}

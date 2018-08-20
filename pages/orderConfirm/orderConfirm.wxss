@@ -179,4 +179,33 @@
   margin-top: -1px;
 }
 
+/* 自提点 */
+.popCtn {
+  padding: 30rpx;
+  line-height: 1.6;
+}
+
+.popCtn .title {
+  border-bottom: 1px solid #cccccc; 
+  padding-bottom: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.popCtn .title view {
+  font-size: 30rpx;
+}
+
+.popCtn .title view:first-child {
+  color: #fb0200;
+  font-size: 34rpx;
+}
+
+.popCtn .title view {
+  font-size: 30rpx;
+}
+
+.popCtn .ctn {
+  font-size: 26rpx;
+}
+
 

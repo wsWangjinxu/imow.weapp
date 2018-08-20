@@ -1,0 +1,27 @@
+<view class="addressList">
+  <van-cell-group>
+    <van-field label="收货人" placeholder="请输入姓名"></van-field>
+    <van-field label="手机号码" placeholder="请输入手机号码"></van-field>
+    <van-field label="电话号码" placeholder="请输入电话号码"></van-field>
+    <van-field label="所在地区" disabled bindtap="showTree" placeholder="省 市 区县"></van-field>
+    <van-field label="详细地址" placeholder="街道门牌信息"></van-field>
+    <van-field label="邮政编码" placeholder="邮政编码"></van-field>
+  </van-cell-group>
+  <view class="btnGroup">
+    <van-button size="large" type="primary">保存</van-button>
+    <van-button size="large" type="danger">删除</van-button>
+    <van-button size="large">取消</van-button>
+  </view>
+  
+
+  <van-popup show="{{ show }}" position="bottom" overlay="{{true}}" bind:close="onClose" close-on-click-overlay="{{true}}">
+    <van-tree-select
+      items="{{ items }}"
+      main-active-index="{{ mainActiveIndex }}"
+      active-id="{{ activeId }}"
+      bind:click-nav="onClickNav"
+      bind:click-item="onClickItem"
+    ></van-tree-select>
+  </van-popup>
+  
+</view>

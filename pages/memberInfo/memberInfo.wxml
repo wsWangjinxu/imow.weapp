@@ -1,0 +1,24 @@
+<view class="memberInfo">
+  <view>
+    <text>头像</text>
+    <view>
+      <image src="http://dummyimage.com/200x100/fb0a2a"></image>
+      <van-icon name="arrow"></van-icon>
+    </view>
+  </view>
+  <view>
+    <text>用户等级</text>
+    <text>一级会员</text>
+  </view>
+  <view>
+    <text>阿母关联帐号</text>
+    <text>1576520768</text>
+  </view>
+  <view>
+    <text>我的二维码名片</text>
+    <view>
+      <van-icon name="qr"></van-icon>
+      <van-icon name="arrow"></van-icon>
+    </view>
+  </view>
+</view>

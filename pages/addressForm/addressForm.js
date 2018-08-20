@@ -4,23 +4,58 @@ const app = getApp()
 
 Page({
   data: {
-    show: true,
-    list: [
+    show: false,
+    items: [
       {
-        id: 101,
-        title: "物流发货"
-      },
-      {
-        id: 102,
-        title: "自提"
+        text: "所有城市",
+        children: [
+          {
+            text: "温州",
+            id: 1002
+          },
+          {
+            text: "杭州",
+            id: 1003
+          }
+        ]
       }
-    ],
-    selectedId: 101
+    ]
   },
+
+  showTree() {
+    this.setData({
+      show: true
+    });
+  },
+
+  onClose() {
+    this.setData({
+      show: false
+    })
+  },
+
+  onClickNav({ detail = {} }) {
+    this.setData({
+      mainActiveIndex: detail.index || 0
+    });
+  },
+
+  onClickItem({ detail = {} }) {
+    this.setData({
+      activeId: detail.id
+    });
+  },
+
   //事件处理函数
-  bindViewTap: function () {
+  bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
     })
   },
   onLoad: function () {
@@ -29,7 +64,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse) {
+    } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -51,7 +86,7 @@ Page({
       })
     }
   },
-  getUserInfo: function (e) {
+  getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({

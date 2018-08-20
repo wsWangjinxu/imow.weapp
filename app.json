@@ -1,12 +1,19 @@
 {
-  "pages":[   
-    "pages/addressList/addressList",
+  "pages":[ 
+    "pages/memberInfo/memberInfo",  
+    "pages/setting/setting",
+    "pages/login/login",
     "pages/my/my",
+    "pages/coupon/coupon",
+    "pages/orderConfirm/orderConfirm",
+    "pages/addressForm/addressForm",
+    "pages/addressList/addressList",
+    
     "pages/orderDetail/orderDetail",
     "pages/order/order",
     "pages/checkPay/checkPay",
     "pages/buy/buy",
-    "pages/orderConfirm/orderConfirm",    
+        
     "pages/cart/cart",
     "pages/productDetail/productDetail",
     "pages/index/index",

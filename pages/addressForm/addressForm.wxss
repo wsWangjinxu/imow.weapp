@@ -1,0 +1,7 @@
+.btnGroup {
+  padding: 30rpx;
+}
+
+.btnGroup button {
+  margin-bottom: 20rpx;
+}

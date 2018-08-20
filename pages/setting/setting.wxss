@@ -1,0 +1,79 @@
+.setting .userInfo {
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+.setting .userInfo image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-right: 20rpx; 
+}
+
+.setting .userInfo .name {
+  flex: 2;
+  font-size: 26rpx;
+}
+
+.setting .userInfo .name view:first-child {
+  font-size: 34rpx;
+}
+
+.setting .userInfo view:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userInfoDetail {
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  padding:30rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+} 
+
+.userInfoDetail > view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 1.6;
+}
+
+.userInfoDetail > view text:first-child {
+  flex: 1;
+}
+
+.userInfoDetail > view text:last-child {
+  flex: 3;
+}
+
+.userInfoDetail > view:first-child {
+  font-size: 40rpx;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 20rpx;
+  padding-bottom: 10rpx;
+
+}
+
+.userInfoDetail > view:first-child  text {
+  font-size: 26rpx;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.exit {
+  background-color: #fff;
+  color: #d30710;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 30rpx 0;
+  font-size: 40rpx;
+}
