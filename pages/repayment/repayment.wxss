@@ -1,0 +1,61 @@
+/**index.wxss**/
+page{
+  background-color: #f2f2f2;
+}
+
+.box{
+  padding: 34rpx 18rpx 43rpx;
+  background-color: white;
+  font-size: 24rpx;
+  color: #3e3e3e;
+  margin: 0 15rpx;
+  margin-top: 17rpx;
+}
+
+.topTip{
+  color: #fe0007;
+  background-color: white;
+  padding: 16rpx 42rpx;
+  font-size: 24rpx;
+}
+
+.topTip van-icon{
+  font-size: 26rpx;
+  padding-right: 10rpx;
+}
+
+.title{
+  font-size: 30rpx;
+  margin-bottom: 34rpx;
+}
+
+.bigText{
+  font-size: 66rpx;
+  font-weight: bold;
+}
+
+.moneyDetail{
+  margin-top: 62rpx; 
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+  width: 445rpx;
+  height: 90rpx;
+  margin: 49rpx auto;
+  margin-bottom: 57rpx;
+}
+
+.footer image{
+  width: 100%;
+  height: 100%;
+}

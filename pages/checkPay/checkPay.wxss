@@ -1,7 +1,6 @@
 /**index.wxss**/
 page{
   background-color: #f2f2f2;
-  padding-bottom: 108rpx
 }
 
 .box{
@@ -73,8 +72,9 @@ page{
 
 .footer{
   height: 108rpx;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  padding-bottom: 108rpx;
+  bottom: 0; */
   width:100%;
   background-color:#fff;
 	z-index: 100;
@@ -87,6 +87,7 @@ page{
   text-align: center;
   line-height: 108rpx;
   color: #676767;
+  font-size: 20rpx；
 }
 
 .button2{
@@ -94,24 +95,15 @@ page{
   text-align: center;
   line-height: 108rpx;
   color: #fe0000;
-}
-
-.button3{
-  line-height: 108rpx;
-  font-size: 40rpx;
-  background-color: #fe9900;
-  color:white;
-  font-weight: 600
+  font-size: 20rpx；
 }
 
 .button4{
   line-height: 108rpx; 
-  font-size: 40rpx;
+  /* font-size: 40rpx; */
   background-color: #fe0000;
   color:white;
-  font-weight: 600
 }
-
 
 /* 下拉框 */
 .select_box{
@@ -164,4 +156,69 @@ page{
   font-size: 30rpx;
   border-bottom: 1px solid #efefef;
   padding: 10rpx;
+}
+
+.alertBox{
+  width: 580rpx;
+  /* height: 800rpx; */
+
+}
+
+.close{
+  height: 60rpx;
+  text-align: right;
+  margin-top:10rpx;
+  margin-right:10rpx;
+  font-size: 60rpx
+}
+
+.content{
+  font-size: 24rpx;
+  padding: 0 58rpx;
+}
+
+.contentTitle{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #393939;
+  margin-bottom: 20rpx;
+}
+
+.pwd .text{
+  margin-bottom: 24rpx;
+  font-size: 26rpx;
+}
+
+.pwd .pwdBox{
+  width: 340rpx;
+  height: 58rpx;
+  font-size: 26rpx;
+  background-color: greenyellow
+}
+
+.hr{
+  border-top: 1px solid #393939;
+  margin:40rpx 0 28rpx;
+}
+
+.hr .huikuan{
+  margin: 29rpx 0 25rpx;
+}
+
+.hr .tip{
+  margin: 28rpx 0 36rpx;
+  color: #9c9c9c;
+}
+
+.alertSubmit{
+  height: 108rpx;
+  line-height: 108rpx;
+  text-align: center;
+  color: white;
+  background-color: #999999;
+  font-size: 40rpx;
+}
+
+.submitRight{
+  background-color: #fe0000;
 }

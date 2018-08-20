@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class='topTip'>
+    <van-icon name="warn" />请及时还款，以免影响您的信用额度。
+</view> 
+
+<view class='box'>
+  <view class='title'>本期到期还款日</view>
+  <view class='bigText'>07月10日</view>
+
+  <van-row>
+    <view class="moneyDetail">
+      <van-col span="14">
+        <view class='title'>本期剩余应还</view>
+        <view class='bigText'>￥4500.00</view>
+      </van-col>
+      <van-col span="10">
+        <view class=''  style="padding-top:50rpx">
+          <view>本期应还总额:￥13000.00</view>
+          <view>本期应还总额:￥13000.00</view>
+          <view>本期应还总额:￥13000.00</view>
+        </view>       
+      </van-col>
+    </view>   
+  </van-row>
+</view>
+
+<view class='box'>
+  <van-row>
+    <van-col span="14" class="title">
+      我的还款日
+    </van-col>
+    <van-col span="10">
+      <view class='search'>
+      
+      </view>
+    </van-col>
+  </van-row>
+</view>
+
+<view class='footer'>
+  <image src='/static/imgs/footer.png'></image>
+</view>
+
