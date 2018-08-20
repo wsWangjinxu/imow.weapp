@@ -1,0 +1,68 @@
+/**index.wxss**/
+page{
+  background-color: white;
+}
+
+.box{
+  padding: 0 36rpx;
+  background-color: white;
+  font-size: 24rpx;
+  color: #3e3e3e;
+}
+
+.topImg{
+  width: 250rpx;
+  height: 250rpx;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  margin-bottom: 62rpx
+}
+
+.topImg image{
+  width: 100%;
+  height: 100%;
+}
+
+.money{
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+}                     
+
+.red{
+  color: #fe0000;      
+}
+
+.sendTo{
+  padding: 0 86rpx;
+  margin: 46rpx 0 60rpx;
+  font-size: 26rpx;
+}
+
+.button{
+  width: 337rpx;
+  height: 83rpx;
+  line-height: 83rpx;
+  border: 1px solid #fe0000;
+  color: #fe0000;
+  text-align: center;
+  border-radius: 50rpx;
+  margin:0 auto;
+  font-size: 28rpx;
+}
+
+.checkOrder{
+  margin-bottom:27rpx;
+}
+
+.likeTitle{
+  font-size: 24rpx;
+  text-align: center;
+  margin: 39rpx 0 40rpx;
+  color: #959595;
+}
+
+.like{
+  height: 200rpx;
+  background-color: #959595;
+}

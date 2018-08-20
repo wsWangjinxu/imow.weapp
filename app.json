@@ -1,5 +1,5 @@
 {
-  "pages":[ 
+  "pages":[   
     "pages/memberInfo/memberInfo",  
     "pages/setting/setting",
     "pages/login/login",
@@ -8,12 +8,12 @@
     "pages/orderConfirm/orderConfirm",
     "pages/addressForm/addressForm",
     "pages/addressList/addressList",
-    
+    "pages/repayment/repayment",
     "pages/orderDetail/orderDetail",
     "pages/order/order",
     "pages/checkPay/checkPay",
+    "pages/finishPay/finishPay",
     "pages/buy/buy",
-        
     "pages/cart/cart",
     "pages/productDetail/productDetail",
     "pages/index/index",

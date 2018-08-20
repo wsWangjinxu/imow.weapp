@@ -1,7 +1,7 @@
 { 
   "navigationBarBackgroundColor": "#fe0000",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "确认支付信息",
+  "navigationBarTitleText": "我的还款",
   "backgroundColor": "blue",
   "backgroundTextStyle": "light",
   "usingComponents": {

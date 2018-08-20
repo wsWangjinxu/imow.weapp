@@ -82,10 +82,9 @@
       <view class='select_box'>
         <view class='select' catchtap='selectTap'>
             <text class='select_text'>{{selectData[index]}}</text>
-            <view class='select_img {{show&&"select_img_rotate"}}'><van-icon name="arrow" /></view>
-            <!-- <image class='select_img {{show&&"select_img_rotate"}}' src='/image/gobottom.png'></image>          -->
+            <view class='select_img {{showS&&"select_img_rotate"}}'><van-icon name="arrow" /></view>
         </view>
-        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <view class='option_box' style='height:{{showS?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
             <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
         </view>
       </view>
@@ -162,7 +161,102 @@
       <view class='button2'>￥57200.00</view>
     </van-col>
     <van-col span="8" class="button4">
-      <view class="button4">提交订单</view>
+      <view class="button4" catchtap='showAlert'>提交订单</view>
     </van-col>
   </van-row>
 </view>
+
+<!-- 弹窗 -->
+<van-popup show="{{ show }}" bind:close="onClose" close-on-click-overlay="{{false}}">
+    <view class="alertBox">
+      <view class='close' bindtap="onClose">
+        <van-icon name="close" />
+      </view>
+
+      <view class='content'>
+        <van-row>
+          <van-col span="12">
+            <view class='contentTitle'>信用分支付</view>
+          </van-col>
+          <van-col span="12">
+            <view class='contentTitle'>￥3000.00</view>
+          </van-col>
+        </van-row>
+        <van-row>
+          <van-col span="12">
+            <view class='contentTitle'>店铺余额支付</view>
+          </van-col>
+          <van-col span="12">
+            <view class='contentTitle'>￥1000.00</view>
+          </van-col>
+        </van-row>
+        <van-row>
+          <van-col span="12">
+            <view class='contentTitle'>网银支付</view>
+          </van-col>
+          <van-col span="12">
+            <view class='contentTitle'>￥53200.00</view>
+          </van-col>
+        </van-row>
+        
+        <view class='pwd'>
+          <view class='text'>请输入支付密码</view>
+          <van-row>
+            <van-col span="18">
+              <view class='pwdBox'>网银支付</view>
+            </van-col>
+            <van-col span="6">
+              <van-button type="danger" size="small">确认</van-button>
+            </van-col>
+          </van-row>
+        </view>
+
+        <view class='pwdSucces'  style='display:none'>
+          您已成功输入交易密码，请按“提交”按钮进行下一步操作
+        </view>
+
+        <view class='hr'>
+          <van-row>
+            <van-col span="6">
+              <view class='huikuan'>汇款信息:</view>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="6">
+              <view>单位名称:</view>
+            </van-col>
+            <van-col span="18">
+              <view>安吉阿母工业设备有限公司</view>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="6">
+              <view>开户行:</view>
+            </van-col>
+            <van-col span="18">
+              <view>工商银行安吉支行</view>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="6">
+              <view>账号:</view>
+            </van-col>
+            <van-col span="18">
+              <view>1205290009000761667</view>
+            </van-col>
+          </van-row>
+          <van-row>
+            <van-col span="6">
+              <view>汇款备注:</view>
+            </van-col>
+            <van-col span="18">
+              <view>1630266344</view>
+            </van-col>
+          </van-row>
+          <view class='tip'>可通过网银转账或银行柜台转账汇款，线下公司转账方式的到账时间是1-3个工作日却</view>
+        </view>
+      </view>
+      
+      <view class='alertSubmit'>提交</view>
+    </view>
+</van-popup>
