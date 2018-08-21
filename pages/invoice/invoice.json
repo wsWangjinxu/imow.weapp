@@ -1,0 +1,9 @@
+{ 
+  "usingComponents": {
+    "van-icon": "/vantui/icon/index"
+  },
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTitleText": "我的发票",
+  "navigationBarTextStyle":"white"
+}

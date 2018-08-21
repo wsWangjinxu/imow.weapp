@@ -1,0 +1,130 @@
+.invoiceInfo {
+  font-size: 30rpx;
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.invoiceInfo view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.invoiceInfo view:first-child {
+  font-size: 36rpx;
+  border-bottom: 1px solid #cbcbcb;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.invoiceInfo view text:first-child {
+  flex: 1;
+}
+
+.invoiceInfo view text:last-child {
+  flex: 2.5;  
+} 
+
+.invoiceDetail {
+  padding: 30rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.invoiceDetailTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 36rpx;
+  border-bottom: 1px solid #cbcbcb;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.invoiceDetailTitle view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  flex: 0.9;
+}
+
+.invoiceDetailTitle view input {
+  background-color: #f2f2f2;
+  border-radius: 30rpx;
+  padding-left: 20rpx;
+  padding-right: 60rpx;
+  width:  80%;
+}
+
+.condition {
+  font-size: 30rpx;
+}
+
+.datePicker {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: -10rpx;
+  margin-top: 10rpx;
+  margin-bottom: 30rpx;
+}
+
+.datePicker .date, .datePicker .time {
+  border: 1px solid black;
+  height: 50rpx;
+  line-height: 50rpx;
+  min-width:180rpx;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+}
+
+.condition input {
+  border: 1px solid black;
+  width: 60%;
+  height: 50rpx;
+  line-height: 50rpx; 
+  margin-top: 10rpx;
+}
+
+.tableCtn {
+  font-size: 22rpx;
+}
+
+.tableCtn>view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border: 1px  solid #cccccc;
+  border-top: none;
+}
+
+.tableCtn view view {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.tableCtn>view:first-child {
+  background-color: #cccccc;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-top: 40rpx;
+  border: none;
+}
+.tableCtn .item {
+  flex: 1;
+  word-break: break-all;
+}
+
+
+
+

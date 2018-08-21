@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    show: false,
+    date: "",
+    time: "",
     steps: [
       {
         text: '提交订单',
@@ -28,9 +29,17 @@ Page({
     index: 0,
     showLogin: true
   },
-  handleClick() {
+
+  bindDateChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      show: true
+      date: e.detail.value
+    })
+  },
+  bindTimeChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
     })
   },
   //事件处理函数

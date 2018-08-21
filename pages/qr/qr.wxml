@@ -1,0 +1,5 @@
+<view class="qr">
+  <text>阿母工业123</text>
+  <image src="http://dummyimage.com/200x100/fb0a2a" />
+  <text>扫一扫，了解我的详细信息</text>
+</view>

@@ -2,11 +2,12 @@
   "usingComponents": {
     "van-button": "/vantui/button/index",
     "van-icon": "/vantui/icon/index",
-    "van-popup": "/vantui/popup/index"
+    "van-field": "/vantui/field/index",
+    "van-cell-group": "/vantui/cell-group/index"
   },
   "backgroundTextStyle":"light",
   "navigationBarBackgroundColor": "#fe0000",
-  "navigationBarTitleText": "会员信息",
+  "navigationBarTitleText": "个人资料",
   "navigationBarTextStyle":"white"
   
 }

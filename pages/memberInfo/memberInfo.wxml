@@ -1,5 +1,5 @@
 <view class="memberInfo">
-  <view>
+  <view bindtap="handleClick">
     <text>头像</text>
     <view>
       <image src="http://dummyimage.com/200x100/fb0a2a"></image>
@@ -21,4 +21,13 @@
       <van-icon name="arrow"></van-icon>
     </view>
   </view>
+  <van-popup show="{{show}}">
+    <view class="popupCtn">
+      <view>
+        <view>修改头像</view>
+        <view style="border-bottom: 1px solid #cccccc;"><van-icon style="vertical-align: -5rpx;" name="photo"></van-icon> 相册</view>
+        <view><van-icon style="vertical-align: -5rpx;" name="photograph"></van-icon> 拍摄</view>
+      </view>
+    </view>
+  </van-popup>
 </view>

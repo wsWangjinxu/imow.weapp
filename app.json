@@ -1,9 +1,15 @@
 {
-  "pages":[   
-    "pages/memberInfo/memberInfo",  
+  "pages":[ 
+    
+    "pages/qrCard/qrCard",
+    "pages/memberInfo/memberInfo",
+    "pages/qr/qr",
+    "pages/invoice/invoice", 
+    "pages/userLevel/userLevel",
+    "pages/userInfo/userInfo",          
     "pages/setting/setting",
     "pages/login/login",
-    "pages/my/my",
+    "pages/my/my", 
     "pages/coupon/coupon",
     "pages/orderConfirm/orderConfirm",
     "pages/addressForm/addressForm",

@@ -1,0 +1,17 @@
+page {
+  background-color: #fff;
+}
+
+.userInfo .btn {
+  display: flex;
+  flex-direction: column;
+  padding: 30rpx;
+}
+
+.btn1 {
+  width: 100%;
+}
+
+.btn1:first-child {
+  margin-bottom: 20rpx;
+}

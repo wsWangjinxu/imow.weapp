@@ -31,3 +31,23 @@
   height: 90rpx;
   border-radius: 50%;
 }
+
+.popupCtn {
+ background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popupCtn > view {
+  width: 600rpx;
+  background-color: #f2f2f2;
+  border-radius: 20rpx; 
+  overflow: hidden;
+}
+
+.popupCtn > view > view {
+  background-color: #fff;
+  padding: 10rpx 30rpx; 
+}
+
+.popupCtn > view > view:first-child {
+  margin-bottom: 20rpx;
+} 

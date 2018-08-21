@@ -1,0 +1,19 @@
+page {
+  background-color: #fff;
+  height: 100%;
+}
+
+.qr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 3;
+  font-size: 30rpx;
+  height: 80%;
+}
+
+.qr image {
+  width: 525rpx;
+  height: 525rpx;
+}

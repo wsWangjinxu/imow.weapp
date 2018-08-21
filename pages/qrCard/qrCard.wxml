@@ -1,0 +1,43 @@
+<view class="qrCard">
+  <view class="title">阿母工业设备有限公司</view>
+  <view class="credit">
+    <view>
+      <text>可用信用额度</text>
+      <text>￥650000.00</text>
+    </view>
+    <view>
+      <text>信用分总额度：￥13000.00</text>
+      <text>已用信用额度：￥6500.00</text>
+    </view>
+  </view>
+  <view class="Info">
+    <view>
+      <text>公司名称</text>
+      <text>阿母工业设备有限公司</text>
+    </view>
+    <view>
+      <text>服务电话</text>
+      <text>400-672-8288</text>
+    </view>
+    <view>
+      <text>所在地区</text>
+      <text>浙江杭州</text>
+    </view>
+    <view>
+      <text>详细地址</text>
+      <text>浙江省杭州市下城区永华街121号</text>
+    </view>
+    <view>
+      <text>用户等级</text>
+      <text>一级会员</text>
+    </view>
+    <view>
+      <text>营业执照</text>
+      <text><image src="/static/icon/businessLicense.png"></image>点击查看</text>
+    </view>
+    <view>
+      <text>微信名片</text>
+      <text><van-icon name="qr"></van-icon>点击查看</text>
+    </view>
+  </view>
+</view>

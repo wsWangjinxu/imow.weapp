@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    show: false,
     steps: [
       {
         text: '提交订单',
@@ -27,11 +26,6 @@ Page({
     array: ['全部明细','支付明细'],
     index: 0,
     showLogin: true
-  },
-  handleClick() {
-    this.setData({
-      show: true
-    })
   },
   //事件处理函数
   bindViewTap: function() {

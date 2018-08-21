@@ -1,0 +1,72 @@
+<view class="invoice">
+  <view class="invoiceInfo">
+    <view>我的开票信息</view>
+    <view>
+      <text>单位名称</text>
+      <text>杭州阿母工业设备有限公司</text>
+    </view>
+    <view>
+      <text>税号</text>
+      <text>0101576520768</text>
+    </view>
+    <view>
+      <text>地址</text>
+      <text>浙江省杭州市下城区永华街121号</text>
+    </view>
+    <view>
+      <text>开户行</text>
+      <text>中国工商银行杭州市半山支行</text>
+    </view>
+    <view>
+      <text>账号</text>
+      <text>010157652076855218</text>
+    </view>
+  </view>
+  <view class="invoiceDetail">
+    <view class="invoiceDetailTitle">
+      <text>发票明细</text>
+      <view>
+        <input type="text" placeholder="请输入订单号搜索"/>
+        <van-icon style="margin-left: -40rpx;" name="search"></van-icon>
+      </view>
+    </view>
+    <view class="condition">
+      <text>发票查询</text>
+      <view class="datePicker">
+        <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="picker">
+            <view class="date">{{date}} </view>
+          </view>
+        </picker>——
+        <picker mode="date" value="{{time}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+          <view class="picker">
+            <view class="time"> {{date}}</view>
+          </view>
+        </picker>
+      </view>
+      <text>店铺名称</text>
+      <input type="text" placeholder="请输入您要查询的店铺"/>
+    </view>
+    <view class="tableCtn">
+      <view>
+        <text class="item">日期</text>
+        <text class="item">店铺名称</text>
+        <text class="item">订单号</text>
+        <text class="item">开票信息</text>
+        <text class="item">发票号</text>
+      </view>
+      <block wx:for="{{10}}">
+        <view>
+          <view class="item">
+            <text>2018-06-29</text>
+            <text>17:02:40</text>
+          </view>
+          <text class="item">浙江中力机械</text>
+          <text class="item">0101576520768</text>
+          <text class="item">杭州阿母工业设备有限公司</text>
+          <text class="item">0101576520768</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
