@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class='box'>
+  <view class="top">
+    <van-row>
+      <van-col span="14" class="title">交易明细</van-col>
+      <van-col span="10">
+        <view class='search'>
+          <input class="weui-input" placeholder-style="color:#818181" placeholder="搜索 店铺名称" />
+          <van-icon name="search" />
+        </view>
+      </van-col>
+    </van-row>
+    <view>
+      <view class='timeCut'>时间段</view>  
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          <view class='SelectTime'>{{date}}</view> 
+        </view>
+      </picker>——
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          <view class='SelectTime'>{{date}}</view> 
+        </view>
+      </picker>
+    </view>
+  </view> 
+  
+  <view class='listTitle'>
+    <van-row>
+      <van-col span="5">日期</van-col>
+      <van-col span="8">店铺名称</van-col>
+      <van-col span="4">使用金额</van-col>
+      <van-col span="3">状态</van-col>
+      <van-col span="4">原因</van-col>
+    </van-row>
+  </view>
+  <view class="billList">
+    <view class='billItem' wx:for="{{20}}">
+      <van-row>
+        <van-col span="5">
+          <view>2018-06-29</view>
+          <view class='time'>17:02:40</view>
+        </van-col>
+        <van-col span="8">浙江中立机械有限公司</van-col>
+        <van-col span="4"><text class='green'>-9900</text></van-col>       
+        <van-col span="3">转出</van-col>
+        <van-col span="4">现金转入</van-col>
+      </van-row>
+    </view>
+
+  </view>
+    
+    
+</view>
+
+<view class='footer'>
+  <image src='/static/imgs/footer.png'></image>
+</view>
+

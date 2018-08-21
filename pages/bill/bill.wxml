@@ -1,0 +1,62 @@
+<!--index.wxml-->
+<view class='topTip'>
+  2018年4月10日至2018年7月10日账单明细
+</view> 
+
+<view class='total'>
+  <van-row>
+    <van-col span="8">本店已使用金额：</van-col>
+    <van-col span="16" class="green">-￥102500.00</van-col>
+  </van-row>
+  <van-row>
+    <van-col span="8">本店已还金额：</van-col>
+    <van-col span="16" class="red">+￥102200.00</van-col>
+  </van-row>
+  <van-row>
+    <van-col span="8">本店剩余应还:</van-col>
+    <van-col span="16">￥500.00</van-col>
+  </van-row>
+  <view>消费店铺：<text class='shopName'>浙江中力机械有限公司</text></view>
+  <view>还款日期：2018年07月10日</view>
+</view>
+
+<view class='box'>
+  <view class='listTitle'>
+    <van-row>
+      <van-col span="5">日期</van-col>
+      <van-col span="4">使用金额</van-col>
+      <van-col span="8">店铺名称</van-col>
+      <van-col span="7"><view class='title4'>详细说明</view></van-col>
+    </van-row>
+  </view>
+  <view class="billList">
+    <view class='billItem' wx:for="{{5}}">
+      <van-row>
+        <van-col span="5">
+          <view>2018-06-29</view>
+          <view class='time'>17:02:40</view>
+        </van-col>
+        <van-col span="4"><text class='green'>-9900</text></van-col>
+        <van-col span="8">浙江中立机械有限公司</van-col>
+        <van-col span="7"><view class="item4">订单号：1234566789</view></van-col>
+      </van-row>
+    </view>
+    <view class='billItem'>
+      <van-row>
+        <van-col span="5">
+          <view>2018-06-29</view>
+          <view class='time'>17:02:40</view>
+        </van-col>
+        <van-col span="4"><text class='green'>-9900</text></van-col>
+        <van-col span="8">浙江中立机械有限公司</van-col>
+        <van-col span="7"><view class="item4">网银转账还款50000元</view></van-col>
+      </van-row>
+    </view>
+  </view>
+      
+</view>
+
+<view class='footer'>
+  <image src='/static/imgs/footer2.png'></image>
+</view>
+

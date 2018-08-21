@@ -1,14 +1,12 @@
 {
-<<<<<<< HEAD
-  "pages":[ 
+  "pages":[
+    "pages/tradeDetail/tradeDetail",
     "pages/repayment/repayment",
-=======
-  "pages":[   
+    "pages/bill/bill",   
     "pages/addressList/addressList",
     "pages/my/my",
     "pages/orderDetail/orderDetail",
     "pages/order/order",
->>>>>>> b2216529e077c2ef9871acd2fea59eba79cbc731
     "pages/checkPay/checkPay",
     "pages/finishPay/finishPay",
     "pages/buy/buy",
@@ -16,8 +14,7 @@
     "pages/cart/cart",
     "pages/productDetail/productDetail",
     "pages/index/index",
-    "pages/logs/logs"
-    
+    "pages/logs/logs"   
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -70,6 +70,10 @@ page{
   text-align: right;
 }
 
+.underLine{
+  text-decoration: underline;
+}
+
 .footer{
   height: 108rpx;
   /* position: fixed;

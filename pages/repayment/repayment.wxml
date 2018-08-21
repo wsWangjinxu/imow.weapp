@@ -14,7 +14,7 @@
         <view class='bigText'>￥4500.00</view>
       </van-col>
       <van-col span="10">
-        <view class=''  style="padding-top:50rpx">
+        <view class='reMoney'>
           <view>本期应还总额:￥13000.00</view>
           <view>本期应还总额:￥13000.00</view>
           <view>本期应还总额:￥13000.00</view>
@@ -31,10 +31,42 @@
     </van-col>
     <van-col span="10">
       <view class='search'>
-      
+        <input class="weui-input" placeholder-style="color:#818181" placeholder="搜索 店铺名称" />
+        <van-icon name="search" />
       </view>
     </van-col>
   </van-row>
+  
+  <view class='shopTitle'>
+    <van-row>
+      <van-col span="9">店铺名称</van-col>
+      <van-col span="10">详细信息</van-col>
+      <van-col span="5">操作</van-col>
+    </van-row>
+  </view>
+
+  <view class="shopList">
+    <view class='shop'  wx:for="{{['浙江重力机械有限公司机械有限公司','工厂店A','工厂店B','工厂店C']}}">
+      <van-row>
+        <van-col span="9">
+          <view class="shopItem1">{{item}}</view>
+        </van-col>
+        <van-col span="10">
+          <view class="shopItem2">
+            <view>剩余应还:<text class='price'>￥130000.00</text></view>
+            <view>已使用金额:￥13000.00</view>
+            <view>已还金额:￥13000.00</view>
+          </view>      
+        </van-col>
+        <van-col span="5" class='shopItem3'>
+          <!-- <van-button type="danger" size="small">去还款</van-button> -->
+          <navigator url="/navigate/navigate?title=navigate" hover-class="navigator-hover">本期账单明细</navigator>          
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+    
+    
 </view>
 
 <view class='footer'>
