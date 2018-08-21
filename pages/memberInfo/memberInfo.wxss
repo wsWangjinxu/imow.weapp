@@ -1,0 +1,33 @@
+.memberInfo {
+  padding: 10rpx 30rpx 30rpx 30rpx;
+  line-height: 2;
+  background-color: #fff;
+  font-size: 34rpx;
+}
+
+.memberInfo > view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #cccccc; 
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+}
+
+.memberInfo > view:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.memberInfo > view > view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.memberInfo image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}

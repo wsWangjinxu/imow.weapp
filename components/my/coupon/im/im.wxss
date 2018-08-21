@@ -1,0 +1,40 @@
+.imCtn {
+  font-size: 26rpx;
+  height: 170rpx;
+  border: 1px solid #e6bbc4;
+  padding-top: 30rpx;
+}
+
+.imCtn .detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.imCtn .condition  {
+  font-size: 24rpx;
+}
+
+.imCtn .condition view:first-child {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.imCtn .detail .ctn {
+  display: flex;
+  flex-direction: row;  
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imCtn .detail .ctn view view:first-child {
+  font-size: 34rpx;
+
+}
+
+.imCtn .num {
+  margin-top: 10rpx;
+  text-align: center;
+}

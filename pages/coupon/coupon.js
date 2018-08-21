@@ -4,18 +4,32 @@ const app = getApp()
 
 Page({
   data: {
-    show: true,
     list: [
       {
         id: 101,
-        title: "物流发货"
+        title: "阿母优惠券"
       },
       {
         id: 102,
-        title: "自提"
+        title: "店铺优惠券"
       }
     ],
-    selectedId: 101
+    selectedId: 101,
+    list2: [
+      {
+        id: 101,
+        title: "未使用"
+      },
+      {
+        id: 102,
+        title: "已使用"
+      },
+      {
+        id: 103,
+        title: "已过期"
+      }
+    ],
+    selectedId2: 101
   },
   //事件处理函数
   bindViewTap: function () {
@@ -24,6 +38,7 @@ Page({
     })
   },
   onLoad: function () {
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -58,5 +73,8 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  bindGetUserInfo: function(e) {
+    console.log(e.detail.userInfo)
   }
 })

@@ -1,0 +1,11 @@
+{ 
+  "usingComponents": {
+    "van-button": "/vantui/button/index",
+    "van-icon": "/vantui/icon/index"
+  },
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTitleText": "设置",
+  "navigationBarTextStyle":"white"
+  
+}

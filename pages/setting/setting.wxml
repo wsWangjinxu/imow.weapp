@@ -1,0 +1,59 @@
+<view class="setting">
+  <view class="userInfo">
+    <image src="http://dummyimage.com/200x100/fb0a2a" />
+    <view class="name">
+      <view>阿母工业123</view>
+      <view>阿母关联帐号</view>
+    </view>
+    <view>
+      <van-icon name="qr" style="color: #959595; zoom: 150%;"></van-icon>
+      <van-icon name="arrow" style="color: #656565;"></van-icon>
+    </view>
+  </view>
+  <view class="userInfoDetail">
+    <view>个人资料<text>编辑</text></view>
+    <view>
+      <text>用户名</text>
+      <text>阿母工业123</text>
+    </view>
+    <view>
+      <text>真实姓名</text>
+      <text>张三</text>
+    </view>
+    <view>
+      <text>性别</text>
+      <text>男</text>
+    </view>
+    <view>
+      <text>邮箱</text>
+      <text>1576520768@qq.com</text>
+    </view>
+    <view>
+      <text>手机号码</text>
+      <text>13282123626</text>
+    </view>
+    <view>
+      <text>生日</text>
+      <text>1979.10.10</text>
+    </view>
+    <view>
+      <text>企业名称</text>
+      <text>阿母工业设备有限公司</text>
+    </view>
+    <view>
+      <text>负责人姓名</text>
+      <text>张三</text>
+    </view>
+    <view>
+      <text>负责人电话</text>
+      <text>1576520768</text>
+    </view>
+    <view>
+      <text>地区</text>
+      <text>杭州</text>
+    </view>
+  </view>
+  <view class="exit">
+    退出当前账户
+  </view>
+</view> 

@@ -80,4 +80,16 @@
         <view>订单总额（不含运费）<text>￥57200000.00</text></view><view class="submitBtn">提交订单</view>   
       </view>
     </view>
+    <van-popup position="bottom" show="{{show}}">
+      <view class="popCtn">
+        <view class="title">
+          <view>自提地点</view>
+          <view>浙江省杭州工厂（浙江省杭州市下城区永华街121号浙江中力机械）</view>
+        </view>
+        <view class="ctn">
+          <view>以下车型可供自提</view>
+          <view>这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型</view>
+        </view>
+      </view>
+    </van-popup>
 </view>

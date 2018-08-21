@@ -1,0 +1,10 @@
+{ 
+  "usingComponents": {
+    "van-button": "/vantui/button/index"
+  },
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#333333",
+  "navigationBarTitleText": "登陆",
+  "navigationBarTextStyle":"white"
+  
+}

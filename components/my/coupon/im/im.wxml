@@ -1,0 +1,17 @@
+<view class="imCtn">
+  <view class="detail">
+    <view class="condition">
+      <view>￥300</view>
+      <view>满￥5000可用</view>
+    </view>
+    <view class="ctn">
+      <view>
+        <view>阿母优惠券 | 感恩狂欢</view>
+        <view>2018.8.30到期<text>（仅剩15天）</text></view>
+        <view><text>不支持翻倍</text><text>可跨店使用</text></view>
+      </view>
+      <van-button>立即使用</van-button>
+    </view>
+  </view>
+  <view class="num">搬运设备类通用，券编号：0101576520768</view>
+</view>

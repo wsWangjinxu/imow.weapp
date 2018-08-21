@@ -1,0 +1,8 @@
+<view>
+  <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
+  <van-tab class="aside" list="{{list2}}" selected-id="{{selectedId2}}"></van-tab>
+  <view class="couponCtn">
+    <im-coupon></im-coupon>
+    <shop-coupon></shop-coupon>
+  </view>
+</view>
