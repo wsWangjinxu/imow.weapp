@@ -1,0 +1,7 @@
+<view>
+  <zan-tab
+  list="{{ list }}"
+  selected-id="{{ selectedId }}"
+  bindtabchange="handleTabChange"
+/>
+</view>

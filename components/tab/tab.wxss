@@ -1,0 +1,19 @@
+/* components/index/navCircle.wxss */
+.navCircle navigator {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ font-size:  26rpx;    
+}
+
+.navCircle navigator text {
+  margin-top: 20rpx;
+  color: #666666;
+}
+
+.navCircle navigator image {
+  border-radius: 50%;
+  width: 140rpx;
+  height: 140rpx;
+}
+

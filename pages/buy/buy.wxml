@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<view class="container">
+
 <view class="box head">
   <van-row>
     <van-col span="10">
@@ -82,4 +84,6 @@
       <view class="button4">立即购买</view>
     </van-col>
   </van-row>
+</view>
+
 </view>

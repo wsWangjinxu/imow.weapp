@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<view class="container">
+
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}">
@@ -200,4 +202,6 @@
       <view class="button4">立即购买</view>
     </van-col>
   </van-row>
+</view>
+
 </view>
