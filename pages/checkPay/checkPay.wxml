@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<view class="container">
+
 <view class='box'>
   <view class='titleName'>订单摘要</view>
   <van-row>
@@ -260,3 +262,5 @@
       <view class='alertSubmit'>提交</view>
     </view>
 </van-popup>
+
+</view>

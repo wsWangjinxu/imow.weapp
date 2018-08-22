@@ -1,17 +1,14 @@
 <!--index.wxml-->
 <view class="container">
+<myTab selectedId='101'></myTab>
 
 <view class='box'>
   <view class="top">
-    <van-row>
-      <van-col span="14" class="title">交易明细</van-col>
-      <van-col span="10">
-        <view class='search'>
-          <input class="weui-input" placeholder-style="color:#818181" placeholder="搜索 店铺名称" />
-          <van-icon name="search" />
-        </view>
-      </van-col>
-    </van-row>
+    <view class='title'>阿母币</view>
+    <view>
+      <view class='timeCut'>交易类型</view>  
+      
+    </view>
     <view>
       <view class='timeCut'>时间段</view>  
       <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
@@ -37,7 +34,7 @@
     </van-row>
   </view>
   <view class="billList">
-    <view class='billItem' wx:for="{{20}}">
+    <view class='billItem' >
       <van-row>
         <van-col span="5">
           <view>2018-06-29</view>
@@ -49,9 +46,7 @@
         <van-col span="4">现金转入</van-col>
       </van-row>
     </view>
-
-  </view>
-    
+  </view>   
     
 </view>
 
@@ -60,3 +55,4 @@
 </view>
 
 </view>
+

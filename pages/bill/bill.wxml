@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<view class="container">
+
 <view class='topTip'>
   2018年4月10日至2018年7月10日账单明细
 </view> 
@@ -60,3 +62,4 @@
   <image src='/static/imgs/footer2.png'></image>
 </view>
 
+</view>

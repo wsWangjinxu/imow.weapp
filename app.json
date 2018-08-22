@@ -7,9 +7,9 @@
     "pages/tradeDetail/tradeDetail",
     "pages/memberInfo/memberInfo",
     "pages/qr/qr",
-    "pages/invoice/invoice", 
+    "pages/invoice/invoice",
     "pages/userLevel/userLevel",
-    "pages/userInfo/userInfo",          
+    "pages/userInfo/userInfo",
     "pages/setting/setting",
     "pages/login/login",
     "pages/addressForm/addressForm",
@@ -24,7 +24,7 @@
     "pages/orderConfirm/orderConfirm",    
     "pages/productDetail/productDetail",
     "pages/index/index",
-    "pages/logs/logs"    
+    "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",

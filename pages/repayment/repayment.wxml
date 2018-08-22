@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<view class="container">
+
 <view class='topTip'>
     <van-icon name="warn" />请及时还款，以免影响您的信用额度。
 </view> 
@@ -73,3 +75,4 @@
   <image src='/static/imgs/footer.png'></image>
 </view>
 
+</view>
