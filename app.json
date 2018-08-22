@@ -1,6 +1,6 @@
 {
   "pages":[ 
-    
+    "pages/repayment/repayment",
     "pages/qrCard/qrCard",
     "pages/memberInfo/memberInfo",
     "pages/qr/qr",
@@ -15,16 +15,18 @@
     "pages/addressForm/addressForm",
     "pages/addressList/addressList",
     "pages/repayment/repayment",
+    "pages/addressList/addressList",
+    "pages/my/my",
     "pages/orderDetail/orderDetail",
     "pages/order/order",
     "pages/checkPay/checkPay",
     "pages/finishPay/finishPay",
     "pages/buy/buy",
+    "pages/orderConfirm/orderConfirm",    
     "pages/cart/cart",
     "pages/productDetail/productDetail",
     "pages/index/index",
-    "pages/logs/logs"
-    
+    "pages/logs/logs"    
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -58,7 +58,7 @@
       <text>信用分支付</text>
     </van-col>
     <van-col span="16">
-      <view class='paymentText'>本次将使用300元信用分支付，您的剩余可用信用分为0元。</view>   
+      <view class='paymentText'>本次将使用<text class='underLine'>3000元</text>信用分支付，您的剩余可用信用分为0元。</view>   
     </van-col>
     <van-col span="2">
       <checkbox value="信用分" checked="" color='red'/>  
@@ -70,7 +70,7 @@
           <text>店铺余额支付</text>
         </van-col>
         <van-col span="16">
-          <view class='paymentText'>本次将使用300元店铺余额支付，您的剩余可用信用分为0元。</view>  
+          <view class='paymentText'>本次将使用<text class='underLine'>1000元</text>店铺余额支付，您的剩余可用信用分为0元。</view>  
         </van-col>
         <van-col span="2">
           <checkbox value="店铺余额" checked="" color='red'/> 
@@ -90,7 +90,7 @@
       </view>
     </van-col>
     <van-col span="16">
-      <view class='paymentText'>支付<text>53200元</text> </view> 
+      <view class='paymentText'>支付<text class='underLine'>53200元</text> </view> 
     </van-col>
     <van-col span="2">
       <checkbox value="网银" checked="" color='red'/>  

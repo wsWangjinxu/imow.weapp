@@ -15,7 +15,7 @@ Page({
     showS: false,//控制下拉列表的显示隐藏，false隐藏、true显示
     selectData: ['网银支付', '2'],//下拉列表的数据
     index: 0,//选择的下拉列表下标
-    show: true
+    show: false
   },
   //事件处理函数
   // 点击下拉显示框
