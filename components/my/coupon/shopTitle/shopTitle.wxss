@@ -1,0 +1,44 @@
+.shopTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 36rpx;
+}
+
+.shopTitle image {
+  width: 80rpx;
+  height: 80rpx;
+  border: 1px solid #999999;
+  border-radius: 10rpx;
+  flex: none;
+  margin-right: 10rpx;
+}
+
+.shopTitle button {
+  flex: 1;
+  font-size: 24rpx;
+  color: #f00702;
+  border: 1px solid #f00702;
+  border-radius: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.shopTitle .title {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 30rpx;
+}
+
+.shopTitle .title text:last-child {
+  font-size: 26rpx;
+  display: inline-block;
+  background-color: #f00702;
+  color: white;
+  padding-left:10rpx;
+  padding-right: 10rpx;
+}

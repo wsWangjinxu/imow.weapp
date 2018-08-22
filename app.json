@@ -1,7 +1,10 @@
 {
   "pages":[ 
-    "pages/repayment/repayment",
+    "pages/cart/cart",
+    "pages/coupon/coupon",
     "pages/qrCard/qrCard",
+    "pages/bill/bill",
+    "pages/tradeDetail/tradeDetail",
     "pages/memberInfo/memberInfo",
     "pages/qr/qr",
     "pages/invoice/invoice", 
@@ -9,13 +12,9 @@
     "pages/userInfo/userInfo",          
     "pages/setting/setting",
     "pages/login/login",
-    "pages/my/my", 
-    "pages/coupon/coupon",
-    "pages/orderConfirm/orderConfirm",
     "pages/addressForm/addressForm",
     "pages/addressList/addressList",
     "pages/repayment/repayment",
-    "pages/addressList/addressList",
     "pages/my/my",
     "pages/orderDetail/orderDetail",
     "pages/order/order",
@@ -23,7 +22,6 @@
     "pages/finishPay/finishPay",
     "pages/buy/buy",
     "pages/orderConfirm/orderConfirm",    
-    "pages/cart/cart",
     "pages/productDetail/productDetail",
     "pages/index/index",
     "pages/logs/logs"    

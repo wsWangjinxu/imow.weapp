@@ -2,7 +2,8 @@
   "usingComponents": {
     "van-tab": "/vantui/tab/index",
     "im-coupon": "/components/my/coupon/im/im",
-    "shop-coupon": "/components/my/coupon/shop/shop"
+    "shop-coupon": "/components/my/coupon/shop/shop",
+    "shop-title": "/components/my/coupon/shopTitle/shopTitle"
   },
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fe0000",

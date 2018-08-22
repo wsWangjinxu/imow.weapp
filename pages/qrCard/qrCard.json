@@ -1,5 +1,5 @@
 { 
-  "usingCompnents": {
+  "usingComponents": {
     "van-icon": "/vantui/icon/index"
   },
   "backgroundTextStyle":"light",

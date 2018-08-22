@@ -1,17 +1,20 @@
 <view class="imCtn">
-  <view class="detail">
-    <view class="condition">
-      <view>￥300</view>
-      <view>满￥5000可用</view>
-    </view>
-    <view class="ctn">
-      <view>
-        <view>阿母优惠券 | 感恩狂欢</view>
-        <view>2018.8.30到期<text>（仅剩15天）</text></view>
-        <view><text>不支持翻倍</text><text>可跨店使用</text></view>
+  <image wx:if="{{status=='unused'}}" mode="widthFix" src="/static/images/im-unused.png"/>
+  <image wx:if="{{status=='used' || status=='overdue'}}" mode="widthFix" src="/static/images/im-used.png"/>
+  <view class="ctn">
+    <view class="top">
+      <view class="top-left">
+        <text>￥300</text>
+        <text>满￥5000可用</text>
       </view>
-      <van-button>立即使用</van-button>
+      <view class="top-right">
+        <view>
+          <view style="font-size: 28rpx;">阿母优惠券 | 感恩狂欢</view>
+          <view>2018.8.30到期<block wx:if="{{status=='unused'}}">(仅剩15天)</block><block wx:if="{{status=='used'}}"> 已使用</block><block wx:if="{{status=='overdue'}}"> 已过期</block></view>
+        </view>
+        <view wx:if="{{status=='unused'}}" class="button">立即使用</view>
+      </view>
     </view>
+    <view class="bottom">搬运类设备通用，券编号：0101576520768</view>
   </view>
-  <view class="num">搬运设备类通用，券编号：0101576520768</view>
 </view>

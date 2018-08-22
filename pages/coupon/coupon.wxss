@@ -1,8 +1,14 @@
 /* 二级tab */
 .aside .index--zan-tab {
   zoom: 80%;
+  background: #f2f2f2;
 }
 
 .couponCtn {
   padding: 30rpx;
+  background-color: #fff;
+}
+
+.aside .tab-index--zan-tab__bd {
+  background-color: #f2f2f2;
 }

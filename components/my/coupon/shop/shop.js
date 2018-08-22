@@ -4,17 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    imgSrc: {
+    status: {
       type: String,
-      value: "http://dummyimage.com/200x100/fb0a2a"
-    },
-    title: {
-      type: String,
-      value: "导航"
-    },
-    url: {
-      type: String,
-      value: "/pages/logs/logs"
+      value: "used"
     }
   },
 
@@ -22,13 +14,26 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    statusClass: "common"
   },
 
+  ready: function() {
+    switch(this.data.status) {
+      case("used"): this.setData({statusClass: "used"}); break;
+      case("unused"): this.setData({statusClass: "unused"}); break;
+      case("overdue"): this.setData({statusClass: "overdue"}); break;
+    }
+    if(this.data.status == "used") {
+      console.log(this.data.status);
+      this.setData({
+        statusClass: "limit"
+      })
+    }
+  },
   /**
    * 组件的方法列表
    */
   methods: {
-
+    
   }
 })

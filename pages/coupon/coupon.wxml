@@ -1,8 +1,11 @@
 <view>
-  <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
+  <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleChange"></van-tab>
   <van-tab class="aside" list="{{list2}}" selected-id="{{selectedId2}}"></van-tab>
   <view class="couponCtn">
-    <im-coupon></im-coupon>
+  <!--  <block wx:for="{{5}}">
+      <im-coupon></im-coupon>
+    </block> -->
+    <shop-title></shop-title>
     <shop-coupon></shop-coupon>
   </view>
 </view>

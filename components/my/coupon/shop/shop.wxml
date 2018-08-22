@@ -1,3 +1,19 @@
-<view>
-  这里是店铺优惠券
+<view class="shopCoupon">
+  <image mode="widthFix" src="/static/images/shop-common.png" />
+  <image mode="widthFix" src="/static/images/shop-common.png" />
+  <image mode="widthFix" src="/static/images/shop-common.png" />
+  <image mode="widthFix" src="/static/images/shop-common.png" />
+  <view class="ctn">
+    <image  mode="widthFix" src="http://dummyimage.com/300x300/fb0a2a"></image>
+    <view class="detail">
+      <text class="{{statusClass}}">￥500</text>
+      <text class="{{statusClass}}" style="font-size: 30rpx;">满￥5000可用</text>
+      <text>2018.8.30到期（仅剩15天）</text>
+      <text>券编号：0101576520768</text>
+    </view>
+    <view class="btn" wx:if="{{status=='unused' || status=='used'}}">
+      <text class="{{statusClass}}">全店通用</text>
+      <button class="{{statusClass}}">立即使用</button>
+    </view>
+  </view>
 </view>
