@@ -5,13 +5,19 @@
       <view>阿母工业123</view>
       <view>阿母关联帐号</view>
     </view>
-    <view>
+  <!--  <view>
       <van-icon name="qr" style="color: #959595; zoom: 150%;"></van-icon>
       <van-icon name="arrow" style="color: #656565;"></van-icon>
-    </view>
+    </view> -->
   </view>
   <view class="userInfoDetail">
-    <view>个人资料<text>编辑</text></view>
+    <view>个人资料
+      <!--<text>编辑</text>-->
+    </view>
+    <view>
+      <text>会员等级</text>
+      <view style="flex: 3;"><navigator url="/pages/userLevel/userLevel">一级<van-icon style="vertical-align: -3rpx;" name="info-o"></van-icon></navigator></view>
+    </view>
     <view>
       <text>用户名</text>
       <text>阿母工业123</text>

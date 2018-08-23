@@ -1,0 +1,32 @@
+.item {
+  margin-top: 20rpx;
+}
+
+.item .title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+/* 控制是否折叠 */
+.fold {
+  height: 70rpx;
+  overflow:hidden;
+}
+
+.unfold {
+  height: auto;
+}
+
+.item-ctn text, .fold text, .unfold text {
+  display: inline-block;
+  padding: 5rpx 15rpx;
+  background-color: #f2f2f2;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+}

@@ -1,43 +1,43 @@
 <view class="my">
   <view class="userInfo">
-    <van-icon style="align-self:flex-end;color:#626262;" name="setting"></van-icon>
+    <navigator style="align-self:flex-end;color:#626262;" url="/pages/setting/setting"><van-icon name="setting"></van-icon></navigator> 
     <image src="http://dummyimage.com/200x100/fb0a2a" />
     <text>阿母工业老王</text>
   </view>
   <view class="myOrder">
     <view class="title">
       <text>我的订单</text>
-      <view>查看全部订单<van-icon name="arrow"></van-icon></view>
+      <navigator url="/pages/order/order" hover-class="className">查看全部订单<van-icon name="arrow"></van-icon></navigator>
     </view>
     <view class="ctn">
-      <view>
+      <navigator url="/pages/order/order">
         <van-icon name="pending-payment"></van-icon>
         <text>待付款</text>
-      </view>
-      <view>
+      </navigator>
+      <navigator url="/pages/order/order">
         <van-icon name="pending-deliver"></van-icon>
         <text>待发货</text>
-      </view>
-      <view>
+      </navigator>
+      <navigator url="/pages/order/order">
         <van-icon name="logistics"></van-icon>
         <text>待收货</text>
-      </view>
-      <view>
+      </navigator>
+    <!--  <navigator>
         <van-icon name="after-sale"></van-icon>
         <text>退款/售后</text>
-      </view>
+      </navigator> -->
     </view>
   </view>
   <view class="cell">
-    <van-cell title="收货地址" border="{{ false }}" is-link></van-cell>
+    <navigator url="/pages/addressList/addressList"><van-cell title="收货地址" border="{{ false }}" is-link></van-cell></navigator> 
   </view>
-  <view class="cell">
+<!--  <view class="cell">
     <van-cell title="我的资产" border="{{ false }}" is-link></van-cell>
-  </view>
+  </view> -->
   <view class="cell">
-    <van-cell title="优惠券" border="{{ false }}" is-link></van-cell>
+    <navigator url="/pages/coupon/coupon"><van-cell title="优惠券" border="{{ false }}" is-link></van-cell></navigator> 
   </view>
-  <view class="cell">
+<!--  <view class="cell">
     <van-cell title="我的消息" border="{{ false }}" is-link></van-cell>
-  </view>
+  </view> -->
 </view>

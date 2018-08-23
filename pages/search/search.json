@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-icon": "/vantui/icon/index",
+    "van-search": "/vantui/search/index",
+    "van-tab": "/vantui/tab/index"
+  },
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTitleText": "搜索",
+  "navigationBarTextStyle":"white"
+}

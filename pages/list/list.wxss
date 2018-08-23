@@ -1,0 +1,38 @@
+.nav {
+  background-color: #fff;
+}
+
+.nav {
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid  #e5e5e5;
+}
+
+.nav view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex: 1;
+}
+
+.icon {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.filtrate {
+background-color: #fff;
+width: 80%;
+height: 100%;
+}
+
+
+.btn {
+
+}

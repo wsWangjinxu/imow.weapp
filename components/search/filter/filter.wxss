@@ -1,0 +1,108 @@
+.filter {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.filter-ctn {
+  width: 80%;
+  margin-left: 20%;
+  height: 100%;
+  background-color: #fff;
+  font-size: 28rpx;
+  line-height: 1.8;
+}
+
+.filter-ctn .item {
+  margin-top: 20rpx;
+}
+
+.filter-ctn .item .title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+/* 控制是否折叠 */
+.fold {
+  height: 70rpx;
+  overflow:hidden;
+}
+
+.unfold {
+  height: auto;
+}
+
+.item-ctn text, .fold text, .unfold text {
+  display: inline-block;
+  padding: 5rpx 15rpx;
+  background-color: #f2f2f2;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+
+
+.filter-btn {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 0;
+}
+
+.filter-btn  view {
+  flex: 1;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 35rpx;
+}
+
+.filter-btn  view:first-child {
+  background-color: #ffe5e6;
+  color: #e70602;
+}
+
+.filter-btn  view:last-child {
+  background-color: #fe0000;
+  color: white;
+}
+
+.priceArea {
+  margin-top: 10rpx;
+}
+
+.priceArea view {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.priceArea > text:first-child {
+  font-size: 32rpx;
+  margin-left: 20rpx;
+}
+
+.priceArea input {
+  width: 200rpx;
+  border-radius: 30rpx !important;
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-right: 20rpx;
+  margin-left: 20rpx;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}

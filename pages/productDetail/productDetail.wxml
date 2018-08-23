@@ -196,7 +196,7 @@
       </view>   
     </van-col>
     <van-col span="8">
-      <view class="button3">加入购物车</view>
+      <navigator url="/pages/cart/cart" ><view class="button3">加入购物车</view></navigator>
     </van-col>
     <van-col span="8" class="button4">
       <view class="button4">立即购买</view>

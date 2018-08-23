@@ -1,0 +1,18 @@
+<view class="search">
+  <van-search value="{{keyword}}" use-action-slot bind:search="onSearch" bind:change="handleChange" placeholder="请输入搜索关键字">
+    <view slot="action" bind:tap="onSearch">搜索</view>
+  </van-search>
+  <van-tab list="{{list}}" bindtabchange="handleTabChange" selected-id="{{selectedId}}"></van-tab>
+  <view class="history">
+    <text>历史搜索</text>
+    <view>
+      <text bindtap="pointSearch" wx:for="{{history}}" wx:key="index" data-text="{{item}}">{{item}}</text>
+    </view>
+  </view>
+  <view class="hotProduct"> 
+    <text>热门搜索</text>
+    <view>
+      <text bindtap="pointSearch" wx:for="{{hotProduct}}" wx:key="index" data-text="{{item}}">{{item}}</text>
+    </view>
+  </view>
+</view>

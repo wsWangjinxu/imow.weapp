@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-icon": "/vantui/icon/index",
+    "filterItem": "/components/search/filterItem/filterItem"
+  }
+}
