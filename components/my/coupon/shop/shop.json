@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "shopTitle": "/components/my/coupon/shopTitle/shopTitle"
+  }
 }

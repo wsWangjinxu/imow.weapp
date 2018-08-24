@@ -1,40 +1,73 @@
 .imCtn {
-  font-size: 26rpx;
-  height: 170rpx;
-  border: 1px solid #e6bbc4;
-  padding-top: 30rpx;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 20rpx;
 }
 
-.imCtn .detail {
+.imCtn image {
+  width: 100% !important;
+}
+
+.imCtn .ctn {
+  position: absolute;
+  top: 0;
+  font-size: 28rpx; 
+  width: 100%;
+}
+
+.imCtn .top {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
-  line-height: 1.6;
+  height: 176rpx;
 }
 
-.imCtn .condition  {
-  font-size: 24rpx;
+.top-left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left:40rpx; 
+  justify-content: center;
 }
 
-.imCtn .condition view:first-child {
-  font-size: 34rpx;
+.top-left text:first-child {
+  font-size: 40rpx;
   font-weight: bold;
 }
 
-.imCtn .detail .ctn {
+.top-right {
+  flex: 2;
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.imCtn .detail .ctn view view:first-child {
-  font-size: 34rpx;
-
+.top-right .button {
+  flex: 0.9;
+  font-size: 28rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 50rpx;
+  background-color: #fe0000;
+  color: white;
+  text-align: center;
+  border-radius: 25rpx;
+  margin-right: 10rpx;
 }
 
-.imCtn .num {
-  margin-top: 10rpx;
+.top-right view {
+  flex: 2;
+}
+
+.top-right view:last-child {
+  font-size: 26rpx;
+}
+
+
+
+.bottom {
+  height: 60rpx;
+  line-height: 60rpx;
   text-align: center;
 }

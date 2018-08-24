@@ -14,7 +14,7 @@ Page({
         title: "店铺优惠券"
       }
     ],
-    selectedId: 101,
+    selectedId: 102,
     list2: [
       {
         id: 101,
@@ -76,5 +76,8 @@ Page({
   },
   bindGetUserInfo: function(e) {
     console.log(e.detail.userInfo)
+  },
+  handleChange(selectedId) {
+    console.log(selectedId.detail);
   }
 })

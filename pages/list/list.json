@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-icon": "/vantui/icon/index",
+    "van-search": "/vantui/search/index",
+    "van-tab": "/vantui/tab/index",
+    "product": "/components/search/product/product",
+    "van-popup": "/vantui/popup/index",
+    "filter": "/components/search/filter/filter"
+  },
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTitleText": "搜索",
+  "navigationBarTextStyle":"white"
+}

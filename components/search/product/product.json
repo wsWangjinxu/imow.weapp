@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "van-button": "/vantui/button/index"
+    "van-icon": "/vantui/icon/index"
   }
 }

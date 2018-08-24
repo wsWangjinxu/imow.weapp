@@ -1,0 +1,14 @@
+<view class="filter" catchtouchmove='true' >
+  <view class="filter-ctn" catchtouchmove='true'>
+    <scroll-view scroll-y="false" style="height: 85%;" >
+      <filterItem wx:for="{{5}}"></filterItem>
+      <view class="priceArea">
+        <text>价格区间</text>
+        <view>
+          <input type="" placeholder="最低价"/>——<input type="text" placeholder="最高价"/>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="filter-btn"><view>重置</view><view bindtap="close">确定</view></view>
+  </view>
+</view>

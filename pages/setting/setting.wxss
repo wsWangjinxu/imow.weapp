@@ -23,11 +23,11 @@
   font-size: 34rpx;
 }
 
-.setting .userInfo view:last-child {
+/* .setting .userInfo view:last-child {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
+} */
 
 .userInfoDetail {
   display: flex;

@@ -1,0 +1,6 @@
+<view class="item">
+  <view bindtap="fold" class="title"><text>分类</text><van-icon name="arrow"></van-icon></view>
+  <view class="item-ctn" class="{{isFoldClass}}">
+    <text>搬运设备</text><text>搬运设备</text><text>搬运设备</text><text>搬运设备</text><text>搬运设备</text><text>搬运设备</text>
+  </view>
+</view>
