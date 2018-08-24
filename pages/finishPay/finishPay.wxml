@@ -9,7 +9,7 @@
   <view class='button sendGoods'>我要分批发货</view>
 </view>
 
-<view cxlas='box'> 
+<view> 
   <view class='likeTitle'>猜你喜欢</view>
   <view class='like'></view>
 </view>

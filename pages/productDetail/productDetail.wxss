@@ -42,6 +42,10 @@ swiper-item image{
   border-bottom: 1px solid #cccccc; 
 }
 
+.priceBox2{
+  margin-top: 22rpx;
+}
+
 .flexBox{
   display: flex;
   justify-content: space-between;
@@ -70,9 +74,29 @@ swiper-item image{
   margin: 0 auto;
 }
 
+
+.youhui{
+  padding: 30rpx 0 30rpx 138rpx;
+  color:#ff3233;
+}
+
+.lookProduct{
+  display: inline-block;
+  text-decoration: underline;
+  margin-left: 10rpx;
+}
+
 .send{
   margin-top:16rpx;
   margin-bottom:16rpx;
+}
+
+.send2{
+  margin-top:36rpx;
+}
+
+.sevenDay{
+  margin: 38rpx 0;
 }
 
 .logo{

@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/shopDetail/shopDetail",
+    "pages/productDetail/productDetail",
     "pages/myAssetsCoin/myAssetsCoin",
     "pages/myAssetsScore/myAssetsScore",
     "pages/myAssetsYuMoney/myAssetsYuMoney",
@@ -25,7 +27,6 @@
     "pages/buy/buy",
     "pages/orderConfirm/orderConfirm",
     "pages/cart/cart",
-    "pages/productDetail/productDetail",
     "pages/index/index",
     "pages/logs/logs"
   ],

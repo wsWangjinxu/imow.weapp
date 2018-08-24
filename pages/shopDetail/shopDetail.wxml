@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<view class="container">
+
+<view class='top'> 
+  <view class='title'>基础信息</view>
+  <view>
+    <van-row>
+      <van-col span="6">店铺名称</van-col>
+      <van-col span="18">浙江中力机械有限公司</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">服务电话</van-col>
+      <van-col span="18">400-672-8288</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">所在地区</van-col>
+      <van-col span="18">浙江杭州</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">详细地址</van-col>
+      <van-col span="18">浙江省杭州市下城区永华街121号</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">工商执照</van-col>
+      <van-col span="18"><image src='/static/imgs/SDicon1.png'></image><view class='underL' bindtap="selectTap">点击查看</view></van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">店铺名片</van-col>
+      <van-col span="18"><image src='/static/imgs/SDicon2.png'></image><view class='underL'>点击下载</view></van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">店铺微信</van-col>
+      <van-col span="18"><image src='/static/imgs/SDicon2.png'></image><view class='underL'>点击打开</view></van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">开店时间</van-col>
+      <van-col span="18">2018-05-18 20:15:30</van-col>
+    </van-row>
+  </view>
+</view>
+
+<view class='box'> 
+  <view class='title'>汇款信息</view>
+  <view>
+    <van-row>
+      <van-col span="6">单位名称</van-col>
+      <van-col span="18">安吉阿母工业设备有限公司</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">开户行</van-col>
+      <van-col span="18">工商银行安街支行</van-col>
+    </van-row>
+    <van-row>
+      <van-col span="6">账号</van-col>
+      <van-col span="18">123132123132132132</van-col>
+    </van-row>
+  </view>
+</view>
+
+<view class='box'> 
+  <view class='title'>公司简介</view>
+  <view>
+    <view>浙江重力式浙江重力式浙江重力江重力式浙江重式浙江重力式式浙江重力式浙江重力式浙江重力浙江重力式浙</view>
+    <view></view>
+    <view></view>
+  </view>
+</view>
+
+<view class='box'> 
+  <view class='title'>主营产品</view>
+  <view>主营电瓶搬运车、电动堆高车、电动叉车</view>
+  <view>式浙江重力式浙江重力式浙江重力浙江重式浙江重力式浙江重力式浙江重力浙江重式浙江重力式浙江重力式浙江重力浙江重力式浙</view>
+</view>
+
+<van-popup show="{{ show }}" position="bottom" bind:close="onClose">
+  <view class='zhezhao'>
+    <image src='/static/imgs/gou.png'></image>
+  </view>
+</van-popup>
+
+</view>
