@@ -11,11 +11,9 @@ page{
 }
 
 .topImg{
-  width: 250rpx;
-  height: 250rpx;
-  margin: 0 auto;
+  text-align: center;
   margin-top: 60rpx;
-  margin-bottom: 62rpx
+  margin-bottom: 62rpx;
 }
 
 .topImg image{

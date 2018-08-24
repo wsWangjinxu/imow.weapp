@@ -7,15 +7,13 @@ Page({
     items: [
       { name: 'USA', value: '美国' },
       { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' },
-      { name: 'JPN', value: '日本' },
-      { name: 'ENG', value: '英国' },
-      { name: 'TUR', value: '法国' },
+      { name: 'BRA', value: '巴西' }
     ],
     showS: false,//控制下拉列表的显示隐藏，false隐藏、true显示
     selectData: ['网银支付', '2'],//下拉列表的数据
     index: 0,//选择的下拉列表下标
-    show: false
+    show: false,
+    abc: true //true显示商家false显示自提
   },
   //事件处理函数
   // 点击下拉显示框

@@ -13,6 +13,12 @@ Page({
       date: e.detail.value
     })
   },
+  onMyEvent(e){
+    console.log(e.detail);
+    this.setData({ 
+      paramBtoA: e.detail
+    })
+  },
   onLoad: function (options) {
       
   }

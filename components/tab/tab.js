@@ -22,15 +22,15 @@ Component({
     }, {
       id: '103',
       title: '店铺余额'
-    }]
+    }],
+    paramBtoA:"123"
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    handleTabChange(selectedId) {
-      
+    handleTabChange(selectedId) {      
       if (selectedId.detail == 101) {
         wx.redirectTo({
           url: '/pages/myAssetsCoin/myAssetsCoin'
@@ -44,6 +44,10 @@ Component({
           url: '/pages/myAssetsYuMoney/myAssetsYuMoney'
         });
       }
+    },
+    change: function () {
+      // let myEventDetail = this.data.paramBtoA;
+      this.triggerEvent('myevent', {myEventDetail:111});
     }
   }
 })

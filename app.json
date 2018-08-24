@@ -1,5 +1,8 @@
 {
   "pages":[ 
+    "pages/myAssetsCoin/myAssetsCoin",
+    "pages/checkPay/checkPay",
+    "pages/finishPay/finishPay",
     "pages/shopDetail/shopDetail",
     "pages/productDetail/productDetail",
     "pages/my/my",
@@ -12,7 +15,7 @@
     "pages/bill/bill",
     "pages/tradeDetail/tradeDetail",
     "pages/memberInfo/memberInfo",
-    "pages/myAssetsCoin/myAssetsCoin",
+    
     "pages/myAssetsScore/myAssetsScore",
     "pages/myAssetsYuMoney/myAssetsYuMoney",
     "pages/qr/qr",
@@ -24,12 +27,9 @@
     "pages/addressForm/addressForm",
     "pages/repayment/repayment",
     "pages/orderDetail/orderDetail",
-    "pages/order/order",
-    "pages/checkPay/checkPay",
-    "pages/finishPay/finishPay",
+    "pages/order/order",  
     "pages/buy/buy",
     "pages/orderConfirm/orderConfirm",
-    "pages/cart/cart",
     "pages/index/index",
     "pages/logs/logs"
   ],

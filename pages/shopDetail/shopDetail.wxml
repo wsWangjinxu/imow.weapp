@@ -1,6 +1,8 @@
 <!--index.wxml-->
 <view class="container">
 
+<shopTitle></shopTitle>
+
 <view class='top'> 
   <view class='title'>基础信息</view>
   <view>
@@ -72,6 +74,7 @@
   <view>式浙江重力式浙江重力式浙江重力浙江重式浙江重力式浙江重力式浙江重力浙江重式浙江重力式浙江重力式浙江重力浙江重力式浙</view>
 </view>
 
+<!-- 弹框 -->
 <van-popup show="{{ show }}" position="bottom" bind:close="onClose">
   <view class='zhezhao'>
     <image src='/static/imgs/gou.png'></image>
