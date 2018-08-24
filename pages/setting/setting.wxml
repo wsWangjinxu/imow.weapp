@@ -16,47 +16,47 @@
     </view>
     <view>
       <text>会员等级</text>
-      <view style="flex: 3;"><navigator url="/pages/userLevel/userLevel">一级<van-icon style="vertical-align: -3rpx;" name="info-o"></van-icon></navigator></view>
+      <view style="flex: 3;"><navigator url="/pages/userLevel/userLevel">{{userInfo.level}}<van-icon style="vertical-align: -3rpx;" name="info-o"></van-icon></navigator></view>
     </view>
     <view>
       <text>用户名</text>
-      <text>阿母工业123</text>
+      <text>{{userInfo.username}}</text>
     </view>
     <view>
       <text>真实姓名</text>
-      <text>张三</text>
+      <text>{{userInfo.realname}}</text>
     </view>
     <view>
       <text>性别</text>
-      <text>男</text>
+      <text>{{userInfo.gender}}</text>
     </view>
     <view>
       <text>邮箱</text>
-      <text>1576520768@qq.com</text>
+      <text>{{userInfo.email}}</text>
     </view>
     <view>
       <text>手机号码</text>
-      <text>13282123626</text>
+      <text>{{userInfo.phone}}</text>
     </view>
     <view>
       <text>生日</text>
-      <text>1979.10.10</text>
+      <text>{{userInfo.birthday}}</text>
     </view>
     <view>
       <text>企业名称</text>
-      <text>阿母工业设备有限公司</text>
+      <text>{{userInfo.companyName}}</text>
     </view>
     <view>
       <text>负责人姓名</text>
-      <text>张三</text>
+      <text>{{userInfo.principal}}</text>
     </view>
     <view>
       <text>负责人电话</text>
-      <text>1576520768</text>
+      <text>{{userInfo.principalPhone}}</text>
     </view>
     <view>
       <text>地区</text>
-      <text>杭州</text>
+      <text>{{userInfo.region}}</text>
     </view>
   </view>
   <view class="exit">
