@@ -48,7 +48,7 @@
   </view>
 
   <view class="shopList">
-    <view class='shop'  wx:for="{{['浙江重力机械有限公司机械有限公司','工厂店A','工厂店B','工厂店C']}}">
+    <view class='shop'  wx:for="{{['浙江重力机械有限公司机械有限公司','工厂店A','工厂店B','工厂店C']}}" wx:key="*this">
       <van-row>
         <van-col span="9">
           <view class="shopItem1">{{item}}</view>

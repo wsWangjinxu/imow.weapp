@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
 
-<view class='topImg'><image src='/static/imgs/gou.png'></image></view>
+<view class='topImg'><icon type="success" size="120"/></view>
 <view class='money'>您已成功付款<text class="red">57200.00</text>元</view>
 <view class='sendTo'>货物寄送至: <text>浙江杭州市 下城区 时期阿婆浙江杭州市下城区时期阿婆浙江杭州市下城区时期阿婆</text></view>
 <view cxlas='box'>
@@ -9,7 +9,7 @@
   <view class='button sendGoods'>我要分批发货</view>
 </view>
 
-<view cxlas='box'> 
+<view> 
   <view class='likeTitle'>猜你喜欢</view>
   <view class='like'></view>
 </view>

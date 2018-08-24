@@ -38,7 +38,7 @@
     </van-row>
   </view>
   <view class="billList">
-    <view class='billItem' wx-for="{{5}}">
+    <view class='billItem' wx-for="{{5}}" wx:key="*this">
       <van-row>
         <van-col span="5">
           <view>2018-06-29</view>

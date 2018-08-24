@@ -1,13 +1,12 @@
 <!--index.wxml-->
 <view class="container">
-<myTab selectedId='101'></myTab>
+<myTab selectedId='101' bind:myevent="onMyEvent"></myTab>
 
 <view class='box'>
   <view class="top">
-    <view class='title'>阿母币</view>
+    <view class='title'>阿母币{{paramBtoA}}</view>
     <view>
       <view class='timeCut'>交易类型</view>  
-      
     </view>
     <view>
       <view class='timeCut'>时间段</view>  
