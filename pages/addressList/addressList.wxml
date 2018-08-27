@@ -1,15 +1,14 @@
 <view class="addressList">
-  <block wx:for="{{3}}">
+  <block wx:if="{{addressList}}" wx:for="{{addressList}}" wx:key="index">
     <view class="item">
-      <checkbox></checkbox>
       <view>
-        <text>张亮亮 13282123621</text>
-        <text>浙江省杭州市下城区石桥街道永华街121号</text>
+        <text>{{ item.consignee }} {{ item.phone }}</text>
+        <text>{{ item.detail }}</text>
       </view>
-      <van-icon style="font-size: 40rpx;" name="edit"></van-icon>
+      <navigator url="{{'/pages/addressForm/addressForm?id='+item.id}}"><van-icon style="font-size: 40rpx;" name="edit"></van-icon></navigator>
     </view>
   </block>
   <view class="add">
-    <van-cell  icon="add" title="新增收货地址" is-link></van-cell>
+    <navigator url="/pages/addressForm/addressForm"><van-cell  icon="add" title="新增收货地址" is-link></van-cell></navigator>
   </view>
 </view>

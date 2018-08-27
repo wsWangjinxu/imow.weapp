@@ -5,7 +5,7 @@
         <swiper-item><image mode="scaleToFill" src="http://dummyimage.com/200x100/fb0a2a" /></swiper-item>
     </swiper>
     <view class="nav-block">
-      <navCircle wx:for="{{8}}" :imgSrc="http://dummyimage.com/200x100/fb0a2a" ></navCircle>    
+      <navCircle wx:for="{{8}}" imgSrc="http://dummyimage.com/400x100/fb0a2a" ></navCircle>    
     </view>
     <view class="ad">
         <image src="http://dummyimage.com/200x100/fb0a2a"></image>

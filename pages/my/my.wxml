@@ -1,8 +1,8 @@
-<view class="my">
+<view wx:if="{{isLogin}}" class="my">
   <view class="userInfo">
     <navigator style="align-self:flex-end;color:#626262;" url="/pages/setting/setting"><van-icon name="setting"></van-icon></navigator> 
-    <image src="http://dummyimage.com/200x100/fb0a2a" />
-    <text>阿母工业老王</text>
+    <image src="{{avatarUrl}}" />
+    <text>{{nickName}}</text>
   </view>
   <view class="myOrder">
     <view class="title">
@@ -41,3 +41,12 @@
     <van-cell title="我的消息" border="{{ false }}" is-link></van-cell>
   </view> -->
 </view>
+<view wx:else class="loginPane">
+  <view class="login">
+    <input type="text" placeholder="  请输入阿母关联账号"/>
+    <input type="text" placeholder="  请输入密码" password/>
+    <van-button type="danger" bindtap="login" open-type="getUserInfo" style="width: 100%;margin-top: 30rpx;height: 80rpx;">立即登陆</van-button>
+    <view class="text">忘记密码？</view>
+  </view>
+</view>
+
