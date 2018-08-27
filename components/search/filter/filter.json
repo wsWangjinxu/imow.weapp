@@ -2,6 +2,8 @@
   "component": true,
   "usingComponents": {
     "van-icon": "/vantui/icon/index",
-    "filterItem": "/components/search/filterItem/filterItem"
+    "propertyCategories": "/components/search/propertyCategories/propertyCategories",
+    "brandList": "/components/search/brandList/brandList"
+
   }
 }

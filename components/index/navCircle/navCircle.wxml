@@ -1,4 +1,3 @@
-<!--components/index/navCircle.wxml-->
 <view class='navCircle'>
   <navigator url="{{url}}" redirect hover-class="className">
     <image src="{{imgSrc}}"></image>

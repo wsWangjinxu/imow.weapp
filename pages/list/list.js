@@ -1,6 +1,8 @@
+import {getProductList} from "../../api/search/search"
+
 Page({
   data: {
-    filterShow: false,
+    filterShow: true,
     keyword:"中力小金刚",
     selectedId: "1",
     list: [
@@ -14,6 +16,12 @@ Page({
       }
     ]
   },
+
+  onLoad(option) {
+    //初始化数据
+    this.init(option);
+  },
+
   onSearch(e) {
     //这里获取搜索的逻辑
     console.log(this.data.selectedId);
@@ -30,9 +38,7 @@ Page({
     });
   },
   pointSearch(e) {
-    var keyword = e.target.dataset.text;
-    console.log(this.data.selectedId);
-    console.log(keyword);
+
   },
   filterOpen() {
     this.setData({
@@ -44,5 +50,36 @@ Page({
       filterShow: false
     })
     console.log(data);
+  },
+
+  //点击搜索框返回到上一级
+  goBack() {
+    wx.navigateBack({
+      delta: 1
+    });
+  },
+
+  //初始化数据
+  init(option){
+      //单独打开页面会出现问题
+      this.setData({
+        // keyword: option.keyword,
+        // selectedId: option.id
+      });
+      this.search()
+  },
+
+  search() {
+    let id = this.data.selectedId;
+    if(id==="1") {
+      getProductList("POST", {
+        
+      }).then(res => {
+        // console.log(res);
+      })
+    } else {
+
+    }
   }
+
 })

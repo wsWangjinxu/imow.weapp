@@ -16,19 +16,5 @@ Component({
       type: String,
       value: "/pages/logs/logs"
     }
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
   }
 })

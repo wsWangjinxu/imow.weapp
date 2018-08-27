@@ -6,5 +6,8 @@
     "van-tab": "/vantui/tab/index",
     "navCircle": "/components/index/navCircle/navCircle",
     "product": "/components/index/product/product"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50,
+  "backgroundColor": "#333" 
 }

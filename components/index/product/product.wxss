@@ -1,4 +1,3 @@
-/* components/index/navCircle.wxss */
 .product {
   display: flex;
   flex-direction: column;

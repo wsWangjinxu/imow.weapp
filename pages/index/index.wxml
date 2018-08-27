@@ -1,17 +1,16 @@
 <view>
-    <van-search slot="title" placeholder="搜索 商品/品牌/店铺"></van-search>
+    <van-search slot="title" bindtap="navigatorToSearch" disabled="true" placeholder="搜索 商品/品牌/店铺"></van-search>
     <swiper indicator-dots="true">
-        <swiper-item><image mode="scaleToFill" src="http://dummyimage.com/200x100/fb0a2a" /></swiper-item>
-        <swiper-item><image mode="scaleToFill" src="http://dummyimage.com/200x100/fb0a2a" /></swiper-item>
+        <swiper-item wx:for="{{bannerList}}" wx:key="index"><navigator url="/pages/productDetail/productDetail"><image mode="scaleToFill" src="{{item.imgSrc}}" /></navigator></swiper-item>
     </swiper>
     <view class="nav-block">
-      <navCircle wx:for="{{8}}" imgSrc="http://dummyimage.com/400x100/fb0a2a" ></navCircle>    
+      <navCircle wx:for="{{navList}}" wx:key="index" url="{{item.url}}" title="{{item.text}}" imgSrc="{{item.imgSrc}}" ></navCircle>    
     </view>
     <view class="ad">
-        <image src="http://dummyimage.com/200x100/fb0a2a"></image>
+        <navigator  wx:for="{{ADList}}" wx:key="index" url="{{item.url}}"><image src="{{item.imgSrc}}"></image></navigator>
     </view>
-    <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
+    <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange"></van-tab>
     <view class="product-container">
-        <product wx:for="{{8}}"></product>
+        <product wx:for="{{productList}}" ctn="{{item}}"  wx:key="index"></product>
     </view>
 </view>

@@ -32,7 +32,7 @@
 
 /* 控制是否折叠 */
 .fold {
-  height: 70rpx;
+  height: 78rpx;
   overflow:hidden;
 }
 

@@ -1,11 +1,9 @@
-<!--components/index/navCircle.wxml-->
-
-<navigator url="{{url}}" class="product" redirect hover-class="className">
-<image src="http://dummyimage.com/175x175/fb0a2a" />
-<text>EPT20-15ET2 1.5t全电动搬运车 中力小金刚二代</text>
-<view>
-  <text>￥9900起</text>
-  <text>已售123件</text>
-</view>
+<navigator url="{{ctn.url}}" class="product" redirect hover-class="className">
+  <image src="{{ctn.imgSrc}}" />
+  <text>{{ctn.title}}</text>
+  <view>
+    <text>￥{{ctn.price}}起</text>
+    <text>已售{{ctn.number}}件</text>
+  </view>
 </navigator>
 

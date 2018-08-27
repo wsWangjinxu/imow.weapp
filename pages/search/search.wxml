@@ -3,13 +3,13 @@
     <view slot="action" bind:tap="onSearch">搜索</view>
   </van-search>
   <van-tab list="{{list}}" bindtabchange="handleTabChange" selected-id="{{selectedId}}"></van-tab>
-  <view class="history">
+  <view wx:if="{{history}}" class="history">
     <text>历史搜索</text>
     <view>
       <text bindtap="pointSearch" wx:for="{{history}}" wx:key="index" data-text="{{item}}">{{item}}</text>
     </view>
   </view>
-  <view class="hotProduct"> 
+  <view wx:if="{{hotProduct}}" class="hotProduct"> 
     <text>热门搜索</text>
     <view>
       <text bindtap="pointSearch" wx:for="{{hotProduct}}" wx:key="index" data-text="{{item}}">{{item}}</text>

@@ -1,0 +1,49 @@
+.item {
+  margin-top: 20rpx;
+}
+
+.item .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+/* 控制取消的按钮 */
+.item .title > view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.item .title > view .icon {
+  color: #fe0000;
+  font-size: 30rpx;
+  background-color: rgba(0,0,0,0);
+  margin-top: 6rpx;
+  margin-left: 15rpx;
+}
+
+/* 控制是否折叠 */
+.fold {
+  height: 78rpx;
+  overflow:hidden;
+}
+
+.unfold {
+  height: auto;
+}
+
+.item-ctn > view, .fold > view, .unfold > view {
+  display: inline-block;
+  padding: 5rpx 15rpx;
+  background-color: #f2f2f2;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+}
+

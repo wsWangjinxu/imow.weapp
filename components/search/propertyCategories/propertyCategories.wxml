@@ -1,0 +1,8 @@
+<view class="item">
+  <view bindtap="fold" class="title"><view>{{ctn.key}}<view wx:if="{{iconShow}}" catchtap="backKeyword" class="icon"><van-icon style="vertical-align: -4rpx;" name="close"></van-icon></view></view><van-icon name="arrow"></van-icon></view>
+  <view class="item-ctn" class="{{isFoldClass}}">
+    <block wx:for="{{ctn.propertyCategories}}" wx:key="index">
+      <view data-name="{{item.name}}" data-id="{{item.id}}" bindtap="handleSelected">{{item.name}}</view>
+    </block>
+  </view>
+</view>
