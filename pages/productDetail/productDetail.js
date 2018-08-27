@@ -12,13 +12,22 @@ Page({
     indicatorDots: true,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 1000,
+    title: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代"
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+  onShareAppMessage: function () {
+    console.log(this.data.title)
+    return {
+      title: this.data.title,
+      path: '/pages/productDetail/productDetail'
+    }
+
   },
   onLoad: function () {
     if (app.globalData.userInfo) {

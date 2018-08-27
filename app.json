@@ -1,10 +1,9 @@
 {
   "pages":[ 
-    "pages/myAssetsCoin/myAssetsCoin",
+    "pages/productDetail/productDetail",
     "pages/checkPay/checkPay",
     "pages/finishPay/finishPay",
     "pages/shopDetail/shopDetail",
-    "pages/productDetail/productDetail",
     "pages/my/my",
     "pages/addressList/addressList",
     "pages/list/list",
@@ -15,7 +14,7 @@
     "pages/bill/bill",
     "pages/tradeDetail/tradeDetail",
     "pages/memberInfo/memberInfo",
-    
+    "pages/myAssetsCoin/myAssetsCoin",
     "pages/myAssetsScore/myAssetsScore",
     "pages/myAssetsYuMoney/myAssetsYuMoney",
     "pages/qr/qr",

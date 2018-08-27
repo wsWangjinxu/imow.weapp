@@ -11,11 +11,8 @@
 </swiper>
 
 <view class="productTitle box">
-  <view class='name'>EPT20-15ET2 1.5t全电动搬运车 中力小金刚二代</view> 
-  <view class='like'>
-    <van-icon name="share" style='font-size:46rpx;'/>
-    <view><text>分享</text></view>
-  </view> 
+  <view class='name'>{{title}}</view> 
+  <van-button size="small" open-type='share'><text  class='like'>分享</text><van-icon name="share" class='like'/></van-button>
 </view>
 
 <view class='box priceBox'>
@@ -126,19 +123,6 @@
   </van-row>
 </view>
 
-<view> 
-  <van-cell-group>
-    <van-cell
-      title="选择"
-      is-link
-      arrow-direction="left"
-      value="规格、交期、支付类型"
-      border="{{ false }}"
-      url=""
-    />
-  </van-cell-group>
-</view>
-
 <view class="box shopName"> 
   <van-row>
     <van-col span="5">
@@ -186,6 +170,8 @@
       <text>保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。</text>
   </view>
 </view>
+
+
 
 <view class='footer'>
   <van-row>

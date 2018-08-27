@@ -33,8 +33,11 @@ swiper-item image{
   font-weight: bold;
 }
 
+.productTitle van-button{
+  margin-top: 10rpx;
+}
+
 .like{
-  text-align:center;
   color: #fe0000;
 }
 
@@ -73,7 +76,6 @@ swiper-item image{
   width: 90rpx;
   margin: 0 auto;
 }
-
 
 .youhui{
   padding: 30rpx 0 30rpx 138rpx;
