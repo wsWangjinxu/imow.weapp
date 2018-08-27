@@ -1,7 +1,9 @@
 {
-  "pages":[ 
-    "pages/productDetail/productDetail",
-    "pages/checkPay/checkPay",
+  "pages":[
+    "pages/checkPay/checkPay", 
+    "pages/test/test",
+       
+    "pages/productDetail/productDetail",   
     "pages/finishPay/finishPay",
     "pages/shopDetail/shopDetail",
     "pages/my/my",
@@ -10,7 +12,6 @@
     "pages/addressList/addressList",
     "pages/list/list",
     "pages/search/search",
-    "pages/index/index",
     "pages/login/login",
     "pages/cart/cart",
     "pages/coupon/coupon",
@@ -31,7 +32,6 @@
     "pages/buy/buy",
     "pages/orderConfirm/orderConfirm",
     "pages/index/index",   
-    "pages/productDetail/productDetail",
     "pages/logs/logs"
   ],
   "window":{

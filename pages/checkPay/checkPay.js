@@ -9,11 +9,12 @@ Page({
       { name: 'CHN', value: '中国', checked: 'true' },
       { name: 'BRA', value: '巴西' }
     ],
-    showS: false,//控制下拉列表的显示隐藏，false隐藏、true显示
-    selectData: ['网银支付', '2'],//下拉列表的数据
+
+    array: ['网银支付', '微信支付'],//下拉列表的数据
     index: 0,//选择的下拉列表下标
     show: false,
-    abc: true //true显示商家false显示自提
+    abc: true,//true显示商家false显示自提
+    isFocus: false//控制input 聚焦
   },
   //事件处理函数
   // 点击下拉显示框
@@ -22,14 +23,12 @@ Page({
       showS: !this.data.showS
     });
   },
-  // 点击下拉列表
-  optionTap(e) {
-    let Index = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: Index,
-      showS: !this.data.showS
-    });
-  },
+      index: e.detail.value
+    })
+  },  
   checkboxChange: function (e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
   },
@@ -38,6 +37,26 @@ Page({
   },
   onClose() {
     this.setData({ show: false });
+  },
+// 支付框
+  set_wallets_password(e) {//获取钱包密码
+    this.setData({
+      wallets_password: e.detail.value
+    });
+    if (this.data.wallets_password.length == 6) {//密码长度6位时，自动验证钱包支付结果
+      wallet_pay(this)
+    }
+  },
+  set_Focus() {//聚焦input
+    console.log('isFocus', this.data.isFocus)
+    this.setData({
+      isFocus: true
+    })
+  },
+  set_notFocus() {//失去焦点
+    this.setData({
+      isFocus: false
+    })
   },
   onLoad: function (options) {
       
@@ -51,3 +70,12 @@ Page({
     })
   }
 })
+
+// 钱包支付
+function wallet_pay(_this) {
+  console.log('钱包支付请求函数')
+  /*
+  1.支付成功
+  2.支付失败：提示；清空密码；自动聚焦isFocus:true，拉起键盘再次输入
+  */
+}

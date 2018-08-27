@@ -1,6 +1,7 @@
 /**index.wxss**/
 page{
   background-color: #f2f2f2;
+  padding-bottom: 108rpx;
 }
 
 .box{
@@ -76,9 +77,8 @@ page{
 
 .footer{
   height: 108rpx;
-  /* position: fixed;
-  padding-bottom: 108rpx;
-  bottom: 0; */
+  position: fixed;
+  bottom: 0;
   width:100%;
   background-color:#fff;
 	z-index: 100;
@@ -110,27 +110,13 @@ page{
 }
 
 /* 下拉框 */
-.select_box{
+.selectBox{
   background: #fff;
   width: 144rpx;
   border: 1px solid #cccccc;
   position: relative;
 }
-.select{
-  box-sizing: border-box;
-  width: 100%;
-  height: 33rpx;
-  border:1px solid #efefef;
-  border-radius: 8rpx;
-  display: flex;
-  align-items: center;
-  padding-LEFT: 20rpx;
-}
-.select_text{
-  font-size: 20rpx;
-  font-weight: bold;
-  flex: 1;
-}
+
 .select_img{
   display: block;
   transition:transform 0.3s;
@@ -138,34 +124,17 @@ page{
   line-height: 40rpx;
   height: 33rpx;
   width: 33rpx;
-}
-.select_img_rotate{
   transform:rotate(90deg); 
-}
-.option_box{
   position: absolute;
-  top: 34rpx;
-  width: 100%;
-  border:1px solid #efefef;
-  box-sizing: border-box;
-  height: 0;
-  overflow-y: auto;
-  border-top: 0;
-  background: #fff;
-  transition: height 0.3s;
-}
-.option{
-  display: block;
-  line-height: 40rpx;
-  font-size: 30rpx;
-  border-bottom: 1px solid #efefef;
-  padding: 10rpx;
+  right: 0;
+  top: 0
 }
 
+
+/* 弹框 */
 .alertBox{
-  width: 580rpx;
+  width: 620rpx;
   /* height: 800rpx; */
-
 }
 
 .close{
@@ -185,12 +154,87 @@ page{
   font-size: 28rpx;
   font-weight: bold;
   color: #393939;
-  margin-bottom: 20rpx;
 }
 
 .pwd .text{
-  margin-bottom: 24rpx;
   font-size: 26rpx;
+}
+
+.input-content-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.input-content-wrap .top {
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  border-bottom: 2rpx solid #ddd;
+  justify-content: space-around;
+}
+.input-content-wrap .top .close {
+  font-size: 44rpx;
+  color: #999;
+  font-weight: 100;
+}
+.input-content-wrap .top .forget {
+  color: #00a2ff;
+  font-size: 22rpx;
+}
+.input-content-wrap .actual_fee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  height: 100rpx;
+  margin: 0 23rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+.input-content-wrap .actual_fee span {
+  font-size: 24rpx;
+}
+.input-content-wrap .actual_fee text {
+  font-size: 36rpx;
+}
+.input-content-wrap .input-password-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140rpx;
+}
+.input-content-wrap .input-password-wrap .password_dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  box-sizing: border-box;
+  width: 90rpx;
+  height: 90rpx;
+  border: 2rpx solid #ddd;
+  border-left: none 0;
+}
+.input-content-wrap .input-password-wrap .password_dot:nth-child(1) {
+  border-left: 2rpx solid #ddd;
+}
+.input-content-wrap .input-password-wrap .password_dot i {
+  background: #000;
+  border-radius: 50%;
+  width: 20rpx;
+  height: 20rpx;
+}
+.input-content {
+  position: absolute;
+  opacity: 0;
+  left: -100%;
+  top: 600rpx;
+  background: #f56;
+  z-index: -999;
+}
+.input-content.active {
+  z-index: -99;
 }
 
 .pwd .pwdBox{
@@ -199,6 +243,7 @@ page{
   font-size: 26rpx;
   background-color: greenyellow
 }
+
 
 .hr{
   border-top: 1px solid #393939;
