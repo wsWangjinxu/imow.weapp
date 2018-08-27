@@ -85,15 +85,12 @@
   </view> 
   <van-row>
     <van-col span="6">
-      <view class='select_box'>
-        <view class='select' catchtap='selectTap'>
-            <text class='select_text'>{{selectData[index]}}</text>
-            <view class='select_img {{showS&&"select_img_rotate"}}'><van-icon name="arrow" /></view>
-        </view>
-        <view class='option_box' style='height:{{showS?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
-            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
-        </view>
-      </view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="selectBox">
+          {{array[index]}}
+          <view class='select_img'><van-icon name="arrow" /></view>
+        </view>     
+      </picker>
     </van-col>
     <van-col span="16">
       <view class='paymentText'>支付<text class='underLine'>53200元</text> </view> 
@@ -196,6 +193,36 @@
             <view class='contentTitle'>￥1000.00</view>
           </van-col>
         </van-row>
+               
+        <view class='pwd'>
+          <view class='text'>请输入支付密码</view>
+          <view>
+            <view class="input-content-wrap">
+              <view catchtap="set_Focus" class="input-password-wrap">
+                <view class="password_dot">
+                  <i wx:if="{{wallets_password.length>=1}}"></i>
+                </view>
+                <view class="password_dot">
+                  <i wx:if="{{wallets_password.length>=2}}"></i>
+                </view>
+                <view class="password_dot">
+                  <i wx:if="{{wallets_password.length>=3}}"></i>
+                </view>
+                <view class="password_dot">
+                  <i wx:if="{{wallets_password.length>=4}}"></i>
+                </view>
+                <view class="password_dot">
+                  <i wx:if="{{wallets_password.length>=5}}"></i>
+                </view>
+                <view class="password_dot">
+                  <i wx:if="{{wallets_password.length>=6}}"></i>
+                </view>
+              </view>
+            </view>  
+            <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
+          </view>        
+        </view>
+
         <van-row>
           <van-col span="12">
             <view class='contentTitle'>网银支付</view>
@@ -204,18 +231,6 @@
             <view class='contentTitle'>￥53200.00</view>
           </van-col>
         </van-row>
-        
-        <view class='pwd'>
-          <view class='text'>请输入支付密码</view>
-          <van-row>
-            <van-col span="18">
-              <view class='pwdBox'>网银支付</view>
-            </van-col>
-            <van-col span="6">
-              <van-button type="danger" size="small">确认</van-button>
-            </van-col>
-          </van-row>
-        </view>
 
         <view class='pwdSucces'  style='display:none'>
           您已成功输入交易密码，请按“提交”按钮进行下一步操作
@@ -236,8 +251,8 @@
             </van-col>
           </van-row>
           <van-row>
-            <van-col span="6">
-              <view>开户行:</view>
+            <van-col span="6"> 
+              <text text space="ensp">开 户 行:</text>
             </van-col>
             <van-col span="18">
               <view>工商银行安吉支行</view>
@@ -245,7 +260,7 @@
           </van-row>
           <van-row>
             <van-col span="6">
-              <view>账号:</view>
+              <text text space="ensp">账    号:</text>
             </van-col>
             <van-col span="18">
               <view>1205290009000761667</view>
@@ -259,7 +274,7 @@
               <view>1630266344</view>
             </van-col>
           </van-row>
-          <view class='tip'>可通过网银转账或银行柜台转账汇款，线下公司转账方式的到账时间是1-3个工作日却</view>
+          <view class='tip'>可通过网银转账或银行柜台转账汇款，线下公司转账方式的到账时间是1-3个工作日确认</view>
         </view>
       </view>
       
