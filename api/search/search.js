@@ -30,5 +30,14 @@ function getProductList(type, data) {
   });
 }
 
+//获取城市列表
+function getCities(type, data) {
+  return wxRequest({
+    url: baseUrl + "getCities",
+      data: data,
+      type: type
+  });
+}
 
-export { searchHistory, hotSearch, getProductList }
+
+export { searchHistory, hotSearch, getProductList, getCities }

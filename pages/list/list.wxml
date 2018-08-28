@@ -6,10 +6,10 @@
     <view style="border-right: 1px solid #e5e5e5;">销量优先</view>
     <view bindtap="filterOpen">筛选<image class="icon" src="/static/icon/filtrate.png"></image></view>
   </view>
-  <view class="list">
-    <block wx:for="{{5}}" wx:key="index">
-      <product></product>
+  <view wx:if="searchResult" class="list">
+    <block wx:for="{{searchResult.productList}}" wx:key="index">
+      <product ctn="{{item}}"></product>
     </block>
   </view>
-  <filter bind:close="completeFilter" wx:if="{{filterShow}}"></filter>
+  <filter brandList="{{searchResult.brandList}}" propertyList="{{searchResult.propertyList}}" propertyCategories="{{searchResult.propertyCategories}}"  bind:close="completeFilter" wx:if="{{filterShow}}"></filter>
 </view>

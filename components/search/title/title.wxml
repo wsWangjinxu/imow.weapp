@@ -1,0 +1,3 @@
+<view bindtap="handleTap" class="title">
+   <view>{{name}}</view> <image wx:if="{{isShow}}" src="/static/icon/down-circle.png"></image><image wx:else src="/static/icon/up-circle.png"></image>
+</view>

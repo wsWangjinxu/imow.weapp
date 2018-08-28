@@ -14,7 +14,8 @@ Page({
         id: "2",
         title: "店铺"
       }
-    ]
+    ],
+    searchResult: ""
   },
 
   onLoad(option) {
@@ -69,17 +70,20 @@ Page({
       this.search()
   },
 
-  search() {
-    let id = this.data.selectedId;
-    if(id==="1") {
-      getProductList("POST", {
-        
-      }).then(res => {
-        // console.log(res);
-      })
-    } else {
+  //全局的搜索
+  search(option) {
+    let data = {};
+    // data.keyword = option.keyword;
+    // data.selectedId = option.id;
+    getProductList("GET", {
+    }).then(res => {
+      console.log(res.data);
+      this.setData({
+        searchResult: res.data
+      });
 
-    }
+      console.log(this.data.searchResult);
+    })
   }
 
 })

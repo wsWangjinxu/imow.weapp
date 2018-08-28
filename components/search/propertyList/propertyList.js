@@ -22,10 +22,6 @@ Component({
           name: "杭叉"
         }
       ]
-    },
-    title: {
-      type: String,
-      value: ""
     }
   },
   data: {
@@ -51,14 +47,13 @@ Component({
       this.setData({
         selectedBrand: e.detail.name
       });
-      this.triggerEvent("brandSearch", {name: e.detail.name,id: e.detail.id});
+      this.triggerEvent("brandSearch", {id: e.detail.id});
     },
     //还原到未选中的状态
     resetBrand() {
       this.setData({
         selectedBrand: false
-      });
-      this.triggerEvent("brandSearch", {name: false});
+      })
     }
 
   }

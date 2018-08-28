@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "van-icon": "/vantui/icon/index",
     "title": "/components/search/title/title",
     "textItem": "/components/search/textItem/textItem"
   }

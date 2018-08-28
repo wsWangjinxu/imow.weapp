@@ -1,0 +1,8 @@
+<view class="service">
+  <title name="可享服务"></title>
+  <view class="serviceCtn">
+    <block wx:for="{{service}}" wx:key="index">
+      <textItem bind:search="handleService" bind:cancel="handleCancelService" ctn="{{item}}"></textItem>
+    </block>
+  </view>
+</view>

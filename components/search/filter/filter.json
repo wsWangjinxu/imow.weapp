@@ -3,7 +3,8 @@
   "usingComponents": {
     "van-icon": "/vantui/icon/index",
     "propertyCategories": "/components/search/propertyCategories/propertyCategories",
-    "brandList": "/components/search/brandList/brandList"
-
+    "brandList": "/components/search/brandList/brandList",
+    "service": "/components/search/service/service",
+    "title": "/components/search/title/title"
   }
 }

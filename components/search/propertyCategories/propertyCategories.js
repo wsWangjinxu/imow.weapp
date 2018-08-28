@@ -2,43 +2,30 @@ Component({
   properties: {
     ctn: {
       type: Object,
-      value: {
-        key: "分类",
-        propertyCategories: [
-        {
-          id: 101,
-          name: "手动搬运车"
-        },
-        {
-          id: 102,
-          name: "小金刚"
-        },{
-          id: 103,
-          name: "小金刚"
-        },{
-          id: 104,
-          name: "小金刚"
-        },{
-          id: 105,
-          name: "小金刚"
-        },
-        {
-          id: 106,
-          name: "锂电一号"
-        }]
-      }
+      value: {}
     }
-  },
-  onShow() {
-    console.log("我已经准备好了");
   },
   data: {
     isFoldClass: "fold",
-    name: "",
+    name: "分类",
     itemList: "",
     selected: "",
     selectedStack: [],
     iconShow: false
+  },
+  ready() {
+    console.log("这里");
+    // //将第一个节点存入栈中
+    let tempStack = this.data.selectedStack;
+    tempStack.push({ id: this.data.ctn.key, name: this.data.ctn.key});
+
+    //将第一次的key赋值给name
+    // this.setData({
+    //   name:  this.data.ctn.key,
+    //   selectedStack: tempStack
+    // });
+    console.log("这里");
+    console.log(this.data.ctn);
   },
   methods: {
     //是否折叠分类
@@ -64,22 +51,18 @@ Component({
       //获取当前记录栈
       let tempStack = this.data.selectedStack;
 
-      //如果是第一次点击的元素，将第一传入的key一并传入
-      if(!tempStack.length) {
-        tempStack.push(this.data.ctn.key);
-      }
-
       //把当前选中的元素入栈
-      tempStack.push(id);
+      tempStack.push({id: id, name: name});
 
       //更新栈
       this.setData({
-        selectedStack: tempStack
+        selectedStack: tempStack,
+        name: name
       });
 
       //触发事件
-      this.triggerEvent("search", {id: id});
-      if(tempStack) {
+      this.triggerEvent("searchClass",tempStack);
+      if(tempStack.length > 1) {
         this.setData({
           iconShow: true
         });
@@ -97,16 +80,17 @@ Component({
 
       //用新的数组替换原来的数组
       this.setData({
-        selectedStack: tempStack
+        selectedStack: tempStack,
+        name: tempStack[tempStack.length-1].name
       });
 
-      if(tempStack.length==1) {
+      if(tempStack.length <= 1) {
         //当前栈没有元素了，点击以后要屏蔽回退按钮
         this.setData({
           iconShow: false
         });
       }
-      this.triggerEvent("search", {id: tempStack[tempStack.length-1]});     
+      this.triggerEvent("searchClass", tempStack);     
     }
   }
 })

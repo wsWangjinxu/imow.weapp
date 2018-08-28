@@ -5,10 +5,7 @@
     "pages/index/index",
     "pages/myAssetsCoin/myAssetsCoin",
     "pages/checkPay/checkPay",
-  "pages":[
-    "pages/checkPay/checkPay", 
     "pages/test/test",
-       
     "pages/productDetail/productDetail",   
     "pages/finishPay/finishPay",
     "pages/shopDetail/shopDetail",
@@ -16,8 +13,6 @@
     "pages/setting/setting",
     "pages/userInfo/userInfo",
     "pages/addressList/addressList",
-    "pages/list/list",
-    "pages/search/search",
     "pages/login/login",
     "pages/cart/cart",
     "pages/coupon/coupon",
@@ -25,7 +20,6 @@
     "pages/bill/bill",
     "pages/tradeDetail/tradeDetail",
     "pages/memberInfo/memberInfo",
-    "pages/myAssetsCoin/myAssetsCoin",
     "pages/myAssetsScore/myAssetsScore",
     "pages/myAssetsYuMoney/myAssetsYuMoney",
     "pages/qr/qr",
@@ -36,8 +30,7 @@
     "pages/orderDetail/orderDetail",
     "pages/order/order",  
     "pages/buy/buy",
-    "pages/orderConfirm/orderConfirm",
-    "pages/index/index",   
+    "pages/orderConfirm/orderConfirm", 
     "pages/logs/logs"
   ],
   "window":{
