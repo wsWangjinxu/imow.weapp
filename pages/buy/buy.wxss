@@ -73,9 +73,6 @@ page{
 }
 
 
-
-
-
 .footer{
   height: 108rpx;
   width:100%;

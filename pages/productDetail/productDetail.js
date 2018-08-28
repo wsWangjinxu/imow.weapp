@@ -1,5 +1,7 @@
 //index.js
 //获取应用实例
+import { getProductDetail } from "../../api/productDetail/productDetail";
+
 const app = getApp()
 
 Page({
@@ -13,56 +15,50 @@ Page({
     autoplay: false,
     interval: 5000,
     duration: 1000,
-    title: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代"
+    title: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代",
+    amPrice1:9900,      //阿母价格
+    amPrice2:11000,
+    DLPrice1:8900,      //代理价格
+    DLPrice2: 10000,
+    saleNumber:122,     //已售数量
+    show: false,        //弹出层
+    content:"内容"
+  },
+  onLoad: function (options) {
+    //console.log(options);
+    this.init();
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onShareAppMessage: function () {
     console.log(this.data.title)
     return {
       title: this.data.title,
       path: '/pages/productDetail/productDetail'
     }
+  },
+  showA:function(){
+    this.setData({ show: true });
+  },
+  //弹框
+  onClose() {
+    this.setData({ show: false });
+  },  
+  //下拉刷新
+  onPullDownRefresh() {
+    this.init();
+    wx.stopPullDownRefresh();
+  },
+  //页面初始化
+  init() {
+    //获取首页轮播图的内容
+    getProductDetail("POST").then(res => {
+      console.log(res)
+      // this.setData({
+      //   "bannerList": res.data.bannerItemList
+      // });
+    });
 
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    
   }
+
 })

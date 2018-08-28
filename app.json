@@ -1,18 +1,20 @@
 {
   "pages":[ 
-    "pages/list/list",
-    "pages/search/search",
-    "pages/index/index",
-    "pages/myAssetsCoin/myAssetsCoin",
-    "pages/checkPay/checkPay",
-    "pages/test/test",
-    "pages/productDetail/productDetail",   
-    "pages/finishPay/finishPay",
+    
     "pages/shopDetail/shopDetail",
+    "pages/businessLicense/businessLicense",
+    "pages/buy/buy",
+    "pages/productDetail/productDetail",
+    "pages/checkPay/checkPay",    
+    "pages/test/test",
+    "pages/finishPay/finishPay",
+
+    "pages/list/list",    
     "pages/my/my",
     "pages/setting/setting",
     "pages/userInfo/userInfo",
     "pages/addressList/addressList",
+    "pages/search/search",
     "pages/login/login",
     "pages/cart/cart",
     "pages/coupon/coupon",
@@ -29,8 +31,8 @@
     "pages/repayment/repayment",
     "pages/orderDetail/orderDetail",
     "pages/order/order",  
-    "pages/buy/buy",
-    "pages/orderConfirm/orderConfirm", 
+    "pages/orderConfirm/orderConfirm",
+    "pages/index/index",  
     "pages/logs/logs"
   ],
   "window":{
