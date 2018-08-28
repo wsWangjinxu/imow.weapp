@@ -9,7 +9,8 @@
     "van-icon": "/vantui/icon/index",
     "van-row": "/vantui/row/index",
     "van-col": "/vantui/col/index",
-    "van-badge": "/vantui/badge/index"
+    "van-badge": "/vantui/badge/index",
+    "van-popup": "/vantui/popup/index"
   }
 
 }

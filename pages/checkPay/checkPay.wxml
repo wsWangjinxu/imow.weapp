@@ -170,7 +170,7 @@
 </view>
 
 <!-- 弹窗 -->
-<van-popup show="{{ show }}" bind:close="onClose" close-on-click-overlay="{{false}}">
+<van-popup show="{{ show }}" bind:close="onClose" close-on-click-overlay="{{false}}" catchtouchmove="ture">
     <view class="alertBox">
       <view class='close' bindtap="onClose">
         <van-icon name="close" />

@@ -21,10 +21,10 @@
       <text>阿母价</text>
     </van-col>
     <van-col span="14">
-      <text class='price1'>￥9900~11000</text>  
+      <text class='price1'>￥{{amPrice1}}~{{amPrice2}}</text>  
     </van-col>
     <van-col span="5" style="text-align:center">
-      <text style='color:#9b9b9b;'>已售 123件</text>
+      <text style='color:#9b9b9b;'>已售 {{saleNumber}}件</text>
     </van-col>
   </van-row>
   
@@ -34,7 +34,7 @@
         <text>代理价</text>
       </van-col>
       <van-col span="14">
-        <text class='price2'>￥8900~10000</text> 
+        <text class='price2'>￥{{DLPrice1}}~{{DLPrice2}}</text> 
       </van-col>
       <van-col span="5" class="center">
         <view  class='tip'>阿母团购日</view>
@@ -90,9 +90,11 @@
 
 <view class="box send">
   <van-row>
+  <view bindtap='showTip'>
     <van-col span="5">
       <text>产品政策</text>
     </van-col>
+  </view>  
     <van-col span="18">
       <text>XXXXXXXXXXXXXXXX</text>
     </van-col>
@@ -123,8 +125,25 @@
   </van-row>
 </view>
 
+<view class='box send'>
+  <van-row>
+  <navigator url='/pages/buy/buy?shop_id=111'>
+    <van-col span="5">
+      <text>选择</text>
+    </van-col>
+    <van-col span="18">
+      <text>规格、交期、支付类型</text>
+    </van-col>
+    <van-col span="1">
+      <text> > </text>
+    </van-col>
+  </navigator>  
+  </van-row>
+</view>
+
 <view class="box shopName"> 
   <van-row>
+  <navigator url='/pages/shopDetail/shopDetail'>
     <van-col span="5">
       <image class='logo' src='/static/imgs/logo.png'></image>
     </van-col>
@@ -137,6 +156,7 @@
     <van-col span="1">
       <text> > </text>
     </van-col>
+  </navigator>  
   </van-row>
 </view>
 
@@ -171,29 +191,36 @@
   </view>
 </view>
 
-
-
 <view class='footer'>
   <van-row>
     <van-col span="4">
+    <navigator url='/pages/index/index' open-type="switchTab">
       <view  class="button1">
         <van-icon name="wap-home" />
         <text>首页</text>
-      </view>    
+      </view>
+    </navigator>      
     </van-col>
     <van-col span="4">
+    <navigator url='/pages/cart/cart' open-type="switchTab">
       <view  class="button2">
         <van-icon name="cart" />
         <text>购物车</text>
-      </view>   
+      </view>
+    </navigator>      
     </van-col>
     <van-col span="8">
-      <navigator url="/pages/cart/cart" ><view class="button3">加入购物车</view></navigator>
+      <view class="button3">加入购物车</view>
     </van-col>
     <van-col span="8" class="button4">
       <view class="button4">立即购买</view>
     </van-col>
   </van-row>
 </view>
+
+<!-- 弹框 -->
+<van-popup show="{{ show }}" position="top" overlay="{{ true }}" bind:close="onClose" catchtouchmove="ture">
+  {{content}}
+</van-popup>
 
 </view>
