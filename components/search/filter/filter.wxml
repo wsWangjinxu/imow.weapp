@@ -1,5 +1,5 @@
-<view class="filter" catchtouchmove='true' >
-  <view class="filter-ctn" catchtouchmove='true'>
+<view class="filter" catchtouchmove='move'>
+  <view class="filter-ctn">
     <scroll-view scroll-y="false" style="height: 85%;" >
     <!--分类-->
    <propertyCategories ctn="{{propertyCategories}}"  bind:searchClass="handleClass"></propertyCategories>
@@ -21,6 +21,6 @@
     <!--城市-->
     <brandList brandList="{{cities}}" bind:brandSearch="handleCity" title="城市"></brandList>
     </scroll-view>
-    <view class="filter-btn"><view>重置</view><view bindtap="close">确定</view></view>
+    <view class="filter-btn"><view bindtap="reset">重置</view><view bindtap="close">确定</view></view>
   </view>
 </view>

@@ -11,5 +11,14 @@
       <product ctn="{{item}}"></product>
     </block>
   </view>
-  <filter brandList="{{searchResult.brandList}}" propertyList="{{searchResult.propertyList}}" propertyCategories="{{searchResult.propertyCategories}}"  bind:close="completeFilter" wx:if="{{filterShow}}"></filter>
+  <view class="{{filterShow}}">
+    <filter
+      bind:search="handleSearch"
+      bind:reset="handleReset"
+      brandList="{{searchResult.brandList}}" 
+      propertyList="{{searchResult.propertyList}}" 
+      propertyCategories="{{searchResult.propertyCategories}}"  
+      bind:close="completeFilter">
+    </filter>
+  </view>
 </view>

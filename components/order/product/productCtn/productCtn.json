@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-stepper": "/vantui/stepper/index",
+    "product": "/components/order/product/Accessory/Accessory",
+    "single": "/components/order/product/single/single"
+  }
+}

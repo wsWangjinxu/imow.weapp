@@ -1,8 +1,9 @@
 {
+  "component": true,
   "usingComponents": {
+    "van-icon": "/vantui/icon/index",
     "shopTitle": "/components/order/shopTitle/shopTitle",
     "product": "/components/order/product/productCtn/productCtn",
-    "payBar": "/components/order/payBar/payBar",
-    "shop": "/components/order/shop/shop"
+    "payBar": "/components/order/payBar/payBar"
   }
 }

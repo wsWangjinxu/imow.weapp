@@ -1,0 +1,27 @@
+.addr {
+  height: 150rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0 20rpx;
+}
+
+.addrDetail {
+  font-size: 24rpx;
+}
+
+.addrDetail view:first-child {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.addrDetail view:first-child text {
+  font-size: 20rpx;
+  display: inline-block;
+  border: 1px solid #787878;
+  color: #545454;
+  padding: 0rpx 10rpx;
+  vertical-align: 5rpx;
+}

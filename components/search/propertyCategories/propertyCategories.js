@@ -14,18 +14,16 @@ Component({
     iconShow: false
   },
   ready() {
-    console.log("这里");
+    console.log(this.data.ctn.key);
     // //将第一个节点存入栈中
     let tempStack = this.data.selectedStack;
     tempStack.push({ id: this.data.ctn.key, name: this.data.ctn.key});
 
     //将第一次的key赋值给name
-    // this.setData({
-    //   name:  this.data.ctn.key,
-    //   selectedStack: tempStack
-    // });
-    console.log("这里");
-    console.log(this.data.ctn);
+    this.setData({
+      name:  this.data.ctn.key,
+      selectedStack: tempStack
+    });
   },
   methods: {
     //是否折叠分类

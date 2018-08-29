@@ -30,7 +30,8 @@ Component({
   },
   data: {
     isFoldClass: "fold",
-    selectedBrand: false
+    selectedBrand: false,
+    selectedId: ""
   },
   methods: {
     //是否折叠分类
@@ -48,17 +49,26 @@ Component({
 
     //设置选中的品牌
     handleSearch(e) {
-      this.setData({
-        selectedBrand: e.detail.name
-      });
-      this.triggerEvent("brandSearch", {name: e.detail.name,id: e.detail.id});
+      if(e.detail.id) {
+        this.setData({
+          selectedBrand: e.detail.name,
+          selectedId: e.detail.id
+        });
+      } else {
+        this.setData({
+          selectedBrand: e.detail.name,
+        });
+      }
+      
+      this.triggerEvent("brandSearch", {name: e.detail.name, id: e.detail.id});
     },
     //还原到未选中的状态
-    resetBrand() {
+    resetBrand(e) {      
+      this.triggerEvent("brandSearch", {name: false, id: this.data.selectedId});
       this.setData({
-        selectedBrand: false
+        selectedBrand: false,
+        selectedId: false
       });
-      this.triggerEvent("brandSearch", {name: false});
     }
 
   }

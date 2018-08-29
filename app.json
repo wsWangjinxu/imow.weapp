@@ -1,5 +1,12 @@
 {
   "pages":[ 
+    "pages/cart/cart",
+    "pages/list/list",    
+
+
+    "pages/search/search",
+
+
     
     "pages/shopDetail/shopDetail",
     "pages/businessLicense/businessLicense",
@@ -9,19 +16,17 @@
     "pages/test/test",
     "pages/finishPay/finishPay",
 
-    "pages/list/list",    
     "pages/my/my",
     "pages/setting/setting",
     "pages/userInfo/userInfo",
     "pages/addressList/addressList",
-    "pages/search/search",
     "pages/login/login",
-    "pages/cart/cart",
     "pages/coupon/coupon",
     "pages/qrCard/qrCard",
     "pages/bill/bill",
     "pages/tradeDetail/tradeDetail",
     "pages/memberInfo/memberInfo",
+    "pages/myAssetsCoin/myAssetsCoin",
     "pages/myAssetsScore/myAssetsScore",
     "pages/myAssetsYuMoney/myAssetsYuMoney",
     "pages/qr/qr",

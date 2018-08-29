@@ -1,0 +1,6 @@
+<view class="shop" wx:if="{{productNum}}}">
+  <shopTitle shopName="{{shop.shopName}}" url="{{shop.url}}"></shopTitle>
+  <product wx:for="{{shop.orderCartProductSkus}}" wx:key="index" product="{{item}}"></product>
+  <payBar></payBar>
+</view>
+
