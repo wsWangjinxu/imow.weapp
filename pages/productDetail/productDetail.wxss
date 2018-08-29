@@ -113,14 +113,6 @@ swiper-item image{
   margin-bottom:16rpx;
 }
 
-.tc{
-  margin-top: 40rpx;
-}
-
-.tc .productVideo{
-  width: 100%
-}
-
 .productImg{
   margin-top: 26rpx;
   margin-bottom: 26rpx;
@@ -157,9 +149,9 @@ swiper-item image{
   transform: translate(-50%, -50%);
 }
 
-.shouhou{
+/* .shouhou{
   margin-top:26rpx;
-}
+} */
 
 .footer{
   height: 108rpx;

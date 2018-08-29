@@ -38,10 +38,6 @@ page{
   margin: 0 25rpx;
 }
 
-.skuItems{
-  
-}
-
 .skuItem{
   width: 160rpx;
   height: 58rpx;
@@ -80,6 +76,7 @@ page{
   text-align: center;  
   position: fixed;
   bottom: 0;
+  z-index: 999
 }
 
 .button3{

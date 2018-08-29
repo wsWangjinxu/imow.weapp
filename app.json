@@ -1,8 +1,8 @@
 {
-  "pages":[  
+  "pages":[ 
+    "pages/buy/buy", 
     "pages/productDetail/productDetail",
     "pages/shopDetail/shopDetail",  
-    "pages/buy/buy",
     "pages/checkPay/checkPay",    
     "pages/test/test",
     "pages/finishPay/finishPay",
