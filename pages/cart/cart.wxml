@@ -1,16 +1,7 @@
 <view>
-<view class="title">
-    <text>购物车 <text style="font-size:20rpx;">共30件商品</text></text>
-    <text>管理</text>
-</view>
-<shopTitle></shopTitle>
-<view class="product-list">
-    <product wx:for="{{8}}"></product>
-</view>
-<payBar></payBar>
-<shopTitle></shopTitle>
-<view class="product-list">
-    <product wx:for="{{8}}"></product>
-</view>
-<payBar></payBar>
+    <view class="title">
+        <text>购物车 <text style="font-size:20rpx;">共30件商品</text></text>
+        <text>管理</text>
+    </view>
+    <shop wx:for="{{list}}" wx:key="index" shop="{{item}}"></shop>
 </view>

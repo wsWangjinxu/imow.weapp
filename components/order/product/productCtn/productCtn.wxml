@@ -1,0 +1,6 @@
+<view class="productCtn">
+    <single bind:handleNum="handleNum" ctn="{{product}}"></single>
+    <block wx:for="{{product.accessories}}" wx:key="index">
+      <product number="{{product.num}}" ctn="{{item}}"></product>
+    </block>
+</view>

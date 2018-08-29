@@ -14,8 +14,8 @@ Component({
     },
     //分类
     propertyCategories: {
-      type: Array,
-      value: []
+      type: Object,
+      value: {}
     }
   },
   data: {
@@ -29,7 +29,7 @@ Component({
   },
   ready(){
     getCities("POST").then(res => {
-      console.log(res);
+      //获取城市列表
       this.setData({
         cities: res.data.cities
       });
@@ -37,9 +37,12 @@ Component({
     
   },
   methods: {
-    //监听子元素触发的搜索事件
-    handleSearch(e) {
-      console.log(e);
+    //控制页面滚动
+    move() {},
+
+    //点击重置
+    reset() {
+      this.triggerEvent("reset");
     },
 
     //点击关闭筛选面板
@@ -56,7 +59,7 @@ Component({
         "searchData.useCrePoint": Boolean(e.detail.useCrePoint)
       });
       //调用最终的搜索
-      console.log(this.data.searchData);
+      this.search();
     },
 
     //获取用户选择的品牌的数据
@@ -65,7 +68,7 @@ Component({
         "searchData.brand0": e.detail.name
       });
       //调用最终的搜索
-      console.log(this.data.searchData);
+      this.search();
     },
 
     //获取用户选择的分类的数据
@@ -74,47 +77,60 @@ Component({
         "searchData.category": e.detail 
       });
       //调用最终的搜索
-      console.log(this.data.searchData);
+      this.search();
     },
 
     //价格区间更新
     handleMinInput(e) {
-      console.log(e.detail.value);
       this.setData({
         "searchData.minPrice": e.detail.value
       });
       //调用最终的搜索
-      console.log(this.data.searchData);
+      this.search();
     },
     handleMaxInput(e) {
       this.setData({
         "searchData.maxPrice": e.detail.value
       });
       //调用最终的搜索
-      console.log(this.data.searchData);
+      this.search();
     },
 
     //获取用户选择的城市
     handleCity(e) {
-      console.log(e.detail.name);
       this.setData({
         "searchData.shipArea": e.detail.name
       });
       //调用最终的搜索
-      console.log(this.data.searchData);
+      this.search();
     },
 
     //获取用户选择的属性
     searchProperties(e){
-      console.log(e.detail);
       let tempPropertyList = this.data.searchData.PorpertyList;
-      tempPropertyList.push(e.detail);
+      if(e.detail.name === false) {
+        tempPropertyList.forEach(element => {
+          if(element.id === e.detail.id) {
+            //点击的是取消，把id相同的元素从数组中删除
+            tempPropertyList.pop(element);
+          }
+        });
+      } else {
+        tempPropertyList.push(e.detail);
+      }
+      
+      //设置属性列表
       this.setData({
         "searchData.PorpertyList": tempPropertyList
       });
 
       //调用最终的搜索
-      console.log(this.data.searchData);
+      this.search();
+    },
+
+    //这里触发搜索事件,在这里将搜索的数据全部传递到list页面中，然后执行搜索，根据properties的内容修改组件的值
+    search() {
+      this.triggerEvent("search", this.data.searchData);
     }
   }
 })

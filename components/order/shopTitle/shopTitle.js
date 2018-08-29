@@ -4,22 +4,25 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    shopName:{
+      type: String,
+      value: ""
+    },
+    url: {
+      type: String,
+      value: "http://www.baidu.com"
+    } 
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
-
+    isOrder: false
   },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-    handleCheckboxChange() {
-      console.log("被选中了")
+  ready(){
+    let route = getCurrentPages();
+    let currentRoute = route[route.length-1].route;
+    if(~currentRoute.indexOf("order")) {
+      this.setData({
+        isOrder: true
+      });
     }
   }
 })

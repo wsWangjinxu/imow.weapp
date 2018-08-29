@@ -1,0 +1,15 @@
+<view class="product">
+  <view class="status">
+    <checkbox wx:if="{{useful}}"></checkbox>
+    <view wx:if="{{!useful}}">失效</view>
+  </view>
+  <image src="{{ctn.img}}" />
+  <view class="ctn">
+    <view class="title">{{ctn.productName}}</view>
+    <view class="standard">{{ctn.skuName}}</view>
+    <view class="price">
+      <text>￥{{ctn.price}}</text>
+      <text>X{{ctn.num * number}}</text>
+    </view>
+  </view> 
+</view>

@@ -7,7 +7,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  font-size: 32rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 34rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
 }

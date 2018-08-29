@@ -1,3 +1,1 @@
-<view bindtap="handleTap" class="{{textClass}}" data-id="{{ctn.id}}">
-  {{ctn.name}}
-</view>
+<view bindtap="handleTap" class="textClass"  class="{{textClass}}" data-id="{{ctn.id}}">{{ctn.name}}</view>
