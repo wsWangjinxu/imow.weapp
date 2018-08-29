@@ -1,8 +1,8 @@
 <view class="shopTitle">
-  <image src="http://dummyimage.com/200x100/fb0a2a"></image>
+  <image src="{{shopImg}}"></image>
   <view class="title">
-    <text>浙江中力机械设备有限公司</text>
+    <text>{{shopName}}</text>
     <text>工厂店</text>
   </view>
-  <button>进店</button>
+  <button data-shopId="{{shopId}}" bindtap='showShopId'>进店</button>
 </view>

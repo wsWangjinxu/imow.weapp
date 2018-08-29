@@ -1,34 +1,47 @@
 //shopDetail.js
 import { getShopDetail } from "../../api/shopDetail/shopDetail";
 
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
     show: false,
     adImgSrc:"",
-    name: "浙江中力机械设备安装有限公司",
-    phone: 65525528,
-    area: "浙江杭州",
-    addr:"浙江省杭州市下城区永华街121号",
-    businessLicense: "https://www.baidu.com/", //工商执照
-    card: "www.imow.com/images/10010",
-    addr: "浙江省杭州市下城区永华街121号",
-    wechat: "/static/imgs/mine.jpg",
+    name: "",
+    phone: null,
+    area: "",
+    addr:"",
+    businessLicense: "",//工商执照
+    card: "",//名片
+    wechat: "",//微信号
     time: "2018-05-18 20:15:30",
-    company: "安吉阿母工业设备有限公司",
-    bank: "工商银行安吉支行",
-    account: "01015765207685518",
+    company: "",
+    bank: "",
+    account: null,
     companeyInfo: "",
-    mainProduct: ""
+    mainProduct: "",
+    shopId:null,
+    showContent:""
   },
   onLoad: function (options) {
     console.log(options)
+    this.setData({ shopId: options.shopId });
     this.init();
   },
   //事件处理函数
   //弹框
-  showPopup() {
+  showPopup(e) {
+    let showNo = e.currentTarget.dataset.show;
+    if (showNo==1){
+      let showContent = this.data.businessLicense;
+      this.setData({ showContent: showContent });
+    }else if(showNo==2){
+      let showContent = this.data.card;
+      this.setData({ showContent: showContent });
+    }else{
+      let showContent = this.data.wechat;
+      this.setData({ showContent: showContent });
+    };
     this.setData({
       show: !this.data.show
     });
@@ -36,27 +49,32 @@ Page({
   onClose() {
     this.setData({ show: false });
   },
-  //查看工商执照（跳转网页）
-  lookLicence() {
-    let web = this.data.businessLicense;
-    wx.navigateTo({
-      url: '/pages/businessLicense/businessLicense?a=' + web + ''
-    })
-  },
   //下拉刷新
-  onPullDownRefresh() {
-    this.init();
-    wx.stopPullDownRefresh();
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh()
   },
   //页面初始化
   init() {
-    //获取tab的默认内容
+    console.log()
     getShopDetail("POST", {
-      id: 111
+      id: this.data.shopId
     }).then(res => {
       console.log(res)
       this.setData({
-        // productList: res.data.productList
+        adImgSrc: res.data.adImgSrc,
+        name: res.data.baseInfo.name,
+        phone: res.data.baseInfo.phone,
+        area: res.data.baseInfo.area,
+        addr: res.data.baseInfo.addr,
+        businessLicense: res.data.baseInfo.businessLicense,
+        card: res.data.baseInfo.card,
+        wechat: res.data.baseInfo.wechat,
+        time: res.data.baseInfo.time,
+        company: res.data.remitInfo.company,
+        bank: res.data.remitInfo.bank,
+        account: res.data.remitInfo.account,
+        companeyInfo: res.data.companeyInfo,
+        mainProduct: res.data.mainProduct
       });
     });
   }

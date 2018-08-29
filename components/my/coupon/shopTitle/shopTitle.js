@@ -15,7 +15,10 @@ Component({
     url: {
       type: String,
       value: "/pages/logs/logs"
-    }
+    },
+    shopName:String,
+    shopId: String,
+    shopImg: String
   },
 
   /**
@@ -29,6 +32,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    showShopId(e){
+      console.log(e.currentTarget.dataset.shopid)
+    }
   }
 })
