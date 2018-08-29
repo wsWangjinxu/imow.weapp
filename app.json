@@ -1,10 +1,8 @@
 {
-  "pages":[ 
-    
-    "pages/shopDetail/shopDetail",
-    "pages/businessLicense/businessLicense",
-    "pages/buy/buy",
+  "pages":[  
     "pages/productDetail/productDetail",
+    "pages/shopDetail/shopDetail",  
+    "pages/buy/buy",
     "pages/checkPay/checkPay",    
     "pages/test/test",
     "pages/finishPay/finishPay",
@@ -22,6 +20,7 @@
     "pages/bill/bill",
     "pages/tradeDetail/tradeDetail",
     "pages/memberInfo/memberInfo",
+    "pages/myAssetsCoin/myAssetsCoin",
     "pages/myAssetsScore/myAssetsScore",
     "pages/myAssetsYuMoney/myAssetsYuMoney",
     "pages/qr/qr",

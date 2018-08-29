@@ -1,9 +1,8 @@
 <!--index.wxml-->
 <view class="container">
 
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
+<swiper indicator-dots="{{indicatorDots}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
     <swiper-item>
       <image src="{{item}}" class="slide-image" width="355" height="150"/>
     </swiper-item>
@@ -90,17 +89,17 @@
 
 <view class="box send">
   <van-row>
-  <view bindtap='showTip'>
+  <view catchtap='showPopup'>
     <van-col span="5">
       <text>产品政策</text>
     </van-col>
-  </view>  
     <van-col span="18">
       <text>XXXXXXXXXXXXXXXX</text>
     </van-col>
     <van-col span="1">
       <text> > </text>
     </van-col>
+  </view>  
   </van-row>
   <view class='sevenDay'>
     <van-row>
@@ -127,7 +126,7 @@
 
 <view class='box send'>
   <van-row>
-  <navigator url='/pages/buy/buy?shop_id=111'>
+  <navigator url='/pages/buy/buy?shopId={{shopId}}'>
     <van-col span="5">
       <text>选择</text>
     </van-col>
@@ -143,7 +142,7 @@
 
 <view class="box shopName"> 
   <van-row>
-  <navigator url='/pages/shopDetail/shopDetail'>
+  <navigator url='/pages/shopDetail/shopDetail?shopId={{shopId}}'>
     <van-col span="5">
       <image class='logo' src='/static/imgs/logo.png'></image>
     </van-col>
@@ -210,10 +209,14 @@
     </navigator>      
     </van-col>
     <van-col span="8">
+    <navigator url='/pages/buy/buy'>
       <view class="button3">加入购物车</view>
+    </navigator>   
     </van-col>
     <van-col span="8" class="button4">
+    <navigator url='/pages/buy/buy'>
       <view class="button4">立即购买</view>
+    </navigator>    
     </van-col>
   </van-row>
 </view>

@@ -1,6 +1,7 @@
 /**index.wxss**/
 page{
   background-color: white;
+  padding-bottom: 108rpx;
 }
 
 .box{
@@ -67,7 +68,7 @@ page{
   font-weight: bold;
 }
 
-.selected{
+.active{
   color: white;
   background-color: #fe0000;
 }
@@ -77,6 +78,8 @@ page{
   height: 108rpx;
   width:100%;
   text-align: center;  
+  position: fixed;
+  bottom: 0;
 }
 
 .button3{
