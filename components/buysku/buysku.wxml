@@ -1,0 +1,13 @@
+<view class='box'>
+  <view class='titleName'>{{title}}</view>
+  <view wx:if="{{typeName=='sku'}}">
+    <view class="{{'status'+item.state}}" bindtap="select" wx:for="{{itemData}}" wx:key="{{index}}" data-state='{{item.state}}' data-content='{{item.skuCode}}' data-type='skuCode'>
+      {{item.skuCode}}
+    </view>
+  </view>
+  <view wx:if="{{typeName=='time'}}">
+    <view class="{{'status'+item.state}}" bindtap="select" wx:for="{{itemData}}" wx:key="{{index}}" data-state='{{item.state}}' data-content='{{item.deliveryTime}}' data-type='deliveryTime'> 
+      {{item.deliveryTime}}
+    </view>
+  </view>
+</view>

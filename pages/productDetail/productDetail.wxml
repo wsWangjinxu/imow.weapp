@@ -164,11 +164,6 @@
     <text>产品介绍</text>
     <image src='/static/imgs/titleBg.png'></image>
   </view>
-  <view class="section tc">
-    <video class="productVideo" id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls>
-    </video>  
-  </view>
-
   <view class='productImg'>
     <image mode="widthFix" src='https://dummyimage.com/684x1000/fb0a2a'></image>
   </view>
@@ -185,8 +180,8 @@
     <text>售后保障</text>
     <image src='/static/imgs/titleBg.png'></image>
   </view>
-  <view class='shouhou'>
-      <text>保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。</text>
+  <view class='productImg'>
+   <image mode="widthFix" src='https://dummyimage.com/750x600/fb0a2a'></image>
   </view>
 </view>
 

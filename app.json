@@ -1,16 +1,14 @@
 {
-  "pages":[  
-    "pages/orderConfirm/orderConfirm",
-    "pages/cart/cart",
-
+  "pages":[ 
+    "pages/buy/buy", 
     "pages/productDetail/productDetail",
     "pages/shopDetail/shopDetail",  
-    "pages/buy/buy",
     "pages/checkPay/checkPay",    
     "pages/test/test",
     "pages/finishPay/finishPay",
 
-    
+    "pages/orderConfirm/orderConfirm",
+    "pages/cart/cart",
     "pages/my/my",
     "pages/list/list",
     "pages/search/search",
