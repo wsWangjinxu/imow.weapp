@@ -9,38 +9,25 @@
       </view>
     </van-col>
     <van-col span="14">
-      <view class='price'>￥8900</view>
+      <view class='price'>￥{{price}}</view>
     </van-col>
     <van-col span="10">
-      <view class='textFont'>型号： <text>CPC30-T3</text></view>
-      <view class='textFont'>载重： <text>3000</text>KG</view>
-      <view class='textFont'>起升高度： <text>3000</text>mm</view>
-      <view class='textFont'>门架类型： <text>两级宽视野</text></view>
-      <view class='textFont'>类型： <text>液力传动</text></view>
+      <view class='textFont'>型号： CPC30-T3</view>
+      <view class='textFont'>载重： 3000KG</view>
+      <view class='textFont'>起升高度： 3000mm</view>
+      <view class='textFont'>门架类型： 两级宽视野</view>
+      <view class='textFont'>类型： 液力传动</view>
     </van-col>
   </van-row>
 </view>
 
 <view class='hr'></view>
 
-<view class='box'>
-  <view class='titleName'>SKU号</view>
-  <view class='skuItems'>
-    <view class="skuItem {{state===index?'active':''}}" bindtap="select_sku"  wx:for="{{dates}}" data-key='{{index}}'>{{item.sku}}</view>
-  </view>    
-</view>
+<buysku bind:myevent='click' title="{{filedProductSkus.sku.title}}" itemData="{{filedProductSkus.sku.data}}" typeName="sku"></buysku>
 
 <view class='hr'></view>
 
-<view class='box'>
-  <view class='titleName'>交期</view>
-  <view>
-    <view class='skuItem'>现货</view>
-    <view class='skuItem'>14天</view>
-    <view class='skuItem'>20天</view>
-    <view class='skuItem'>30天</view>
-  </view> 
-</view>
+<buysku bind:myevent='click' title="{{filedProductSkus.deliveryTime.title}}" itemData="{{filedProductSkus.deliveryTime.data}}" typeName="time"></buysku>
 
 <view class='hr'></view>
 

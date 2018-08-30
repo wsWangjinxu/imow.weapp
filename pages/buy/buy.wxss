@@ -64,12 +64,6 @@ page{
   font-weight: bold;
 }
 
-.active{
-  color: white;
-  background-color: #fe0000;
-}
-
-
 .footer{
   height: 108rpx;
   width:100%;
