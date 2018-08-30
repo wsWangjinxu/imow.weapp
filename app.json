@@ -1,5 +1,8 @@
 {
   "pages":[  
+    "pages/orderConfirm/orderConfirm",
+    "pages/cart/cart",
+
     "pages/productDetail/productDetail",
     "pages/shopDetail/shopDetail",  
     "pages/buy/buy",
@@ -7,7 +10,7 @@
     "pages/test/test",
     "pages/finishPay/finishPay",
 
-    "pages/cart/cart",
+    
     "pages/my/my",
     "pages/list/list",
     "pages/search/search",
@@ -30,7 +33,6 @@
     "pages/repayment/repayment",
     "pages/orderDetail/orderDetail",
     "pages/order/order",  
-    "pages/orderConfirm/orderConfirm",
     "pages/index/index",  
     "pages/logs/logs"
   ],

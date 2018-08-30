@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "product": "/components/order/product/accessory/accessory"
+  }
+}

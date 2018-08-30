@@ -1,14 +1,14 @@
 <view class="orderConfirm">
-    <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
-    <view wx:if="{{false}}" class="flow">
-      <addr></addr>
+    <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange"></van-tab>
+    <view wx:if="{{!pick}}" class="flow">
+      <addr ctn="{{addrInfo}}"></addr>
         <invoice></invoice>
         <view class="invoiceAddr">
           <view class="invoiceAddrTitle">发票寄送</view>
           <addr></addr>
         </view>
     </view>
-    <view class="pick">
+    <view wx:if="{{pick}}" class="pick">
       <view>选择自提点</view>
       <view class="pick-item">
         <checkbox></checkbox>
@@ -30,10 +30,10 @@
       </view>
     </view>
     <view class="productList">
-      <shopTitle></shopTitle>
-      <product></product>
-      <product></product>
-      <product></product>
+      <shopTitle shopName="{{cartData.shopName}}"></shopTitle>
+      <block wx:for="{{cartData.orderCartProductSkus}}" wx:key="index">
+        <orderConfirmCtn class="productCtn" ctn="{{item}}"></orderConfirmCtn>
+      </block>
     </view>
     <view class="discount">
       <view class="item">

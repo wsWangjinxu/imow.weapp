@@ -1,0 +1,6 @@
+<view class="productCtn">
+    <product ctn="{{ctn}}"></product>
+    <block wx:for="{{ctn.accessories}}" wx:key="index">
+      <product ctn="{{item}}"></product>
+    </block>
+</view>

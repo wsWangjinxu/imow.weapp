@@ -1,10 +1,10 @@
-//index.js
-//获取应用实例
+import { getOrderConfirmCart } from "../../api/user/cart"
+import { getAddressList } from "../../api/user/address"
 const app = getApp()
 
 Page({
   data: {
-    show: true,
+    show: false,
     list: [
       {
         id: 101,
@@ -15,48 +15,68 @@ Page({
         title: "自提"
       }
     ],
-    selectedId: 101
+    selectedId: 101,
+    orderConfirm: false,
+    cartData: "",
+    pick: false,
+    //地址信息
+    addrInfo: ""
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
+  onLoad(option) {
+    //下面一行注释用于测试，测试完毕以后放开注释
+    // if(option.cartId) {
+      getOrderConfirmCart("GET").then(res => {
+        console.log(res.data.data);
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+          cartData: res.data.data
+        });
+      });
+    // }
+  },
+  
+  //每次页面显示的时候都获取缓存中的地址
+  onShow() {
+    //每次页面显示的时候都获取地址列表，如果缓存中有对应的地址id，就取id对应的地址作为订单的地址，没有的话就取第一条
+    getAddressList("POST").then(res => {
+      //存储地址列表
+      let addrList = res.data.AddressList;
+      let addrId = wx.getStorageSync("addrId");
+      let tempAddrInfo;
+      if(addrId) {
+        addrList.forEach(element => {
+          if(element.id === addrId) {
+            tempAddrInfo = element;
+          }
+        });
+      } else {
+        tempAddrInfo = addrList[0];
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
+
+      //设置地址
+      this.setData({
+        addrInfo: tempAddrInfo
       })
+    })
+
+    let addrId = wx.getStorageSync("addrId");
+    console.log(addrId);
+    if(addrId){
+
+    } else {
+
     }
   },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+
+  //控制切换
+  handleTabChange(e) {
+    if(e.detail === 101) {
+      this.setData({
+        pick: false
+      });
+    } else {
+      this.setData({
+        pick: true
+      });
+    }
   }
 })

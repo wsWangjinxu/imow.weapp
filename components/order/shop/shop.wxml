@@ -1,6 +1,6 @@
 <view class="shop" wx:if="{{productNum}}}">
-  <shopTitle shopName="{{shop.shopName}}" url="{{shop.url}}"></shopTitle>
-  <product wx:for="{{shop.orderCartProductSkus}}" wx:key="index" product="{{item}}"></product>
-  <payBar></payBar>
+  <shopTitle  bind:checkAll="checkAll" bind:checkCancel="checkCancel" cancelCheck="{{cancelCheck}}" checkAll="{{checkAll}}" shopName="{{shop.shopName}}" url="{{shop.url}}"></shopTitle>
+  <productCtn bind:selectedProduct="selectedProduct" isChecked="{{checkAll}}" wx:for="{{shop.orderCartProductSkus}}" wx:key="index" index="{{index}}" product="{{item}}"></productCtn>
+  <payBar bind:pay="pay" bind:checkAll="checkAll" bind:checkCancel="checkCancel" num="{{sumNumber}}" money="{{sumMoney}}" cancelCheck="{{cancelCheck}}" checkAll="{{checkAll}}"></payBar>
 </view>
 

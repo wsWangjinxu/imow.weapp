@@ -2,7 +2,10 @@
 <view class="shopTitle">
   <view class="top">
     <view>
-      <checkbox></checkbox>  <text class="icon">工厂店</text><navigator url="{{url}}">{{shopName}}</navigator>
+    <checkbox-group wx:if="{{!orderConfirm}}" bindchange="checkboxChange">
+      <checkbox checked="{{cancelCheck}}"></checkbox>  
+    </checkbox-group>
+      <text class="icon">工厂店</text><navigator url="{{url}}">{{shopName}}</navigator>
     </view>  
     <text wx:if="{{isOrder}}" style="font-size:24rpx;">正在分批发货中</text>
   </view>

@@ -30,7 +30,7 @@
   color: #fe0000;
 }
 
-.detail navigator {
+.detail .navigator {
   height: 107rpx;
   line-height: 107rpx;
   padding-left: 40rpx;

@@ -12,4 +12,22 @@ function getUserCart(type, data) {
   });
 }
 
-export { getUserCart }
+//修改购物车数量
+function changeNum(type, data) {
+  return wxRequest({
+    url: baseUrl + "cart/changeNum",
+      data: data,
+      type: type
+  });
+}
+
+//购物车下单信息确认
+function getOrderConfirmCart(type, data) {
+  return wxRequest({
+    url: baseUrl + "cart/get/cartIds",
+      data: data,
+      type: type
+  });
+}
+
+export { getUserCart, changeNum, getOrderConfirmCart }

@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "van-stepper": "/vantui/stepper/index",
-    "product": "/components/order/product/Accessory/Accessory",
+    "product": "/components/order/product/accessory/accessory",
     "single": "/components/order/product/single/single"
   }
 }

@@ -1,13 +1,15 @@
 <view class="payBar">
   <view class="checkbox1">
-  <checkbox><text style="font-size: 26rpx;">全选</text></checkbox>
+  <checkbox-group bindchange="checkboxChange">
+    <checkbox checked="{{cancelCheck}}"><text style="font-size: 26rpx;">全选</text></checkbox>
+  </checkbox-group>
   </view> 
   <view class="detail">
     <view>
-      <text>合计：￥105000.00</text>
+      <text>合计：￥{{money}}</text>
       <text>不含运费</text> 
     </view>
-    <navigator url="" redirect hover-class="className">结算</navigator>
+    <view bindtap="payment" class="navigator">结算</view>
   </view>
 </view>
 

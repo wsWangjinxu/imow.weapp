@@ -1,6 +1,6 @@
 <view class="addressList">
   <block wx:if="{{addressList}}" wx:for="{{addressList}}" wx:key="index">
-    <view class="item">
+    <view class="item" bindtap="handleTap" data-id="{{item.id}}">
       <view>
         <text>{{ item.consignee }} {{ item.phone }}</text>
         <text>{{ item.detail }}</text>
