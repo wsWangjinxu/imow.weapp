@@ -48,34 +48,52 @@ Page({
     });
   },
   filted: function (key, val) {
+    let isTapSku = key == 'skuCode';   //true选sku or false交期
     let skuArr = [];
     let timeArr = [];
+    let paymentMethod = [];
     for (let index = 0; index < productSkus.length; index++) {
       const item = productSkus[index];
       if (key == "skuCode") {
         if (item[key] === val){
           skuArr.push({
             "skuCode": item.skuCode,
-            "state":2
+            state:2
           });
+          timeArr.push({
+            "deliveryTime": item.deliveryTime,
+            state: 1
+          });
+          if (item.isDeposit){
+            paymentMethod.push({
+              "isDeposit": '定金',
+              state: 1
+            });
+          }
         }else{
           skuArr.push({
             "skuCode": item.skuCode,
-            "state": 1
+            state:1
           });
-        }  
-      
-      } else if (key == "deliveryTime"){
-
+        }       
+      }else if (key == "deliveryTime"){
+        if (this.data.sku.data.length>0){
+          if (item[key] === val) {
+            timeArr.push({
+              "deliveryTime": item.deliveryTime,
+              state: 2
+            });
+          }
+        }
       }else{
         skuArr.push({
           "skuCode": item.skuCode,
-          "state": 1
+          "skuState": 1
         });
         timeArr.push({
           "deliveryTime": item.deliveryTime,
-          "state": 1
-        })
+          "timeState": 1
+        });
       }
     }
     return {
