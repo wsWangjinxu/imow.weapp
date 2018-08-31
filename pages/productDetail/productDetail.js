@@ -55,7 +55,7 @@ Page({
   onClose() {
     this.setData({ show: false });
   },  
-  //页面初始化
+  //页面初始化函数
   init() {
     //获取产品详情内容
     getProductDetail("POST",{
@@ -65,9 +65,7 @@ Page({
       // this.setData({
       //   "bannerList": res.data.bannerItemList
       // });
-    });
-
-    
+    });   
   }
 
 })

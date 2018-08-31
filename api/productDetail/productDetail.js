@@ -12,5 +12,22 @@ function getProductDetail(type, data) {
   });
 }
 
+//加入购物车
+function addCart(type, data) {
+  return wxRequest({
+    url: baseUrl + "cart/add",
+    data: data,
+    type: type
+  });
+}
 
-export { getProductDetail }
+//立即购买
+function buyNow(type, data) {
+  return wxRequest({
+    url: baseUrl + "cart/add",
+    data: data,
+    type: type
+  });
+}
+
+export { getProductDetail, addCart, buyNow}

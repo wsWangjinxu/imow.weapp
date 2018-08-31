@@ -38,7 +38,7 @@ page{
   margin: 0 25rpx;
 }
 
-.skuItem{
+.item{
   width: 160rpx;
   height: 58rpx;
   border-radius: 10rpx;
@@ -46,6 +46,19 @@ page{
   line-height: 58rpx;
   background-color: #f2f2f2;
   color:#353535;
+  margin-right: 10rpx;
+  margin-bottom: 27rpx;
+  display: inline-block
+}
+
+.select{
+  width: 160rpx;
+  height: 58rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 58rpx;
+  color: white;
+  background-color: #fe0000;
   margin-right: 10rpx;
   margin-bottom: 27rpx;
   display: inline-block

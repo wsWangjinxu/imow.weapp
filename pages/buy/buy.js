@@ -1,10 +1,11 @@
 //index.js
 //获取应用实例
+import { getProductDetail } from "../../api/productDetail/productDetail";
+
 const app = getApp()
 
 Page({
   data: {
-    num: 1, //数量
     productSkus: [{
         "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
         "isDeposit": true,
@@ -15,14 +16,14 @@ Page({
       {
         "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
         "isDeposit": true,
-        "agentPrice": 122,
+        "agentPrice": 1500,
         "skuCode": "01F02E072",
         "deliveryTime": "15天"
       },
       {
         "id": "5D1E1d7D-383d-A8C6-9CEd-B5c4FD4Dc9Eb",
         "isDeposit": true,
-        "agentPrice": 122,
+        "agentPrice": 1200,
         "skuCode": "01F02E072",
         "deliveryTime": "20天"
       },
@@ -73,11 +74,22 @@ Page({
         ]
       }
     },
-    price: 8900,
-    //state: '' //选择sku
+    price: "",  //价格
+    model: "",  //型号
+    weight: "",  //载重
+    height: "",  //起升高度
+    menjia: "",  //门架类型
+    transmission : "",  //传动类型
+    depositShow: false, //定金按钮显示隐藏
+    num: 1, //数量
+    paytype:"" ,
+    CA:"item",
+    CB:"item"
   },
-  onLoad: function() {   
-    this.filted()
+  onLoad: function(e) { 
+    console.log(e.productId);
+    this.setData({ productId: e.productId});
+    this.filted();
   },
   onChange(e) {
     this.setData({
@@ -85,19 +97,29 @@ Page({
     });
   },
   addcart() {
+    console.log(this.data.num);
+    console.log(this.data.filedProductSkus.sku.current);
+    console.log(this.data.filedProductSkus.deliveryTime.current);
+    console.log(this.data.productId);    
+  },
+  buyNow() {
     console.log(this.data.num)
   },
-  
   //选择sku加样式
   click(e) { 
     let key = e.detail.type;
     let val = e.detail.content;
     let state = e.detail.state;
-    console.log(key);
-    console.log(val);
-    console.log(state);
+    // console.log(key);
+    // console.log(val);
+    // console.log(state);
     if (state!=3){
-      this.filted(key, state === 1 ? undefined: val)         //调用过滤事件
+      this.filted(key, state === 1 ? undefined: val);        //调用过滤事件
+      console.log(this.data.filedProductSkus.sku.current);
+      console.log(this.data.filedProductSkus.deliveryTime.current);
+      let skunow = this.data.filedProductSkus.sku.current;
+      let timenow = this.data.filedProductSkus.deliveryTime.current;
+      this.selectNow(skunow, timenow)
     }
   },
   filted: function (key, val) {
@@ -189,7 +211,6 @@ Page({
         })
         existtime[itemDelivery] = true
       }
-     
     }
     let newSkudata = Object.assign(this.data.filedProductSkus.sku, {
       data: skuArr
@@ -204,8 +225,74 @@ Page({
 
     this.setData({ filedProductSkus: origenData });
 
+  },
+  //查找当前项
+  selectNow(sku,time){
+    console.log("----");                              
+    let productSkus = this.data.productSkus;
+    if (sku && time){
+      for (let index = 0; index < productSkus.length; index++) {
+        const item = productSkus[index];
+        if (item.skuCode == sku && item.deliveryTime == time) {
+          console.log(item.agentPrice);
+          console.log(item.isDeposit);
+          this.setData({ price: item.agentPrice });           //根据sku号与交期确认顶部价格等数据     
+          if (item.isDeposit) {
+            this.setData({ depositShow: true });
+          };
+        }
+      }
+    }else{
+      this.setData({ depositShow: false });
+      this.setData({ price: '' });
+    }
+  },
+  //全款按钮事件
+  payType1(e) {                        
+    let CA = this.data.CA;
+    let CB = this.data.CB;
+    console.log(e.target.dataset.paytype);
+    this.setData({ paytype: false });
+    if (CA === "select") {
+      CA = "item"
+    } else {
+      CA = "select"
+      CB = "item"
+    }
+    this.setData({
+      CA: CA,
+      CB: CB
+    })
+  },
+  //定金按钮事件
+  payType2(e) {
+    let CA = this.data.CA;
+    let CB = this.data.CB;
+    console.log(e.target.dataset.paytype);
+    this.setData({ paytype: true });
+    if (CB === "select") {
+      CB = "item"
+    } else {
+      CB = "select"
+      CA = "item"
+    }
+    this.setData({
+      CA: CA,
+      CB: CB
+    })
+  },
+  //页面初始化函数
+  init(){
+    //获取产品详情内容
+    getProductDetail("POST", {
+      id: this.data.productId
+    }).then(res => {
+      console.log(res)
+      // this.setData({
+      //   "bannerList": res.data.bannerItemList
+      // });
+    });
   }
-
 
 
 

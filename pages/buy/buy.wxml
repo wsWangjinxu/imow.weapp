@@ -34,8 +34,8 @@
 <view class='box'>
   <view class='titleName'>支付类型</view>
   <view>
-    <view class='skuItem'>全款</view>
-    <view class='skuItem'>定金</view>
+    <view class="{{CA}}" bindtap='payType1' data-payType='1'>全款</view>
+    <view wx:if="{{depositShow}}" class="{{CB}}" bindtap='payType2' data-payType='2'>定金</view>    
   </view> 
   <text>可 承兑汇票.网银汇款.店铺余额 支付</text>
 </view>
@@ -65,3 +65,5 @@
 </view>
 
 </view>
+
+
