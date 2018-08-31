@@ -1,5 +1,8 @@
 {
   "pages":[ 
+
+    "pages/orderConfirm/orderConfirm",
+
     "pages/buy/buy", 
     "pages/productDetail/productDetail",
     "pages/shopDetail/shopDetail",  
@@ -7,7 +10,6 @@
     "pages/test/test",
     "pages/finishPay/finishPay",
 
-    "pages/orderConfirm/orderConfirm",
     "pages/cart/cart",
     "pages/my/my",
     "pages/list/list",
@@ -31,7 +33,7 @@
     "pages/repayment/repayment",
     "pages/orderDetail/orderDetail",
     "pages/order/order",  
-    "pages/index/index",  
+    "pages/index/index",
     "pages/logs/logs"
   ],
   "window":{
@@ -72,5 +74,4 @@
       }
     ]
   }
-  
 }

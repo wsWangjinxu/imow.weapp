@@ -1,10 +1,10 @@
 <view class="invoice">
   <text>发票信息</text>
-  <text>名称：安吉阿母工业设备有限公司</text>
-  <text>纳税人识别号：91330523350243379J</text>
-  <text>地址：安吉县灵峰街道霞泉村（04省道旁）6幢（浙江中力机械有限公司内）</text>
-  <text>电话：0572-5339715</text>
-  <text>开户行：工行安吉支行</text>
-  <text>开户行帐号：0102631576520768</text>
+  <text>名称：{{ctn.name}}</text>
+  <text>纳税人识别号：{{ctn.dutyParagraph}}</text>
+  <text>地址：{{ctn.address}}</text>
+  <text>电话：{{ctn.phone}}</text>
+  <text>开户行：{{ctn.bank}}</text>
+  <text>开户行帐号：{{ctn.bankAccount}}</text>
 </view>
 
