@@ -1,11 +1,11 @@
 <view class="orderConfirm">
     <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange"></van-tab>
     <view wx:if="{{!pick}}" class="flow">
-      <addr ctn="{{addrInfo}}"></addr>
-        <invoice></invoice>
+      <addr ctn="{{addrInfo}}" status="{{'true'}}"></addr>
+        <invoice ctn="{{invoice}}"></invoice>
         <view class="invoiceAddr">
           <view class="invoiceAddrTitle">发票寄送</view>
-          <addr></addr>
+          <addr ctn="{{invoiceInfo}}" status="{{'false'}}"></addr>
         </view>
     </view>
     <view wx:if="{{pick}}" class="pick">
@@ -35,49 +35,52 @@
         <orderConfirmCtn class="productCtn" ctn="{{item}}"></orderConfirmCtn>
       </block>
     </view>
+    <checkbox-group bindchange="checkboxChange">
     <view class="discount">
       <view class="item">
         <view>备注</view>
-        <view>选填：填写内容已和卖家协商确认</view>
+        <input style="flex: 5;height: 100%;" bindchange="handleRemark" value="{{remark}}" placeholder="选填：填写内容已和卖家协商确认"></input>
       </view>
-      <view class="item">
+      <view wx:if="{{cartData.imb}}" class="item">
         <view>阿母币</view>
         <view>
-          <text>抵扣使用200阿母币</text><checkbox></checkbox>
+          <text>抵扣使用{{cartData.imb}}阿母币</text> <checkbox checked="{{isChecked}}" value="{{'阿母币'}}"></checkbox>
         </view>
       </view>
-      <view class="item">
+      <view wx:if="{{cartData.couponStr}}" class="item">
         <view>优惠券</view>
         <view>
-          <text>商品参与阿母团购日活动，使用满20000减200优惠券</text><checkbox></checkbox>
+          <text>商品参与阿母团购日活动，使用<block wx:for="{{cartData.couponStr}}" wx:key="index"> {{item}} </block>优惠券</text><checkbox checked="{{isChecked}}" value="{{'优惠券'}}"></checkbox>
         </view>
       </view>
     </view>
     <view class="duty">
-      <view><navigator url="" redirect hover-class="className">售后协议</navigator><checkbox></checkbox></view>  
-      <view><navigator url="" redirect hover-class="className">服务协议</navigator><checkbox></checkbox></view>  
+      <view><navigator url="" redirect hover-class="className">售后协议</navigator><checkbox checked="{{isChecked}}" value="{{'售后协议'}}"></checkbox></view>  
+      <view><navigator url="" redirect hover-class="className">服务协议</navigator><checkbox checked="{{isChecked}}" value="{{'服务协议'}}"></checkbox></view>  
     </view>
+    </checkbox-group>
     <view class="money">
       <view>
         <text>订单总额（不含运费）</text>
-        <text>￥57200.00</text>
+        <text>￥{{cartData.orderPrice}}</text>
       </view>
       <view>
         <text>商品总价</text>
-        <text>￥57600.00</text>
+        <text>￥{{cartData.orderProductPrice}}</text>
       </view>
-      <view>
+      <view wx:if="{{useImb}}">
         <text>阿母币</text>
-        <text>-￥200.00</text>
+        <text>-￥{{cartData.imb}}</text>
       </view>
-      <view>
+      <view wx:if="{{useConpon}}">
         <text>优惠券</text>
-        <text>-￥200.00</text>
+        <text>-￥{{cartData.couponTotleDiscount}}</text>
       </view>
     </view>
     <view class="submit">
       <view>
-        <view>订单总额（不含运费）<text>￥57200000.00</text></view><view class="submitBtn">提交订单</view>   
+        <view>订单总额（不含运费）<text>￥{{cartData.orderPrice}}</text></view>
+        <view class="submitBtn" bindtap="addOrder" style="background-color:{{showBtn? 'fb0200':'#333'}};">提交订单</view>   
       </view>
     </view>
     <van-popup position="bottom" show="{{show}}">

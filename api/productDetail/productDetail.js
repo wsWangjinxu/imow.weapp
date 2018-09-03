@@ -1,6 +1,5 @@
 import { wxRequest } from "../../utils/http";
 
-
 var baseUrl = "http://mock.eolinker.com/3FyelRg5d3c637ba0bb45244f85ed68d2b8bd1f8c65c055?uri=";
 
 //获取产品详情
@@ -30,4 +29,23 @@ function buyNow(type, data) {
   });
 }
 
-export { getProductDetail, addCart, buyNow}
+//获取优惠券列表
+function getFactoryDiscountCouponList(type, data) {
+  return wxRequest({
+    url: baseUrl + "getFactoryDiscountCouponList",
+    data: data,
+    type: type
+  });
+}
+
+//领取优惠券
+function getDiscountCoupon(type, data) {
+  return wxRequest({
+    url: baseUrl + "getDiscountCoupon",
+    data: data,
+    type: type
+  });
+}
+
+
+export { getProductDetail, addCart, buyNow, getFactoryDiscountCouponList, getDiscountCoupon}

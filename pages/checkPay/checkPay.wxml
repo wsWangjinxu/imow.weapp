@@ -278,7 +278,8 @@
         </view>
       </view>
       
-      <view class='alertSubmit'>提交</view>
+      <view  wx:if="{{submitSure}}" class='alertSubmit2' bindtap='paySuccess'>提交</view>
+      <view  wx:else class='alertSubmit'>提交</view>
     </view>
 </van-popup>
 

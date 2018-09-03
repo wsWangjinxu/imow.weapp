@@ -1,8 +1,8 @@
 //index.js
 //获取应用实例
-import { getProductDetail } from "../../api/productDetail/productDetail";
+import { getProductDetail, getFactoryDiscountCouponList, getDiscountCoupo} from "../../api/productDetail/productDetail";
 
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
@@ -18,13 +18,38 @@ Page({
     amPrice2:11000,
     DLPrice1:8900,      //代理价格
     DLPrice2: 10000,
-    saleNumber:122,     //已售数量
+    saleNumber:122,     //已售数量 
+    num: 0,             //优惠券号  
     show: false,        //弹出层
-    content:"内容",
-    shopId:123
+    content:"",
+    productPolicy:"XXXXXXXXXXXXXX啥老规矩XXXXXXXXXXXXXX啥老规矩",  //产品政策
+    payType:"承兑汇票.网银汇款.店铺余额.支付宝.微信",    //支付方式
+    couponList: [
+      {
+        "money": 300,
+        "limit": 5000,
+        "number": "0101576520700"
+      },
+      {
+        "money": 200,
+        "limit": 4000,
+        "number": "0101576520701"
+      },
+      {
+        "money": 100,
+        "limit": 3000,
+        "number": "0101576520713"
+      }
+    ],     //获取优惠券列表
+    productImg:"",   //产品介绍3张图
+    productImg2:"",
+    productImg3: "",
+    shopId:123,
+    productId:333
   },
-  onLoad: function (options) {
-    //console.log(options);
+  onLoad: function (e) {
+    //console.log(e);
+    //this.setData({ productId: e.productId });
     this.init();
   },
   //分享
@@ -35,19 +60,39 @@ Page({
       path: '/pages/productDetail/productDetail'
     }
   },
+  getCoupon(e){
+    console.log(e.currentTarget.dataset.no);
+    this.setData({ num: e.currentTarget.dataset.no });
+    //领取优惠券
+    // getFactoryDiscountCouponList("POST", {
+    //   id: this.data.num
+    // }).then(res => {
+    // console.log(res);
+    // if (res.status){
+    //     wx.showToast({
+    //       title: '领取成功',
+    //       icon: 'success'
+    //     });
+    //     this.init();
+    //   }else{
+    //     wx.showToast({
+    //       title: '领取失败',
+    //       icon: 'none'
+    //     })
+    //   }
+    // });   
+  },
   //弹框
   showPopup(e) {
-    // let showNo = e.currentTarget.dataset.show;
-    // if (showNo == 1) {
-    //   let showContent = this.data.businessLicense;
-    //   this.setData({ showContent: showContent });
-    // } else if (showNo == 2) {
-    //   let showContent = this.data.card;
-    //   this.setData({ showContent: showContent });
-    // } else {
-    //   let showContent = this.data.wechat;
-    //   this.setData({ showContent: showContent });
-    // };
+    console.log(e.currentTarget.dataset.show)
+    let showNo = e.currentTarget.dataset.show;
+    if (showNo == 1) {
+      let showContent = this.data.productPolicy;
+      this.setData({ content: showContent });
+    } else if (showNo == 2) {
+      let showContent = this.data.payType;
+      this.setData({ content: showContent });
+    } 
     this.setData({
       show: !this.data.show
     });
@@ -61,7 +106,16 @@ Page({
     getProductDetail("POST",{
       id: this.data.shopId
     }).then(res => {
-      console.log(res)
+      //console.log(res)
+      // this.setData({
+      //   "bannerList": res.data.bannerItemList
+      // });
+    });
+    //获取优惠券列表
+    getFactoryDiscountCouponList("POST", {
+      id: this.data.shopId
+    }).then(res => {
+      //console.log(res)
       // this.setData({
       //   "bannerList": res.data.bannerItemList
       // });

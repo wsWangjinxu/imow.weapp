@@ -1,8 +1,7 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+.falseClass {
+  color: black;
 }
-.log-item {
-  margin: 10rpx;
+
+.trueClass {
+  color: red;
 }

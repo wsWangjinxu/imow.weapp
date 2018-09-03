@@ -1,4 +1,4 @@
-<navigator url="/pages/addressList/addressList">
+<navigator url="{{'/pages/addressList/addressList?status=' + status}}">
 <view class="addr">
   <view class="addrDetail">
     <view>{{ctn.consignee}} {{ctn.phone}} <!-- <text>默认</text> --></view>

@@ -14,7 +14,8 @@ Page({
     index: 0,//选择的下拉列表下标
     show: false,
     abc: true,//true显示商家false显示自提
-    isFocus: false//控制input 聚焦
+    isFocus: false,//控制input 聚焦
+    submitSure:true
   },
   //事件处理函数
   // 点击下拉显示框
@@ -61,12 +62,9 @@ Page({
   onLoad: function (options) {
       
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  paySuccess(){
+    wx.redirectTo({
+      url: '/pages/finishPay/finishPay'
     })
   }
 })

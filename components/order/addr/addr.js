@@ -7,6 +7,10 @@ Component({
     ctn: {
       type: Object,
       value: {}
+    },
+    status: {
+      type: String,
+      value: "false"
     }
   },
 

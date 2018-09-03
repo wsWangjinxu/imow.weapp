@@ -79,8 +79,15 @@ swiper-item image{
 }
 
 .youhui{
-  padding: 30rpx 0 30rpx 138rpx;
+  padding-left: 138rpx;
   color:#ff3233;
+}
+
+.coupon{
+  margin-right:40rpx;
+  width:200rpx;
+  line-height: 60rpx;
+  display: inline-block
 }
 
 .lookProduct{
@@ -96,6 +103,13 @@ swiper-item image{
 
 .send2{
   margin-top:36rpx;
+}
+
+.textHidden{
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  -o-text-overflow: ellipsis;
+  white-space:nowrap;
 }
 
 .sevenDay{

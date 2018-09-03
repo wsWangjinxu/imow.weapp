@@ -16,12 +16,14 @@ Page({
   onLoad: function (options) {
       
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  lookorder: function() {
+    wx.redirectTo({
+      url: '/pages/orderDetail/orderDetail'
+    })
+  },
+  batchSend: function () {
+    wx.redirectTo({
+      url: ''
     })
   }
 })

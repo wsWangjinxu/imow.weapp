@@ -59,7 +59,7 @@
       <view class="button3" bindtap='addcart'>加入购物车</view>
     </van-col>
     <van-col span="12" class="button4">
-      <view class="button4">立即购买</view>
+      <view class="button4" bindtap='buyNow'>立即购买</view>
     </van-col>
   </van-row>
 </view>

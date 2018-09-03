@@ -52,8 +52,7 @@
     </van-col>
   </van-row>
   <view class='youhui'>
-    <text style='padding-right:34rpx'>满16800减300券</text>
-    <text>满26800减500券</text>
+    <view class='coupon' wx:for="{{couponList}}" wx:key="{{index}}" bindtap='getCoupon' data-no="{{item.number}}">满{{item.limit}}减{{item.money}}券</view>
   </view>
   <van-row>
     <van-col span="5">
@@ -65,7 +64,7 @@
   </van-row>
 </view>
 
-<view class='box send'>
+<!-- <view class='box send'>
   <van-row>
     <van-col span="5">
       <text>配送</text>
@@ -85,22 +84,22 @@
       </van-col>
     </van-row>
   </view> 
-</view> 
+</view>  -->
 
 <view class="box send">
+  <view bindtap='showPopup' data-show="1">
   <van-row>
-  <view catchtap='showPopup'>
     <van-col span="5">
       <text>产品政策</text>
     </van-col>
     <van-col span="18">
-      <text>XXXXXXXXXXXXXXXX</text>
+      <view class='textHidden'>{{productPolicy}}</view>
     </van-col>
     <van-col span="1">
       <text> > </text>
-    </van-col>
-  </view>  
+    </van-col> 
   </van-row>
+  </view> 
   <view class='sevenDay'>
     <van-row>
       <van-col span="5">
@@ -111,22 +110,24 @@
       </van-col>
     </van-row>
   </view>
+  <view bindtap='showPopup' data-show="2">
   <van-row>
     <van-col span="5">
       <text>支付方式</text>
     </van-col>
     <van-col span="18">
-      <text>承兑汇票.网银汇款.店铺余额.支付宝.微信</text>
+      <view class='textHidden'>{{payType}}</view>
     </van-col>
     <van-col span="1">
       <text> > </text>
-    </van-col>
+    </van-col> 
   </van-row>
+  </view> 
 </view>
 
 <view class='box send'>
   <van-row>
-  <navigator url='/pages/buy/buy?shopId={{shopId}}'>
+  <navigator url='/pages/buy/buy?productId={{productId}}'>
     <van-col span="5">
       <text>选择</text>
     </van-col>

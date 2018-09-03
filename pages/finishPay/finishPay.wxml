@@ -5,8 +5,8 @@
 <view class='money'>您已成功付款<text class="red">57200.00</text>元</view>
 <view class='sendTo'>货物寄送至: <text>浙江杭州市 下城区 时期阿婆浙江杭州市下城区时期阿婆浙江杭州市下城区时期阿婆</text></view>
 <view cxlas='box'>
-  <view class='button checkOrder'>查看订单详情</view>
-  <view class='button sendGoods'>我要分批发货</view>
+  <view class='button checkOrder' bindtap='lookorder'>查看订单详情</view>
+  <view class='button sendGoods' bindtap='batchSend'>我要分批发货</view>
 </view>
 
 <view> 
