@@ -1,0 +1,33 @@
+<view class="listItem">
+    <view><van-icon style="font-size: 35rpx; color: #f80501;margin-right: 10rpx;" name="warn"></van-icon><text style="font-weight: bold;">已取消</text></view>
+    <view style="border-bottom: 1px dashed #cccccc;">
+        <text style="width: 70rpx;">0900</text>
+        <image style="flex: none;margin-left: 10rpx;margin-right: 10rpx;" class="head" src="http://dummyimage.com/200x100"></image>
+        <view style="flex: 6;">
+            <view>微信号：阿母工业666</view>
+            <view>姓名：张三</view>
+            <view>电话：13282123626</view>
+            <view>备注：这里是备注</view>
+        </view>
+        <view style="color: #cecece;">2018-8-20 10:50:20</view>
+    </view>
+    <view style="display: flex;flex-direction:row;justify-content: space-between;margin-left: 150rpx;">
+        <view style="margin-right: 20rpx;">
+            <view>01*1</view>
+            <view>02*3</view>
+            <view>03*1</view>
+        </view>
+        <view style="align-self: flex-end;margin-bottom: 20rpx;">
+            <block wx:if="{{true}}"> 
+                <van-button style="margin-right: 20rpx;" size="small">删除</van-button>
+                <van-button size="small">确认收到订金</van-button>
+            </block>
+            <block wx:if="{{false}}">
+                <van-icon style="color: #fe0000;vertical-align: -5rpx; margin-right: 10rpx;" name="warn"></van-icon><text style="color: #fe0000;">团长已收定金</text>
+            </block>
+        </view>
+    </view>
+    <view wx:if="{{true}}" class="remark">
+        <van-icon style="margin-left: 100rpx;margin-right: 20rpx;margin-top: 5rpx;" name="edit"></van-icon>可填写此订单的备注信息
+    </view>
+</view>

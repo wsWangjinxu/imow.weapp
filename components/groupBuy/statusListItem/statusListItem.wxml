@@ -1,0 +1,18 @@
+<view class="statusListItem">
+    <view class="time">2018-12-30 10:00:00</view>
+    <view class="product">
+        <image src="http://dummyimage.com/200x100" />
+        <view class="ctn">
+            <view style="margin-top: -10rpx;">EPT20-15ET 1.5t全电动搬运车 中力小金刚二代</view>
+            <view class="detail">01 这里是01的内容</view>
+            <view class="detail">02 这里是02的内容</view>
+        </view>
+        <view class="price">
+            <text>￥9900</text>
+        </view>
+    </view>
+    <view class="end-time">
+        02天10时20分 结束
+        <view class="order-status">拼团中</view>
+    </view>
+</view>

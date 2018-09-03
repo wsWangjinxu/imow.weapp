@@ -1,0 +1,9 @@
+<view class="start">
+    <leaderInfo></leaderInfo>
+    <product></product>
+    <view class="startBuy">
+        <view class="startBuy-title">开团设置</view>
+        <view class="contact"><view><text>姓名：</text><input type="text"/></view><view><text>联系电话：</text><input type="text"/></view> </view> 
+        <view class="btn">我要开团</view>
+    </view>
+</view>

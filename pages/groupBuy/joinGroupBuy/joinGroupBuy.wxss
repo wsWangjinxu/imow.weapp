@@ -1,0 +1,21 @@
+.join-ctn, .join-action {
+  background-color: #fff;
+  margin-top: 35rpx;
+  padding: 20rpx 20rpx 50rpx 20rpx;
+}
+
+.join-ctn-title, .join-ctn-title {
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+  text-align: left;
+} 
+
+.join-ctn {
+  text-align: center;
+}
+
+.join-ctn image {
+  width: 90%;
+  margin: 20rpx auto;
+}
+

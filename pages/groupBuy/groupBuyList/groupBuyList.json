@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-tab": "/vantui/tab/index",
+    "statusListItem": "/components/groupBuy/statusListItem/statusListItem"
+  }
+}

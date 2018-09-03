@@ -1,0 +1,52 @@
+.startBuy {
+  padding: 20rpx;
+  background-color: #fff;
+  margin-top: 35rpx;
+}
+
+.startBuy-title {
+  font-size: 34rpx;
+  height: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-top: 40rpx;
+}
+
+.contact view {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 30rpx;
+} 
+
+.contact view text {
+  flex: 1;
+  text-align: right;
+}
+
+.contact view input {
+  flex: 1.5;
+  height: 80rpx;
+} 
+
+.contact input {
+  background-color: #f2f2f2;
+}
+
+.btn {
+  background-color: #fe0000;
+  color: white;
+  font-size: 36rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 30rpx;
+}

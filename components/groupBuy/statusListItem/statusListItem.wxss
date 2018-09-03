@@ -1,0 +1,58 @@
+.statusListItem {
+  background-color: #fff;
+}
+
+.time {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  color: #989898;
+}
+
+.product {
+  padding: 0rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 30rpx;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 20rpx;
+}
+
+.ctn .detail {
+  font-size: 26rpx;
+  color: #9b9b9b;
+}
+
+.product image {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 10rpx;
+  flex: none;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: -10rpx;
+}
+
+.end-time {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  position: relative;
+  font-size: 36rpx;
+}
+
+.end-time .order-status {
+  position: absolute;
+  border: 1px solid #fb0000;
+  color: #fb0000;
+  right: 20rpx;
+  top: 15rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+}

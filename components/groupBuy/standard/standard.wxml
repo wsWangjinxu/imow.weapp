@@ -1,0 +1,36 @@
+<view class="standard">
+    <view class="standard-title">规格列表</view>
+    <scroll-view scroll-x class="standard-table">
+        <view class="row">
+            <view class="No">序号</view>
+            <view class="SKU">SKU号</view>
+            <view class="type">型号</view>
+            <view class="load">载重(kg)</view>
+            <view class="sold">已售</view>
+            <view class="count">数量</view>
+        </view>
+        <block wx:for="{{5}}" wx:key="index">
+            <view class="row">
+                <view class="No">01</view>
+                <view class="SKU">01F02E074</view>
+                <view class="type">CPC30-T3</view>
+                <view class="load">3000</view>
+                <view class="sold">10</view>
+                <view class="count"><van-stepper></van-stepper></view>
+            </view>
+        </block>
+    </scroll-view>
+    <view class="myInfo">
+        <view class="myInfo-title">我的信息</view>
+        <view class="myInfo-ctn">
+            <view>
+                <view><text>姓名：</text><input type="text"/><text style="width: 140rpx;">联系电话：</text></view>
+                <view><text>备注：</text><input style="width: 360rpx;" type="text"/></view>     
+            </view>
+            <view>
+                <view><input type="text"/></view>    
+                <text class="myInfo-ctn-btn">确认参团</text>
+            </view>
+        </view>
+    </view>
+</view>

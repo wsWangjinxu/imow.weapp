@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "leaderInfo": "/components/groupBuy/leaderInfo/leaderInfo",
+    "product": "/components/groupBuy/product/product"
+  }
+}

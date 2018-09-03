@@ -1,0 +1,54 @@
+.bg {
+  width: 100%;
+}
+
+.head {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+
+.hand {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.share {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  padding-top: 20rpx;
+  width: 100%;
+}
+
+.share > view:first-child {
+  text-align: right;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  height: 40rpx;
+  line-height: 45rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.share > view:first-child > view {
+  background-color: #ffffff; 
+  border-top-left-radius: 25rpx;
+  border-bottom-left-radius: 25rpx;
+  padding-left: 20rpx;
+  margin-left: 20rpx;
+  padding-top: 5rpx;
+} 
+
+.share > view:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 240rpx;
+  align-items: center;
+  font-size: 24rpx;
+  line-height: 2;
+  margin-left: 40rpx;
+}

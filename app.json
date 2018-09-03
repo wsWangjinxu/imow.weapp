@@ -1,5 +1,9 @@
 {
   "pages":[ 
+    "pages/groupBuy/groupBuyList/groupBuyList",
+    "pages/groupBuy/operation/operation",
+    "pages/groupBuy/joinGroupBuy/joinGroupBuy",
+    "pages/groupBuy/startGroupBuy/startGroupBuy",
 
     "pages/orderConfirm/orderConfirm",
 

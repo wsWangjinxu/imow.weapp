@@ -1,0 +1,87 @@
+.product {
+  background-color: #ffffff;
+  padding: 20rpx;
+  margin-top: 30rpx;
+}
+
+.product .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 30rpx;
+}
+
+.product .top image {
+  width: 250rpx;
+  height: 250rpx;
+  flex: none;
+  margin-right: 20rpx;
+}
+
+.product .top .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 250rpx;
+}
+
+.product .top .text .time {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.product .top .text > text:first-child {
+  margin-top: -10rpx;
+}
+
+.product .top .text .time view {
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-weight: bold;
+  font-size: 36rpx;
+  background-color: #d7d7d7;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.progress {
+  margin-top: 40rpx;
+  min-height: 160rpx;
+  font-size: 30rpx;
+}
+
+.progress .barBg {
+  height: 40rpx;
+  background-color: #cccccc;
+  border-radius: 20rpx;
+  position: relative;
+}
+
+.progress .barBg image {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  bottom: -20rpx;
+  left: 80%;
+}
+
+.progress .barBg .bar  {
+  background-color: #fe0000;
+  height: 40rpx;
+  width: 90%;
+  border-radius: 20rpx;
+}
+
+.progress .barBg> view:last-child {
+  margin-top: 20rpx;
+}
+
+.progress .barBg> view:last-child view {
+  width: 200rpx;
+}
+

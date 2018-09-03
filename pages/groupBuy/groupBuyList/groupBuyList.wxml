@@ -1,0 +1,11 @@
+<view class="list">
+    <van-tab selectedId="{{selectedId}}" list="{{list}}"></van-tab>
+    <van-tab selectedId="{{statusSelectedId}}" list="{{statusList}}"></van-tab>
+    <view class="list-ctn">
+        <block wx:for="{{10}}" wx:key="index">
+            <view class="item">
+                <statusListItem ></statusListItem>
+            </view>
+        </block>
+    </view>
+</view>
