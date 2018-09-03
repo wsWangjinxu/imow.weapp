@@ -1,21 +1,43 @@
-//index.js
+//checkPay.js
 //获取应用实例
+import { getShopDetail } from "../../api/checkPay/checkPay";
+
 const app = getApp()
 
 Page({
   data: {
-    items: [
-      { name: 'USA', value: '美国' },
-      { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' }
-    ],
-
     array: ['网银支付', '微信支付'],//下拉列表的数据
     index: 0,//选择的下拉列表下标
     show: false,
     abc: true,//true显示商家false显示自提
     isFocus: false,//控制input 聚焦
-    submitSure:true
+    submitSure:true,
+    orderId:undefined,
+    shipAmount: "",
+    orderCode: "",
+    sellerName: "",
+    buyerName: "",
+    productNames: "",
+    buyTime: "",
+    crePoint: "",
+    balance: "",
+    imb: "",
+    orderProductPrice: "",
+    payable: "",
+    depositPrice: "",
+    couponTotleDiscount: "",
+    paymentMethod: [
+      {
+        "name": "支付宝"
+      },
+      {
+        "name": "微信"
+      }
+    ]
+  },
+  onLoad: function (e) {
+    console.log(e.orderId);
+    // this.setData({ orderId: e.orderId });
   },
   //事件处理函数
   // 点击下拉显示框
@@ -39,7 +61,7 @@ Page({
   onClose() {
     this.setData({ show: false });
   },
-// 支付框
+  //支付框事件
   set_wallets_password(e) {//获取钱包密码
     this.setData({
       wallets_password: e.detail.value
@@ -59,19 +81,42 @@ Page({
       isFocus: false
     })
   },
-  onLoad: function (options) {
-      
-  },
+  //支付成功
   paySuccess(){
     wx.redirectTo({
       url: '/pages/finishPay/finishPay'
     })
+  },
+  //页面初始化
+  init() {
+    getShopDetail("POST", {
+      id: this.data.orderId
+    }).then(res => {
+      console.log(res);
+      this.setData({
+        shipAmount: res.data.shipAmount,
+        orderCode: res.data.name,
+        sellerName: res.data.phone,
+        buyerName: res.data.buyerName,
+        productNames: res.data.productNames,
+        buyTime: res.data.buyTime,
+        crePoint: res.data.crePoint,
+        balance: res.data.balance,
+        imb: res.data.imb,
+        orderProductPrice: res.data.orderProductPrice,
+        payable: res.data.payable,
+        depositPrice: res.data.depositPrice,
+        couponTotleDiscount: res.data.couponTotleDiscount,
+        paymentMethod: res.data.paymentMethod
+      });
+    });
   }
+
 })
 
 // 钱包支付
 function wallet_pay(_this) {
-  console.log('钱包支付请求函数')
+  console.log('钱包支付请求函数');
   /*
   1.支付成功
   2.支付失败：提示；清空密码；自动聚焦isFocus:true，拉起键盘再次输入

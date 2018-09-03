@@ -20,15 +20,6 @@ function addCart(type, data) {
   });
 }
 
-//立即购买
-function buyNow(type, data) {
-  return wxRequest({
-    url: baseUrl + "cart/add",
-    data: data,
-    type: type
-  });
-}
-
 //获取优惠券列表
 function getFactoryDiscountCouponList(type, data) {
   return wxRequest({
@@ -48,4 +39,4 @@ function getDiscountCoupon(type, data) {
 }
 
 
-export { getProductDetail, addCart, buyNow, getFactoryDiscountCouponList, getDiscountCoupon}
+export { getProductDetail, addCart, getFactoryDiscountCouponList, getDiscountCoupon}

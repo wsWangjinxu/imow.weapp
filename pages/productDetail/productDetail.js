@@ -52,6 +52,9 @@ Page({
     //this.setData({ productId: e.productId });
     this.init();
   },
+  onShow:function() {
+    this.initCouponList();    //优惠券初始化
+  },
   //分享
   onShareAppMessage: function () {
     console.log(this.data.title)
@@ -111,6 +114,9 @@ Page({
       //   "bannerList": res.data.bannerItemList
       // });
     });
+    
+  },
+  initCouponList() {
     //获取优惠券列表
     getFactoryDiscountCouponList("POST", {
       id: this.data.shopId
@@ -121,5 +127,7 @@ Page({
       // });
     });   
   }
+
+
 
 })

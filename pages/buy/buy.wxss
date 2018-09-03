@@ -101,3 +101,7 @@ page{
   color:white;
   font-weight: 600
 }
+
+.closed{
+  background-color: #ccc;
+} 

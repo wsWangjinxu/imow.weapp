@@ -205,12 +205,12 @@
     </navigator>      
     </van-col>
     <van-col span="8">
-    <navigator url='/pages/buy/buy'>
-      <view class="button3">加入购物车</view>
+    <navigator url='/pages/buy/buy?productId={{productId}}'>
+      <view class="button3" bindtap='buy'>加入购物车</view>
     </navigator>   
     </van-col>
     <van-col span="8" class="button4">
-    <navigator url='/pages/buy/buy'>
+    <navigator url='/pages/buy/buy?productId={{productId}}'>
       <view class="button4">立即购买</view>
     </navigator>    
     </van-col>

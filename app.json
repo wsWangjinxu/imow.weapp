@@ -1,24 +1,12 @@
 {
-  "pages":[ 
-<<<<<<< HEAD
-    "pages/checkPay/checkPay",
-    "pages/buy/buy",
-    "pages/productDetail/productDetail", 
+  "pages":[  
+    "pages/productDetail/productDetail",
+    "pages/checkPay/checkPay",  
+    "pages/orderConfirm/orderConfirm",
+    "pages/buy/buy", 
     "pages/shopDetail/shopDetail",      
     "pages/test/test",
     "pages/finishPay/finishPay",
-    "pages/orderConfirm/orderConfirm",
-=======
-
-    "pages/orderConfirm/orderConfirm",
-
-    "pages/buy/buy", 
-    "pages/productDetail/productDetail",
-    "pages/shopDetail/shopDetail",  
-    "pages/checkPay/checkPay",    
-    "pages/test/test",
-    "pages/finishPay/finishPay",
->>>>>>> 3a5efb082a802c3cf1d9521dde9c163900bbb3dc
 
     "pages/cart/cart",
     "pages/my/my",

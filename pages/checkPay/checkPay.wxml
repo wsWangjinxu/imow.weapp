@@ -39,10 +39,11 @@
  
 <view class='box getSelf' wx:if="{{abc}}">
   <view class='titleName'>商家发货</view>
-  <view class=''>运费金额</view>
+  <view class='freight'>运费金额 <text class='freightNum'>￥0.00</text></view>
+  <view>请与 <view class='freightNum'><navigator url="/page/"><van-icon name="chat"/>浙江中力机械</navigator></view> 核对实际运费</view>
 </view>
 
-<view class='box getSelf' wx:else>
+<view class='box getSelf'>
   <view class='titleName'>自提</view>
   <view>浙江杭州工厂(浙江省杭州市下城区永华街121号浙江中力机械)</view>
   <view class='getSelfItem getSelfItem1'>   
@@ -85,9 +86,9 @@
   </view> 
   <van-row>
     <van-col span="6">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{paymentMethod}}">
         <view class="selectBox">
-          {{array[index]}}
+          {{paymentMethod[index].name}}
           <view class='select_img'><van-icon name="arrow" /></view>
         </view>     
       </picker>
