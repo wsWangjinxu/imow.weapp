@@ -6,55 +6,56 @@ const app = getApp()
 
 Page({
   data: {
-    array: ['网银支付', '微信支付'],//下拉列表的数据
-    index: 0,//选择的下拉列表下标
-    show: false,
-    abc: true,//true显示商家false显示自提
-    isFocus: false,//控制input 聚焦
-    submitSure:true,
-    orderId:undefined,
-    shipAmount: "",
-    orderCode: "",
-    sellerName: "",
-    buyerName: "",
-    productNames: "",
-    buyTime: "",
-    crePoint: "",
-    balance: "",
-    imb: "",
-    orderProductPrice: "",
-    payable: "",
-    depositPrice: "",
-    couponTotleDiscount: "",
-    paymentMethod: [
+    orderId:undefined,             //订单id
+    paymentMethod: [              //下拉列表的数据
       {
         "name": "支付宝"
       },
       {
         "name": "微信"
       }
-    ]
+    ],
+    index: 0,//选择的下拉列表下标
+    show: false,   //提交订单弹框
+    abc: true,//true显示商家false显示自提
+    isFocus: false,//控制input 聚焦
+    submitSure:true,
+    orderId:undefined,
+    shipAmount: 15.26,
+    orderCode: "",   //订单号
+    sellerName: "中力机械",  //卖家名称
+    buyerName: "阿母工业123",   //买家名称
+    productNames: [
+      "1.5吨经济型电动搬运车（小金刚二 代） EPT20-15ET2",
+      "1.5吨经济型电动搬运车（小金刚二 代） EPT20-15ET2",
+      "1.5吨经济型电动搬运车（小金刚二 代） EPT20-15ET2"
+    ],                        //商品名称
+    buyTime: "2018年6月18日 15:06:48",   
+    crePoint: 3000,    //可用信用分
+    balance: 1000, //可用余额 
+    orderProductPrice: 57200, //产品总价
+    payable: "", //应付金额
+    depositPrice: "", //定金金额
+    imb: 1000,     //使用阿母币
+    couponTotleDiscount: 300   //优惠券使用金额
   },
   onLoad: function (e) {
     console.log(e.orderId);
-    // this.setData({ orderId: e.orderId });
+    this.setData({ orderId: e.orderId });
   },
   //事件处理函数
-  // 点击下拉显示框
-  selectTap() {
-    this.setData({
-      showS: !this.data.showS
-    });
-  },
+  // 点击触发下拉框事件
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
     })
   },  
+
   checkboxChange: function (e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value)
   },
+  //提交订单弹框
   showAlert(){
     this.setData({ show: true });
   },
