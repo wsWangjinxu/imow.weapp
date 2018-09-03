@@ -22,6 +22,17 @@ page{
   margin-bottom: 16rpx;
 }
 
+.freight{
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 22rpx;
+}
+
+.freightNum{
+  color: #fe0000;
+  display: inline-block;
+}
+
 .getSelfItem{
   margin-top: 16rpx;
   line-height: 28rpx;
@@ -268,6 +279,11 @@ page{
   font-size: 40rpx;
 }
 
-.submitRight{
+.alertSubmit2{
+  height: 108rpx;
+  line-height: 108rpx;
+  text-align: center;
+  color: white;
   background-color: #fe0000;
+  font-size: 40rpx;
 }

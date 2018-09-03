@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import { getProductDetail } from "../../api/productDetail/productDetail";
+import { getProductDetail, addCart } from "../../api/productDetail/productDetail";
 
 const app = getApp()
 
@@ -74,6 +74,8 @@ Page({
         ]
       }
     },
+    productId: "",//产品id
+    skuId: "",  //skuId
     price: "",  //价格
     model: "",  //型号
     weight: "",  //载重
@@ -82,12 +84,12 @@ Page({
     transmission : "",  //传动类型
     depositShow: false, //定金按钮显示隐藏
     num: 1, //数量
-    paytype:"" ,
+    paytype:0,
     CA:"item",
     CB:"item"
   },
   onLoad: function(e) { 
-    console.log(e.productId);
+    console.log(e);
     this.setData({ productId: e.productId});
     this.filted();
   },
@@ -97,13 +99,75 @@ Page({
     });
   },
   addcart() {
-    console.log(this.data.num);
-    console.log(this.data.filedProductSkus.sku.current);
-    console.log(this.data.filedProductSkus.deliveryTime.current);
-    console.log(this.data.productId);    
+    // console.log(this.data.num);
+    // console.log(this.data.filedProductSkus.sku.current);
+    // console.log(this.data.filedProductSkus.deliveryTime.current);
+    // console.log(this.data.productId); 
+    // console.log(this.data.paytype);
+    if (this.data.filedProductSkus.sku.current == "" || this.data.filedProductSkus.sku.current == undefined){
+      wx.showToast({
+        title: '请选择sku号',
+        duration: 2000
+      })
+    } else if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined){
+      wx.showToast({
+        title: '请选择交期',
+        duration: 2000
+      })
+    } else if (this.data.paytype == "" || this.data.paytype == undefined){
+      wx.showToast({
+        title: '请选择支付类型',
+        duration: 2000
+      })
+    }else{
+      //加入购物车
+      addCart("POST", {
+        productId: this.data.productId,
+        skuCode:this.data.filedProductSkus.sku.current,
+        skuId: this.data.skuId,
+        num:this.data.num
+      }).then(res => {
+        console.log(res);
+        if (res.data.status==20){
+          wx.switchTab({
+            url: '/pages/cart/cart'
+          })
+        }else{
+          wx.showToast({
+            title: '操作失败，请重试',
+            duration: 2000
+          })
+          this.init();
+        }
+      });     
+    }   
   },
   buyNow() {
-    console.log(this.data.num)
+    if (this.data.filedProductSkus.sku.current == "" || this.data.filedProductSkus.sku.current == undefined) {
+      wx.showToast({
+        title: '请选择sku号',
+        duration: 2000
+      })
+    } else if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
+      wx.showToast({
+        title: '请选择交期',
+        duration: 2000
+      })
+    } else if (this.data.paytype == "" || this.data.paytype == undefined) {
+      wx.showToast({
+        title: '请选择支付类型',
+        duration: 2000
+      })
+    } else {
+      //立即购买
+      let productId = this.data.productId;
+      let skuCode = this.data.filedProductSkus.sku.current;
+      let skuId = this.data.skuId;
+      let num = this.data.num;
+      wx.redirectTo({
+        url: '/pages/orderConfirm/orderConfirm?productId=' + productId + '&skuCode=' + skuCode + '&skuId=' + skuId + '&num=' + num,
+      })
+    }
   },
   //选择sku加样式
   click(e) { 
@@ -236,7 +300,13 @@ Page({
         if (item.skuCode == sku && item.deliveryTime == time) {
           console.log(item.agentPrice);
           console.log(item.isDeposit);
-          this.setData({ price: item.agentPrice });           //根据sku号与交期确认顶部价格等数据     
+          this.setData({ price: item.agentPrice });           //根据sku号与交期确认顶部价格等数据
+          this.setData({ skuId: item.id }); 
+          // this.setData({ model: item.model }); 
+          // this.setData({ weight: item.weight });  //载重
+          // this.setData({ height: item.height }); //起升高度
+          // this.setData({ menjia: item.menjia }); //门架类型
+          // this.setData({ transmission: item.transmission }); //传动类型
           if (item.isDeposit) {
             this.setData({ depositShow: true });
           };
@@ -251,10 +321,12 @@ Page({
   payType1(e) {                        
     let CA = this.data.CA;
     let CB = this.data.CB;
-    console.log(e.target.dataset.paytype);
-    this.setData({ paytype: false });
+    // console.log(e.target.dataset.paytype);
+    this.setData({ paytype: e.target.dataset.paytype });
+    console.log(this.data.paytype);
     if (CA === "select") {
-      CA = "item"
+      CA = "item";
+      this.setData({ paytype: 0 });
     } else {
       CA = "select"
       CB = "item"
@@ -268,10 +340,12 @@ Page({
   payType2(e) {
     let CA = this.data.CA;
     let CB = this.data.CB;
-    console.log(e.target.dataset.paytype);
-    this.setData({ paytype: true });
+    // console.log(e.target.dataset.paytype);
+    this.setData({ paytype: e.target.dataset.paytype });
+    console.log(this.data.paytype);
     if (CB === "select") {
-      CB = "item"
+      CB = "item";
+      this.setData({ paytype: 0 });
     } else {
       CB = "select"
       CA = "item"
