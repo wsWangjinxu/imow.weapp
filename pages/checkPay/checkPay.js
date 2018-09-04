@@ -1,6 +1,6 @@
 //checkPay.js
 //获取应用实例
-import { getShopDetail } from "../../api/checkPay/checkPay";
+import { getPayDetail } from "../../api/checkPay/checkPay";
 
 const app = getApp()
 
@@ -9,10 +9,13 @@ Page({
     orderId:undefined,             //订单id
     paymentMethod: [              //下拉列表的数据
       {
-        "name": "支付宝"
+        "name": "线下支付"
       },
       {
         "name": "微信"
+      },
+      {
+        "name": "支付宝"
       }
     ],
     index: 0,//选择的下拉列表下标
@@ -50,7 +53,7 @@ Page({
   //事件处理函数
   // 点击触发下拉框事件
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker下标', e.detail.value)
     this.setData({
       index: e.detail.value
     })
@@ -65,7 +68,7 @@ Page({
     }
     let credit = false;
     let useBalance = false;
-    let payPrice = this.data.surePay;
+    let payPrice = this.data.payable;
     // let showBtn;
     //判断是否勾选信用分
     if (~this.data.checkedArray.indexOf("信用分")) {
@@ -101,6 +104,7 @@ Page({
   //提交订单弹框
   showAlert(){
     this.setData({ show: true });
+
   },
   onClose() {
     this.setData({ show: false });
@@ -133,7 +137,7 @@ Page({
   },
   //页面初始化
   init() {
-    getShopDetail("POST", {
+    getPayDetail("POST", {
       id: this.data.orderId
     }).then(res => {
       console.log(res);
@@ -149,6 +153,7 @@ Page({
         imb: res.data.imb,
         orderProductPrice: res.data.orderProductPrice,
         payable: res.data.payable,
+        surePay: res.data.payable,     //其他支付应付
         depositPrice: res.data.depositPrice,
         couponTotleDiscount: res.data.couponTotleDiscount,
         paymentMethod: res.data.paymentMethod

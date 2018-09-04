@@ -1,15 +1,13 @@
 {
   "pages":[ 
-    
-
-    "pages/orderConfirm/orderConfirm",
-    "pages/productDetail/productDetail",     
-    "pages/buy/buy", 
+    "pages/checkPay/checkPay",
+    "pages/buy/buy",
+    "pages/productDetail/productDetail", 
     "pages/shopDetail/shopDetail",      
     "pages/test/test",
     "pages/finishPay/finishPay",
+    "pages/orderConfirm/orderConfirm",
 
-    "pages/checkPay/checkPay",
     "pages/cart/cart",
     "pages/my/my",
     "pages/list/list",
@@ -34,12 +32,7 @@
     "pages/orderDetail/orderDetail",
     "pages/order/order",  
     "pages/index/index",
-    "pages/logs/logs",
-
-    "pages/groupBuy/groupBuyList/groupBuyList",
-    "pages/groupBuy/operation/operation",
-    "pages/groupBuy/joinGroupBuy/joinGroupBuy",
-    "pages/groupBuy/startGroupBuy/startGroupBuy"
+    "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",

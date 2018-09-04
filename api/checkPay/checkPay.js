@@ -11,4 +11,6 @@ function getPayDetail(type, data) {
   });
 }
 
-export { getPayDetail}
+
+
+export { getPayDetail }

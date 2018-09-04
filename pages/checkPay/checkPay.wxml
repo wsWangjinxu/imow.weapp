@@ -69,7 +69,7 @@
       <view class='paymentText'>本次将使用<text class='underLine'>{{crePoint}}元</text>信用分支付</view>   
     </van-col>
     <van-col span="2">
-      <checkbox value="{{'信用分'}}" checked="true" color='red'/>  
+      <checkbox value="{{'信用分'}}" checked="" color='red'/>  
     </van-col>
   </van-row>
   <view class='paymentItem2'>
@@ -81,7 +81,7 @@
           <view class='paymentText'>本次将使用<text class='underLine'>{{balance}}元</text>店铺余额支付</view>  
         </van-col>
         <van-col span="2">
-          <checkbox value="{{'店铺余额'}}" checked="true" color='red'/> 
+          <checkbox value="{{'店铺余额'}}" checked="" color='red'/> 
         </van-col>  
     </van-row>
   </view> 
@@ -187,7 +187,7 @@
       </view>
 
       <view class='content'>
-        <van-row>
+        <van-row wx:if="{{credit}}">
           <van-col span="12">
             <view class='contentTitle'>信用分支付</view>
           </van-col>
@@ -195,7 +195,7 @@
             <view class='contentTitle'>￥3000.00</view>
           </van-col>
         </van-row>
-        <van-row>
+        <van-row wx:if="{{useBalance}}">
           <van-col span="12">
             <view class='contentTitle'>店铺余额支付</view>
           </van-col>
@@ -204,7 +204,7 @@
           </van-col>
         </van-row>
                
-        <view class='pwd'>
+        <view class='pwd' wx:if="{{useBalance||credit}}">
           <view class='text'>请输入支付密码</view>
           <view>
             <view class="input-content-wrap">
