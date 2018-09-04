@@ -10,7 +10,7 @@
 </swiper>
 
 <view class="productTitle box">
-  <view class='name'>{{title}}</view> 
+  <view class='name'>{{productName}}</view> 
   <van-button size="small" open-type='share'><text  class='like'>分享</text><van-icon name="share" class='like'/></van-button>
 </view>
 
@@ -201,6 +201,7 @@
       <view  class="button2">
         <van-icon name="cart" />
         <text>购物车</text>
+        <view class='redPoint' wx:if="{{cartNum>0}}">{{cartNum}}</view>
       </view>
     </navigator>      
     </van-col>

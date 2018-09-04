@@ -25,7 +25,7 @@
       <text>订单商品:</text>
     </van-col>
     <van-col span="20">
-      <text wx:for="{{productNames}}" wx:key="{{index}}">{{item}}</text>  
+      <view class='productNames' wx:for="{{productNames}}" wx:key="{{index}}">{{item}}</view>  
     </van-col>
   </van-row>
   <van-row>
@@ -120,7 +120,7 @@
       <text>订单总额</text>
     </van-col>
     <van-col span="19">
-      <view class="textRight">￥57200.00</view>  
+      <view class="textRight">￥{{filters.toFix(orderTotalPrice)}}</view>  
     </van-col>
   </van-row>
   <van-row>

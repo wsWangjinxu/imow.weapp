@@ -17,6 +17,10 @@ page{
   margin-bottom: 22rpx;
 }
 
+.productNames{
+  width: 100%
+}
+
 .getSelf{
   margin-top: 16rpx;
   margin-bottom: 16rpx;

@@ -202,6 +202,21 @@ swiper-item image{
   flex-direction: column ;
   font-size: 40rpx;
   color: #676767;
+  position: relative;
+}
+
+.redPoint{
+  width: 30rpx;
+  height:30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: #fe0000;
+  color: white;
+  position: absolute;
+  top:10rpx;
+  right:15rpx;
+  font-size: 20rpx;
 }
 
 .button3{
