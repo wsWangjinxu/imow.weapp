@@ -1,6 +1,6 @@
 //checkPay.js
 //获取应用实例
-import { getPayDetail } from "../../api/checkPay/checkPay";
+import { getPayDetail,chechPwd,submitPayment } from "../../api/checkPay/checkPay";
 
 const app = getApp()
 
@@ -22,7 +22,7 @@ Page({
     show: false,   //提交订单弹框
     abc: true,//true显示商家false显示自提
     isFocus: false,//控制input 聚焦
-    submitSure:true,
+    submitSure:false,    //弹框提交
     orderId:undefined,
     shipAmount: 15.26,
     orderCode: "",   //订单号
@@ -40,10 +40,11 @@ Page({
     payable: 57200, //应付金额
     depositPrice: 500, //定金金额
     imb: 1000,     //使用阿母币
-    checkedArray: ["信用分", "店铺余额", "网银"], //已经选择的选项
+    checkedArray: [], //已经选择的选项
     surePay: 57200, //网银剩余应付 
     credit: false,  //是否是用阿母币
     useBalance: false,  //是否使用优惠券
+    pwdRight:false,//密码输入是否正确
     couponTotleDiscount: 300   //优惠券使用金额
   },
   onLoad: function (e) {
@@ -99,12 +100,17 @@ Page({
       surePay: payPrice
     });
 
-    console.log(this.data.surePay)
+  
   },
   //提交订单弹框
   showAlert(){
     this.setData({ show: true });
-
+    console.log(this.data.checkedArray.length)
+    if(this.data.checkedArray.length==0){
+      this.setData({ submitSure: true });
+    }else{
+      this.setData({ submitSure: false });
+    } 
   },
   onClose() {
     this.setData({ show: false });
@@ -115,7 +121,7 @@ Page({
       wallets_password: e.detail.value
     });
     if (this.data.wallets_password.length == 6) {//密码长度6位时，自动验证钱包支付结果
-      wallet_pay(this)
+      this.wallet_pay()
     }
   },
   set_Focus() {//聚焦input
@@ -131,9 +137,30 @@ Page({
   },
   //支付成功
   paySuccess(){
+
+
     wx.redirectTo({
       url: '/pages/finishPay/finishPay'
     })
+  },
+  // 钱包支付
+  wallet_pay() {
+    console.log('钱包支付请求函数');
+    
+    getPayDetail("POST", {
+      id: this.data.orderId
+    }).then(res => {
+      console.log(res);
+      if(res.validated){
+        console.log('密码正确');
+        this.setData({ pwdRight: true });  //密码正确
+        this.setData({ submitSure: true });
+      } 
+    });
+    /*
+    1.支付成功
+    2.支付失败：提示；清空密码；自动聚焦isFocus:true，拉起键盘再次输入
+    */
   },
   //页面初始化
   init() {
@@ -163,11 +190,4 @@ Page({
 
 })
 
-// 钱包支付
-function wallet_pay(_this) {
-  console.log('钱包支付请求函数');
-  /*
-  1.支付成功
-  2.支付失败：提示；清空密码；自动聚焦isFocus:true，拉起键盘再次输入
-  */
-}
+

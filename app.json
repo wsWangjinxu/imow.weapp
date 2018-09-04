@@ -8,6 +8,10 @@
     "pages/finishPay/finishPay",
     "pages/orderConfirm/orderConfirm",
 
+    "pages/groupBuy/groupBuyList/groupBuyList",
+    "pages/groupBuy/joinGroupBuy/joinGroupBuy",
+    "pages/groupBuy/operation/operation",
+    "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/cart/cart",
     "pages/my/my",
     "pages/list/list",

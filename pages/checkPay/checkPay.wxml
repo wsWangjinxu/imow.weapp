@@ -95,10 +95,10 @@
       </picker>
     </van-col>
     <van-col span="16">
-      <view class='paymentText'>支付<text class='underLine'>{{surePay}}元</text> </view> 
+      <view class='paymentText'>支付<text class='underLine'>{{surePay}}元</text></view> 
     </van-col>
     <van-col span="2">
-      <checkbox value="网银" checked="" color='red'/>  
+      <!-- <checkbox value="网银" checked="" color='red'/>   -->
     </van-col>
   </van-row>
   </checkbox-group>
@@ -192,7 +192,7 @@
             <view class='contentTitle'>信用分支付</view>
           </van-col>
           <van-col span="12">
-            <view class='contentTitle'>￥3000.00</view>
+            <view class='contentTitle'>￥{{filters.toFix(crePoint)}}</view>
           </van-col>
         </van-row>
         <van-row wx:if="{{useBalance}}">
@@ -200,10 +200,11 @@
             <view class='contentTitle'>店铺余额支付</view>
           </van-col>
           <van-col span="12">
-            <view class='contentTitle'>￥1000.00</view>
+            <view class='contentTitle'>￥{{filters.toFix(balance)}}</view>
           </van-col>
         </van-row>
-               
+
+
         <view class='pwd' wx:if="{{useBalance||credit}}">
           <view class='text'>请输入支付密码</view>
           <view>
@@ -232,60 +233,62 @@
             <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
           </view>        
         </view>
-
-        <van-row>
-          <van-col span="12">
-            <view class='contentTitle'>网银支付</view>
-          </van-col>
-          <van-col span="12">
-            <view class='contentTitle'>￥53200.00</view>
-          </van-col>
-        </van-row>
-
-        <view class='pwdSucces'  style='display:none'>
+        <view class='pwdSucces'  wx:if='{{pwdRight}}'>
           您已成功输入交易密码，请按“提交”按钮进行下一步操作
         </view>
 
-        <view class='hr'>
+        <view wx:if="{{!(surePay==0)}}">
           <van-row>
-            <van-col span="6">
-              <view class='huikuan'>汇款信息:</view>
+            <van-col span="12">
+              <view class='contentTitle'>网银支付</view>
+            </van-col>
+            <van-col span="12">
+              <view class='contentTitle'>￥{{filters.toFix(surePay)}}</view>
             </van-col>
           </van-row>
-          <van-row>
-            <van-col span="6">
-              <view>单位名称:</view>
-            </van-col>
-            <van-col span="18">
-              <view>安吉阿母工业设备有限公司</view>
-            </van-col>
-          </van-row>
-          <van-row>
-            <van-col span="6"> 
-              <text text space="ensp">开 户 行:</text>
-            </van-col>
-            <van-col span="18">
-              <view>工商银行安吉支行</view>
-            </van-col>
-          </van-row>
-          <van-row>
-            <van-col span="6">
-              <text text space="ensp">账    号:</text>
-            </van-col>
-            <van-col span="18">
-              <view>1205290009000761667</view>
-            </van-col>
-          </van-row>
-          <van-row>
-            <van-col span="6">
-              <view>汇款备注:</view>
-            </van-col>
-            <van-col span="18">
-              <view>1630266344</view>
-            </van-col>
-          </van-row>
-          <view class='tip'>可通过网银转账或银行柜台转账汇款，线下公司转账方式的到账时间是1-3个工作日确认</view>
+
+          <view class='hr'>
+            <van-row>
+              <van-col span="6">
+                <view class='huikuan'>汇款信息:</view>
+              </van-col>
+            </van-row>
+            <van-row>
+              <van-col span="6">
+                <view>单位名称:</view>
+              </van-col>
+              <van-col span="18">
+                <view>安吉阿母工业设备有限公司</view>
+              </van-col>
+            </van-row>
+            <van-row>
+              <van-col span="6"> 
+                <text text space="ensp">开 户 行:</text>
+              </van-col>
+              <van-col span="18">
+                <view>工商银行安吉支行</view>
+              </van-col>
+            </van-row>
+            <van-row>
+              <van-col span="6">
+                <text text space="ensp">账    号:</text>
+              </van-col>
+              <van-col span="18">
+                <view>1205290009000761667</view>
+              </van-col>
+            </van-row>
+            <van-row>
+              <van-col span="6">
+                <view>汇款备注:</view>
+              </van-col>
+              <van-col span="18">
+                <view>1630266344</view>
+              </van-col>
+            </van-row>
+            <view class='tip'>可通过网银转账或银行柜台转账汇款，线下公司转账方式的到账时间是1-3个工作日确认</view>
+          </view>
         </view>
+
       </view>
       
       <view  wx:if="{{submitSure}}" class='alertSubmit2' bindtap='paySuccess'>提交</view>
