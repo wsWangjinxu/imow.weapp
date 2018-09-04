@@ -1,6 +1,6 @@
 //checkPay.js
 //获取应用实例
-import { getShopDetail } from "../../api/checkPay/checkPay";
+import { getPayDetail,chechPwd,submitPayment } from "../../api/checkPay/checkPay";
 
 const app = getApp()
 
@@ -8,52 +8,57 @@ Page({
   data: {
     orderId:undefined,             //订单id
     paymentMethod: [              //下拉列表的数据
-      {
-        "name": "支付宝"
-      },
-      {
-        "name": "微信"
-      }
+      // {
+      //   "name": "线下支付"
+      // },
+      // {
+      //   "name": "微信"
+      // },
+      // {
+      //   "name": "支付宝"
+      // }
     ],
     index: 0,//选择的下拉列表下标
     show: false,   //提交订单弹框
     abc: true,//true显示商家false显示自提
     isFocus: false,//控制input 聚焦
-    submitSure:true,
+    submitSure:false,    //弹框提交按钮禁用
     orderId:undefined,
-    shipAmount: 15.26,
+    shipAmount: 15.26,  //运费
     orderCode: "",   //订单号
     sellerName: "中力机械",  //卖家名称
     buyerName: "阿母工业123",   //买家名称
-    productNames: [
-      "1.5吨经济型电动搬运车（小金刚二 代） EPT20-15ET2",
-      "1.5吨经济型电动搬运车（小金刚二 代） EPT20-15ET2",
-      "1.5吨经济型电动搬运车（小金刚二 代） EPT20-15ET2"
-    ],                        //商品名称
-    buyTime: "2018年6月18日 15:06:48",   
+    productNames: [],        //商品名称
+    buyTime: "",   
     crePoint: 3000,    //可用信用分
     balance: 1000, //可用余额 
-    orderProductPrice: 57200, //产品总价
-    payable: 57200, //应付金额
+    orderCode: '',   //订单号
+    orderProductPrice: 0, //产品总价
+    orderTotalPrice: 0 , //订单总额
+    payable: 0, //应付金额
     depositPrice: 500, //定金金额
     imb: 1000,     //使用阿母币
-    checkedArray: ["信用分", "店铺余额", "网银"], //已经选择的选项
-    surePay: 57200, //网银剩余应付 
-    credit: false,  //是否是用阿母币
-    useBalance: false,  //是否使用优惠券
+    checkedArray: [], //已经选择的选项
+    surePay: 0, //网银剩余应付 
+    credit: false,  //是否是用信用分
+    useBalance: false,  //是否使用余额
+    payMethod:'',     //支付方式
+    wallets_password:'', //密码
+    pwdRight:false,//密码输入是否正确
     couponTotleDiscount: 300   //优惠券使用金额
   },
   onLoad: function (e) {
     console.log(e.orderId);
     this.setData({ orderId: e.orderId });
+    this.init();
   },
   //事件处理函数
   // 点击触发下拉框事件
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
+    console.log('picker下标', e.detail.value)  
+    let payType = this.data.paymentMethod[e.detail.value].name
+    console.log(payType);
+    this.setData({payMethod: payType})
   },  
   //勾选事件
   checkboxChange(e) {
@@ -65,7 +70,7 @@ Page({
     }
     let credit = false;
     let useBalance = false;
-    let payPrice = this.data.surePay;
+    let payPrice = this.data.payable;
     // let showBtn;
     //判断是否勾选信用分
     if (~this.data.checkedArray.indexOf("信用分")) {
@@ -83,27 +88,27 @@ Page({
       useBalance = false;
     }
 
-    // if (~this.data.checkedArray.indexOf("店铺余额") &&~this.data.checkedArray.indexOf("信用分")) {
-    //   showBtn = true;
-    // } else {
-    //   showBtn = false;
-    // }
-
     //设置显示状态
     this.setData({
       credit,
       useBalance,
       surePay: payPrice
     });
-
-    console.log(this.data.surePay)
   },
   //提交订单弹框
   showAlert(){
-    this.setData({ show: true });
+    this.setData({ show: true }); 
+    //console.log(this.data.checkedArray.length)
+    if(this.data.checkedArray.length==0){       //判断是否勾选值
+      this.setData({ submitSure: true });
+    }else{
+      this.setData({ submitSure: false });
+    } 
   },
   onClose() {
     this.setData({ show: false });
+    this.setData({ pwdRight: false });
+    this.setData({ wallets_password: '' });
   },
   //支付框事件
   set_wallets_password(e) {//获取钱包密码
@@ -111,7 +116,7 @@ Page({
       wallets_password: e.detail.value
     });
     if (this.data.wallets_password.length == 6) {//密码长度6位时，自动验证钱包支付结果
-      wallet_pay(this)
+      this.wallet_pay()
     }
   },
   set_Focus() {//聚焦input
@@ -125,44 +130,75 @@ Page({
       isFocus: false
     })
   },
-  //支付成功
-  paySuccess(){
-    wx.redirectTo({
-      url: '/pages/finishPay/finishPay'
+  //密码验证
+  wallet_pay() {
+    console.log('钱包支付请求函数');
+    console.log(this.data.wallets_password)
+    chechPwd("get", {
+      password: this.data.wallets_password
+    }).then(res => {   
+      if(false){ //res.data.validated
+        console.log('密码正确');
+        this.setData({ pwdRight: true });  //密码正确
+        this.setData({ submitSure: true });
+      }else{
+        wx.showToast({
+          title: '密码错误，请重试',
+          duration: 2000
+        })
+        this.setData({ wallets_password: '' });
+      } 
     })
   },
-  //页面初始化
-  init() {
-    getShopDetail("POST", {
-      id: this.data.orderId
+  //支付成功
+  paySuccess(){
+    console.log(this.data.payMethod);
+    submitPayment("POST", {
+      id: this.data.orderId,
+      isUseCrepoint:this.data.credit,
+      isUseBalance:this.data.useBalance,
+      payMethod: this.data.payMethod
     }).then(res => {
       console.log(res);
+      if(res.data.success){
+        wx.redirectTo({
+          url: '/pages/finishPay/finishPay'
+        })
+      }
+    });
+  },
+
+  //页面初始化
+  init() {
+    getPayDetail("GET", {
+      orderId: this.data.orderId
+    }).then(res => {
+      console.log(res.data.data);
+      let Data = res.data.data;
+      let orderTotalPrice1 = Data.orderProductPrice - Data.imb - Data.couponTotleDiscount + Data.shipAmount;
       this.setData({
-        shipAmount: res.data.shipAmount,
-        orderCode: res.data.name,
-        sellerName: res.data.phone,
-        buyerName: res.data.buyerName,
-        productNames: res.data.productNames,
-        buyTime: res.data.buyTime,
-        crePoint: res.data.crePoint,
-        balance: res.data.balance,
-        imb: res.data.imb,
-        orderProductPrice: res.data.orderProductPrice,
-        payable: res.data.payable,
-        depositPrice: res.data.depositPrice,
-        couponTotleDiscount: res.data.couponTotleDiscount,
-        paymentMethod: res.data.paymentMethod
+        shipAmount: Data.shipAmount,     
+        sellerName: Data.sellerName,
+        buyerName: Data.buyerName,
+        productNames: Data.productNames,
+        buyTime: Data.buyTime,
+        crePoint: Data.crePoint,
+        balance: Data.balance,
+        imb: Data.imb,
+        orderProductPrice: Data.orderProductPrice,//产品总价
+        payable: Data.payable,
+        depositPrice: Data.depositPrice,
+        couponTotleDiscount: Data.couponTotleDiscount,
+        surePay: Data.payable,     //其他支付应付
+        orderTotalPrice: orderTotalPrice1,  //订单总额
+        //orderCode: Data.orderCode,   //订单号
+        paymentMethod: Data.paymentMethod,
+        payMethod: Data.paymentMethod[0].name  //不触发选择支付方式事件自动获取第一个支付方式
       });
+      
     });
   }
 
 })
 
-// 钱包支付
-function wallet_pay(_this) {
-  console.log('钱包支付请求函数');
-  /*
-  1.支付成功
-  2.支付失败：提示；清空密码；自动聚焦isFocus:true，拉起键盘再次输入
-  */
-}
+

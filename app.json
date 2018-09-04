@@ -10,11 +10,12 @@
     "pages/index/index",
     "pages/search/search",
     "pages/checkPay/checkPay",
-    "pages/orderConfirm/orderConfirm",
+
     "pages/productDetail/productDetail",     
     "pages/buy/buy", 
-    "pages/test/test",
+
     "pages/finishPay/finishPay",
+    "pages/orderConfirm/orderConfirm",
 
     "pages/cart/cart",
     "pages/list/list",

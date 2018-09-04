@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 import { getProductDetail, getFactoryDiscountCouponList, getDiscountCoupo} from "../../api/productDetail/productDetail";
-
+import { getCartNum } from "../../api/productDetail/cartNum";
 const app = getApp();
 
 Page({
@@ -13,7 +13,7 @@ Page({
     ],
     indicatorDots: true,
     duration: 1000,
-    title: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代",
+    productName: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代",
     amPrice1:9900,      //阿母价格
     amPrice2:11000,
     DLPrice1:8900,      //代理价格
@@ -45,6 +45,7 @@ Page({
     productImg2:"",
     productImg3: "",
     shopId:123,
+    cartNum:0,
     productId:333
   },
   onLoad: function (e) {
@@ -67,10 +68,12 @@ Page({
     console.log(e.currentTarget.dataset.no);
     this.setData({ num: e.currentTarget.dataset.no });
     //领取优惠券
-    // getFactoryDiscountCouponList("POST", {
-    //   id: this.data.num
+    // getDiscountCoupo("POST", {
+    //   number: this.data.num
     // }).then(res => {
-    // console.log(res);
+    //   console.log(res);
+    // }); 
+
     // if (res.status){
     //     wx.showToast({
     //       title: '领取成功',
@@ -82,8 +85,7 @@ Page({
     //       title: '领取失败',
     //       icon: 'none'
     //     })
-    //   }
-    // });   
+    //   }  
   },
   //弹框
   showPopup(e) {
@@ -103,31 +105,45 @@ Page({
   onClose() {
     this.setData({ show: false });
   },  
-  //页面初始化函数
-  init() {
-    //获取产品详情内容
-    getProductDetail("POST",{
-      id: this.data.shopId
-    }).then(res => {
-      //console.log(res)
-      // this.setData({
-      //   "bannerList": res.data.bannerItemList
-      // });
-    });
-    
-  },
-  initCouponList() {
-    //获取优惠券列表
+  //获取优惠券列表
+  initCouponList() {   
     getFactoryDiscountCouponList("POST", {
       id: this.data.shopId
     }).then(res => {
-      //console.log(res)
-      // this.setData({
-      //   "bannerList": res.data.bannerItemList
-      // });
-    });   
-  }
+      console.log(res.data.factoryCoupon)
+      this.setData({
+        couponList: res.data.factoryCoupon
+      });
+    });
+  },
+  //页面初始化函数
+  init() {
+    //获取产品详情内容
+    getProductDetail("GET",{
+      //id: this.data.productId
+      id:132
+    }).then(res => {
+      console.log(res.data)
+      this.setData({
+        productName: res.data.productName,
+        imgUrls:res.data.images,
+        amPrice1: res.data.minImowPrice,
+        amPrice2: res.data.maxImowPrice,
+        DLPrice1: res.data.minAgentPrice,
+        DLPrice2: res.data.maxAgentPrice,
+        productPolicy: res.data.policy
+      });
+    });
 
+    getCartNum("GET").then(res => {
+      //console.log(res.data.status);
+      this.setData({
+        cartNum: res.data.status
+      });
+    });
+
+  }
+  
 
 
 })
