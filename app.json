@@ -1,10 +1,9 @@
 {
   "pages":[
-    "pages/productDetail/productDetail",
     "pages/checkPay/checkPay",
+    "pages/productDetail/productDetail",
     "pages/buy/buy",
     "pages/shopDetail/shopDetail",      
-    "pages/test/test",
     "pages/finishPay/finishPay",
     "pages/orderConfirm/orderConfirm",
 

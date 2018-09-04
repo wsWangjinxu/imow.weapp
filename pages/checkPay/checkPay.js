@@ -51,7 +51,7 @@ Page({
     console.log(e.orderId);
     this.setData({ orderId: e.orderId });
     this.init();
-    console.log(this.data.payMethod)
+    console.log('支付方式：'+this.data.payMethod)
   },
   //事件处理函数
   // 点击触发下拉框事件
@@ -95,8 +95,6 @@ Page({
       useBalance,
       surePay: payPrice
     });
-
-  
   },
   //提交订单弹框
   showAlert(){
