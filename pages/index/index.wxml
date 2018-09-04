@@ -4,10 +4,10 @@
         <swiper-item wx:for="{{bannerList}}" wx:key="index"><navigator url="/pages/productDetail/productDetail"><image mode="scaleToFill" src="{{item.imgSrc}}" /></navigator></swiper-item>
     </swiper>
     <view class="nav-block">
-      <navCircle wx:for="{{navList}}" wx:key="index" url="{{item.url}}" title="{{item.text}}" imgSrc="{{item.imgSrc}}" ></navCircle>    
+      <navCircle wx:for="{{navList}}" wx:key="index" url="{{item.url}}" title="{{item.title}}" imgSrc="{{item.imgSrc}}" ></navCircle>    
     </view>
     <view class="ad">
-        <navigator  wx:for="{{ADList}}" wx:key="index" url="{{item.url}}"><image src="{{item.imgSrc}}"></image></navigator>
+        <navigator url="{{item.url}}"><image src="http://dummyimage.com/200x100"></image></navigator>
     </view>
     <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange"></van-tab>
     <view class="product-container">

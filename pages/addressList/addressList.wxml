@@ -5,7 +5,7 @@
         <text>{{ item.consignee }} {{ item.phone }}</text>
         <text>{{ item.detail }}</text>
       </view>
-      <navigator url="{{'/pages/addressForm/addressForm?id='+item.id}}"><van-icon style="font-size: 40rpx;" name="edit"></van-icon></navigator>
+      <van-icon data-id="{{item.id}}" catchtap="editAddress" style="font-size: 40rpx;" name="edit"></van-icon>
     </view>
   </block>
   <view class="add">

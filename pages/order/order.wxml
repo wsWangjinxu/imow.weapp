@@ -1,7 +1,7 @@
 <view>
   <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
   <view class="shopList">
-    <view wx:for="{{3}}">
+    <view wx:for="{{3}}" wx:key="index">
       <shopTitle></shopTitle>
       <product></product>
       <product></product>

@@ -3,23 +3,23 @@ import { wxRequest } from "../../utils/http";
 
 var baseUrl = "http://mock.eolinker.com/3FyelRg5d3c637ba0bb45244f85ed68d2b8bd1f8c65c055?uri=";
 
-//新增一张订单
-function addOrder(type, data) {
+//用户登陆
+function userLogin(type, data) {
   return wxRequest({
-    url: baseUrl + "order/add",
+    url: baseUrl + "userLogin",
       data: data,
       type: type
   });
 }
 
-//获取当前用户的订单列表
-function getOrderList(type, data) {
+//获取第三方session
+function getThirdSession(type, data) {
   return wxRequest({
-    url: baseUrl + "get/orders",
+    url: baseUrl + "getThirdSession",
       data: data,
       type: type
   });
 }
 
 
-export { addOrder, getOrderList }
+export { userLogin, getThirdSession }

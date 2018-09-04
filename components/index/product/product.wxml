@@ -1,9 +1,8 @@
-<navigator url="{{ctn.url}}" class="product" redirect hover-class="className">
+<navigator url="{{'/pages/productDetail/productDetail?id='+ctn.id}}" class="product">
   <image src="{{ctn.imgSrc}}" />
   <text>{{ctn.title}}</text>
   <view>
     <text>￥{{ctn.price}}起</text>
-    <text>已售{{ctn.number}}件</text>
   </view>
 </navigator>
 

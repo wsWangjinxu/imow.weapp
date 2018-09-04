@@ -1,51 +1,47 @@
 <view wx:if="{{isLogin}}" class="my">
   <view class="userInfo">
     <navigator style="align-self:flex-end;color:#626262;" url="/pages/setting/setting"><van-icon name="setting"></van-icon></navigator> 
-    <image src="{{avatarUrl}}" />
-    <text>{{nickName}}</text>
-  </view>
+    <image src="http://dummyimage.com/200x100" />
+    <text>阿母工业</text>
+  </view> 
   <view class="myOrder">
     <view class="title">
       <text>我的订单</text>
-      <navigator url="/pages/order/order" hover-class="className">查看全部订单<van-icon name="arrow"></van-icon></navigator>
+      <navigator url="/pages/order/order">查看全部订单<van-icon name="arrow"></van-icon></navigator>
     </view>
     <view class="ctn">
-      <navigator url="/pages/order/order">
+      <navigator url="/pages/order/order?state=待付款">
         <van-icon name="pending-payment"></van-icon>
         <text>待付款</text>
       </navigator>
-      <navigator url="/pages/order/order">
+      <navigator url="/pages/order/order?state=待发货">
         <van-icon name="pending-deliver"></van-icon>
         <text>待发货</text>
       </navigator>
-      <navigator url="/pages/order/order">
+      <navigator url="/pages/order/order?state=待收货">
         <van-icon name="logistics"></van-icon>
         <text>待收货</text>
       </navigator>
-    <!--  <navigator>
-        <van-icon name="after-sale"></van-icon>
-        <text>退款/售后</text>
-      </navigator> -->
     </view>
   </view>
   <view class="cell">
     <navigator url="/pages/addressList/addressList"><van-cell title="收货地址" border="{{ false }}" is-link></van-cell></navigator> 
   </view>
-<!--  <view class="cell">
-    <van-cell title="我的资产" border="{{ false }}" is-link></van-cell>
-  </view> -->
+  <view class="cell">
+    <van-cell title="我的拼团" border="{{ false }}" is-link></van-cell>
+  </view> 
   <view class="cell">
     <navigator url="/pages/coupon/coupon"><van-cell title="优惠券" border="{{ false }}" is-link></van-cell></navigator> 
   </view>
-<!--  <view class="cell">
-    <van-cell title="我的消息" border="{{ false }}" is-link></van-cell>
+  <!-- <view class="cell">
+    <van-cell title="我的优惠券" border="{{ false }}" is-link></van-cell>
   </view> -->
 </view>
 <view wx:else class="loginPane">
   <view class="login">
-    <input type="text" placeholder="  请输入阿母关联账号"/>
-    <input type="text" placeholder="  请输入密码" password/>
-    <van-button type="danger" bindtap="login" open-type="getUserInfo" style="width: 100%;margin-top: 30rpx;height: 80rpx;">立即登陆</van-button>
+    <input type="text" bindinput="handleAccount"  placeholder="  请输入阿母关联账号"/>
+    <input type="text" bindinput="handlePassword" placeholder="  请输入密码" password/>
+    <van-button type="danger" bindtap="login" style="width: 100%;margin-top: 30rpx;height: 80rpx;">立即登陆</van-button>
     <view class="text">忘记密码？</view>
   </view>
 </view>

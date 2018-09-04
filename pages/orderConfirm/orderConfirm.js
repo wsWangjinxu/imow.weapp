@@ -35,18 +35,40 @@ Page({
     isChecked: true,
     showBtn: true,
     //备注
-    remark: ""
+    remark: "",
+    btnText: ""
   },
   onLoad(option) {
     //下面一行注释用于测试，测试完毕以后放开注释,根据购物车id获取商品的信息
-    // if(option.cartId) {
-      getOrderConfirmCart("GET").then(res => {
+    if (option.cartId) {
+      //说明是从购物车过来的
+      this.setData({
+        btnText: "提交订单"
+      });
+
+      getOrderConfirmCart("GET", {
+        cartId: option.cartId
+      }).then(res => {
         // console.log(res.data.data);
         this.setData({
           cartData: res.data.data
         });
       });
-    // }
+    } else {
+      //说明是从定金产品过来的
+      this.setData({
+        btnText: "支付定金"
+      });
+
+      getOrderConfirmCart("GET", {
+        skuId: option.skuId,
+        num: option.num
+      }).then(res => {
+        this.setData({
+          cartData: res.data.data
+        });
+      });
+    }
 
     //第一次进入确认订单页面设置默认的地址
     getAddressList("POST").then(res => {
@@ -67,9 +89,9 @@ Page({
     this.checkboxChange();
 
     //获取自提点的信息
-    
+
   },
-  
+
   //每次页面显示的时候都获取缓存中的地址
   onShow() {
     //每次页面显示的时候都获取地址列表(因为用户可能新增地址)，如果缓存中有对应的地址id，就取id对应的地址作为订单的地址，没有的话就取第一条
@@ -82,10 +104,10 @@ Page({
       生命周期onLoad->onShow，这个时候缓存中可能没有内容，在onLoad中设置了地址，
       在onShow中需要判断缓存内容是否有，如果有内容就执行地址替换，如果没有什么也不做
       */
-      if(addrId) {
+      if (addrId) {
         addrList.forEach(element => {
-          if(element.id === addrId) {
-            if(status) {
+          if (element.id === addrId) {
+            if (status) {
               this.setData({
                 addrInfo: element
               })
@@ -101,19 +123,19 @@ Page({
   },
 
   checkboxChange(e) {
-    if(e) {
+    if (e) {
       this.setData({
         checkedArray: e.detail.value
       });
     }
-    
+
 
     let useImb = false;
     let useConpon = false;
     let orderPrice = this.data.cartData.orderProductPrice;
 
     //判断是否勾选阿母币
-    if(~this.data.checkedArray.indexOf("阿母币")) {
+    if (~this.data.checkedArray.indexOf("阿母币")) {
       useImb = true;
       orderPrice -= this.data.cartData.imb;
     } else {
@@ -121,7 +143,7 @@ Page({
     }
 
     //判断是否勾选优惠券
-    if(~this.data.checkedArray.indexOf("优惠券")) {
+    if (~this.data.checkedArray.indexOf("优惠券")) {
       useConpon = true;
       orderPrice -= this.data.cartData.couponTotleDiscount;
     } else {
@@ -130,12 +152,12 @@ Page({
 
     let showBtn;
 
-    if(~this.data.checkedArray.indexOf("售后协议") && ~this.data.checkedArray.indexOf("服务协议")) {
+    if (~this.data.checkedArray.indexOf("售后协议") && ~this.data.checkedArray.indexOf("服务协议")) {
       showBtn = true;
     } else {
       showBtn = false;
     }
-    
+
 
     //设置阿母币和优惠券的显示状态
     this.setData({
@@ -148,7 +170,7 @@ Page({
 
   //控制切换
   handleTabChange(e) {
-    if(e.detail === 101) {
+    if (e.detail === 101) {
       this.setData({
         pick: false
       });
@@ -168,13 +190,13 @@ Page({
 
   //提交订单
   addOrder() {
-    if(this.data.showBtn) {
+    if (this.data.showBtn) {
       let cartData = this.data.cartData;
       let cartId;
-      for(let i = 0; i < cartData.orderCartProductSkus.length; i++) {
+      for (let i = 0; i < cartData.orderCartProductSkus.length; i++) {
         cartId = cartId + cartData.orderCartProductSkus[i].cartId + ",";
       }
-      cartId = cartId.slice(0, cartId.length-1);
+      cartId = cartId.slice(0, cartId.length - 1);
       let data = {
         cartId: cartId,
         UserOrderShipId: this.data.addrInfo.id,
@@ -186,7 +208,7 @@ Page({
 
       console.log(data);
       addOrder("POST", data).then(res => {
-        if(res.data.status === 20) {
+        if (res.data.status === 20) {
           wx.navigateTo({
             url: "/pages/checkPay/checkPay?orderId=" + res.data.orderId
           });

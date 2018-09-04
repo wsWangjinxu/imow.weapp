@@ -1,5 +1,5 @@
 <view class='navCircle'>
-  <navigator url="{{url}}" redirect hover-class="className">
+  <navigator url="{{url}}">
     <image src="{{imgSrc}}"></image>
     <text>{{title}}</text>
   </navigator>

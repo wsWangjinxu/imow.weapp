@@ -1,62 +1,72 @@
-//index.js
-//获取应用实例
-const app = getApp();
+import { userLogin, getThirdSession } from "../../api/user/manage"
 
 Page({
   data: {
-    steps: [
-      {
-        text: '提交订单',
-        desc: '成功提交订单 2018-03-15 20:40:41'
-      },
-      {
-        text: '订单付款',
-        desc: '已付款53000.00元（订单总金额10000.00元）'
-      },
-      {
-        text: '已发货',
-        desc: '已发10件/共20件'
-      },
-      {
-        text: '完成',
-        desc: ''
-      }
-    ],
-    active: 1,
     array: ['全部明细','支付明细'],
     index: 0,
     showLogin: true,
     nickName: "",
     avatarUrl: "",
-    isLogin: false
+    isLogin: false,
+    account: "",
+    password: ""
   },
+
   onLoad() {
-    //获取用户的微信头像和昵称
-    var that = this;
-    wx.getUserInfo({
-      success: function(res) {
-        that.setData({
-          nickName: res.userInfo.nickName,
-          avatarUrl: res.userInfo.avatarUrl
-        });
-      }
-    });
+    let isLogin = wx.getStorageSync("isLogin");
+    console.log(isLogin);
+    if(isLogin) {
+      this.setData({
+        isLogin: isLogin
+      });
+    }
   },
-  onShow() {
-    // if(wx.getStorageSync('isLogin')){
-    //   this.setData({
-    //     isLogin: true
-    //   })
-    // }  else {
-    //   this.setData({
-    //     isLogin: false
-    //   })
-    // }
-  },
+
   login() {
-    // wx.setStorageSync("isLogin", "true");
+    let account = this.data.account;
+    let password = this.data.password;
+    wx.login({
+      timeout: "5000",
+      success(res) {
+        if(res.code) {
+          userLogin("POST", {
+            code: res.code,
+            account,
+            password
+          }).then(res => {
+            //设置缓存
+            wx.setStorageSync("session", res.data.session);
+          });
+          //获取用户的数据
+
+        } else {
+          console.log("登陆失败！" + res.errMsg);
+        }
+      },
+      fail() {
+        console.log("登陆时网络错误");
+      }
+    })
+    wx.setStorageSync("isLogin", true);
     this.setData({
       isLogin: true
+    });
+
+    console.log("account" + this.data.account);
+    console.log("password" + this.data.password);
+  },
+
+  //更新用户的账户信息
+  handleAccount(e) {
+    this.setData({
+      account: e.detail.value
+    });
+  },
+
+  //更新用户的密码信息
+  handlePassword(e) {
+    this.setData({
+      password: e.detail.value
     })
   }
 })

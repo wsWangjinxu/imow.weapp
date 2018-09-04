@@ -78,4 +78,4 @@ Page({
   onClose() {
     this.setData({ showLogin: false });
   }
-})
+});

@@ -12,7 +12,7 @@
   <view wx:if="{{hotProduct}}" class="hotProduct"> 
     <text>热门搜索</text>
     <view>
-      <text bindtap="pointSearch" wx:for="{{hotProduct}}" wx:key="index" data-text="{{item}}">{{item}}</text>
+      <text bindtap="pointSearch" wx:for="{{hotProduct}}" wx:key="index" data-text="{{item.text}}">{{item.text}}</text>
     </view>
   </view>
 </view>

@@ -12,15 +12,6 @@ function getBannerItemList(type, data) {
   });
 }
 
-//获取首页的原型导航的内容
-function getNavList(type, data) {
-  return wxRequest({
-    url: baseUrl + "weapp_getNavList",
-      data: data,
-      type: type
-  });
-}
-
 //获取首页的广告位信息
 function getAD(type, data) {
   return wxRequest({
@@ -39,6 +30,24 @@ function getTabCtn(type, data) {
   });
 }
 
+//获取首页tab的内容
+function guessYourFavorite(type, data) {
+  return wxRequest({
+    url: baseUrl + "guessYourFavorite",
+      data: data,
+      type: type
+  });
+}
+
+//获取首页tab的内容
+function getFloorList(type, data) {
+  return wxRequest({
+    url: baseUrl + "getFloorList",
+      data: data,
+      type: type
+  });
+}
 
 
-export { getBannerItemList, getNavList, getAD, getTabCtn }
+
+export { getBannerItemList, getAD, getTabCtn, guessYourFavorite, getFloorList }

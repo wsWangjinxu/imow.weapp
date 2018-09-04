@@ -80,7 +80,7 @@
     <view class="submit">
       <view>
         <view>订单总额（不含运费）<text>￥{{cartData.orderPrice}}</text></view>
-        <view class="submitBtn" bindtap="addOrder" style="background-color:{{showBtn? 'fb0200':'#333'}};">提交订单</view>   
+        <view class="submitBtn" bindtap="addOrder" style="background-color:{{showBtn? 'fb0200':'#333'}};">{{btnText}}</view>   
       </view>
     </view>
     <van-popup position="bottom" show="{{show}}">

@@ -15,7 +15,7 @@ function searchHistory(type, data) {
 //获取热门搜索关键字
 function hotSearch(type, data) {
   return wxRequest({
-    url: baseUrl + "weapp_hotSearch",
+    url: baseUrl + "getHotPoint",
       data: data,
       type: type
   });
