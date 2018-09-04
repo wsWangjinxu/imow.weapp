@@ -22,7 +22,7 @@ Page({
     show: false,   //提交订单弹框
     abc: true,//true显示商家false显示自提
     isFocus: false,//控制input 聚焦
-    submitSure:false,    //弹框提交
+    submitSure:false,    //弹框提交按钮禁用
     orderId:undefined,
     shipAmount: 15.26,  //运费
     orderCode: "",   //订单号
@@ -42,7 +42,7 @@ Page({
     surePay: 0, //网银剩余应付 
     credit: false,  //是否是用信用分
     useBalance: false,  //是否使用余额
-    payMethod:"",     //支付方式
+    payMethod:'',     //支付方式
     wallets_password:'', //密码
     pwdRight:false,//密码输入是否正确
     couponTotleDiscount: 300   //优惠券使用金额
@@ -51,7 +51,6 @@ Page({
     console.log(e.orderId);
     this.setData({ orderId: e.orderId });
     this.init();
-    console.log('支付方式：'+this.data.payMethod)
   },
   //事件处理函数
   // 点击触发下拉框事件
@@ -98,9 +97,9 @@ Page({
   },
   //提交订单弹框
   showAlert(){
-    this.setData({ show: true });
-    console.log(this.data.checkedArray.length)
-    if(this.data.checkedArray.length==0){
+    this.setData({ show: true }); 
+    //console.log(this.data.checkedArray.length)
+    if(this.data.checkedArray.length==0){       //判断是否勾选值
       this.setData({ submitSure: true });
     }else{
       this.setData({ submitSure: false });
@@ -153,6 +152,7 @@ Page({
   },
   //支付成功
   paySuccess(){
+    console.log(this.data.payMethod);
     submitPayment("POST", {
       id: this.data.orderId,
       isUseCrepoint:this.data.credit,
@@ -174,25 +174,26 @@ Page({
       orderId: this.data.orderId
     }).then(res => {
       console.log(res.data.data);
-      let orderTotalPrice1=res.data.data.orderProductPrice-res.data.data.imb-res.data.data.couponTotleDiscount+res.data.data.shipAmount;
+      let Data = res.data.data;
+      let orderTotalPrice1 = Data.orderProductPrice - Data.imb - Data.couponTotleDiscount + Data.shipAmount;
       this.setData({
-        shipAmount:res.data.data.shipAmount,     
-        sellerName: res.data.data.sellerName,
-        buyerName: res.data.data.buyerName,
-        productNames: res.data.data.productNames,
-        buyTime: res.data.data.buyTime,
-        crePoint: res.data.data.crePoint,
-        balance: res.data.data.balance,
-        imb: res.data.data.imb,
-        orderProductPrice: res.data.data.orderProductPrice,//产品总价
-        payable: res.data.data.payable,
-        depositPrice: res.data.data.depositPrice,
-        couponTotleDiscount: res.data.data.couponTotleDiscount,
-        surePay: res.data.data.payable,     //其他支付应付
-        orderTotalPrice: orderTotalPrice1,
-        //orderCode: res.data.data.orderCode,   //订单号
-        paymentMethod: res.data.data.paymentMethod,
-        payMethod: res.data.data.paymentMethod[0].name
+        shipAmount: Data.shipAmount,     
+        sellerName: Data.sellerName,
+        buyerName: Data.buyerName,
+        productNames: Data.productNames,
+        buyTime: Data.buyTime,
+        crePoint: Data.crePoint,
+        balance: Data.balance,
+        imb: Data.imb,
+        orderProductPrice: Data.orderProductPrice,//产品总价
+        payable: Data.payable,
+        depositPrice: Data.depositPrice,
+        couponTotleDiscount: Data.couponTotleDiscount,
+        surePay: Data.payable,     //其他支付应付
+        orderTotalPrice: orderTotalPrice1,  //订单总额
+        //orderCode: Data.orderCode,   //订单号
+        paymentMethod: Data.paymentMethod,
+        payMethod: Data.paymentMethod[0].name  //不触发选择支付方式事件自动获取第一个支付方式
       });
       
     });
