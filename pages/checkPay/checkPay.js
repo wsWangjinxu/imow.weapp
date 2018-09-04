@@ -34,9 +34,13 @@ Page({
     crePoint: 3000,    //可用信用分
     balance: 1000, //可用余额 
     orderProductPrice: 57200, //产品总价
-    payable: "", //应付金额
-    depositPrice: "", //定金金额
+    payable: 57200, //应付金额
+    depositPrice: 500, //定金金额
     imb: 1000,     //使用阿母币
+    checkedArray: ["信用分", "店铺余额", "网银"], //已经选择的选项
+    surePay: 57200, //网银剩余应付 
+    credit: false,  //是否是用阿母币
+    useBalance: false,  //是否使用优惠券
     couponTotleDiscount: 300   //优惠券使用金额
   },
   onLoad: function (e) {
@@ -51,9 +55,48 @@ Page({
       index: e.detail.value
     })
   },  
+  //勾选事件
+  checkboxChange(e) {
+    console.log(e.detail.value);
+    if (e) {
+      this.setData({
+        checkedArray: e.detail.value
+      });
+    }
+    let credit = false;
+    let useBalance = false;
+    let payPrice = this.data.surePay;
+    // let showBtn;
+    //判断是否勾选信用分
+    if (~this.data.checkedArray.indexOf("信用分")) {
+      credit = true;
+      payPrice -= this.data.crePoint;
+    } else {
+      credit = false;
+    }
 
-  checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    // 判断是否勾选店铺余额
+    if (~this.data.checkedArray.indexOf("店铺余额")) {
+      useBalance = true;
+      payPrice -= this.data.balance;
+    } else {
+      useBalance = false;
+    }
+
+    // if (~this.data.checkedArray.indexOf("店铺余额") &&~this.data.checkedArray.indexOf("信用分")) {
+    //   showBtn = true;
+    // } else {
+    //   showBtn = false;
+    // }
+
+    //设置显示状态
+    this.setData({
+      credit,
+      useBalance,
+      surePay: payPrice
+    });
+
+    console.log(this.data.surePay)
   },
   //提交订单弹框
   showAlert(){

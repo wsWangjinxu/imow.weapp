@@ -25,7 +25,7 @@
       <text>订单商品:</text>
     </van-col>
     <van-col span="20">
-      <text>1.5吨经济型电动搬运车(小金刚二代) EPT20-15ET2</text>  
+      <text wx:for="{{productNames}}" wx:key="{{index}}">{{item}}</text>  
     </van-col>
   </van-row>
   <van-row>
@@ -69,7 +69,7 @@
       <view class='paymentText'>本次将使用<text class='underLine'>{{crePoint}}元</text>信用分支付</view>   
     </van-col>
     <van-col span="2">
-      <checkbox value="信用分" checked="" color='red'/>  
+      <checkbox value="{{'信用分'}}" checked="true" color='red'/>  
     </van-col>
   </van-row>
   <view class='paymentItem2'>
@@ -81,7 +81,7 @@
           <view class='paymentText'>本次将使用<text class='underLine'>{{balance}}元</text>店铺余额支付</view>  
         </van-col>
         <van-col span="2">
-          <checkbox value="店铺余额" checked="" color='red'/> 
+          <checkbox value="{{'店铺余额'}}" checked="true" color='red'/> 
         </van-col>  
     </van-row>
   </view> 
@@ -95,7 +95,7 @@
       </picker>
     </van-col>
     <van-col span="16">
-      <view class='paymentText'>支付<text class='underLine'>53200元</text> </view> 
+      <view class='paymentText'>支付<text class='underLine'>{{surePay}}元</text> </view> 
     </van-col>
     <van-col span="2">
       <checkbox value="网银" checked="" color='red'/>  
@@ -111,7 +111,7 @@
         <text>本次应付款</text>
       </van-col>
       <van-col span="19">
-        <view class="surePayNum textRight">￥57200.00</view>  
+        <view class="surePayNum textRight">￥{{filters.toFix(payable)}}</view>  
       </van-col>
     </van-row>
   </view> 
@@ -149,6 +149,14 @@
   </van-row>
   <van-row>
     <van-col span="5">
+      <text>定金</text>
+    </van-col>
+    <van-col span="19">
+      <view style="text-align: right">-￥{{filters.toFix(depositPrice)}}</view>  
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="5">
       <text>运费</text>
     </van-col>
     <van-col span="19">
@@ -163,7 +171,7 @@
       <view class='button1'>本次应付款</view>    
     </van-col>
     <van-col span="8">
-      <view class='button2'>￥57200.00</view>
+      <view class='button2'>￥{{filters.toFix(payable)}}</view>
     </van-col>
     <van-col span="8" class="button4">
       <view class="button4" catchtap='showAlert'>提交订单</view>
