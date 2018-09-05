@@ -1,0 +1,16 @@
+<view class="shop">
+  <view class="title">
+    <view><image src="{{ctn.logo}}" /><text>{{ctn.name}}</text></view>  <view class="title-btn">进店</view>
+  </view>
+  <view class="business">主营：{{ctn.detail}}</view>
+  <view class="productList">
+    <block wx:for="{{ctn.productList}}" wx:key="index">
+      <image src="{{item.image}}"></image>
+    </block>
+  </view>
+  <view class="footBtn">
+    <view style="flex: 1;"><van-icon style="color: #e60a14;margin-right: 10rpx;" name="chat"></van-icon><text>线上客服</text></view>
+    <view style="flex: 1.5;"><van-icon style="color: #e60a14;margin-right: 10rpx;" name="phone"></van-icon><text>{{ctn.contact}}</text></view>
+    <view style="flex: 2;"><van-icon style="color: #e60a14;margin-right: 10rpx;" name="chat"></van-icon><text>{{ctn.address}}</text></view>
+  </view>
+</view>

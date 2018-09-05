@@ -1,5 +1,13 @@
 <view class="item">
-  <view bindtap="fold" wx:if="{{name}}" class="title"><view>{{name}}<view wx:if="{{iconShow}}" catchtap="backKeyword" class="icon"><van-icon style="vertical-align: -10rpx;font-size: 40rpx;" name="close"></van-icon></view></view><van-icon name="arrow"></van-icon></view>
+  <view bindtap="handleTap" wx:if="{{name}}" class="title">
+    <view>
+      {{name}}
+      <view wx:if="{{iconShow}}" catchtap="backKeyword" class="icon">
+        <van-icon style="vertical-align: -10rpx;font-size: 40rpx;" name="close"></van-icon>
+      </view>
+      </view>
+      <image style="width: 40rpx;height: 40rpx;" wx:if="{{isShow}}" src="/static/icon/down-circle.png"></image><image style="width: 40rpx;height: 40rpx;" wx:else src="/static/icon/up-circle.png"/>
+      </view>
   <view wx:if="{{ctn.propertyCategories}}" class="item-ctn" class="{{isFoldClass}}">
     <block wx:for="{{ctn.propertyCategories}}" wx:key="index">
       <view data-name="{{item.name}}" data-id="{{item.id}}" bindtap="handleSelected">{{item.name}}</view>

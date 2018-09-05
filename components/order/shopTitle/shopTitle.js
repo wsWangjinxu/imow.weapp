@@ -19,6 +19,14 @@ Component({
     cancelCheck: {
       type: Boolean,
       value: false
+    },
+    orderId: {
+      type: String,
+      value: ""
+    },
+    stateStr: {
+      type: String,
+      value: ""
     }
   },
   data: {

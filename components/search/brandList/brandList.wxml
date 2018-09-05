@@ -1,6 +1,6 @@
 <view class="brand">
-   <title name="{{title}}"></title>
-   <view class="brandCtn">
+   <title bind:fold="handleFold" name="{{title}}"></title>
+   <view class="{{isFoldClass}}">
       <text class="selectedBrand" bindtap="resetBrand" wx:if="{{selectedBrand}}">{{selectedBrand}}</text>
       <block wx:if="{{!selectedBrand}}" wx:for="{{brandList}}" wx:key="index">
         <textItem  bind:search="handleSearch" ctn="{{item}}"></textItem>

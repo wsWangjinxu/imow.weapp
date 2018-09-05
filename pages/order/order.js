@@ -4,40 +4,56 @@ Page({
   data: {
     list: [
       {
-        id: 101,
+        id: "全部",
         title: "全部"
       },
       {
-        id: 102,
+        id: "待付款",
         title: "待付款"
       },
       {
-        id: 103,
+        id: "待发货",
         title: "待发货"
       },
       {
-        id: 104,
+        id: "待收货",
         title: "待收货"
-      },
-      {
-        id: 105,
-        title: "退款/售后"
       }
     ],
-    selectedId: 101
+    selectedId: "全部",
+    orders: ""
   },
   onLoad: function (option) {
-    console.log(option);
-    if(option.state) {
-      getOrderList("GET", {
-        state: option.state
-      }).then(res => {
-        console.log(res);
-      })
-    } else {
-      getOrderList("GET").then(res => {
-        console.log(res);
-      })
-    }
+    //设置路由跳转后tab
+    this.setData({
+      selectedId: option.state
+    });
+
+    //
+    getOrderList("GET", {
+      state: option.state
+    }).then(res => {
+
+      console.log(res.data.orders);
+      let product = res.data.orders.productSku;
+      product.forEach(element => {
+        element.ProductName = element.name
+      });
+      console.log(order);
+      this.setData({
+        orders: res.data.orders
+      });
+    });
+  },
+
+  handleTabChange(e)  {
+    getOrderList("GET", {
+      state: e.detail
+    }).then(res => {
+      console.log(res.data.orders);
+      this.setData({
+        orders: res.data.orders
+      });
+    });
   }
 })

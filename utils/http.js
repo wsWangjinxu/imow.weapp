@@ -12,7 +12,6 @@
       }
       DS.session = session;
     }
-    console.log(DS);
     wx.request({
       url: requestObj.url,
       method: requestObj.type,

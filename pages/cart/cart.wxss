@@ -16,3 +16,22 @@
 .product-list product:last-child .product--product {
   border-bottom: none;
 }
+
+.shopList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80rpx;
+  font-size: 30rpx;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  width: auto;
+}
+
+.shopList view {
+  display: inline-block;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}

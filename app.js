@@ -6,19 +6,34 @@ App({
     let that = this;
     wx.login({
       success(res) {
-        if(res.code) {
+        if (res.code) {
           getThirdSession("POST", {
             code: res.code
           }).then(res => {
-            console.log(res.data.session);
-            if(res.data.session) {
+            console.log(res.data);
+            if (res.data.session) {
               //如果session有值说明已经登陆成功，设置登陆状态，并写入缓存
               wx.setStorageSync("session", res.data.session);
               wx.setStorageSync("isLogin", true);
+              that.globalData.nickname = res.data.nickname;
+              that.globalData.imgSrc = res.data.imgSrc;
+              console.log(that.globalData);
+              if (that.callback) {
+                that.callback();
+              }
+            } else {
+              //没有获取到session的时候，取消原有的登陆状态
+              wx.setStorageSync("isLogin", false);
             }
-          })
+          });
         }
       }
     })
+  },
+
+  globalData: {
+    nickname: "岁月不好",
+    imgSrc: ""
   }
+
 })

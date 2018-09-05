@@ -1,20 +1,24 @@
 <view class="list"> 
   <van-search value="{{keyword}}" disabled="true" placeholder="请输入搜索关键字" bindtap="goBack"></van-search>
-  <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
+  <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange" ></van-tab>
   <view class="nav">
     <view>排序<image class="icon" src="/static/icon/order.png"></image></view>
     <view style="border-right: 1px solid #e5e5e5;">销量优先</view>
     <view bindtap="filterOpen">筛选<image class="icon" src="/static/icon/filtrate.png"></image></view>
   </view>
-  <view wx:if="searchResult" class="list">
-    <block wx:for="{{searchResult.productList}}" wx:key="index">
+  <view  class="list">
+    <block wx:if="{{selectedId == 1}}" wx:for="{{searchResult.productList}}" wx:key="index">
       <product ctn="{{item}}"></product>
+    </block>
+     <block wx:if="{{selectedId == 2}}}" wx:for="{{searchResult.shopList}}" wx:key="index"> 
+      <shop ctn="{{item}}"></shop>
     </block>
   </view>
   <view class="{{filterShow}}">
     <filter
       bind:search="handleSearch"
       bind:reset="handleReset"
+      selectedId="{{selectedId}}"
       brandList="{{searchResult.brandList}}" 
       propertyList="{{searchResult.propertyList}}" 
       propertyCategories="{{searchResult.propertyCategories}}"  

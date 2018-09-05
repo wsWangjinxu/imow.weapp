@@ -30,4 +30,22 @@ function getOrderConfirmCart(type, data) {
   });
 }
 
-export { getUserCart, changeNum, getOrderConfirmCart }
+//获取购物车中的店铺列表
+function getCartShopList(type, data) {
+  return wxRequest({
+    url: baseUrl + "weapp_getCartShopList",
+      data: data,
+      type: type
+  });
+}
+
+//获取对应店铺id的产品
+function getShopCart(type, data) {
+  return wxRequest({
+    url: baseUrl + "weapp_getShopCart",
+      data: data,
+      type: type
+  });
+}
+
+export { getUserCart, changeNum, getOrderConfirmCart, getCartShopList, getShopCart }

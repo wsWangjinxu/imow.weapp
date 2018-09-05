@@ -1,8 +1,9 @@
 {
   "usingComponents": {
     "shopTitle": "/components/order/shopTitle/shopTitle",
-    "product": "/components/order/product/productCtn/productCtn",
+    "productCtn": "/components/order/product/productCtn/productCtn",
     "payBar": "/components/order/payBar/payBar",
-    "shop": "/components/order/shop/shop"
+    "shop": "/components/order/shop/shop",
+    "tab": "/vantui/tab/index"
   }
 }

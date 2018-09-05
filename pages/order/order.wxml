@@ -1,10 +1,9 @@
 <view>
-  <van-tab list="{{list}}" selected-id="{{selectedId}}"></van-tab>
+  <van-tab bindtabchange="handleTabChange" list="{{list}}" selected-id="{{selectedId}}"></van-tab>
   <view class="shopList">
-    <view wx:for="{{3}}" wx:key="index">
-      <shopTitle></shopTitle>
-      <product></product>
-      <product></product>
+    <view wx:if="{{orders}}" wx:for="{{orders}}" wx:key="index">
+      <shopTitle shopName="{{item.shop.name}}" orderId="{{item.id}}" stateStr="{{item.stateStr}}"></shopTitle>
+      <orderConfirmCtn ctn="{{item.productSku}}"></orderConfirmCtn>
       <view class="settleBar"><text>共1件商品</text><text>合计：￥89000.00（含运费￥200.00）</text></view>
       <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
     </view>

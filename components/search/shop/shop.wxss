@@ -1,0 +1,76 @@
+.shop {
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.title view {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title image {
+  width: 85rpx;
+  height: 85rpx;
+  flex: none;
+  margin-right: 10rpx;
+}
+
+.title-btn {
+  border: 1px solid #e60a14;
+  color: #e60a14;
+  border-radius: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  font-size: 26rpx;
+  vertical-align: center;
+}
+
+.productList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.business {
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.productList image {
+  width: 225rpx;
+  height: 225rpx;
+  flex: none;
+}
+
+.footBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  border: 1px solid #cccccc;
+  margin-top: 20rpx;
+}
+
+.footBtn view {
+  padding: 15rpx 0;
+  border-right: 1px solid #cccccc;
+  text-align: center;
+}
+
+.footBtn view:last-child {
+  border-right: none;
+}

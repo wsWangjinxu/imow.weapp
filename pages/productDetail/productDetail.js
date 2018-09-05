@@ -46,12 +46,19 @@ Page({
     productImg3: "",
     shopId:123,
     cartNum:0,
-    productId:333
+    productId:333,
+    buyBtn: true,
   },
   onLoad: function (e) {
     //console.log(e);
     //this.setData({ productId: e.productId });
     this.init();
+    let isLogin = wx.getStorageSync("isLogin");
+    if(!isLogin) {
+      this.setData({
+        buyBtn: false
+      })
+    }
   },
   onShow:function() {
     this.initCouponList();    //优惠券初始化

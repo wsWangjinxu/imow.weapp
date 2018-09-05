@@ -1,5 +1,13 @@
-.brandCtn {
+.unfold {
   padding: 0 20rpx;
+  height: auto;
+
+}
+
+.fold {
+  padding: 0 20rpx;
+  height: 80rpx;
+  overflow: hidden;
 }
 
 .selectedBrand {

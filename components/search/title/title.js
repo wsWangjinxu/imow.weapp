@@ -10,10 +10,10 @@ Component({
   },
   methods: {
     handleTap() {
-      console.log(this.data.isShow);
       this.setData({
         isShow: !this.data.isShow
       });
+      this.triggerEvent("fold", {status: !this.data.isShow});
     }
   }
 })

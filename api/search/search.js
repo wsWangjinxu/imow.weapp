@@ -30,6 +30,15 @@ function getProductList(type, data) {
   });
 }
 
+//店铺搜索
+function getShopList(type, data) {
+  return wxRequest({
+    url: baseUrl + "/search/shopList",
+      data: data,
+      type: type
+  });
+}
+
 //获取城市列表
 function getCities(type, data) {
   return wxRequest({
@@ -40,4 +49,4 @@ function getCities(type, data) {
 }
 
 
-export { searchHistory, hotSearch, getProductList, getCities }
+export { searchHistory, hotSearch, getProductList, getShopList, getCities }

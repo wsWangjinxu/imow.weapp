@@ -5,7 +5,7 @@
     "invoice": "/components/order/invoice/invoice",
     "shopTitle": "/components/order/shopTitle/shopTitle",
     "van-button": "/vantui/button/index",
-    "product": "/components/order/product/orderProduct/orderProduct"
+    "orderConfirmCtn": "/components/order/product/orderConfirmCtn/orderConfirmCtn"
   },
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fe0000",

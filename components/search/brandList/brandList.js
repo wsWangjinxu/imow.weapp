@@ -29,20 +29,21 @@ Component({
     }
   },
   data: {
-    isFoldClass: "fold",
+    isFoldClass: "unfold",
     selectedBrand: false,
     selectedId: ""
   },
   methods: {
     //是否折叠分类
-    fold: function () {
-      if(this.data.isFoldClass === "fold") {
+    handleFold (e) {
+      console.log(e);
+      if(e.detail.status) {
         this.setData({
-          isFoldClass: "unfold"
+          isFoldClass: "fold"
         });
       } else {
         this.setData({
-          isFoldClass: "fold"
+          isFoldClass: "unfold"
         });
       }
     },

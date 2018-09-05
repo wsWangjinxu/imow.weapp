@@ -1,11 +1,11 @@
-import {getProductList} from "../../api/search/search"
+import {getProductList, getShopList} from "../../api/search/search"
 
 Page({
   data: {
     filterShow: "none",
     //保存最初的状态
     keyword:"",
-    selectedId: "",
+    selectedId: "1",
     list: [
       {
         id: "1",
@@ -21,27 +21,27 @@ Page({
   },
 
   onLoad(option) {
+    console.log(option);
     //保留当前搜索状态，用于用户下拉刷新
     let currentSearch = {
       keyword: option.keyword,
-      pageIndex: 1
+      pageIndex: 1,
+      pageSize: 8
     };
 
     //记录最初的状态
     this.setData({
       keyword: option.keyword,
       selectedId: option.id,
-      currentSearch: currentSearch
+      currentSearch: currentSearch,
+      shopCurrentSearch: currentSearch
     });
 
-    //初始化数据
-    this.search(currentSearch);
-  },
-
-  onSearch(e) {
-    //这里获取搜索的逻辑
-    console.log(this.data.selectedId);
-    console.log(this.data.keyword);
+    if(option.id == "1") {
+      this.search(currentSearch);
+    } else {
+      this.search(this.data.shopCurrentSearch);
+    }
   },
 
   //点击修改模式，是搜索店铺还是搜索产品
@@ -49,6 +49,12 @@ Page({
     this.setData({
       selectedId: e.detail
     });
+
+    if(e.detail == "1") {
+      this.search(this.data.currentSearch);
+    } else {
+      this.search(this.data.shopCurrentSearch);
+    }
   },
 
   //打开筛选框，并禁止页面滚动
@@ -75,7 +81,7 @@ Page({
   //全局的搜索
   search(data) {
     let id = this.data.selectedId;
-    if(id==="1") {
+    if(id=="1") {
       //这里是产品搜索
       getProductList("GET", data).then(res => {
         //获取到的搜索的数据
@@ -85,8 +91,9 @@ Page({
       })
     } else {
       //这里是店铺搜索
-      getProductList("GET", data).then(res => {
+      getShopList("GET", data).then(res => {
         //获取到的搜索的数据
+        console.log(res.data);
         this.setData({
           searchResult: res.data
         });
@@ -115,7 +122,12 @@ Page({
 
   //下拉刷新
   onPullDownRefresh() {
-    this.search(this.data.currentSearch);
+    if(this.data.selectedId == "1") {
+      this.search(this.data.currentSearch);
+    } else {
+      this.search(this.data.shopCurrentSearch);
+    }
+    
     wx.stopPullDownRefresh();
   },
 
@@ -131,18 +143,36 @@ Page({
       "currentSearch.pageIndex": page + 1
     });
     console.log(this.data.currentSearch);
-    getProductList("GET", this.data.currentSearch).then(res => {
-      console.log(res);
-      let tempList = this.data.searchResult.productList;
-      for(let i = 0; i < res.data.productList.length; i++) {
-        tempList.push(res.data.productList[i]);
-      }
-      this.setData({
-        "searchResult.productList": tempList
+    //利用当前选中的id来判断是加载店铺搜索还是加载产品搜索
+    if(this.data.selectedId == "1") {
+      getProductList("GET", this.data.currentSearch).then(res => {
+        console.log(res);
+        let tempList = this.data.searchResult.productList;
+        for(let i = 0; i < res.data.productList.length; i++) {
+          tempList.push(res.data.productList[i]);
+        }
+        this.setData({
+          "searchResult.productList": tempList
+        });
+        wx.hideLoading();
+      }).then(err => {
+        wx.hideLoading();
       });
-      wx.hideLoading();
-    }).then(err => {
-      wx.hideLoading();
-    });
+    } else {
+      getShopList("GET", this.data.shopCurrentSearch).then(res => {
+        console.log(res);
+        let tempList = this.data.searchResult.shopList;
+        for(let i = 0; i < res.data.shopList.length; i++) {
+          tempList.push(res.data.shopList[i]);
+        }
+        this.setData({
+          "searchResult.shopList": tempList
+        });
+        wx.hideLoading();
+      }).then(err => {
+        wx.hideLoading();
+      });
+    }
+    
   },
 })

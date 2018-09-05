@@ -16,6 +16,10 @@ Component({
     propertyCategories: {
       type: Object,
       value: {}
+    },
+    selectedId: {
+      type: String,
+      value: ""
     }
   },
   data: {

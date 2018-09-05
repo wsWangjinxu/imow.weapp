@@ -3,5 +3,6 @@
         <text>购物车 <text style="font-size:20rpx;">共30件商品</text></text>
         <text>管理</text>
     </view>
-    <shop wx:for="{{list}}" wx:key="index" shop="{{item}}"></shop>
+    <tab bindtabchange="handleTabChange" scroll="true" wx:if="{{shopList}}" list="{{shopList}}" selectedId="{{selectedId}}"></tab>
+    <shop shop="{{list[num]}}"></shop>
 </view>

@@ -186,7 +186,7 @@
   </view>
 </view>
 
-<view class='footer'>
+<view wx:if="{{ buyBtn }}" class='footer'>
   <van-row>
     <van-col span="4">
     <navigator url='/pages/index/index' open-type="switchTab">

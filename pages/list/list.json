@@ -4,6 +4,7 @@
     "van-search": "/vantui/search/index",
     "van-tab": "/vantui/tab/index",
     "product": "/components/search/product/product",
+    "shop": "/components/search/shop/shop",
     "van-popup": "/vantui/popup/index",
     "filter": "/components/search/filter/filter"
   },

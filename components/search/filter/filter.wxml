@@ -1,25 +1,33 @@
 <view class="filter" catchtouchmove='move'>
   <view class="filter-ctn">
     <scroll-view scroll-y="false" style="height: 85%;" >
-    <!--分类-->
-   <propertyCategories ctn="{{propertyCategories}}"  bind:searchClass="handleClass"></propertyCategories>
-    <!--品牌-->
-    <brandList brandList="{{brandList}}" bind:brandSearch="handleBrand" title="品牌"></brandList>
-    <!--折扣服务-->
-    <service bind:search="handleService"></service>
-    <!--价格区间-->
-    <view class="priceArea">
-      <text>价格区间</text>
-      <view>
-        <input type="text" bindblur="handleMinInput"  placeholder="最低价"/>——<input type="text" bindblur="handleMaxInput"  placeholder="最高价"/>
+    <view style="display: {{selectedId=='1' ? 'block': 'none'}};">
+      <!--分类-->
+      <propertyCategories ctn="{{propertyCategories}}"  bind:searchClass="handleClass"></propertyCategories>
+      <!--品牌-->
+      <brandList brandList="{{brandList}}" bind:brandSearch="handleBrand" title="品牌"></brandList>
+      <!--折扣服务-->
+      <service  bind:search="handleService"></service>
+      <!--价格区间-->
+      <view  class="priceArea">
+        <text>价格区间</text>
+        <view>
+          <input type="text" bindblur="handleMinInput"  placeholder="最低价"/>——<input type="text" bindblur="handleMaxInput"  placeholder="最高价"/>
+        </view>
       </view>
+      <!--属性列表-->
+      <block wx:for="{{propertyList}}" wx:key="index">
+        <brandList brandList="{{item.values}}" bind:brandSearch="searchProperties" wx:if="{{item.name}}" title="{{item.name}}"></brandList>
+      </block>
+      <!--城市-->
+      <brandList brandList="{{cities}}" bind:brandSearch="handleCity" title="城市"></brandList>
     </view>
-    <!--属性列表-->
-    <block wx:for="{{propertyList}}" wx:key="index">
-      <brandList brandList="{{item.values}}" bind:brandSearch="searchProperties" wx:if="{{item.name}}" title="{{item.name}}"></brandList>
-    </block>
-    <!--城市-->
-    <brandList brandList="{{cities}}" bind:brandSearch="handleCity" title="城市"></brandList>
+    <view style="display: {{selectedId=='1' ? 'none': 'block'}};">
+      <!--品牌-->
+      <brandList  bind:brandSearch="handleBrand" title="品牌"></brandList>
+      <!--城市-->
+      <brandList brandList="{{cities}}" bind:brandSearch="handleCity" title="发货地"></brandList>
+    </view>
     </scroll-view>
     <view class="filter-btn"><view bindtap="reset">重置</view><view bindtap="close">确定</view></view>
   </view>
