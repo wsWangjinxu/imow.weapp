@@ -23,7 +23,6 @@ Page({
 
   //处理用户点击地址列表
   handleTap(e) {
-    console.log(getCurrentPages());
     //获取页面调用栈
     let pageStack = getCurrentPages();
     let prevPage = pageStack[pageStack.length-2].route;
@@ -49,7 +48,6 @@ Page({
       });
     } else {
       //如果上一个页面是我的页面，点击就跳转到修改地址页面
-      console.log(e);
       wx.navigateTo({
         url: "/pages/addressForm/addressForm?id=" + Id
       });

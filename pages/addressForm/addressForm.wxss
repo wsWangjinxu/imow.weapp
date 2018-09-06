@@ -5,3 +5,7 @@
 .btnGroup button {
   margin-bottom: 20rpx;
 }
+
+.addressList .cell-index--van-cell__value {
+  text-align: left !important;
+}

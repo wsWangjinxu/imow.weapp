@@ -1,27 +1,19 @@
 <view class="addressList">
   <van-cell-group>
-    <van-field label="收货人" value="{{name}}" placeholder="请输入姓名"></van-field>
-    <van-field label="手机号码" value="{{phone}}" placeholder="请输入手机号码"></van-field>
-    <van-field label="电话号码" value="{{phoneCall}}" placeholder="请输入电话号码"></van-field>
-    <van-field label="所在地区" value="{{name}}" disabled bindtap="showTree" placeholder="省 市 区县"></van-field>
-    <van-field label="详细地址" value="{{detail}}" placeholder="街道门牌信息"></van-field>
-    <van-field label="邮政编码" value="{{postal}}" placeholder="邮政编码"></van-field>
+    <van-field  data-id="name"  required confirm-type bind:blur="nameVerify" label="收货人" value="{{name}}" placeholder="请输入姓名"></van-field>
+    <van-field  required confirm-type bind:blur="phoneVerify" label="手机号码" value="{{phone}}" placeholder="请输入手机号码"></van-field>
+    <van-field  confirm-type label="电话号码" value="{{phoneCall}}" placeholder="请输入电话号码"></van-field>
+    <picker mode="region" value="{{region}}" bindchange="bindRegionChange" >
+      <van-cell required title="省市区" title-width="180rpx" style="text-align: left!important;">
+         <text style="color: #888;" wx:if="{{!region}}">请输入省市区</text>{{region[0]}} {{region[1]}} {{region[2]}} 
+      </van-cell>
+    </picker>
+    <van-field  required bind:blur="detailVerify" confirm-type label="详细地址" value="{{detail}}" placeholder="街道门牌信息"></van-field>
+    <van-field  confirm-type label="邮政编码" value="{{postal}}" placeholder="邮政编码"></van-field>
   </van-cell-group>
   <view class="btnGroup">
-    <van-button size="large" type="primary">保存</van-button>
-    <van-button wx:if="{{hasDelete}}" size="large" type="danger">删除</van-button>
-    <navigator url="/pages/addressList/addressList"><van-button size="large">取消</van-button></navigator>
-  </view>
-  
-
-  <van-popup show="{{ show }}" position="bottom" overlay="{{true}}" bind:close="onClose" close-on-click-overlay="{{true}}">
-    <van-tree-select
-      items="{{ items }}"
-      main-active-index="{{ mainActiveIndex }}"
-      active-id="{{ activeId }}"
-      bind:click-nav="onClickNav"
-      bind:click-item="onClickItem"
-    ></van-tree-select>
-  </van-popup>
-  
+    <van-button size="large" bindtap="saveAddress" type="primary">保存</van-button>
+    <van-button bindtap="delete" wx:if="{{hasDelete}}" size="large" type="danger">删除</van-button>
+    <van-button bindtap="cancel" size="large">取消</van-button>
+  </view> 
 </view>

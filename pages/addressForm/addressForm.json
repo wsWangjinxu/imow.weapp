@@ -3,8 +3,6 @@
     "van-field": "/vantui/field/index",
     "van-cell-group": "/vantui/cell-group/index",
     "van-cell": "/vantui/cell/index",
-    "van-tree-select": "/vantui/tree-select/index",
-    "van-popup": "/vantui/popup/index",
     "van-button": "/vantui/button/index"
   },
   "backgroundTextStyle":"light",
