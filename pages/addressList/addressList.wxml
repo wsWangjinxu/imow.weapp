@@ -3,7 +3,7 @@
     <view class="item" bindtap="handleTap" data-id="{{item.id}}">
       <view>
         <text>{{ item.consignee }} {{ item.phone }}</text>
-        <text>{{ item.detail }}</text>
+        <text>{{item.address[0]}}{{item.address[1]}}{{item.address[2]}}{{ item.detail }}</text>
       </view>
       <van-icon data-id="{{item.id}}" catchtap="editAddress" style="font-size: 40rpx;" name="edit"></van-icon>
     </view>

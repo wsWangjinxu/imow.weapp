@@ -35,7 +35,8 @@ Page({
           phone: res.data.phone,
           phoneCall: res.data.phoneCall,
           detail: res.data.detail,
-          postal: res.data.postal
+          postal: res.data.postal,
+          region: res.data.address
         });
       });
     }
