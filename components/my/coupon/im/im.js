@@ -6,7 +6,11 @@ Component({
   properties: {
     status: {
       type: String,
-      value: "overdue"
+      value: "unused"
+    },
+    ctn: {
+      type: Object,
+      value: {}
     }
   },
 

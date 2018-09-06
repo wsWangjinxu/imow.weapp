@@ -4,7 +4,7 @@
     "van-notice-bar": "/vantui/notice-bar/index",
     "van-steps": "/vantui/steps/index",
     "shopTitle": "/components/order/shopTitle/shopTitle",
-    "orderProduct": "/components/order/product/orderProduct/orderProduct",
+    "orderConfirmCtn": "/components/order/product/orderConfirmCtn/orderConfirmCtn",
     "van-icon": "/vantui/icon/index"
   },
   "backgroundTextStyle":"light",

@@ -1,9 +1,9 @@
 <view class="orderDetail">
   <van-notice-bar scrollable="true" left-icon="/static/icon/warning.png" text="提示：为保障账户安全，请至电脑端进行订单操作"></van-notice-bar>
   <view class="status">
-    <text>分批发货中</text>
-    <text>订单号：7321576520768</text>
-    <text>您的货物正在分批发货中，请耐心等候。</text>
+    <text>{{order.stateStr}}</text>
+    <text>订单号：{{order.orderCode}}</text>
+    <text>您的货物{{order.stateStr}}，请耐心等候。</text>
   </view>
   <van-steps direction="vertical" steps="{{steps}}" active="{{active}}"></van-steps>
   <view class="detailTable">
@@ -22,12 +22,12 @@
         <text class="text3">明细</text>
         <text class="text4">备注</text>
       </view>
-      <block wx:for="{{10}}">
+      <block wx:for="{{logs}}" wx:key="index">
       <view>
-        <text class="text1">2018-06-29</text>
-        <text class="text2">付款</text>
-        <text class="text3">您已支付￥500.00元</text>
-        <text class="text4">第二次分批发货</text> 
+        <text class="text1">{{item.dateTime}}</text>
+        <text class="text2">{{item.typeStr}}</text>
+        <text class="text3">{{item.content}}</text>
+        <text class="text4">{{item.remark}}</text> 
       </view>
       </block>
     </view>
@@ -36,73 +36,73 @@
     <view>收货人信息</view>
     <view>
       <text>收货人</text>
-      <text>张三</text>
+      <text>{{order.orderShip.linkName}}</text>
     </view>
     <view>
       <text>地址</text>
-      <text>杭州市下城区永华街121号浙江中力机械设备有限公司</text>
+      <text>{{order.orderShip.address}}</text>
     </view>
     <view>
       <text>手机号码</text>
-      <text>13282123626</text>
+      <text>{{order.orderShip.mobile}}</text>
     </view>
   </view>
   <view class="remark">
     <view>订单备注</view>
-    <text>这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注这里是一堆备注</text>
+    <text>{{order.remark}}</text>
   </view>
   <view class="payInfo">
     <view>付款信息</view>
     <view>
       <text>商品总价</text>
-      <text>￥11500.00</text>
+      <text>￥{{order.orderProductPrice}}</text>
     </view>
     <view>
       <text>阿母币</text>
-      <text>￥11500.00</text>
+      <text>￥{{order.imb}}</text>
     </view>
     <view>
       <text>优惠券</text>
-      <text>￥11500.00</text>
+      <text>￥{{order.couponTotleDiscount}}</text>
     </view>
     <view>
       <text>总运费</text>
-      <text>￥11500.00</text>
+      <text>￥{{order.shipAmount}}</text>
     </view>
     <view>
       <text>订单金额</text>
-      <text>￥11500.00</text>
+      <text>￥{{order.payable}}</text>
     </view>
     <view>
       <text>定金</text>
-      <text>￥11500.00</text>
+      <text>￥{{order.depositPrice}}</text>
     </view>
     <view>
       <text>实付款</text>
-      <text>￥11500.00</text>
+      <text>￥{{order.payment}}</text>
     </view>
   </view>
   <view class="invoice">
     <view>发票信息</view>
     <view>
       <text>发票类型</text>
-      <text>增值税专用发票</text>
+      <text>{{order.receipt.typeStr}}</text>
     </view>
     <view>
       <text>发票抬头</text>
-      <text>安吉阿母工业设备有限公司</text>
+      <text>{{order.receipt.company}}</text>
     </view>
     <view>
       <text>发票内容</text>
-      <text>商品明细</text>
+      <text>{{order.receipt.content}}</text>
     </view>
     <view>
       <text>收件人</text>
-      <text>张三</text>
+      <text>{{order.receipt.linkName}}</text>
     </view>
     <view>
       <text>寄送地址</text>
-      <text>杭州市下城区永华街121号</text>
+      <text>{{order.receipt.address}}</text>
     </view>
     <view class="margin">
       <text>开票号</text>
@@ -118,35 +118,37 @@
     </view>
   </view>
   <view class="shopProduct">
-    <shopTitle></shopTitle>
-    <orderProduct></orderProduct>
-    <view class="settleBar"><text>共1件商品</text><text>合计：￥89000.00（含运费￥200.00）</text></view>
-    <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
+    <shopTitle stateStr="{{order.stateStr}}" orderId="{{order.orderCode}}" shopName="{{order.shopName}}"></shopTitle>
+    <block wx:for="{{order.productSku}}" wx:key="{{index}}">
+      <orderConfirmCtn ctn="{{item}}"></orderConfirmCtn>
+    </block>
+    <view class="settleBar"><text>共{{order.productSku.length}}件商品</text><text>合计：￥{{order.orderProductPrice}}（含运费￥{{order.shipAmount}}）</text></view>
+    <!-- <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view> -->
   </view>
   <view class="total">
     <view>
       <text>商品总额</text>
-      <text>￥115000.00</text>
+      <text>￥{{order.orderProductPrice}}</text>
     </view>
     <view>
       <text>阿母币</text>
-      <text>-￥600.00</text>
+      <text>-￥{{order.imb}}</text>
     </view>
     <view>
       <text>优惠券</text>
-      <text>-￥1000.00</text>
+      <text>-￥{{order.couponTotleDiscount}}</text>
     </view>
     <view>
       <text>运费</text>
-      <text>￥500.00</text>
+      <text>￥{{order.shipAmount}}</text>
     </view>
     <view>
       <text>订单总额</text>
-      <text>￥113900.00</text>
+      <text>￥{{order.orderProductPrice}}</text>
     </view>
     <view>
       <text>实付款</text>
-      <text>￥113900.00</text>
+      <text>￥{{order.payable}}</text>
     </view>
   </view>
   <view class="contact">

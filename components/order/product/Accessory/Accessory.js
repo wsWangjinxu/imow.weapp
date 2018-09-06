@@ -28,7 +28,7 @@ Component({
   ready() {
     let route = getCurrentPages();
     let currentRoute = route[route.length-1].route;
-    if(~currentRoute.indexOf("orderConfirm")) {
+    if(~currentRoute.indexOf("order")) {
       this.setData({
         isOrderConfirm: true
       });

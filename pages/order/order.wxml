@@ -1,10 +1,12 @@
 <view>
   <van-tab bindtabchange="handleTabChange" list="{{list}}" selected-id="{{selectedId}}"></van-tab>
   <view class="shopList">
-    <view wx:if="{{orders}}" wx:for="{{orders}}" wx:key="index">
+    <view wx:if="{{orders}}" wx:for="{{orders}}" wx:key="index" bindtap="handleTap" data-id="{{item.id}}"  wx:for-item="item">
       <shopTitle shopName="{{item.shop.name}}" orderId="{{item.id}}" stateStr="{{item.stateStr}}"></shopTitle>
-      <orderConfirmCtn ctn="{{item.productSku}}"></orderConfirmCtn>
-      <view class="settleBar"><text>共1件商品</text><text>合计：￥89000.00（含运费￥200.00）</text></view>
+        <block wx:for="{{item.productSku}}" wx:key="index"  wx:for-item="child">
+          <orderConfirmCtn ctn="{{child}}"></orderConfirmCtn>
+        </block>
+      <view class="settleBar"><text>共{{item.productSku.length}}件商品</text><text>合计：￥{{item.payment}}（含运费￥{{item.freight}}）</text></view>
       <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
     </view>
   </view>

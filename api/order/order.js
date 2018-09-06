@@ -21,5 +21,23 @@ function getOrderList(type, data) {
   });
 }
 
+//获取订单明细
+function getOrderDetail(type, data) {
+  return wxRequest({
+    url: baseUrl + "order/detail",
+      data: data,
+      type: type
+  });
+}
 
-export { addOrder, getOrderList }
+//获取订单日志明细
+function getOrderLog(type, data) {
+  return wxRequest({
+    url: baseUrl + "order/log",
+      data: data,
+      type: type
+  });
+}
+
+
+export { addOrder, getOrderList, getOrderDetail, getOrderLog }

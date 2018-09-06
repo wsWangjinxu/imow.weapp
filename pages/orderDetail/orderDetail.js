@@ -1,6 +1,4 @@
-//index.js
-//获取应用实例
-const app = getApp()
+import { getOrderDetail, getOrderLog } from "../../api/order/order"
 
 Page({
   data: {
@@ -26,52 +24,68 @@ Page({
     array: ['全部明细','支付明细'],
     index: 0
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  onLoad(option) {
+    //获取订单的详情
+    getOrderDetail("GET", {
+      orderId: option.id
+    }).then(res => {
+      let order = res.data.order;
+      //获取steps步骤条的状态内容
+      let steps = [
+        {
+          text: '提交订单',
+          desc: order.createTime
+        },
+        {
+          text: '订单付款',
+          desc: '应付金额' + order.payment + '元/实付' + order.payable + '元'
+        },
+        {
+          text: '已发货',
+          desc: '已发' + order.shippedCount + '件/共' + order.productSku.length + '件'
+        },
+        {
+          text: '完成',
+          desc: order.endTime
+        }
+      ];
+
+      order.productSku.forEach(element => {
+        element.productName = element.name;
+      });
+
+      this.setData({
+        order,
+        steps
+      });
+
+      //初始化的时候获取明细
+      getOrderLog("GET", {
+        orderId: this.data.order.orderCode,
+        type: "全部"
+      }).then(res => {
+        let logs = res.data.logs;
+        this.setData({
+          logs
+        });
+      })
     })
   },
+
   bindPickerChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
+    });
+    getOrderLog("GET", {
+      orderId: this.data.order.orderCode,
+      type: e.detail.value
+    }).then(res => {
+      let logs = res.data.logs;
       this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+        logs
+      });
     })
   }
+  
 })

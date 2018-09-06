@@ -6,10 +6,10 @@
   <view class="ctn">
     <image  mode="widthFix" src="http://dummyimage.com/300x300/fb0a2a"></image>
     <view class="detail">
-      <text class="{{statusClass}}">￥500</text>
-      <text class="{{statusClass}}" style="font-size: 30rpx;">满￥5000可用</text>
+      <text class="{{statusClass}}">￥{{ctn.money}}</text>
+      <text wx:if="{{ctn.limit}}" class="{{statusClass}}" style="font-size: 30rpx;">满￥5000可用</text> <text wx:if="{{!ctn.limit}}">无门槛</text>
       <text>2018.8.30到期（仅剩15天）</text>
-      <text>券编号：0101576520768</text>
+      <text>券编号：{{ctn.number}}</text>
     </view>
     <view class="btn" wx:if="{{status=='unused' || status=='used'}}">
       <text class="{{statusClass}}">全店通用</text>

@@ -10,14 +10,12 @@ App({
           getThirdSession("POST", {
             code: res.code
           }).then(res => {
-            console.log(res.data);
             if (res.data.session) {
               //如果session有值说明已经登陆成功，设置登陆状态，并写入缓存
               wx.setStorageSync("session", res.data.session);
               wx.setStorageSync("isLogin", true);
               that.globalData.nickname = res.data.nickname;
               that.globalData.imgSrc = res.data.imgSrc;
-              console.log(that.globalData);
               if (that.callback) {
                 that.callback();
               }
