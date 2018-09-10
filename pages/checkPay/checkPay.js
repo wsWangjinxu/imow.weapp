@@ -47,7 +47,7 @@ Page({
     couponTotleDiscount: 0   //优惠券使用金额
   },
   onLoad: function (e) {
-    console.log(e.orderId);
+    // console.log(e.orderId);
     this.setData({ orderId: e.orderId });
     this.init();
   },
@@ -162,7 +162,7 @@ Page({
       console.log(res);
       if(res.data.success){
         wx.redirectTo({
-          url: '/pages/orderDetail/orderDetail'
+          url: '/pages/orderDetail/orderDetail?id=' + this.data.orderId
         })
       }
     });

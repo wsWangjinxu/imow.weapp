@@ -6,41 +6,42 @@ const app = getApp()
 
 Page({
   data: {
-    productSkus: [{
-        "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
-        "isDeposit": true,
-        "agentPrice": 122,
-        "skuCode": "01F02E072",
-        "deliveryTime": "14天"
-      },
-      {
-        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
-        "isDeposit": true,
-        "agentPrice": 1500,
-        "skuCode": "01F02E072",
-        "deliveryTime": "15天"
-      },
-      {
-        "id": "5D1E1d7D-383d-A8C6-9CEd-B5c4FD4Dc9Eb",
-        "isDeposit": true,
-        "agentPrice": 1200,
-        "skuCode": "01F02E072",
-        "deliveryTime": "20天"
-      },
-      {
-        "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
-        "isDeposit": true,
-        "agentPrice": 122,
-        "skuCode": "01F02E075",
-        "deliveryTime": "13天"
-      },
-      {
-        "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
-        "isDeposit": true,
-        "agentPrice": 122,
-        "skuCode": "01F02E076",
-        "deliveryTime": "13天"
-      }
+    productSkus: [
+      // {
+      //   "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
+      //   "isDeposit": true,
+      //   "agentPrice": 122,
+      //   "skuCode": "01F02E072",
+      //   "deliveryTime": "14天"
+      // },
+      // {
+      //   "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
+      //   "isDeposit": true,
+      //   "agentPrice": 1500,
+      //   "skuCode": "01F02E072",
+      //   "deliveryTime": "15天"
+      // },
+      // {
+      //   "id": "5D1E1d7D-383d-A8C6-9CEd-B5c4FD4Dc9Eb",
+      //   "isDeposit": true,
+      //   "agentPrice": 1200,
+      //   "skuCode": "01F02E072",
+      //   "deliveryTime": "20天"
+      // },
+      // {
+      //   "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
+      //   "isDeposit": true,
+      //   "agentPrice": 122,
+      //   "skuCode": "01F02E075",
+      //   "deliveryTime": "13天"
+      // },
+      // {
+      //   "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
+      //   "isDeposit": true,
+      //   "agentPrice": 122,
+      //   "skuCode": "01F02E076",
+      //   "deliveryTime": "13天"
+      // }
     ],
     filedProductSkus: {
       sku: {
@@ -95,7 +96,6 @@ Page({
   onLoad: function(e) { 
     console.log(e);
     this.setData({ productId: e.productId});
-    this.filted();
     this.init();
   },
   onChange(e) {
@@ -438,14 +438,12 @@ Page({
     getProductDetail("GET", {
       id: this.data.productId,
     }).then(res => {
-      console.log(res.data)
-      this.setData({
-        paymethod: res.data.paymethod
-      });
-    });
+      console.log(res.data);
+      this.setData({ 
+        paymethod: res.data.paymethod, 
+        productSkus: res.data.productSkus
+      }); 
+      this.filted();
+    });   
   }
-
-
-
-
 })
