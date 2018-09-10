@@ -77,6 +77,10 @@ page{
   font-weight: bold;
 }
 
+.van-stepper__input{
+  height:30rpx;
+}
+
 .footer{
   height: 108rpx;
   width:100%;

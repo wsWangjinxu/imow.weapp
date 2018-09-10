@@ -22,9 +22,9 @@
     <van-col span="14">
       <text class='price1'>￥{{amPrice1}}~{{amPrice2}}</text>  
     </van-col>
-    <van-col span="5" style="text-align:center">
+    <!-- <van-col span="5" style="text-align:center">
       <text style='color:#9b9b9b;'>已售 {{saleNumber}}件</text>
-    </van-col>
+    </van-col> -->
   </van-row>
   
   <view class='priceBox2'>
@@ -52,7 +52,7 @@
     </van-col>
   </van-row>
   <view class='youhui'>
-    <view class='coupon' wx:for="{{couponList}}" wx:key="{{index}}" bindtap='getCoupon' data-no="{{item.number}}">满{{item.limit}}减{{item.money}}券</view>
+    <view class='coupon' wx:for="{{couponList}}" wx:key="{{index}}" bindtap='getCoupon' data-no="{{item.number}}">满{{item.useAmountLimit}}减{{item.value}}券</view>
   </view>
   <van-row>
     <van-col span="5">
@@ -116,7 +116,7 @@
       <text>支付方式</text>
     </van-col>
     <van-col span="18">
-      <view class='textHidden'>{{payType}}</view>
+      <view class='textHidden'>{{paymethod}}</view>
     </van-col>
     <van-col span="1">
       <text> > </text>
@@ -166,7 +166,7 @@
     <image src='/static/imgs/titleBg.png'></image>
   </view>
   <view class='productImg'>
-    <image mode="widthFix" src='https://dummyimage.com/684x1000/fb0a2a'></image>
+    <image mode="widthFix" src='{{productImg}}'></image>
   </view>
 
   <view class='title'>
@@ -174,7 +174,7 @@
     <image src='/static/imgs/titleBg.png'></image>
   </view> 
   <view class='productImg'>
-   <image mode="widthFix" src='https://dummyimage.com/750x600/fb0a2a'></image>
+   <image mode="widthFix" src='{{productImg2}}'></image>
   </view>
 
   <view class='title'>
@@ -182,7 +182,7 @@
     <image src='/static/imgs/titleBg.png'></image>
   </view>
   <view class='productImg'>
-   <image mode="widthFix" src='https://dummyimage.com/750x600/fb0a2a'></image>
+   <image mode="widthFix" src='{{productImg3}}'></image>
   </view>
 </view>
 

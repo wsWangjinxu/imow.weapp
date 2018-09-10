@@ -23,7 +23,7 @@ function addCart(type, data) {
 //获取优惠券列表
 function getFactoryDiscountCouponList(type, data) {
   return wxRequest({
-    url: baseUrl + "getFactoryDiscountCouponList",
+    url: baseUrl + "coupon/get",
     data: data,
     type: type
   });

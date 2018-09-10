@@ -2,6 +2,7 @@
   "pages":[ 
     "pages/special/special",
     "pages/my/my",
+    "pages/checkPay/checkPay",
     "pages/addressList/addressList",
     "pages/addressForm/addressForm",
     "pages/index/index",
@@ -11,9 +12,9 @@
     "pages/cart/cart",
     "pages/search/search",
     "pages/shopDetail/shopDetail",      
-    "pages/checkPay/checkPay",
-    "pages/productDetail/productDetail",     
-    "pages/buy/buy", 
+    
+    "pages/productDetail/productDetail",    
+    "pages/buy/buy",
     "pages/finishPay/finishPay",
     "pages/orderConfirm/orderConfirm",
     "pages/list/list",
