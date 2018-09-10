@@ -1,0 +1,3 @@
+<view class="coupon">
+  <text>￥{{ctn.num}}</text>满{{ctn.limit}}可用
+</view>

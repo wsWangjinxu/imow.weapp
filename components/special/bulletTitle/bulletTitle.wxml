@@ -1,0 +1,11 @@
+<view class="bullet-title">
+  <view>
+    <image style="width: 20rpx;height:50rpx; vertical-align: -12rpx;" src="/static/icon/line.png" />
+    <text class="bullet-main-title"> {{title}}</text>
+    <text class="bullet-sub-title"> {{subTitle}}</text>
+  </view> 
+  <view bindtap="handleChange" class="bullet-btn">更多
+    <image wx:if="{{icon}}" class="bullet-icon" src="/static/icon/down-circle.png"></image>
+    <image wx:if="{{!icon}}" class="bullet-icon" src="/static/icon/up-circle.png"></image>
+  </view>
+</view>

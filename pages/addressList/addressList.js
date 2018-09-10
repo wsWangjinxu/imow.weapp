@@ -16,7 +16,7 @@ Page({
     //每一次页面显示都获取地址列表，并渲染到页面上
     getAddressList("POST").then(res=>{
       this.setData({
-        addressList: res.data.AddressList
+        addressList: res.data.addressList
       });
     });
   },

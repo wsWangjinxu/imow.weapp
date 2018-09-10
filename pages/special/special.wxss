@@ -1,0 +1,21 @@
+.swiper image {
+  width: 100%;
+}
+
+/* 优惠券 */
+.coupon-ctn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #cccccc;
+  padding: 20rpx 0rpx;
+  background-color: #fff;
+} 
+
+.coupon-ctn .coupon-item {
+ flex: 1;
+ margin-right: 10rpx;
+ margin-left: 10rpx;
+}
+

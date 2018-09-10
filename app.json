@@ -3,7 +3,9 @@
     "pages/productDetail/productDetail",
     "pages/buy/buy",
     "pages/checkPay/checkPay",
+    "pages/special/special",
     "pages/my/my",
+    "pages/checkPay/checkPay",
     "pages/addressList/addressList",
     "pages/addressForm/addressForm",
     "pages/index/index",
@@ -56,7 +58,7 @@
         "selectedIconPath": "static/icon/jx-red.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/special/special",
         "text": "喜欢",
         "iconPath": "static/icon/collect.png",
         "selectedIconPath": "static/icon/collect-red.png"
