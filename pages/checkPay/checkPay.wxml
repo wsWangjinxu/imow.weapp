@@ -2,185 +2,196 @@
 <wxs module="filters" src="./double.wxs"></wxs>
 <view class="container">
 
-<view class='box'>
-  <view class='titleName'>订单摘要</view>
-  <van-row>
-    <van-col span="4">
-      <text>买家昵称:</text>
-    </van-col>
-    <van-col span="20">
-      <text>{{buyerName}}</text>  
-    </van-col>
-  </van-row>
-  <van-row>
-    <van-col span="4">
-      <text>卖家昵称:</text>
-    </van-col>
-    <van-col span="20">
-      <text>{{sellerName}}</text>  
-    </van-col>
-  </van-row>
-  <van-row>
-    <van-col span="4">
-      <text>订单商品:</text>
-    </van-col>
-    <van-col span="20">
-      <view class='productNames' wx:for="{{productNames}}" wx:key="{{index}}">{{item}}</view>  
-    </van-col>
-  </van-row>
-  <van-row>
-    <van-col span="4">
-      <text>购买时间:</text>
-    </van-col>
-    <van-col span="20">
-      <text>{{buyTime}}</text>  
-    </van-col>
-  </van-row>
-</view> 
- 
-<view class='box getSelf' wx:if="{{abc}}">
-  <view class='titleName'>商家发货</view>
-  <view class='freight'>运费金额 <text class='freightNum'>￥{{filters.toFix(shipAmount)}}</text></view>
-  <view>请与 <view class='freightNum'><navigator url="/page/"><van-icon name="chat"/>浙江中力机械</navigator></view> 核对实际运费</view>
-</view>
-
-<view class='box getSelf'>
-  <view class='titleName'>自提</view>
-  <view>浙江杭州工厂(浙江省杭州市下城区永华街121号浙江中力机械)</view>
-  <view class='getSelfItem getSelfItem1'>   
-    <view>以下车型可供自提：EPT20-15ET2 EPT20-15ET2 EPT20-15ET2 EPT20-15ET2</view>
-    <view>查看详细车辆</view>
+  <view class='box'>
+    <view class='titleName'>订单摘要</view>
+    <van-row>
+      <van-col span="4">
+        <text>买家昵称:</text>
+      </van-col>
+      <van-col span="20">
+        <text>{{buyerName}}</text>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="4">
+        <text>卖家昵称:</text>
+      </van-col>
+      <van-col span="20">
+        <text>{{sellerName}}</text>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="4">
+        <text>订单商品:</text>
+      </van-col>
+      <van-col span="20">
+        <view class='productNames' wx:for="{{productNames}}" wx:key="{{index}}">{{item}}</view>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="4">
+        <text>购买时间:</text>
+      </van-col>
+      <van-col span="20">
+        <text>{{buyTime}}</text>
+      </van-col>
+    </van-row>
   </view>
-  <view>浙江安吉工厂(浙江省安吉县递铺镇霞泉村中力工业园)</view>
-  <view class='getSelfItem'>   
-    <view>以下车型可供自提：EPT20-15ET2 EPT20-15ET2 </view>
-    <view>查看详细车辆</view>
-  </view>
-</view> 
 
-<view class='box payment'>
-  <view class='titleName'>支付方式</view>
-  <checkbox-group bindchange="checkboxChange">
-  <van-row>
-    <van-col span="6">
-      <text>信用分支付</text>
-    </van-col>
-    <van-col span="16">
-      <view class='paymentText'>本次将使用<text class='underLine'>{{crePoint}}元</text>信用分支付</view>   
-    </van-col>
-    <van-col span="2">
-      <checkbox value="{{'信用分'}}" checked="" color='red'/>  
-    </van-col>
-  </van-row>
-  <view class='paymentItem2'>
-    <van-row>    
+  <view class='box getSelf' wx:if="{{abc}}">
+    <view class='titleName'>商家发货</view>
+    <view class='freight'>运费金额
+      <text class='freightNum'>￥{{filters.toFix(shipAmount)}}</text>
+    </view>
+    <view>请与
+      <view class='freightNum'>
+        <navigator url="/page/">
+          <van-icon name="chat" />浙江中力机械</navigator>
+      </view> 核对实际运费</view>
+  </view>
+
+  <view class='box getSelf'>
+    <view class='titleName'>自提</view>
+    <view>浙江杭州工厂(浙江省杭州市下城区永华街121号浙江中力机械)</view>
+    <view class='getSelfItem getSelfItem1'>
+      <view>以下车型可供自提：EPT20-15ET2 EPT20-15ET2 EPT20-15ET2 EPT20-15ET2</view>
+      <view>查看详细车辆</view>
+    </view>
+    <view>浙江安吉工厂(浙江省安吉县递铺镇霞泉村中力工业园)</view>
+    <view class='getSelfItem'>
+      <view>以下车型可供自提：EPT20-15ET2 EPT20-15ET2 </view>
+      <view>查看详细车辆</view>
+    </view>
+  </view>
+
+  <view class='box payment'>
+    <view class='titleName'>支付方式</view>
+    <checkbox-group bindchange="checkboxChange">
+      <van-row>
         <van-col span="6">
-          <text>店铺余额支付</text>
+          <text>信用分支付</text>
         </van-col>
         <van-col span="16">
-          <view class='paymentText'>本次将使用<text class='underLine'>{{balance}}元</text>店铺余额支付</view>  
+          <view class='paymentText'>本次将使用
+            <text class='underLine'>{{crePoint}}元</text>信用分支付</view>
         </van-col>
         <van-col span="2">
-          <checkbox value="{{'店铺余额'}}" checked="" color='red'/> 
-        </van-col>  
-    </van-row>
-  </view> 
-  <van-row>
-    <van-col span="6">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{paymentMethod}}" range-key="name">
+          <checkbox value="{{'信用分'}}" checked="" color='red' />
+        </van-col>
+      </van-row>
+      <view class='paymentItem2'>
+        <van-row>
+          <van-col span="6">
+            <text>店铺余额支付</text>
+          </van-col>
+          <van-col span="16">
+            <view class='paymentText'>本次将使用
+              <text class='underLine'>{{balance}}元</text>店铺余额支付</view>
+          </van-col>
+          <van-col span="2">
+            <checkbox value="{{'店铺余额'}}" checked="" color='red' />
+          </van-col>
+        </van-row>
+      </view>
+      <van-row>
+        <van-col span="6">
+          <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{paymentMethod}}" range-key="name">
         <view class="selectBox">
           {{paymentMethod[index].name}}
           <view class='select_img'><van-icon name="arrow" /></view>
         </view>     
-      </picker>
-    </van-col>
-    <van-col span="16">
-      <view class='paymentText'>支付<text class='underLine'>{{surePay}}元</text></view> 
-    </van-col>
-    <van-col span="2">
-      <!-- <checkbox value="网银" checked="" color='red'/>   -->
-    </van-col>
-  </van-row>
-  </checkbox-group>
-</view> 
+      </picker> -->
+          线下支付
+        </van-col>
+        <van-col span="16">
+          <view class='paymentText'>支付
+            <text class='underLine'>{{surePay}}元</text>
+          </view>
+        </van-col>
+        <van-col span="2">
+          <!-- <checkbox value="网银" checked="" color='red'/>   -->
+        </van-col>
+      </van-row>
+    </checkbox-group>
+  </view>
 
-<view class='box'>
-  <view class='surePay'>
+  <view class='box'>
+    <view class='surePay'>
+      <van-row>
+        <van-col span="5">
+          <text>本次应付款</text>
+        </van-col>
+        <van-col span="19">
+          <view class="surePayNum textRight">￥{{filters.toFix(payable)}}</view>
+        </van-col>
+      </van-row>
+    </view>
     <van-row>
       <van-col span="5">
-        <text>本次应付款</text>
+        <text>订单总额</text>
       </van-col>
       <van-col span="19">
-        <view class="surePayNum textRight">￥{{filters.toFix(payable)}}</view>  
+        <view class="textRight">￥{{filters.toFix(orderTotalPrice)}}</view>
       </van-col>
     </van-row>
-  </view> 
-  <van-row>
-    <van-col span="5">
-      <text>订单总额</text>
-    </van-col>
-    <van-col span="19">
-      <view class="textRight">￥{{filters.toFix(orderTotalPrice)}}</view>  
-    </van-col>
-  </van-row>
-  <van-row>
-    <van-col span="5">
-      <text>商品总价</text>
-    </van-col>
-    <van-col span="19">
-      <view style="text-align: right">￥{{filters.toFix(orderProductPrice)}}</view>  
-    </van-col>
-  </van-row>
-  <van-row>
-    <van-col span="5">
-      <text>阿母币</text>
-    </van-col>
-    <van-col span="19">
-      <view style="text-align: right">-￥{{filters.toFix(imb)}}</view>  
-    </van-col>
-  </van-row>
-  <van-row>
-    <van-col span="5">
-      <text>优惠券</text>
-    </van-col>
-    <van-col span="19">
-      <view style="text-align: right">-￥{{filters.toFix(couponTotleDiscount)}}</view>  
-    </van-col>
-  </van-row>
-  <van-row>
-    <van-col span="5">
-      <text>定金</text>
-    </van-col>
-    <van-col span="19">
-      <view style="text-align: right">-￥{{filters.toFix(depositPrice)}}</view>  
-    </van-col>
-  </van-row>
-  <van-row>
-    <van-col span="5">
-      <text>运费</text>
-    </van-col>
-    <van-col span="19">
-      <view style="text-align: right">￥{{filters.toFix(shipAmount)}}</view>  
-    </van-col>
-  </van-row>
-</view>
+    <van-row>
+      <van-col span="5">
+        <text>商品总价</text>
+      </van-col>
+      <van-col span="19">
+        <view style="text-align: right">￥{{filters.toFix(orderProductPrice)}}</view>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="5">
+        <text>阿母币</text>
+      </van-col>
+      <van-col span="19">
+        <view style="text-align: right">-￥{{filters.toFix(imb)}}</view>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="5">
+        <text>优惠券</text>
+      </van-col>
+      <van-col span="19">
+        <view style="text-align: right">-￥{{filters.toFix(couponTotleDiscount)}}</view>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="5">
+        <text>定金</text>
+      </van-col>
+      <van-col span="19">
+        <view style="text-align: right">-￥{{filters.toFix(depositPrice)}}</view>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="5">
+        <text>运费</text>
+      </van-col>
+      <van-col span="19">
+        <view style="text-align: right">￥{{filters.toFix(shipAmount)}}</view>
+      </van-col>
+    </van-row>
+  </view>
 
-<view class='footer'>
-  <van-row>
-    <van-col span="8">
-      <view class='button1'>本次应付款</view>    
-    </van-col>
-    <van-col span="8">
-      <view class='button2'>￥{{filters.toFix(payable)}}</view>
-    </van-col>
-    <van-col span="8" class="button4">
-      <view class="button4" catchtap='showAlert'>提交订单</view>
-    </van-col>
-  </van-row>
-</view>
+  <view class='footer' wx:if="{{!show}}">
+    <van-row>
+      <van-col span="8">
+        <view class='button1'>本次应付款</view>
+      </van-col>
+      <van-col span="8">
+        <view class='button2'>￥{{filters.toFix(payable)}}</view>
+      </van-col>
+      <van-col span="8" class="button4">
+        <view class="button4" catchtap='showAlert'>提交订单</view>
+      </van-col>
+    </van-row>
+  </view>
 
-<!-- 弹窗 -->
-<van-popup show="{{ show }}" bind:close="onClose" close-on-click-overlay="{{false}}" catchtouchmove="ture">
+  <!-- 弹窗 -->
+  <van-popup show="{{ show }}" bind:close="onClose" close-on-click-overlay="{{true}}" catchtouchmove="ture">
     <view class="alertBox">
       <view class='close' bindtap="onClose">
         <van-icon name="close" />
@@ -206,34 +217,36 @@
 
 
         <view class='pwd' wx:if="{{useBalance||credit}}">
-          <view class='text'>请输入支付密码</view>
-          <view>
-            <view class="input-content-wrap">
-              <view catchtap="set_Focus" class="input-password-wrap">
-                <view class="password_dot">
-                  <i wx:if="{{wallets_password.length>=1}}"></i>
-                </view>
-                <view class="password_dot">
-                  <i wx:if="{{wallets_password.length>=2}}"></i>
-                </view>
-                <view class="password_dot">
-                  <i wx:if="{{wallets_password.length>=3}}"></i>
-                </view>
-                <view class="password_dot">
-                  <i wx:if="{{wallets_password.length>=4}}"></i>
-                </view>
-                <view class="password_dot">
-                  <i wx:if="{{wallets_password.length>=5}}"></i>
-                </view>
-                <view class="password_dot">
-                  <i wx:if="{{wallets_password.length>=6}}"></i>
+          <view wx:if="{{!pwdRight}}">
+            <view class='text'>请输入支付密码</view>
+            <view>
+              <view class="input-content-wrap">
+                <view catchtap="set_Focus" class="input-password-wrap">
+                  <view class="password_dot">
+                    <i wx:if="{{wallets_password.length>=1}}"></i>
+                  </view>
+                  <view class="password_dot">
+                    <i wx:if="{{wallets_password.length>=2}}"></i>
+                  </view>
+                  <view class="password_dot">
+                    <i wx:if="{{wallets_password.length>=3}}"></i>
+                  </view>
+                  <view class="password_dot">
+                    <i wx:if="{{wallets_password.length>=4}}"></i>
+                  </view>
+                  <view class="password_dot">
+                    <i wx:if="{{wallets_password.length>=5}}"></i>
+                  </view>
+                  <view class="password_dot">
+                    <i wx:if="{{wallets_password.length>=6}}"></i>
+                  </view>
                 </view>
               </view>
-            </view>  
-            <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
-          </view>        
+              <input bindinput="set_wallets_password" class="input-content" password type="number" focus="{{isFocus}}" maxlength="6" />
+            </view>
+          </view>
         </view>
-        <view class='pwdSucces'  wx:if='{{pwdRight}}'>
+        <view class='pwdSucces' wx:if='{{pwdRight}}'>
           您已成功输入交易密码，请按“提交”按钮进行下一步操作
         </view>
 
@@ -262,7 +275,7 @@
               </van-col>
             </van-row>
             <van-row>
-              <van-col span="6"> 
+              <van-col span="6">
                 <text text space="ensp">开 户 行:</text>
               </van-col>
               <van-col span="18">
@@ -290,10 +303,10 @@
         </view>
 
       </view>
-      
-      <view  wx:if="{{submitSure}}" class='alertSubmit2' bindtap='paySuccess'>提交</view>
-      <view  wx:else class='alertSubmit'>提交</view>
+
+      <view wx:if="{{submitSure}}" class='alertSubmit2' bindtap='paySuccess'>提交</view>
+      <view wx:else class='alertSubmit'>提交</view>
     </view>
-</van-popup>
+  </van-popup>
 
 </view>

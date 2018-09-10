@@ -20,7 +20,7 @@ function chechPwd(type, data) {
   });
 }
 
-//获得订单支付详情
+//提交支付请求
 function submitPayment(type, data) {
   return wxRequest({
     url: baseUrl + "order/submitPayment",

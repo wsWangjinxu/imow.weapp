@@ -2,7 +2,7 @@
 //获取应用实例
 import { getPayDetail,chechPwd,submitPayment } from "../../api/checkPay/checkPay";
 
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
@@ -30,14 +30,13 @@ Page({
     buyerName: "阿母工业123",   //买家名称
     productNames: [],        //商品名称
     buyTime: "",   
-    crePoint: 3000,    //可用信用分
-    balance: 1000, //可用余额 
-    orderCode: '',   //订单号
+    crePoint: 0,    //可用信用分
+    balance: 0, //可用余额 
     orderProductPrice: 0, //产品总价
     orderTotalPrice: 0 , //订单总额
     payable: 0, //应付金额
-    depositPrice: 500, //定金金额
-    imb: 1000,     //使用阿母币
+    depositPrice: 0, //定金金额
+    imb: 0,     //使用阿母币
     checkedArray: [], //已经选择的选项
     surePay: 0, //网银剩余应付 
     credit: false,  //是否是用信用分
@@ -45,7 +44,7 @@ Page({
     payMethod:'',     //支付方式
     wallets_password:'', //密码
     pwdRight:false,//密码输入是否正确
-    couponTotleDiscount: 300   //优惠券使用金额
+    couponTotleDiscount: 0   //优惠券使用金额
   },
   onLoad: function (e) {
     console.log(e.orderId);
@@ -137,7 +136,7 @@ Page({
     chechPwd("get", {
       password: this.data.wallets_password
     }).then(res => {   
-      if(false){ //res.data.validated
+      if (res.data.validated){ 
         console.log('密码正确');
         this.setData({ pwdRight: true });  //密码正确
         this.setData({ submitSure: true });
@@ -147,10 +146,11 @@ Page({
           duration: 2000
         })
         this.setData({ wallets_password: '' });
+        this.setData({ isFocus : false });
       } 
     })
   },
-  //支付成功
+  //提交
   paySuccess(){
     console.log(this.data.payMethod);
     submitPayment("POST", {
@@ -162,7 +162,7 @@ Page({
       console.log(res);
       if(res.data.success){
         wx.redirectTo({
-          url: '/pages/finishPay/finishPay'
+          url: '/pages/orderDetail/orderDetail'
         })
       }
     });

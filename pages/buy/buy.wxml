@@ -9,14 +9,15 @@
       </view>
     </van-col>
     <van-col span="14">
-      <view class='price'>￥{{price}}</view>
+      <view class='price' wx:if="{{isOnePrece}}">￥{{price}}</view>
+      <view class='price' wx:else>￥{{minPrice}}~{{maxPrice}}</view>
     </van-col>
     <van-col span="10">
-      <view class='textFont'>型号： CPC30-T3</view>
-      <view class='textFont'>载重： 3000KG</view>
-      <view class='textFont'>起升高度： 3000mm</view>
-      <view class='textFont'>门架类型： 两级宽视野</view>
-      <view class='textFont'>类型： 液力传动</view>
+      <view class='textFont'>型号： {{model}}</view>
+      <view class='textFont'>载重： {{weight}}KG</view>
+      <view class='textFont'>起升高度： {{height}}mm</view>
+      <view class='textFont'>门架类型： {{menjia}}</view>
+      <view class='textFont'>类型： {{transmission}}</view>
     </van-col>
   </van-row>
 </view>
@@ -37,7 +38,7 @@
     <view class="{{CA}}" bindtap='payType1' data-payType='1'>全款</view>
     <view wx:if="{{depositShow}}" class="{{CB}}" bindtap='payType2' data-payType='2'>定金</view>    
   </view> 
-  <text>可 承兑汇票.网银汇款.店铺余额 支付</text>
+  <text>可 {{paymethod}} 支付</text>
 </view>
 
 <view class='hr'></view>
@@ -48,7 +49,7 @@
       <view class='titleName2'>购买数量</view>
     </van-col>
     <van-col span="10">
-      <van-stepper value="{{num}}" bind:change="onChange" />
+      <view class='buyNumber'><van-stepper value="{{num}}" bind:change="onChange" /></view>
     </van-col>
   </van-row>
 </view>

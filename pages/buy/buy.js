@@ -77,14 +77,18 @@ Page({
     productId: "",//产品id
     skuId: "",  //skuId
     price: "",  //价格
-    model: "",  //型号
-    weight: "",  //载重
-    height: "",  //起升高度
-    menjia: "",  //门架类型
-    transmission : "",  //传动类型
+    isOnePrece: true,//判断显示单价还是价格区间
+    minPrice:0,
+    maxPrice:0,
+    model: "CPC30-T3",  //型号
+    weight: "3000",  //载重
+    height: "3000",  //起升高度
+    menjia: "两级宽视野",  //门架类型
+    transmission: "液力传动",  //传动类型
     depositShow: false, //定金按钮显示隐藏
     num: 1, //数量
-    paytype:0,
+    paytype:0, //定金全款判断  
+    paymethod:"",
     CA:"item",
     CB:"item"
   },
@@ -92,12 +96,14 @@ Page({
     console.log(e);
     this.setData({ productId: e.productId});
     this.filted();
+    this.init();
   },
   onChange(e) {
     this.setData({
       num: e.detail
     });
   },
+  //加入购物车
   addcart() {
     // console.log(this.data.num);
     // console.log(this.data.filedProductSkus.sku.current);
@@ -120,7 +126,6 @@ Page({
         duration: 2000
       })
     }else{
-      //加入购物车
       addCart("POST", {
         productId: this.data.productId,
         skuCode:this.data.filedProductSkus.sku.current,
@@ -142,6 +147,7 @@ Page({
       });     
     }   
   },
+  //立即购买
   buyNow() {
     if (this.data.filedProductSkus.sku.current == "" || this.data.filedProductSkus.sku.current == undefined) {
       wx.showToast({
@@ -298,10 +304,11 @@ Page({
       for (let index = 0; index < productSkus.length; index++) {
         const item = productSkus[index];
         if (item.skuCode == sku && item.deliveryTime == time) {
-          console.log(item.agentPrice);
-          console.log(item.isDeposit);
+          console.log("当前代理价："+item.agentPrice);
+          console.log("是否有定金："+item.isDeposit);
           this.setData({ price: item.agentPrice });           //根据sku号与交期确认顶部价格等数据
           this.setData({ skuId: item.id }); 
+          this.setData({ isOnePrece: true });
           // this.setData({ model: item.model }); 
           // this.setData({ weight: item.weight });  //载重
           // this.setData({ height: item.height }); //起升高度
@@ -313,9 +320,79 @@ Page({
         }
       }
     }else{
-      this.setData({ depositShow: false });
-      this.setData({ price: '' });
-    }
+      // this.setData({ depositShow: false });
+      // this.setData({ price: '' });
+      if (sku) {
+        let skuArr=[];
+        let skuArr2 = [];
+        for (let index = 0; index < productSkus.length; index++) {
+          const item = productSkus[index];
+          if (item.skuCode == sku) {
+            skuArr.push(item.agentPrice)
+          }  
+        }
+        console.log(skuArr);
+        let min;
+        let max;
+        for (var i = 0; i < skuArr.length; i++) {
+          if (skuArr2.indexOf(skuArr[i]) == -1) {
+            skuArr2.push(skuArr[i]);
+            skuArr2.sort(function (a, b) { return a - b; });
+          }
+        }
+        console.log(skuArr2);
+        if (skuArr2.length>1) {
+          min = skuArr2[0];
+          max = skuArr2[skuArr2.length - 1];
+          this.setData({ minPrice: min });
+          this.setData({ maxPrice: max });
+          this.setData({ isOnePrece: false });
+          this.setData({ depositShow: false });
+        }else{
+          this.setData({ price: skuArr2[0] });
+          this.setData({ isOnePrece: true });
+          this.setData({ depositShow: false });
+        }
+        
+      } else if (time){
+        let timeArr = [];
+        let timeArr2 = [];
+        for (let index = 0; index < productSkus.length; index++) {
+          const item = productSkus[index];
+          if (item.deliveryTime == time) {
+            timeArr.push(item.agentPrice)
+          }
+        } 
+        // console.log(timeArr);
+        let min;
+        let max;
+        for (var i = 0; i < timeArr.length; i++) {
+          if (timeArr2.indexOf(timeArr[i]) == -1) {
+            timeArr2.push(timeArr[i]);
+            timeArr2.sort(function (a, b) { return a - b; });
+          }
+        }
+        // console.log(timeArr2);  //排序去重后
+        if (timeArr2.length > 1) {
+          min = timeArr2[0];
+          max = timeArr2[timeArr2.length - 1];
+          this.setData({ minPrice: min });
+          this.setData({ maxPrice: max });
+          this.setData({ isOnePrece: false });
+          this.setData({ depositShow: false });
+        }else{
+          this.setData({ price: timeArr2[0] });
+          this.setData({ isOnePrece: true });
+          this.setData({ depositShow: false });
+        }
+        
+      }else{
+        this.setData({ depositShow: false });
+        this.setData({ isOnePrece: true });
+        this.setData({ price: '' });
+      }
+
+    }    
   },
   //全款按钮事件
   payType1(e) {                        
@@ -358,13 +435,13 @@ Page({
   //页面初始化函数
   init(){
     //获取产品详情内容
-    getProductDetail("POST", {
-      id: this.data.productId
+    getProductDetail("GET", {
+      id: this.data.productId,
     }).then(res => {
-      console.log(res)
-      // this.setData({
-      //   "bannerList": res.data.bannerItemList
-      // });
+      console.log(res.data)
+      this.setData({
+        paymethod: res.data.paymethod
+      });
     });
   }
 
