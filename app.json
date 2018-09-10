@@ -1,5 +1,6 @@
 {
   "pages":[ 
+    "pages/special/special",
     "pages/my/my",
     "pages/addressList/addressList",
     "pages/addressForm/addressForm",
@@ -55,7 +56,7 @@
         "selectedIconPath": "static/icon/jx-red.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/special/special",
         "text": "喜欢",
         "iconPath": "static/icon/collect.png",
         "selectedIconPath": "static/icon/collect-red.png"

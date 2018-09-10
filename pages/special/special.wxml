@@ -1,0 +1,12 @@
+<view class="special">
+  <swiper class="swiper">
+    <swiper-item><navigator url=""  hover-class="className"><image mode="scaleToFill" src="http://dummyimage.com/375x300" /></navigator></swiper-item>
+  </swiper>
+  <lineTitle title="{{'双11专享优惠券'}}"></lineTitle>
+  <view class="coupon-ctn">
+    <coupon class="coupon-item"></coupon>
+    <coupon class="coupon-item"></coupon>
+    <coupon class="coupon-item"></coupon>
+  </view>
+  <bulletTitle></bulletTitle>
+</view> 

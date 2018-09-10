@@ -72,7 +72,7 @@ Page({
 
     //第一次进入确认订单页面设置默认的地址
     getAddressList("POST").then(res => {
-      let addrList = res.data.AddressList;
+      let addrList = res.data.addressList;
       this.setData({
         addrInfo: addrList[0],
         invoiceInfo: addrList[0],
@@ -97,7 +97,7 @@ Page({
     //每次页面显示的时候都获取地址列表(因为用户可能新增地址)，如果缓存中有对应的地址id，就取id对应的地址作为订单的地址，没有的话就取第一条
     getAddressList("POST").then(res => {
       //存储地址列表
-      let addrList = res.data.AddressList;
+      let addrList = res.data.addressList;
       let status = wx.getStorageSync("status");
       let addrId = wx.getStorageSync("addrId");
       /*
@@ -209,7 +209,7 @@ Page({
       console.log(data);
       addOrder("POST", data).then(res => {
         if (res.data.status === 20) {
-          wx.navigateTo({
+          wx.redirectTo({
             url: "/pages/checkPay/checkPay?orderId=" + res.data.orderId
           });
         } else {

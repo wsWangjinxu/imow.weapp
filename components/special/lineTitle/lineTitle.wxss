@@ -1,0 +1,23 @@
+.line-title {
+  font-size: 32rpx;
+  text-align: center;
+  background-color: #fff;
+  padding-bottom: 38rpx;
+}
+
+.line-title .line {
+  width: 60%;
+  border-bottom: 1px solid #787878;
+  margin: 0 auto;
+  position: relative;
+  height: 50rpx;
+}
+
+.line-title .line view {
+  position: absolute;
+  top: 25rpx;
+  width: 240rpx;
+  background-color: #fff;
+  left: 50%;
+  margin-left: -120rpx;
+}

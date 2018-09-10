@@ -1,0 +1,5 @@
+<view class="line-title">
+  <view class="line">
+    <view>{{title}}</view>
+  </view>
+</view>

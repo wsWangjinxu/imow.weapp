@@ -1,0 +1,13 @@
+.coupon {
+  text-align: center;
+  font-size: 26rpx;
+  background-color: red;
+  height: 80rpx;
+  color: #fff;
+  line-height: 80rpx;
+}
+
+.coupon text {
+  font-weight: bold;
+  font-size: 30rpx;
+}

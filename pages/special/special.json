@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "查看启动日志",
+  "usingComponents": {
+    "lineTitle": "/components/special/lineTitle/lineTitle",
+    "coupon": "/components/special/coupon/coupon",
+    "bulletTitle": "/components/special/bulletTitle/bulletTitle"
+  }
+}
