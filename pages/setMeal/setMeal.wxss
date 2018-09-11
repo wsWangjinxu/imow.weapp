@@ -127,13 +127,12 @@ page{
   display: inline-block
 }
 
-.select{
+.selected{
   width: 160rpx;
   height: 58rpx;
   border-radius: 10rpx;
   text-align: center;
   line-height: 58rpx;
-  
   margin-right: 10rpx;
   display: inline-block;
   color: white;
@@ -141,26 +140,30 @@ page{
 }
 
 .footer{
+  border-top: 1px solid #ccc;
+  background-color: white;
   height: 108rpx;
   width:100%;
-  text-align: center;  
   position: fixed;
   bottom: 0;
   z-index: 999
 }
 
-.addcart{
+.footerL{
   line-height: 108rpx;
-  font-size: 40rpx;
-  background-color: #fe9900;
-  color:white;
-  font-weight: 600
+  font-size: 30rpx;
+  padding-left: 24rpx;
 }
 
-.buyNow{
+.footerL .money{
+  font-weight: bold;
+  color: #fe0000;
+}
+
+.footerR{
+  text-align: center;  
   line-height: 108rpx; 
   font-size: 40rpx;
   background-color: #fe0000;
   color:white;
-  font-weight: 600
 }

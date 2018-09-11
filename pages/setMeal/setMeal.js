@@ -6,8 +6,9 @@ const app = getApp()
 
 Page({
   data: {
-    CA: "button", //全款定金类名
-    CB: "button"
+    CA: "selected", //全款定金类名
+    CB: "button",
+    paytype:false //默认加入购物车 true定金立即购买
   },
   onLoad: function(e) { 
     console.log(e);
@@ -15,6 +16,7 @@ Page({
    
   },
   onChange(e) {
+    conole.log()
     this.setData({
       num: e.detail
     });
@@ -24,13 +26,13 @@ Page({
     let CA = this.data.CA;
     let CB = this.data.CB;
     console.log(e.target.dataset.paytype);
-    // this.setData({ paytype: e.target.dataset.paytype });
+    this.setData({ paytype: e.target.dataset.paytype });
     // console.log(this.data.paytype);
-    if (CA === "select") {
+    if (CA === "selected") {
       CA = "button";
       this.setData({ paytype: 0 });
     } else {
-      CA = "select"
+      CA = "selected"
       CB = "button"
     }
     this.setData({
@@ -45,11 +47,11 @@ Page({
     console.log(e.target.dataset.paytype);
     // this.setData({ paytype: e.target.dataset.paytype });
     // console.log(this.data.paytype);
-    if (CB === "select") {
+    if (CB === "selected") {
       CB = "button";
       this.setData({ paytype: 0 });
     } else {
-      CB = "select"
+      CB = "selected"
       CA = "button"
     }
     this.setData({

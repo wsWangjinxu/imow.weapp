@@ -1,11 +1,13 @@
 {
   "navigationBarBackgroundColor": "#fe0000",
   "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "2018阿母工业双11 火爆超值套餐",
+  "navigationBarTitleText": "火爆超值套餐",
   "backgroundColor": "blue",
   "backgroundTextStyle": "light",
   "component": true,
-  "usingComponents": { 
+  "usingComponents": {
+    "van-row": "/vantui/row/index",
+    "van-col": "/vantui/col/index",
     "van-stepper": "/vantui/stepper/index",
     "buysku": "/components/buysku/buysku"
   }

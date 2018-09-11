@@ -6,7 +6,7 @@ const app = getApp();
 
 Page({
   data: {
-    orderId:undefined,             //订单id
+    orderId:undefined,            //订单id
     paymentMethod: [              //下拉列表的数据
       // {
       //   "name": "线下支付"
@@ -24,7 +24,7 @@ Page({
     isFocus: false,//控制input 聚焦
     submitSure:false,    //弹框提交按钮禁用
     orderId:undefined,
-    shipAmount: 15.26,  //运费
+    shipAmount: 0,  //运费
     orderCode: "",   //订单号
     sellerName: "中力机械",  //卖家名称
     buyerName: "阿母工业123",   //买家名称
@@ -44,6 +44,8 @@ Page({
     payMethod:'',     //支付方式
     wallets_password:'', //密码
     pwdRight:false,//密码输入是否正确
+    isSelfPick:true, //是否为自提点
+    orderShipModelDetail: "", //自提点信息
     couponTotleDiscount: 0   //优惠券使用金额
   },
   onLoad: function (e) {
@@ -52,7 +54,7 @@ Page({
     this.init();
   },
   //事件处理函数
-  // 点击触发下拉框事件
+  // 选择支付方式
   bindPickerChange: function (e) {
     console.log('picker下标', e.detail.value)  
     let payType = this.data.paymentMethod[e.detail.value].name
@@ -193,7 +195,9 @@ Page({
         orderTotalPrice: orderTotalPrice1,  //订单总额
         //orderCode: Data.orderCode,   //订单号
         paymentMethod: Data.paymentMethod,
-        payMethod: Data.paymentMethod[0].name  //不触发选择支付方式事件自动获取第一个支付方式
+        payMethod: Data.paymentMethod[0].name,  //不触发选择支付方式事件自动获取第一个支付方式
+        orderShipModelDetail: Data.orderShipModel.detail,
+        isSelfPick: Data.orderShipModel.isSelfPick
       });
       
     });

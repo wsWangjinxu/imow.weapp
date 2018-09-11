@@ -1,10 +1,10 @@
 {
   "pages":[ 
-    "pages/buy/buy",
-    "pages/setMeal/setMeal",
-    
-    "pages/productDetail/productDetail",
     "pages/checkPay/checkPay",
+    "pages/setMeal/setMeal",
+    "pages/buy/buy",
+    "pages/productDetail/productDetail",
+    
     "pages/special/special",
     "pages/my/my",
     "pages/addressList/addressList",
