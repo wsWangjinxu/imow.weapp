@@ -3,6 +3,9 @@
   "usingComponents": {
     "lineTitle": "/components/special/lineTitle/lineTitle",
     "coupon": "/components/special/coupon/coupon",
-    "bulletTitle": "/components/special/bulletTitle/bulletTitle"
+    "bulletTitle": "/components/special/bulletTitle/bulletTitle",
+    "superGroup": "/components/special/superGroup/superGroup",
+    "hot": "/components/special/hot/hot",
+    "product": "/components/special/product/product"
   }
 }

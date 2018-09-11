@@ -210,6 +210,11 @@
   font-size: 26rpx;
 }
 
+.radio {
+  zoom: 90%;
+  margin-top: 5rpx;
+}
+
 
 
 

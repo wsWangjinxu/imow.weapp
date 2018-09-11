@@ -2,6 +2,7 @@ import { getOrderConfirmCart } from "../../api/user/cart"
 import { getAddressList } from "../../api/user/address"
 import { getInvoiceInfo } from "../../api/user/invoice"
 import { addOrder } from "../../api/order/order"
+import { getSelfPickAddress } from "../../api/product/index"
 
 
 Page({
@@ -36,9 +37,12 @@ Page({
     showBtn: true,
     //备注
     remark: "",
-    btnText: ""
+    btnText: "",
+    selfAddressId: ""
   },
   onLoad(option) {
+    let selfAddressData = "";
+
     //下面一行注释用于测试，测试完毕以后放开注释,根据购物车id获取商品的信息
     if (option.cartId) {
       //说明是从购物车过来的
@@ -49,7 +53,16 @@ Page({
       getOrderConfirmCart("GET", {
         cartId: option.cartId
       }).then(res => {
-        // console.log(res.data.data);
+        //拼接产品id
+        let product = res.data.data.orderCartProductSkus;
+        product.forEach(ele => {
+          selfAddressData = selfAddressData + ele.id + ',';
+        });
+        //去掉结尾的逗号
+        selfAddressData = selfAddressData.slice(0, selfAddressData.length-1);
+        //获取自提点
+        this.getSelfPick(selfAddressData);
+        //设置数据
         this.setData({
           cartData: res.data.data
         });
@@ -64,6 +77,17 @@ Page({
         skuId: option.skuId,
         num: option.num
       }).then(res => {
+        //拼接产品id
+        let product = res.data.data.orderCartProductSkus;
+        product.forEach(ele => {
+          selfAddressData = selfAddressData + ele.id + ',';
+        });
+
+        //去掉结尾的逗号
+        selfAddressData = selfAddressData.slice(0, selfAddressData.length-1);
+        //获取自提点
+        this.getSelfPick(selfAddressData);
+        //设置数据
         this.setData({
           cartData: res.data.data
         });
@@ -87,8 +111,6 @@ Page({
     });
 
     this.checkboxChange();
-
-    //获取自提点的信息
 
   },
 
@@ -168,11 +190,31 @@ Page({
     });
   },
 
+  getSelfPick(data) {
+    console.log(data);
+    getSelfPickAddress("GET", { productIds:data }).then(res => {
+      let selfAddress = res.data.selfPickAddresses;
+      if (selfAddress.length > 0) {
+        this.setData({
+          selfAddress
+        });
+      } else {
+        this.setData({
+          list: [{
+            id: 101,
+            title: "物流发货"
+          }]
+        });
+      }
+    });
+  },
+
   //控制切换
   handleTabChange(e) {
     if (e.detail === 101) {
       this.setData({
-        pick: false
+        pick: false,
+        selfAddressId: ""
       });
     } else {
       this.setData({
@@ -186,6 +228,13 @@ Page({
     this.setData({
       remark: e.detail.value
     })
+  },
+
+  //设置自提订单的自提点
+  handleRadioChange(e) {
+    this.setData({
+      selfAddressId: e.detail.value
+    });
   },
 
   //提交订单
@@ -203,7 +252,8 @@ Page({
         UserReceiptShipId: this.data.invoiceInfo.id,
         UseImb: this.data.useImb,
         UseCoupons: this.data.useConpon,
-        Remark: this.data.remark
+        Remark: this.data.remark,
+        selfAddressId: this.data.selfAddressId
       }
 
       console.log(data);

@@ -8,5 +8,32 @@
     <coupon class="coupon-item"></coupon>
     <coupon class="coupon-item"></coupon>
   </view>
-  <bulletTitle></bulletTitle>
+  <bulletTitle title="{{'超级拼团'}}" subTitle="{{'拼团一天，划算半年'}}"></bulletTitle>
+  <view class="super-group-ctn">
+    <block wx:for="{{3}}" wx:key="index">
+      <superGroup></superGroup>
+    </block>
+  </view>
+  <bulletTitle title="{{'热销榜'}}" subTitle="{{'热销商品，一网打尽'}}"></bulletTitle>
+  <view class="hot-ctn">
+    <block wx:for="{{3}}" wx:key="index">
+      <hot></hot>
+    </block>
+  </view>
+  <view class="shop-list">
+    <view class="list-title"><view>杭州阿母工业</view><view>进入店铺，了解更多产品信息</view></view>
+    <view class="shop-ctn">
+      <scroll-view class="left" scroll-y="true" style="height: {{scrollHeight}}px;">
+        <block wx:for="{{10}}" wx:key="index">
+          <view class="shopname">浙江中力机械</view>
+        </block>
+      </scroll-view>
+      <scroll-view class="right" scroll-y="true" style="height: {{scrollHeight}}px;">
+        <block wx:for="{{20}}" wx:key="index"> 
+          <product></product>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="list-pay"><view>购物车</view><view>结算</view></view>
+  </view>
 </view> 

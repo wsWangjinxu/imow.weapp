@@ -1,8 +1,8 @@
 Component({
   properties: {
-    ctn: {
+    title: {
       type: String,
-      value: {}
+      value: "默认标题"
     }
   }
 })

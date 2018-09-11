@@ -1,0 +1,13 @@
+<view class="product">
+  <image mode="widthFix" style="flex: none;width: 160rpx;margin-right: 10rpx;" src="http://dummyimage.com/300x300" />
+  <view class="product-ctn" style="flxe: 2;">
+    <view>EPT20-15ET2 1.5t全电动搬运车中力小金刚二代</view>
+    <view>
+      <view>
+        <view style="font-size: 30rpx; color:#ff1105;">￥8900起</view>
+        <view style="font-size: 26rpx; color: #9b9b9b;">原价 ￥9900</view>
+      </view>
+      <van-icon style="font-size: 36rpx; color: #fe0002;" name="add-o"></van-icon>
+    </view>
+  </view>
+</view>

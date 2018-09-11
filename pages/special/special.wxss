@@ -19,3 +19,117 @@
  margin-left: 10rpx;
 }
 
+
+/* .super-group-ctn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx 30rpx;
+  background-color: #fff;
+  word-break: break-all;
+} */
+
+/* .super-group-ctn supergroup {
+  margin-left: 20rpx;
+  flex: 1;
+} */
+
+/* .super-group-ctn supergroup:first-child {
+  margin-left: 0;
+} */
+
+/* 热销榜 */ /* 超级拼团 */
+.hot-ctn, .super-group-ctn {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx 30rpx;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  word-break: break-all;
+  margin-bottom: 20rpx;
+}
+
+.hot-ctn hot, .super-group-ctn supergroup {
+  margin-left: 20rpx;
+  flex: 1;
+}
+
+.hot-ctn hot:first-child, .super-group-ctn supergroup:first-child {
+  margin-left: 0;
+}
+
+
+/* 点外卖 */
+.shop-ctn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list-title {
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  background-color: #fff;
+  text-align: center;
+}
+.list-title view {
+  flex: 1;
+  height: 50px;
+  line-height: 50px;
+}
+
+
+.list-title view:last-child {
+  flex: 2.5;
+  background-color: #ffe5e6;
+}
+
+.shop-ctn .left {
+  flex: 1;
+  height: 1110rpx;
+  background-color: #fff;
+}
+
+.shop-ctn .right {
+  flex: 2.5;
+  height: 1110rpx;
+  background-color: #fff;
+}
+
+.shopname {
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-top: 1px solid #e4e4e4; 
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.list-pay {
+  height: 50px;
+  line-height: 50px;
+  font-size: 36rpx;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.list-pay view {
+  flex: 1;
+  background-color: #fff;
+}
+
+.list-pay view:last-child {
+  flex: 2.5;
+  background-color: #fe0000;
+  color: white;
+}
+

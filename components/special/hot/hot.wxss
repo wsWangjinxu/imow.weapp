@@ -1,0 +1,18 @@
+.hot-title {
+  font-size: 30rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+}
+
+.hot-num {
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.hot-num text {
+  color: #fe0000;
+}
