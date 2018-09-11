@@ -64,14 +64,14 @@ Page({
   },
   //分享
   onShareAppMessage: function () {
-    console.log(this.data.title)
+    // console.log(this.data.title)
     return {
       title: this.data.title,
       path: '/pages/productDetail/productDetail'
     }
   },
   getCoupon(e){
-    console.log(e.currentTarget.dataset.no);
+    // console.log(e.currentTarget.dataset.no);
     this.setData({ couponNum: e.currentTarget.dataset.no });
     //领取优惠券
     getDiscountCoupon("POST", {
@@ -94,7 +94,7 @@ Page({
   },
   //弹框
   showPopup(e) {
-    console.log(e.currentTarget.dataset.show)
+    // console.log(e.currentTarget.dataset.show)
     let showNo = e.currentTarget.dataset.show;
     if (showNo == 1) {
       let showContent = this.data.productPolicy;

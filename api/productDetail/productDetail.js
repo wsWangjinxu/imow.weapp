@@ -11,6 +11,15 @@ function getProductDetail(type, data) {
   });
 }
 
+//获取产品sku详情
+function getProductSkus(type, data) {
+  return wxRequest({
+    url: baseUrl + "product/detail/productSkus",
+    data: data,
+    type: type
+  });
+}
+
 //加入购物车
 function addCart(type, data) {
   return wxRequest({
@@ -39,4 +48,4 @@ function getDiscountCoupon(type, data) {
 }
 
 
-export { getProductDetail, addCart, getFactoryDiscountCouponList, getDiscountCoupon}
+export { getProductDetail, addCart, getFactoryDiscountCouponList, getDiscountCoupon, getProductSkus}

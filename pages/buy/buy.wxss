@@ -41,9 +41,9 @@ page{
 .item{
   width: 160rpx;
   height: 58rpx;
+  line-height: 58rpx;
   border-radius: 10rpx;
   text-align: center;
-  line-height: 58rpx;
   background-color: #f2f2f2;
   color:#353535;
   margin-right: 10rpx;
@@ -54,9 +54,9 @@ page{
 .select{
   width: 160rpx;
   height: 58rpx;
-  border-radius: 10rpx;
-  text-align: center;
   line-height: 58rpx;
+  border-radius: 10rpx;
+  text-align: center; 
   color: white;
   background-color: #fe0000;
   margin-right: 10rpx;

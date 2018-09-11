@@ -1,0 +1,14 @@
+{
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "火爆超值套餐",
+  "backgroundColor": "blue",
+  "backgroundTextStyle": "light",
+  "component": true,
+  "usingComponents": {
+    "van-row": "/vantui/row/index",
+    "van-col": "/vantui/col/index",
+    "van-stepper": "/vantui/stepper/index",
+    "buysku": "/components/buysku/buysku"
+  }
+}

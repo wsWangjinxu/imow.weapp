@@ -50,18 +50,13 @@
       </view> 核对实际运费</view>
   </view>
 
-  <view class='box getSelf'>
-    <view class='titleName'>自提</view>
-    <view>浙江杭州工厂(浙江省杭州市下城区永华街121号浙江中力机械)</view>
-    <view class='getSelfItem getSelfItem1'>
-      <view>以下车型可供自提：EPT20-15ET2 EPT20-15ET2 EPT20-15ET2 EPT20-15ET2</view>
-      <view>查看详细车辆</view>
-    </view>
-    <view>浙江安吉工厂(浙江省安吉县递铺镇霞泉村中力工业园)</view>
-    <view class='getSelfItem'>
-      <view>以下车型可供自提：EPT20-15ET2 EPT20-15ET2 </view>
-      <view>查看详细车辆</view>
-    </view>
+  <view class='box getSelf' wx:if="{{isSelfPick}}">
+    <view class='titleName'>自提点信息</view>
+    <view>{{orderShipModelDetail}}</view>
+  </view>
+  <view class='box getSelf' wx:if="{{!isSelfPick}}">
+    <view class='titleName'>配送信息</view>
+    <view>{{orderShipModelDetail}}</view>
   </view>
 
   <view class='box payment'>
