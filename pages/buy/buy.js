@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import { getProductDetail, addCart } from "../../api/productDetail/productDetail";
+import { getProductDetail, addCart, getProductSkus } from "../../api/productDetail/productDetail";
 
 const app = getApp()
 
@@ -77,21 +77,23 @@ Page({
     },
     productId: "",//产品id
     skuId: "",  //skuId
-    price: "",  //价格
     isOnePrece: true,//判断显示单价还是价格区间
-    minPrice:0,
-    maxPrice:0,
-    model: "CPC30-T3",  //型号
-    weight: "3000",  //载重
-    height: "3000",  //起升高度
-    menjia: "两级宽视野",  //门架类型
-    transmission: "液力传动",  //传动类型
+    price: "",  //价格
+    minPrice: 0,
+    maxPrice: 0,
+    skuName:[],//产品信息
+    // model: "CPC30-T3",  //型号
+    // weight: "3000",  //载重
+    // height: "3000",  //起升高度
+    // menjia: "两级宽视野",  //门架类型
+    // transmission: "液力传动",  //传动类型
+    hasDeliveryTime: false,//交期是否存在
     depositShow: false, //定金按钮显示隐藏
     num: 1, //数量
-    paytype:0, //定金全款判断  
-    paymethod:"",
-    CA:"item",
-    CB:"item"
+    paytype: 0, //定金全款判断  
+    paymethod: "",
+    CA: "item",
+    CB: "item"
   },
   onLoad: function(e) { 
     console.log(e);
@@ -115,11 +117,13 @@ Page({
         title: '请选择sku号',
         duration: 2000
       })
-    } else if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined){
-      wx.showToast({
-        title: '请选择交期',
-        duration: 2000
-      })
+    } else if (this.data.hasDeliveryTime){
+      if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
+        wx.showToast({
+          title: '请选择交期',
+          duration: 2000
+        })
+      }
     } else if (this.data.paytype == "" || this.data.paytype == undefined){
       wx.showToast({
         title: '请选择支付类型',
@@ -154,11 +158,13 @@ Page({
         title: '请选择sku号',
         duration: 2000
       })
-    } else if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
-      wx.showToast({
-        title: '请选择交期',
-        duration: 2000
-      })
+    } else if (this.data.hasDeliveryTime) {
+      if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
+        wx.showToast({
+          title: '请选择交期',
+          duration: 2000
+        })
+      }
     } else if (this.data.paytype == "" || this.data.paytype == undefined) {
       wx.showToast({
         title: '请选择支付类型',
@@ -309,6 +315,7 @@ Page({
           this.setData({ price: item.agentPrice });           //根据sku号与交期确认顶部价格等数据
           this.setData({ skuId: item.id }); 
           this.setData({ isOnePrece: true });
+          this.setData({ skuName: item.skuName });
           // this.setData({ model: item.model }); 
           // this.setData({ weight: item.weight });  //载重
           // this.setData({ height: item.height }); //起升高度
@@ -325,11 +332,18 @@ Page({
       if (sku) {
         let skuArr=[];
         let skuArr2 = [];
+        let skuArr3 = [];
         for (let index = 0; index < productSkus.length; index++) {
           const item = productSkus[index];
           if (item.skuCode == sku) {
-            skuArr.push(item.agentPrice)
+            skuArr.push(item.agentPrice);
+            skuArr3.push(item);
           }  
+        }
+        if (skuArr3.length==1){
+          this.setData({ skuName: skuArr3[0].skuName });
+        }else{
+          this.setData({ skuName: "" });
         }
         console.log(skuArr);
         let min;
@@ -357,13 +371,20 @@ Page({
       } else if (time){
         let timeArr = [];
         let timeArr2 = [];
+        let timeArr3 = [];
         for (let index = 0; index < productSkus.length; index++) {
           const item = productSkus[index];
           if (item.deliveryTime == time) {
-            timeArr.push(item.agentPrice)
+            timeArr.push(item.agentPrice);
+            timeArr3.push(item)
           }
         } 
         // console.log(timeArr);
+        if (timeArr3.length==1){
+          this.setData({ skuName: timeArr3[0].skuName });
+        }else{
+          this.setData({ skuName: "" });
+        }
         let min;
         let max;
         for (var i = 0; i < timeArr.length; i++) {
@@ -390,6 +411,7 @@ Page({
         this.setData({ depositShow: false });
         this.setData({ isOnePrece: true });
         this.setData({ price: '' });
+        this.setData({ skuName: ""});
       }
 
     }    
@@ -433,17 +455,32 @@ Page({
     })
   },
   //页面初始化函数
-  init(){
+  init() {
     //获取产品详情内容
+    getProductSkus("GET", {
+      id: this.data.productId,
+    }).then(res => {
+      console.log(res.data.productSkus);
+      this.setData({
+        productSkus: res.data.productSkus
+      });
+      this.filted();
+      let productSkus = this.data.productSkus;
+      for (let index = 0; index < productSkus.length; index++) {
+        const item = productSkus[index];
+        if (item.deliveryTime) {
+          this.setData({ hasDeliveryTime: true });
+        }
+      }
+    });
     getProductDetail("GET", {
       id: this.data.productId,
     }).then(res => {
-      console.log(res.data);
-      this.setData({ 
-        paymethod: res.data.paymethod, 
-        productSkus: res.data.productSkus
-      }); 
-      this.filted();
-    });   
+      this.setData({
+        paymethod: res.data.paymethod
+      });
+      
+    });
   }
+
 })

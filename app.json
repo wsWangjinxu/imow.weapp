@@ -1,7 +1,7 @@
 {
   "pages":[ 
-    "pages/productDetail/productDetail",
     "pages/buy/buy",
+    "pages/productDetail/productDetail",
     "pages/checkPay/checkPay",
     "pages/special/special",
     "pages/my/my",
@@ -14,7 +14,6 @@
     "pages/cart/cart",
     "pages/search/search",
     "pages/shopDetail/shopDetail",      
-   
     "pages/finishPay/finishPay",
     "pages/orderConfirm/orderConfirm",
     "pages/list/list",

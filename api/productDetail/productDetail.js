@@ -12,7 +12,7 @@ function getProductDetail(type, data) {
 }
 
 //获取产品sku详情
-function getproductSkus(type, data) {
+function getProductSkus(type, data) {
   return wxRequest({
     url: baseUrl + "product/detail/productSkus",
     data: data,
@@ -48,4 +48,4 @@ function getDiscountCoupon(type, data) {
 }
 
 
-export { getProductDetail, addCart, getFactoryDiscountCouponList, getDiscountCoupon, getproductSkus}
+export { getProductDetail, addCart, getFactoryDiscountCouponList, getDiscountCoupon, getProductSkus}

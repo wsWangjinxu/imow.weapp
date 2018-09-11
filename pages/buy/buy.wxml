@@ -13,11 +13,9 @@
       <view class='price' wx:else>￥{{minPrice}}~{{maxPrice}}</view>
     </van-col>
     <van-col span="10">
-      <view class='textFont'>型号： {{model}}</view>
-      <view class='textFont'>载重： {{weight}}KG</view>
-      <view class='textFont'>起升高度： {{height}}mm</view>
-      <view class='textFont'>门架类型： {{menjia}}</view>
-      <view class='textFont'>类型： {{transmission}}</view>
+      <block wx:for="{{skuName}}" wx:key="{{index}}">
+        <view class='textFont'>{{item.name}}： {{item.value}}</view>
+      </block>
     </van-col>
   </van-row>
 </view>
@@ -28,9 +26,9 @@
 
 <view class='hr'></view>
 
-<buysku bind:myevent='click' title="{{filedProductSkus.deliveryTime.title}}" itemData="{{filedProductSkus.deliveryTime.data}}" typeName="time"></buysku>
+<buysku wx:if="{{hasDeliveryTime}}" bind:myevent='click' title="{{filedProductSkus.deliveryTime.title}}" itemData="{{filedProductSkus.deliveryTime.data}}" typeName="time"></buysku>
 
-<view class='hr'></view>
+<view wx:if="{{hasDeliveryTime}}" class='hr'></view>
 
 <view class='box'>
   <view class='titleName'>支付类型</view>
