@@ -1,6 +1,8 @@
 {
   "pages":[ 
     "pages/buy/buy",
+    "pages/setMeal/setMeal",
+    
     "pages/productDetail/productDetail",
     "pages/checkPay/checkPay",
     "pages/special/special",

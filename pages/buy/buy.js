@@ -330,9 +330,9 @@ Page({
       // this.setData({ depositShow: false });
       // this.setData({ price: '' });
       if (sku) {
-        let skuArr=[];
-        let skuArr2 = [];
-        let skuArr3 = [];
+        let skuArr = [];    //点击sku所有sku价格数组
+        let skuArr2 = [];  //去重排序后的
+        let skuArr3 = [];  //点击sku所有对象数组
         for (let index = 0; index < productSkus.length; index++) {
           const item = productSkus[index];
           if (item.skuCode == sku) {
@@ -342,6 +342,7 @@ Page({
         }
         if (skuArr3.length==1){
           this.setData({ skuName: skuArr3[0].skuName });
+          this.setData({ skuId: skuArr3[0].id }); 
         }else{
           this.setData({ skuName: "" });
         }
@@ -412,6 +413,7 @@ Page({
         this.setData({ isOnePrece: true });
         this.setData({ price: '' });
         this.setData({ skuName: ""});
+        this.setData({ skuId: "" }); 
       }
 
     }    

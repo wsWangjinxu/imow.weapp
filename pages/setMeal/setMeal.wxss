@@ -1,0 +1,166 @@
+/**index.wxss**/
+page{
+  background-color: #f2f2f2;
+  padding-bottom: 108rpx;
+}
+
+.box{
+  padding: 34rpx 25rpx 0;
+  background-color: white;
+  font-size: 24rpx;
+  color: #3e3e3e;
+}
+
+.head{
+  width: 86%;
+  background-color: #fe0000;
+  border-radius:66rpx; 
+  padding: 18rpx 48rpx;
+  color: white;
+  margin: 20rpx auto;
+  position: relative;
+} 
+
+.head .headText1{
+  text-align: right; 
+  line-height: 40rpx;
+  font-weight: bold;
+}
+
+.head .headText1 .big{
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.head .headText2{
+  text-align: right; 
+  line-height: 40rpx;
+  text-decoration:line-through;
+}
+
+.hot{
+  width: 150rpx;
+  height: 150rpx;
+  line-height: 150rpx;
+  background-color: #ffcc00;
+  position: absolute;
+  left: -5px;
+  top: -10px;
+  border-radius: 50%;
+  font-weight: bold;
+  text-align: center;
+  font-size: 34rpx;
+}
+
+.item{
+  padding: 20rpx 0 18rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.item image{
+  width:135rpx;
+  height: 135rpx; 
+}
+
+.item .itemCenter{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
+
+/* .name{
+  padding-bottom: 30rpx;
+} */
+
+.format{
+  display: flex;
+  justify-content: space-between;
+}
+
+.price{
+  color: #e5100c;
+  font-size: 34rpx;
+}
+
+.primePrice{
+  color: #a5a5a5;
+}
+
+.select{
+  margin-top: 10rpx;
+  width:140rpx;
+  height: 60rpx; 
+  line-height: 60rpx;
+  border: 1px solid #e5100c;
+  text-align: center;
+  border-radius: 40rpx;
+  color: #e5100c;
+}
+
+.bottomBox{
+  padding: 48rpx 25rpx 0;
+  font-size:30rpx;
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  justify-content: space-between;
+}
+
+.bottomBox2{
+  padding: 48rpx 25rpx 60rpx;
+}
+
+.changeNumber{
+  height: 42rpx; 
+}
+
+.button{
+  width: 160rpx;
+  height: 58rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 58rpx;
+  background-color: #fff;
+  margin-right: 10rpx;
+  display: inline-block
+}
+
+.select{
+  width: 160rpx;
+  height: 58rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 58rpx;
+  
+  margin-right: 10rpx;
+  display: inline-block;
+  color: white;
+  background-color: #fe0000;
+}
+
+.footer{
+  height: 108rpx;
+  width:100%;
+  text-align: center;  
+  position: fixed;
+  bottom: 0;
+  z-index: 999
+}
+
+.addcart{
+  line-height: 108rpx;
+  font-size: 40rpx;
+  background-color: #fe9900;
+  color:white;
+  font-weight: 600
+}
+
+.buyNow{
+  line-height: 108rpx; 
+  font-size: 40rpx;
+  background-color: #fe0000;
+  color:white;
+  font-weight: 600
+}

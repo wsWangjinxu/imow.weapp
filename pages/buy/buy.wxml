@@ -77,7 +77,7 @@
     <van-col span="12">
       <view class="button3 closed">加入购物车</view>
     </van-col>
-    <van-col span="12" class="button4">
+    <van-col span="12">
       <view class="button4" bindtap='buyNow'>立即购买</view>
     </van-col>
   </van-row>

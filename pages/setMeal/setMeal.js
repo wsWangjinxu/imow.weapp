@@ -1,0 +1,61 @@
+//index.js
+//获取应用实例
+import { getProductDetail, addCart, getProductSkus } from "../../api/productDetail/productDetail";
+
+const app = getApp()
+
+Page({
+  data: {
+    CA: "button", //全款定金类名
+    CB: "button"
+  },
+  onLoad: function(e) { 
+    console.log(e);
+    this.setData({ productId: e.productId});
+   
+  },
+  onChange(e) {
+    this.setData({
+      num: e.detail
+    });
+  },
+  //全款按钮事件
+  payType1(e) {
+    let CA = this.data.CA;
+    let CB = this.data.CB;
+    console.log(e.target.dataset.paytype);
+    // this.setData({ paytype: e.target.dataset.paytype });
+    // console.log(this.data.paytype);
+    if (CA === "select") {
+      CA = "button";
+      this.setData({ paytype: 0 });
+    } else {
+      CA = "select"
+      CB = "button"
+    }
+    this.setData({
+      CA: CA,
+      CB: CB
+    })
+  },
+  //定金按钮事件
+  payType2(e) {
+    let CA = this.data.CA;
+    let CB = this.data.CB;
+    console.log(e.target.dataset.paytype);
+    // this.setData({ paytype: e.target.dataset.paytype });
+    // console.log(this.data.paytype);
+    if (CB === "select") {
+      CB = "button";
+      this.setData({ paytype: 0 });
+    } else {
+      CB = "select"
+      CA = "button"
+    }
+    this.setData({
+      CA: CA,
+      CB: CB
+    })
+  }
+
+})
