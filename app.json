@@ -1,7 +1,10 @@
 {
   "pages":[ 
+    "pages/groupBuy/joinGroupBuy/joinGroupBuy",
 
     "pages/groupBuy/startGroupBuy/startGroupBuy",
+
+
     "pages/special/special",
     "pages/my/my",
     "pages/addressList/addressList",
@@ -36,8 +39,7 @@
     "pages/repayment/repayment",
     "pages/logs/logs",
     "pages/groupBuy/groupBuyList/groupBuyList",
-    "pages/groupBuy/operation/operation",
-    "pages/groupBuy/joinGroupBuy/joinGroupBuy"
+    "pages/groupBuy/operation/operation"
   ],
   "window":{
     "backgroundTextStyle":"light",

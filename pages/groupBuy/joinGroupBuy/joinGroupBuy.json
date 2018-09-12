@@ -4,6 +4,7 @@
     "product": "/components/groupBuy/product/product",
     "standard": "/components/groupBuy/standard/standard",
     "listItem": "/components/groupBuy/listItem/listItem",
-    "van-icon": "/vantui/icon/index"
+    "van-icon": "/vantui/icon/index",
+    "van-popup": "/vantui/popup/index"
   }
 }

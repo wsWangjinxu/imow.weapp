@@ -2,8 +2,8 @@
     <image class="bg" mode="widthFix" src="{{bgUrl}}"/>
     <view class="share">
         <view>
-            <van-icon bindtap="explain" style="vertical-align: 1rpx; font-size: 55rpx; color: #ffffff;" name="warn"></van-icon>
-            <button size="mini"  open-type="share"><van-icon  style="margin-left: 10rpx;margin-right: 10rpx;vertical-align: -2rpx;" name="share"></van-icon> <text>分享</text></button>    
+            <van-icon bindtap="explain" style="vertical-align: 1rpx; font-size: 55rpx; color: #ffffff;margin-right: 10rpx;" name="warn"></van-icon>
+            <button wx:if="{{hasShare}}" size="mini" open-type="share"><van-icon  style="margin-right: 10rpx;vertical-align: -2rpx;" name="share"></van-icon> <text>分享</text></button>    
         </view> 
         <view>
             <image bindtap="ringUp" class="head" src="{{profile}}"></image>

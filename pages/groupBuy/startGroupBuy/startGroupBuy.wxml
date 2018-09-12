@@ -3,14 +3,16 @@
         profile="{{profile}}" 
         bgUrl="{{bgUrl}}"  
         isOpen="{{false}}"
-        bind:share="handleShare"
         bind:explain="handleExplain"            
     ></leaderInfo>
     <product ctn="{{product}}"></product>
     <view class="startBuy">
         <view class="startBuy-title">开团设置</view>
-        <view class="contact"><view><text>姓名：</text><input type="text"/></view><view><text>联系电话：</text><input type="text"/></view> </view> 
-        <view class="btn">我要开团</view>
+        <view class="contact">
+            <view><text>姓名：</text><input bindchange="handleName" value="{{name}}" type="text"/></view>
+            <view><text>联系电话：</text><input bindchange="handlePhone" value="{{phone}}" type="text"/></view> 
+        </view> 
+        <view class="btn" bindtap="start">我要开团</view>
     </view>
     <van-popup show="{{ show }}" bind:close="onClose">
         <view style="padding: 20rpx;">

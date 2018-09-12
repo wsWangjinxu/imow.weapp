@@ -12,10 +12,37 @@ function getGroupBuyInfo(type, data) {
   });
 }
 
-//获取用户的店铺优惠券
-function getShopDiscountCoupon(type, data) {
+//申请开团
+function groupBuyApply(type, data) {
   return wxRequest({
-    url: baseUrl + "getShopDiscountCoupon",
+    url: baseUrl + "groupBuyApply",
+      data: data,
+      type: type
+  });
+}
+
+//参与拼团
+function joinGroupBuy(type, data) {
+  return wxRequest({
+    url: baseUrl + "joinGroupBuy",
+      data: data,
+      type: type
+  });
+}
+
+//获取已经拼团的信息
+function getJoinedDetailList(type, data) {
+  return wxRequest({
+    url: baseUrl + "getJoinedDetailList",
+      data: data,
+      type: type
+  });
+}
+
+//获取拼团的sku列表
+function getGroupBuySku(type, data) {
+  return wxRequest({
+    url: baseUrl + "getGroupBuySku",
       data: data,
       type: type
   });
@@ -24,4 +51,4 @@ function getShopDiscountCoupon(type, data) {
 
 
 
-export { getGroupBuyInfo, getShopDiscountCoupon }
+export { getGroupBuyInfo, groupBuyApply, joinGroupBuy, getGroupBuySku, getJoinedDetailList }

@@ -2,6 +2,7 @@
 
 Component({
   properties: {
+    //是否已经开团，开团了可以拨打电话，不开团不能拨打电话
     isOpen: {
       type: Boolean,
       value: true
@@ -13,6 +14,11 @@ Component({
     profile: {
       type: String,
       value: ""
+    },
+    //是否可以分享
+    hasShare: {
+      type: Boolean,
+      value: false
     }
   },
 
