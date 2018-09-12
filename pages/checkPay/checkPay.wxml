@@ -53,6 +53,7 @@
   <view class='box getSelf' wx:if="{{isSelfPick}}">
     <view class='titleName'>自提点信息</view>
     <view>{{orderShipModelDetail}}</view>
+    <view class='getSelfItem'>订单中的车型均可在该自提点自提</view>
   </view>
   <view class='box getSelf' wx:if="{{!isSelfPick}}">
     <view class='titleName'>配送信息</view>

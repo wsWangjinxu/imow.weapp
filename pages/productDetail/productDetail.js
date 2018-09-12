@@ -14,10 +14,10 @@ Page({
     indicatorDots: true,
     duration: 1000,      //--上边都是轮播需要属性
     productName: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代",
-    amPrice1:9900,      //阿母价格
-    amPrice2:11000,
-    DLPrice1:8900,      //代理价格
-    DLPrice2: 10000,
+    amPrice1:0,      //阿母价格
+    amPrice2:0,
+    DLPrice1:0,      //代理价格
+    DLPrice2: 0,
     //saleNumber:122,     //已售数量 
     couponNum: 0,       //优惠券号  
     show: false,        //弹出层
@@ -44,10 +44,13 @@ Page({
     productImg:"",   //产品介绍3张图
     productImg2:"",
     productImg3: "",
-    shopId:123,
+    shopId:"",
     cartNum:0,
     productId:'',
     buyBtn: true,
+    hiddenLoading: false, //false显示加载中样式ture隐藏
+    request1:false,
+    request2: false,
   },
   onLoad: function (e) {
     this.setData({ productId: e.id });
@@ -83,7 +86,7 @@ Page({
           title: '领取成功',
           icon: 'success'
         });
-        this.init();
+        this.initCouponList();
       } else {
         wx.showToast({
           title: '领取失败',
@@ -123,34 +126,56 @@ Page({
   },
   //页面初始化函数
   init() {
+    this.setData({ hiddenLoading: false});
     //获取产品详情内容
     console.log(this.data.productId);
     getProductDetail("GET",{
       id: this.data.productId,
     }).then(res => {
-      console.log(res.data)
-      this.setData({
-        productName: res.data.productName,
-        imgUrls:res.data.images,
-        amPrice1: res.data.minImowPrice,
-        amPrice2: res.data.maxImowPrice,
-        DLPrice1: res.data.minAgentPrice,
-        DLPrice2: res.data.maxAgentPrice,
-        productPolicy: res.data.policy,
-        paymethod: res.data.paymethod,
-        productImg: res.data.introduceImage,
-        productImg2: res.data.packingImage,
-        productImg3: res.data.serviceImage,
-      });
+      if (res.statusCode==200){        
+        this.setData({
+          hiddenLoading: true,   //请求成功
+          productName: res.data.productName,
+          imgUrls: res.data.images,
+          amPrice1: res.data.minImowPrice,
+          amPrice2: res.data.maxImowPrice,
+          DLPrice1: res.data.minAgentPrice,
+          DLPrice2: res.data.maxAgentPrice,
+          productPolicy: res.data.policy,
+          paymethod: res.data.paymethod,
+          productImg: res.data.introduceImage,
+          productImg2: res.data.packingImage,
+          productImg3: res.data.serviceImage,
+          // shopId: res.data.shopId   //此商品对应店铺id
+        });
+      }else{
+        this.setData({hiddenLoading: true});
+        wx.showToast({
+          mask:true,
+          title: '请求失败',
+          image:"/static/imgs/warn.png"
+        })
+      }
+      
     });
 
     getCartNum("GET").then(res => {
-      //console.log(res.data.status);
-      this.setData({
-        cartNum: res.data.status
-      });
+      if(res.data.status){
+        this.setData({
+          cartNum: res.data.status
+        });
+      }
     });
-
+    // console.log(this.data.request1)
+    // console.log(this.data.request2)
+    // if (this.data.request1 && this.data.request2){
+    //   this.setData({ hiddenLoading: true });
+    // }else{
+    //   wx.showToast({
+    //     title:"网络错误",
+    //     mask:true
+    //   })
+    // }
   }
   
 

@@ -25,7 +25,6 @@ Page({
     submitSure:false,    //弹框提交按钮禁用
     orderId:undefined,
     shipAmount: 0,  //运费
-    orderCode: "",   //订单号
     sellerName: "中力机械",  //卖家名称
     buyerName: "阿母工业123",   //买家名称
     productNames: [],        //商品名称
@@ -193,7 +192,6 @@ Page({
         couponTotleDiscount: Data.couponTotleDiscount,
         surePay: Data.payable,     //其他支付应付
         orderTotalPrice: orderTotalPrice1,  //订单总额
-        //orderCode: Data.orderCode,   //订单号
         paymentMethod: Data.paymentMethod,
         payMethod: Data.paymentMethod[0].name,  //不触发选择支付方式事件自动获取第一个支付方式
         orderShipModelDetail: Data.orderShipModel.detail,

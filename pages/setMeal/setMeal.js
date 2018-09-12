@@ -2,62 +2,48 @@
 //获取应用实例
 import { getProductDetail, addCart, getProductSkus } from "../../api/productDetail/productDetail";
 
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
-    CA: "selected", //全款定金类名
-    CB: "button",
-    paytype:false //默认加入购物车 true定金立即购买
+    paytype:false ,//false全款加入购物车 true定金立即购买
+    num:1,
+    popupshow: false,//弹出层是否显示
+    productId:""  //当前选中产品id
   },
   onLoad: function(e) { 
     console.log(e);
-    this.setData({ productId: e.productId});
-   
   },
+  //点击选择过个跳出弹出层
+  showpop(e){
+    // console.log(e.currentTarget.dataset.productid)
+    this.setData({ 
+      popupshow: true, 
+      productId: e.currentTarget.dataset.productid
+    });
+  },
+  onClose() {
+    this.setData({ 
+      popupshow: false, 
+      productId: ""
+    });
+  },
+  //数量
   onChange(e) {
-    conole.log()
     this.setData({
       num: e.detail
     });
   },
   //全款按钮事件
-  payType1(e) {
-    let CA = this.data.CA;
-    let CB = this.data.CB;
-    console.log(e.target.dataset.paytype);
-    this.setData({ paytype: e.target.dataset.paytype });
-    // console.log(this.data.paytype);
-    if (CA === "selected") {
-      CA = "button";
-      this.setData({ paytype: 0 });
-    } else {
-      CA = "selected"
-      CB = "button"
+  payType1(){
+    if (this.data.paytype===true){
+      this.setData({ paytype: false });
     }
-    this.setData({
-      CA: CA,
-      CB: CB
-    })
   },
   //定金按钮事件
-  payType2(e) {
-    let CA = this.data.CA;
-    let CB = this.data.CB;
-    console.log(e.target.dataset.paytype);
-    // this.setData({ paytype: e.target.dataset.paytype });
-    // console.log(this.data.paytype);
-    if (CB === "selected") {
-      CB = "button";
-      this.setData({ paytype: 0 });
-    } else {
-      CB = "selected"
-      CA = "button"
+  payType2() {
+    if (this.data.paytype === false) {
+      this.setData({ paytype: true });
     }
-    this.setData({
-      CA: CA,
-      CB: CB
-    })
   }
-
 })

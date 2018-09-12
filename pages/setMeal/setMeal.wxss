@@ -146,7 +146,7 @@ page{
   width:100%;
   position: fixed;
   bottom: 0;
-  z-index: 999
+  z-index: 10
 }
 
 .footerL{
@@ -166,4 +166,18 @@ page{
   font-size: 40rpx;
   background-color: #fe0000;
   color:white;
+}
+
+/* 弹出层 */
+.popBox{
+  position: relative;
+}
+
+.close{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top:25rpx;
+  right:25rpx;
+  font-size: 60rpx
 }

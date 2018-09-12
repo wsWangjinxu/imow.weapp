@@ -34,7 +34,7 @@
   margin-bottom: 27rpx
   
 }
-
+/* 禁用 */
 .status3{  
   width: 160rpx;
   height: 58rpx;

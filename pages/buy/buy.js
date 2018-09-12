@@ -91,7 +91,7 @@ Page({
     depositShow: false, //定金按钮显示隐藏
     num: 1, //数量
     paytype: 0, //定金全款判断  
-    paymethod: "",
+    paymethod: "", //支付方式文字
     CA: "item",
     CB: "item"
   },
@@ -115,19 +115,22 @@ Page({
     if (this.data.filedProductSkus.sku.current == "" || this.data.filedProductSkus.sku.current == undefined){
       wx.showToast({
         title: '请选择sku号',
-        duration: 2000
+        duration: 2000,
+        image: "/static/imgs/warn.png"
       })
     } else if (this.data.hasDeliveryTime){
       if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
         wx.showToast({
           title: '请选择交期',
-          duration: 2000
+          duration: 2000,
+          image: "/static/imgs/warn.png"
         })
       }
     } else if (this.data.paytype == "" || this.data.paytype == undefined){
       wx.showToast({
         title: '请选择支付类型',
-        duration: 2000
+        duration: 2000,
+        image: "/static/imgs/warn.png"
       })
     }else{
       addCart("POST", {
@@ -144,7 +147,8 @@ Page({
         }else{
           wx.showToast({
             title: '操作失败，请重试',
-            duration: 2000
+            duration: 2000,
+            image: "/static/imgs/warn.png"
           })
           this.init();
         }
@@ -156,19 +160,22 @@ Page({
     if (this.data.filedProductSkus.sku.current == "" || this.data.filedProductSkus.sku.current == undefined) {
       wx.showToast({
         title: '请选择sku号',
-        duration: 2000
+        duration: 2000,
+        image: "/static/imgs/warn.png"
       })
     } else if (this.data.hasDeliveryTime) {
       if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
         wx.showToast({
           title: '请选择交期',
-          duration: 2000
+          duration: 2000,
+          image: "/static/imgs/warn.png"
         })
       }
     } else if (this.data.paytype == "" || this.data.paytype == undefined) {
       wx.showToast({
         title: '请选择支付类型',
-        duration: 2000
+        duration: 2000,
+        image: "/static/imgs/warn.png"
       })
     } else {
       //立即购买
@@ -181,8 +188,8 @@ Page({
       })
     }
   },
-  //选择sku加样式
-  click(e) { 
+  //选择sku加样式（子组件传父组件，state1选中，state2普通，state3禁用）
+  click(e) {    
     let key = e.detail.type;
     let val = e.detail.content;
     let state = e.detail.state;

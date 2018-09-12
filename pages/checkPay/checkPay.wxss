@@ -38,26 +38,7 @@ page{
 }
 
 .getSelfItem{
-  margin-top: 16rpx;
-  line-height: 28rpx;
-}
-
-.getSelfItem1{
-  margin-bottom: 38rpx;
-}
-
-.getSelfItem :nth-child(1){
-  display: inline-block;
-  color: #8e8e8e;
-  width: 510rpx;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis
-}
-
-.getSelfItem :nth-child(2){
-  display: inline-block;
-  color: #fe0000;
+  margin-top: 10rpx;
 }
 
 .payment{

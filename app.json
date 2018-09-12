@@ -1,12 +1,12 @@
 {
   "pages":[ 
-    "pages/checkPay/checkPay",
-    "pages/setMeal/setMeal",
-    "pages/buy/buy",
-    "pages/productDetail/productDetail",
     
-    "pages/special/special",
+    "pages/setMeal/setMeal",
     "pages/my/my",
+    "pages/productDetail/productDetail",
+    "pages/checkPay/checkPay",
+    "pages/buy/buy",
+    "pages/special/special",
     "pages/addressList/addressList",
     "pages/addressForm/addressForm",
     "pages/index/index",

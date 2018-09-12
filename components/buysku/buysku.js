@@ -23,7 +23,7 @@ Component({
     select: function (e) {
       // console.log(e.currentTarget.dataset.content);
       // console.log(e.currentTarget.dataset.state);
-      // console.log(e.currentTarget.dataset.type)
+      // console.log(e.currentTarget.dataset.type);
       this.triggerEvent('myevent', { type: e.currentTarget.dataset.type, content: e.currentTarget.dataset.content, state: e.currentTarget.dataset.state});
     }
   }

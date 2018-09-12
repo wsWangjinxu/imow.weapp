@@ -1,6 +1,10 @@
 <!--index.wxml-->
 <view class="container">
 
+<loading hidden="{{hiddenLoading}}" catchtouchmove="ture">
+  加载中...
+</loading>
+
 <swiper indicator-dots="{{indicatorDots}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key="{{index}}">
     <swiper-item>

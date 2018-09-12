@@ -23,9 +23,9 @@ Page({
     shopId:null,
     showContent:""
   },
-  onLoad: function (options) {
-    console.log(options)
-    this.setData({ shopId: options.shopId });
+  onLoad: function (e) {
+    console.log(e)
+    this.setData({ shopId: e.shopId });
     this.init();
   },
   //事件处理函数
@@ -56,7 +56,7 @@ Page({
   //页面初始化
   init() {
     console.log()
-    getShopDetail("POST", {
+    getShopDetail("GET", {
       id: this.data.shopId
     }).then(res => {
       console.log(res)

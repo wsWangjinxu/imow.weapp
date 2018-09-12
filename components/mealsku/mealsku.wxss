@@ -1,0 +1,128 @@
+/* components/buysku/buysku.wxss */
+.box{
+  padding: 34rpx 25rpx 43rpx;
+  background-color: white;
+  font-size: 24rpx;
+  color: #3e3e3e;
+}
+
+.productImg{
+  width: 250rpx;
+  height: 250rpx
+}
+
+.productImg image{
+  width: 100%;
+  height: 100%
+}
+
+.price{
+  font-size: 34rpx;
+  color: #f70000;
+  font-weight: bold;
+  padding: 20rpx 0 20rpx;
+}
+
+.head .textFont{
+  color:#3a3a3a;
+  font-size:22rpx
+}
+
+.hr{
+  border-bottom:1px solid #ccc;
+  margin: 0 25rpx;
+}
+
+.item{
+  width: 160rpx;
+  height: 58rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 58rpx;
+  background-color: #f2f2f2;
+  color:#353535;
+  margin-right: 10rpx;
+  margin-bottom: 27rpx;
+  display: inline-block
+}
+
+.select{
+  width: 160rpx;
+  height: 58rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 58rpx;
+  color: white;
+  background-color: #fe0000;
+  margin-right: 10rpx;
+  margin-bottom: 27rpx;
+  display: inline-block
+}
+
+.titleName{
+  margin-bottom: 22rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.titleName2{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+
+.sure{
+  width: 85%;
+  height:80rpx;
+  line-height: 80rpx;
+  margin: 0 auto;
+  background-color:#ffcc00;
+  color: white ;
+  font-size: 40rpx;
+  border-radius: 10rpx;
+  text-align: center;
+}
+
+/* 选中 */
+.status1{               
+  width: 160rpx;
+  height: 58rpx;
+  display: inline-block;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 58rpx;
+  color: white;
+  background-color: #fe0000;
+  margin-right: 10rpx;
+  margin-bottom: 27rpx
+}
+
+/* 普通 */
+.status2{
+  width: 160rpx;
+  height: 58rpx;
+  display: inline-block;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 58rpx;
+  background-color: #f2f2f2;
+  color:#353535;
+  margin-right: 10rpx;
+  margin-bottom: 27rpx
+  
+}
+/* 禁用 */
+.status3{  
+  width: 160rpx;
+  height: 58rpx;
+  display: inline-block;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 58rpx;
+  background-color: #f2f2f2;
+  color:#ccc;
+  margin-right: 10rpx;
+  margin-bottom: 27rpx
+}

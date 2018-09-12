@@ -1,0 +1,43 @@
+<view class="container">
+
+  <view class="box head">
+    <van-row>
+      <van-col span="10">
+        <view class="productImg">
+          <image src="https://dummyimage.com/250x250/fb0a2a"></image>
+        </view>
+      </van-col>
+      <van-col span="14">
+        <view class='price' wx:if="{{isOnePrece}}">￥{{price}}</view>
+        <view class='price' wx:else>￥{{minPrice}}~{{maxPrice}}</view>
+      </van-col>
+      <van-col span="10">
+        <view class='textFont'>产品id： {{productId}}</view>
+        <view class='textFont'>载重： {{weight}}KG</view>
+        <view class='textFont'>起升高度： {{height}}mm</view>
+        <view class='textFont'>门架类型： {{menjia}}</view>
+        <view class='textFont'>类型： {{transmission}}</view>
+      </van-col>
+    </van-row>
+  </view>
+
+  <view class='hr'></view>
+  <view class='box'>
+    <view class='titleName'>sku号</view>
+    <view class="{{'status'+item.state}}" bindtap="click" wx:for="{{filedProductSkus.sku.data}}" wx:key="{{index}}" data-state='{{item.state}}' data-content='{{item.skuCode}}' data-type='skuCode'>
+      {{item.skuCode}}
+    </view>
+  </view>
+
+  <view class='hr' wx:if="{{hasDeliveryTime}}"></view>
+  <view class='box' wx:if="{{hasDeliveryTime}}">
+    <view class='titleName'>交期</view>
+    <view class="{{'status'+item.state}}" bindtap="click" wx:for="{{filedProductSkus.deliveryTime.data}}" wx:key="{{index}}" data-state='{{item.state}}' data-content='{{item.deliveryTime}}' data-type='deliveryTime'>
+      {{item.deliveryTime}}
+    </view>
+  </view>
+
+  <view class='box'>
+    <view class='sure'>确定</view>
+  </view>
+</view>

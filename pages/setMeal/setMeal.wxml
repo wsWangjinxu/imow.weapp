@@ -7,7 +7,7 @@
     <view class='headText2'>原组合购买价：￥129700.00</view>
     <view class='hot'>HOT</view>    
   </view>
-  <view class='item' wx:for="{{5}}">
+  <view class='item' wx:for="{{2}}" wx:key="{{index}}">
     <image src="/static/imgs/aa.png" />
     <view class='itemCenter'>
       <view class='name'>EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代</view>
@@ -16,11 +16,10 @@
           <view class='price'>￥8900起</view>
           <view class='primePrice'>原价￥9900</view>
         </view>
-        <view class='select'>选择规格</view>
+        <view class='select' bindtap='showpop' data-productId="11111111">选择规格</view>
       </view>
     </view>
   </view>
-  
 </view> 
 
 <view class='bottomBox'>
@@ -31,8 +30,8 @@
 <view class='bottomBox bottomBox2'>
   <view>支付类型</view>
   <view>
-    <view class='{{CA}}' bindtap='payType1' data-payType='false'>全款</view>
-    <view class='{{CB}}' bindtap='payType2' data-payType='true'>定金</view>
+    <view class='{{paytype?"button":"selected"}}' bindtap='payType1'>全款</view>
+    <view class='{{paytype?"selected":"button"}}' bindtap='payType2'>定金</view>
   </view>
 </view>
 
@@ -45,21 +44,22 @@
       </view>
     </van-col>
     <van-col span="9">
-      <view class="footerR" bindtap='buyNow'>加入购物车</view>
-    </van-col>
-  </van-row>
-</view>
-<view class='footer' wx:if="{{false}}">
-  <van-row>
-    <van-col span="15">
-      <view class="footerL" bindtap='addcart'>加入购物车</view>
-    </van-col>
-    <van-col span="9">
-      <view class="footerR" bindtap='buyNow'>加入购物车</view>
+      <view class="footerR" bindtap='addcart' wx:if="{{!paytype}}">加入购物车</view>
+      <view class="footerR" bindtap='buyNow' wx:if="{{paytype}}">立即购买</view>
     </van-col>
   </van-row>
 </view>
 
+
+<!-- 弹出层 -->
+<van-popup show="{{ popupshow }}" position="bottom" overlay="{{ true }}" bind:close="onClose">
+  <view class="popBox">
+    <view class='close' bindtap="onClose">
+      <van-icon name="close" />
+    </view>
+    <mealsku wx:if="{{productId}}" productId="{{productId}}" isShow="{{popupshow}}"></mealsku>
+  </view>
+</van-popup>
 </view>
 
 
