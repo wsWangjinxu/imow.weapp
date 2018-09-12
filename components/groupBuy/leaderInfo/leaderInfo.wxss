@@ -27,19 +27,19 @@
   font-size: 30rpx;
   height: 40rpx;
   line-height: 45rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  text-align: right;
 }
 
-.share > view:first-child > view {
+.share > view:first-child > button {
   background-color: #ffffff; 
-  border-top-left-radius: 25rpx;
-  border-bottom-left-radius: 25rpx;
-  padding-left: 20rpx;
+  border-top-left-radius: 28rpx;
+  border-bottom-left-radius: 28rpx;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
   margin-left: 20rpx;
-  padding-top: 5rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  margin-right: -5px;
 } 
 
 .share > view:last-child {

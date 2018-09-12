@@ -1,6 +1,13 @@
 <view class="join">
-    <leaderInfo></leaderInfo>
-    <product></product>
+    <leaderInfo 
+        profile="{{profile}}" 
+        bgUrl="{{bgUrl}}"  
+        isOpen="{{true}}"
+        hasShare="{{true}}"
+        bind:explain="handleExplain"
+        bind:ringUp="handleRingUp" 
+        ></leaderInfo>
+    <product ctn="{{product}}"></product>
     <standard></standard>
     <view class="join-ctn">
         <view class="join-ctn-title">参团流程</view>
@@ -8,9 +15,15 @@
     </view>
     <view class="join-action">
         <view class="join-ctn-title" style="border-bottom: 4rpx solid #343434; padding-bottom: 20rpx;margin-bottom: 0rpx;">参与拼团</view>
-        <block wx:for="{{5}}" wx:key="index">
-            <listItem></listItem>
+        <block wx:for="{{DetailList}}" wx:key="index">
+            <listItem isLeader="{{isLeader}}" ctn="{{item}}"></listItem>
         </block>
     </view>
     <image style="width: 100%;" src="http://dummyimage.com/200x100/666666" />
+    <van-popup show="{{ show }}" bind:close="onClose">
+        <view style="padding: 20rpx;">
+            <view style="text-align: center;font-weight: bold;">活动说明</view>
+            <view style="font-size: 30rpx;">{{explain}}</view>
+        </view>
+    </van-popup>
 </view>

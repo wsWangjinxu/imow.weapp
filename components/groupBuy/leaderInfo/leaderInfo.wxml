@@ -1,14 +1,16 @@
 <view class="userInfo">
-    <image class="bg" mode="widthFix" src="http://dummyimage.com/200x100/666666"/>
+    <image class="bg" mode="widthFix" src="{{bgUrl}}"/>
     <view class="share">
         <view>
-            <van-icon style="vertical-align: -4rpx; font-size: 55rpx; color: #ffffff;" name="warn"></van-icon>
-            <view><van-icon style="margin-left: 10rpx;margin-right: 10rpx;vertical-align: -4rpx;" name="share"></van-icon> <text>分享</text></view>    
+            <van-icon bindtap="explain" style="vertical-align: 1rpx; font-size: 55rpx; color: #ffffff;margin-right: 10rpx;" name="warn"></van-icon>
+            <button wx:if="{{hasShare}}" size="mini" open-type="share"><van-icon  style="margin-right: 10rpx;vertical-align: -2rpx;" name="share"></van-icon> <text>分享</text></button>    
         </view> 
         <view>
-            <image class="head" src="http://dummyimage.com/200x100/ffffff"></image>
-            <image class="hand" src="/static/icon/hand.png"></image>
-            <text>点击团长头像询价参团</text>
+            <image bindtap="ringUp" class="head" src="{{profile}}"></image>
+            <block wx:if="{{isOpen}}">
+                <image class="hand" src="/static/icon/hand.png"></image>
+                <text>点击团长头像询价参团</text>
+            </block>
         </view>   
     </view>
 </view>

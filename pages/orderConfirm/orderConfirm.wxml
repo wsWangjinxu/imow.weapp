@@ -8,27 +8,21 @@
           <addr ctn="{{invoiceInfo}}" status="{{'false'}}"></addr>
         </view>
     </view>
+    <radio-group bindchange="handleRadioChange">
     <view wx:if="{{pick}}" class="pick">
       <view>选择自提点</view>
-      <view class="pick-item">
-        <checkbox></checkbox>
-        <view>
-          <text>浙江杭州工厂（浙江省杭州市下城区永华街121号浙江中力机械）</text>
+        <view class="pick-item" wx:for="{{selfAddress}}" wx:key="index">
+          <radio class="radio" value="{{item.id}}"></radio>
           <view>
-            <text class="omit">以下车型可供自提：EPT20-15ET EPEPT20-15ETEPT20-15ET EPEPT20-15ETEPT20-15ET EPEPT20-15ET EPEPT20-15ET EP</text><text class="addrBtn">查看详细车辆</text>
+            <text>{{item.name}}（{{item.address}}）</text>
+            <view>
+              <text class="omit">订单中的所有车型均可在该自提点自提</text>
+            <!--  <text class="addrBtn">查看详细车辆</text> -->
+            </view>
           </view>
         </view>
-      </view>
-      <view class="pick-item">
-        <checkbox></checkbox>
-        <view>
-          <text>浙江杭州工厂（浙江省杭州市下城区永华街121号浙江中力机械）</text>
-          <view>
-            <text class="omit">以下车型可供自提：EPT20-15ET EPEPT20-15ETEPT20-15ET EPEPT20-15ETEPT20-15ET EPEPT20-15ET EPEPT20-15ET EP</text><text class="addrBtn">查看详细车辆</text>
-          </view>
-        </view>
-      </view>
     </view>
+    </radio-group>
     <view class="productList">
       <shopTitle shopName="{{cartData.shopName}}"></shopTitle>
       <block wx:for="{{cartData.orderCartProductSkus}}" wx:key="index">
@@ -83,7 +77,7 @@
         <view class="submitBtn" bindtap="addOrder" style="background-color:{{showBtn? 'fb0200':'#333'}};">{{btnText}}</view>   
       </view>
     </view>
-    <van-popup position="bottom" show="{{show}}">
+  <!--  <van-popup position="bottom" show="{{show}}">
       <view class="popCtn">
         <view class="title">
           <view>自提地点</view>
@@ -94,5 +88,5 @@
           <view>这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型</view>
         </view>
       </view>
-    </van-popup>
+    </van-popup> -->
 </view>

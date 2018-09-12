@@ -3,32 +3,23 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
-    CA: "falseClass",
-    CB: "falseClass"
+    scrollHeight: 0
   },
-  handleTap() {
-    let CA = this.data.CA;
-    let CB = this.data.CB;
-    if(CA === "trueClass") {
-      CA = "falseClass"
-    } else {
-      CA = "trueClass"
-      CB = "falseClass"
-    }
-    this.setData( {
-      CA: CA,
-      CB: CB
-    })
-  },
-
-  handleTapB() {
-    let CA = this.data.CA;
-    let CB = this.data.CB;
-    if(CB === "trueClass") {
-      CB = "falseClass"
-    } else {
-      CB = "trueClass",
-      CA = "falseClass"
-    }
+  onLoad() {
+    let _this = this;
+    //获取手机屏幕的高度
+    wx.getSystemInfo({
+      success(res) {
+        console.log(res);
+        //获取窗口高度
+        let windowHeight = res.windowHeight;
+        let pixelRatio = res.pixelRatio;
+        let scrollHeight = windowHeight - 100;
+        _this.setData({
+          scrollHeight
+        });
+        console.log(scrollHeight);
+      }
+    });
   }
 }) 

@@ -1,11 +1,26 @@
 <view class="product">
     <view class="top">
-        <image src="http://dummyimage.com/200x100/666666"></image>
+        <image src="{{ctn.img}}"></image>
         <view class="text">
-            <text>EPT20-15ET2 中力小金刚二代1.5吨经济型电动搬运车</text>
+            <text>{{ctn.title}}</text>
             <view>
-                <text>活动倒计时</text>
-                <view class="time"><view>10</view>天<view>23</view>时<view>58</view>分<view>10</view>秒</view>    
+                <text wx:if="{{isOver}}">活动已经结束!</text>
+                <text wx:if="{{!isOver && isIng}}">距离活动结束还有：</text>
+                <text wx:if="{{!isOver && !isIng}}">距离活动开始还有：</text>
+                <view wx:if="{{!isOver}}" class="time">
+                    <block>
+                        <view>{{day}}</view>天
+                    </block>
+                    <block>
+                        <view>{{hour}}</view>时
+                    </block> 
+                    <block>
+                        <view>{{min}}</view>分
+                    </block> 
+                    <block>
+                        <view>{{sec}}</view>秒
+                    </block>     
+                </view>   
             </view>
         </view>
     </view>
@@ -13,7 +28,7 @@
         <view class="barBg">
             <view class="bar"></view>
             <image src="/static/icon/triangle-down.png"></image>
-            <view> <view>达到100台，再减300台</view></view>
+            <view><view>达到100台，再减300台</view></view>
         </view>
     </view>
 </view>

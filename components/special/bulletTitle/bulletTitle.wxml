@@ -4,7 +4,7 @@
     <text class="bullet-main-title"> {{title}}</text>
     <text class="bullet-sub-title"> {{subTitle}}</text>
   </view> 
-  <view bindtap="handleChange" class="bullet-btn">更多
+  <view wx:if="{{hasBtn}}" bindtap="handleChange" class="bullet-btn">更多
     <image wx:if="{{icon}}" class="bullet-icon" src="/static/icon/down-circle.png"></image>
     <image wx:if="{{!icon}}" class="bullet-icon" src="/static/icon/up-circle.png"></image>
   </view>

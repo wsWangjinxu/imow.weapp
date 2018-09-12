@@ -1,21 +1,22 @@
 {
   "pages":[ 
-    
     "pages/setMeal/setMeal",
     "pages/my/my",
     "pages/productDetail/productDetail",
     "pages/checkPay/checkPay",
-    "pages/buy/buy",
+    "pages/groupBuy/joinGroupBuy/joinGroupBuy",
+    "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/special/special",
     "pages/addressList/addressList",
     "pages/addressForm/addressForm",
-    "pages/index/index",
     "pages/coupon/coupon",
     "pages/order/order",  
     "pages/orderDetail/orderDetail",
     "pages/cart/cart",
     "pages/search/search",
     "pages/shopDetail/shopDetail",      
+    "pages/index/index",
+    "pages/buy/buy",
     "pages/finishPay/finishPay",
     "pages/orderConfirm/orderConfirm",
     "pages/list/list",
@@ -35,9 +36,7 @@
     "pages/repayment/repayment",
     "pages/logs/logs",
     "pages/groupBuy/groupBuyList/groupBuyList",
-    "pages/groupBuy/operation/operation",
-    "pages/groupBuy/joinGroupBuy/joinGroupBuy",
-    "pages/groupBuy/startGroupBuy/startGroupBuy"
+    "pages/groupBuy/operation/operation"
   ],
   "window":{
     "backgroundTextStyle":"light",

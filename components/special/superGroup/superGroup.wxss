@@ -1,0 +1,60 @@
+.super-group {
+  font-size:28rpx;
+}
+
+.super-ctn {
+  position: relative;
+}
+
+.super-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #fe0000;
+}
+
+.super-price text:last-child {
+  font-size: 24rpx;
+  color: #939393;
+  text-decoration: line-through;
+}
+
+.super-num {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  font-size: 26rpx;
+  border: 1px solid #fe0000;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  position: absolute;
+  top: -56rpx;
+
+}
+
+.super-title {
+  font-size: 30rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
+}
+
+.super-num view {
+  flex: 1;
+}
+
+.super-num view:last-child {
+  background-color: #fe0000;
+  color: #fff;
+}

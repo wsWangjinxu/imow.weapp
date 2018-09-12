@@ -1,0 +1,31 @@
+.product {
+  height: 200rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-top: 1px solid #e4e4e4; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.product-ctn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 28rpx;
+  height: 100%;
+}
+
+.product-ctn > view {
+  flex: 1;
+}
+
+.product-ctn > view:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}

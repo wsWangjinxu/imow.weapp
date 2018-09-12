@@ -1,0 +1,11 @@
+<view class="super-group">
+    <image mode="widthFix" style="width: 100%;" src="http://dummyimage.com/300x300" />
+    <view class="super-ctn">
+      <view class="super-num">
+        <view>已团</view>
+        <view>199件</view>
+      </view>
+      <view class="super-title">EPT20-15ET2 1.5吨</view>
+      <view class="super-price"><text>￥8900起</text><text>￥9900起</text></view>
+    </view>
+</view>
