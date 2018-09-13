@@ -1,11 +1,13 @@
 {
   "pages":[ 
-    "pages/setMeal/setMeal",
     "pages/my/my",
+    "pages/groupBuy/startGroupBuy/startGroupBuy",
+    "pages/groupBuy/joinGroupBuy/joinGroupBuy",
+    "pages/groupBuy/groupBuyList/groupBuyList",
+    "pages/groupBuy/operation/operation",
+    "pages/setMeal/setMeal",
     "pages/productDetail/productDetail",
     "pages/checkPay/checkPay",
-    "pages/groupBuy/joinGroupBuy/joinGroupBuy",
-    "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/special/special",
     "pages/addressList/addressList",
     "pages/addressForm/addressForm",
@@ -34,9 +36,7 @@
     "pages/invoice/invoice",
     "pages/userLevel/userLevel",
     "pages/repayment/repayment",
-    "pages/logs/logs",
-    "pages/groupBuy/groupBuyList/groupBuyList",
-    "pages/groupBuy/operation/operation"
+    "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",

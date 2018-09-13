@@ -48,7 +48,61 @@ function getGroupBuySku(type, data) {
   });
 }
 
+//确认收到定金
+function confirmGroupBuyRecord(type, data) {
+  return wxRequest({
+    url: baseUrl + "confirmGroupBuyRecord",
+      data: data,
+      type: type
+  });
+}
+
+//删除一条团购记录
+function deleteGroupBuyRecord(type, data) {
+  return wxRequest({
+    url: baseUrl + "deleteGroupBuyRecord",
+      data: data,
+      type: type
+  });
+}
+
+//保存一条团长的备注
+function saveLeaderRemark(type, data) {
+  return wxRequest({
+    url: baseUrl + "saveLeaderRemark",
+      data: data,
+      type: type
+  });
+}
+
+//获取拼团列表，包括我参与的，我发起的，以及拼团的状态
+function getGroupBuyList(type, data) {
+  return wxRequest({
+    url: baseUrl + "getGroupBuyList",
+      data: data,
+      type: type
+  });
+}
+
+//获取拼团的阶段信息
+function getGroupBuyStage(type, data) {
+  return wxRequest({
+    url: baseUrl + "getGroupBuyStage",
+      data: data,
+      type: type
+  });
+}
 
 
 
-export { getGroupBuyInfo, groupBuyApply, joinGroupBuy, getGroupBuySku, getJoinedDetailList }
+
+export { getGroupBuyInfo, 
+  groupBuyApply, 
+  joinGroupBuy, 
+  getGroupBuySku, 
+  getJoinedDetailList, 
+  confirmGroupBuyRecord,
+  deleteGroupBuyRecord,
+  saveLeaderRemark,
+  getGroupBuyList,
+  getGroupBuyStage }

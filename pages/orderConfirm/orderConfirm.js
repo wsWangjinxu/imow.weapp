@@ -47,52 +47,50 @@ Page({
     if (option.cartId) {
       //说明是从购物车过来的
       this.setData({
-        btnText: "提交订单"
-      });
-
-      getOrderConfirmCart("GET", {
+        btnText: "提交订单",
         cartId: option.cartId
-      }).then(res => {
-        //拼接产品id
-        let product = res.data.data.orderCartProductSkus;
-        product.forEach(ele => {
-          selfAddressData = selfAddressData + ele.id + ',';
-        });
-        //去掉结尾的逗号
-        selfAddressData = selfAddressData.slice(0, selfAddressData.length-1);
-        //获取自提点
-        this.getSelfPick(selfAddressData);
-        //设置数据
-        this.setData({
-          cartData: res.data.data
-        });
+      });
+    } else if (option.groupBuyId) {
+      //说明是从拼团页面过来的
+      this.setData({
+        btnText: "提交订单",
+        groupBuyId: option.groupBuyId
       });
     } else {
       //说明是从定金产品过来的
       this.setData({
-        btnText: "支付定金"
-      });
-
-      getOrderConfirmCart("GET", {
+        btnText: "支付定金",
         skuId: option.skuId,
         num: option.num
-      }).then(res => {
-        //拼接产品id
-        let product = res.data.data.orderCartProductSkus;
-        product.forEach(ele => {
-          selfAddressData = selfAddressData + ele.id + ',';
-        });
-
-        //去掉结尾的逗号
-        selfAddressData = selfAddressData.slice(0, selfAddressData.length-1);
-        //获取自提点
-        this.getSelfPick(selfAddressData);
-        //设置数据
-        this.setData({
-          cartData: res.data.data
-        });
       });
+
     }
+
+    //收集数据
+    let data = {
+      skuId: this.data.skuId,
+      num: this.data.num,
+      groupBuyId: this.data.groupBuyId,
+      cartId: this.data.cartId
+    }
+
+    //请求内容
+    getOrderConfirmCart("GET", data).then(res => {
+      //拼接产品id
+      let product = res.data.data.orderCartProductSkus;
+      product.forEach(ele => {
+        selfAddressData = selfAddressData + ele.id + ',';
+      });
+
+      //去掉结尾的逗号
+      selfAddressData = selfAddressData.slice(0, selfAddressData.length - 1);
+      //获取自提点
+      this.getSelfPick(selfAddressData);
+      //设置数据
+      this.setData({
+        cartData: res.data.data
+      });
+    });
 
     //第一次进入确认订单页面设置默认的地址
     getAddressList("POST").then(res => {
@@ -191,8 +189,7 @@ Page({
   },
 
   getSelfPick(data) {
-    console.log(data);
-    getSelfPickAddress("GET", { productIds:data }).then(res => {
+    getSelfPickAddress("GET", { productIds: data }).then(res => {
       let selfAddress = res.data.selfPickAddresses;
       if (selfAddress.length > 0) {
         this.setData({

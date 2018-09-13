@@ -1,5 +1,7 @@
-<view class="listItem">
-    <view><van-icon style="font-size: 35rpx; color: #f80501;margin-right: 10rpx;" name="warn"></van-icon><text style="font-weight: bold;">{{ctn.status}}</text></view>
+<view wx:if="{{ctn}}" class="listItem">
+    <view wx:if="{{ctn.status == 'cancel'}}">
+    <van-icon style="font-size: 35rpx; color: #f80501;margin-right: 10rpx;" name="warn"></van-icon>
+    <text  style="font-weight: bold;">已取消</text></view>
     <view style="border-bottom: 1px dashed #cccccc;">
         <text style="width: 70rpx;">{{ctn.index}}</text>
         <image style="flex: none;margin-left: 10rpx;margin-right: 10rpx;" class="head" src="{{ctn.profile}}"></image>
@@ -13,19 +15,23 @@
     </view>
     <view style="display: flex;flex-direction:row;justify-content: space-between;margin-left: 150rpx;">
         <view style="margin-right: 20rpx;">
-            <view wx:for="{{ctn.skuList}}">{{item.index}}*{{item.num}}</view>
+            <view wx:for="{{ctn.skuList}}" wx:key="index">{{item.index}}*{{item.num}}</view>
         </view>
         <view style="align-self: flex-end;margin-bottom: 20rpx;">
-            <block wx:if="{{true}}"> 
-                <van-button wx:if="{{isLeader}}" style="margin-right: 20rpx;" size="small">删除</van-button>
-                <van-button wx:if="{{isLeader}}" size="small">确认收到订金</van-button>
+            <block wx:if="{{isLeader &&  ctn.status != 'cancel'}}"> 
+                <van-button bindtap="delete" style="margin-right: 20rpx;" data-id="{{ctn.id}}" size="small">删除</van-button>
+                <van-button bindtap="confirm" wx:if="{{ctn.status != 'confirmed'}}" data-id="{{ctn.id}}" size="small">确认收到订金</van-button><van-button wx:if="{{ctn.status == 'confirmed'}}" disabled="true" size="small">已确认收到订金</van-button>
             </block>
-            <block wx:if="{{false}}">
+            <block wx:if="{{!isLeader && status == 'confirmed'}}">
                 <van-icon style="color: #fe0000;vertical-align: -5rpx; margin-right: 10rpx;" name="warn"></van-icon><text style="color: #fe0000;">团长已收定金</text>
             </block>
         </view>
     </view>
-    <view wx:if="{{isLeader}}" class="remark">
-        <van-icon style="margin-left: 100rpx;margin-right: 20rpx;margin-top: 5rpx;" name="edit"></van-icon>可填写此订单的备注信息
+    <view wx:if="{{isLeader}}" class="remark" bindtap="edit">
+    <block wx:if="{{canEdit}}">
+        <van-icon style="margin-left: 100rpx;margin-right: 20rpx;margin-top: 5rpx;" name="edit"></van-icon><block wx:if="{{!ctn.leaderRemark}}">可填写此订单的备注信息</block>
+        <block wx:if="{{ctn.leaderRemark}}">{{ctn.leaderRemark}}</block> 
+    </block>
+    <input data-id="{{ctn.id}}" wx:if="{{!canEdit}}" style="margin-left: 10%" value="{{ctn.leaderRemark}}" type="text" bindchange="handleChange"  bindblur="cancelEdit" auto-focus/>
     </view>
 </view>

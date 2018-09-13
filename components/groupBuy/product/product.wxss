@@ -67,13 +67,22 @@
   height: 30rpx;
   position: absolute;
   bottom: -20rpx;
-  left: 80%;
+}
+
+.progress .barBg .image1 {
+  left: 7%;
+}
+
+.progress .barBg .image2 {
+  left: 50%;
+}
+.progress .barBg .image3 {
+  left: 88%;
 }
 
 .progress .barBg .bar  {
   background-color: #fe0000;
   height: 40rpx;
-  width: 90%;
   border-radius: 20rpx;
 }
 
@@ -81,7 +90,22 @@
   margin-top: 20rpx;
 }
 
-.progress .barBg> view:last-child view {
-  width: 200rpx;
+.stageCtn {
+  position: relative;
+}
+
+.stageCtn view {
+  position: absolute;
+  font-size: 26rpx;
+  width: 130rpx;
+}
+
+.stage2 {
+  left: 50%;
+  margin-left: -50rpx;
+}
+
+.stage3 {
+  left: 82%;
 }
 

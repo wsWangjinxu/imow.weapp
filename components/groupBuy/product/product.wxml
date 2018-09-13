@@ -26,9 +26,15 @@
     </view>
     <view class="progress">
         <view class="barBg">
-            <view class="bar"></view>
-            <image src="/static/icon/triangle-down.png"></image>
-            <view><view>达到100台，再减300台</view></view>
+            <view class="bar" style="width: {{precent}}%;"></view>
+            <image class="image1" wx:if="{{stage.prev}}" src="/static/icon/red-down.png"></image>
+            <image class="image2" wx:if="{{stage.next}}" src="/static/icon/grey-down.png"></image>
+            <image class="image3" wx:if="{{stage.final}}" src="/static/icon/grey-down.png"></image>
+            <view class="stageCtn">
+                <view class="stage1" wx:if="{{stage.prev}}"><view>达到{{stage.prev.limit}}台再减{{stage.prev.discount}}台</view></view>
+                <view class="stage2" wx:if="{{stage.next}}"><view>达到{{stage.next.limit}}台再减{{stage.next.discount}}台</view></view>
+                <view class="stage3" wx:if="{{stage.final}}"><view>达到{{stage.final.limit}}台再减{{stage.final.discount}}台</view></view>
+            </view>
         </view>
     </view>
 </view>

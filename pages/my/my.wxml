@@ -28,7 +28,7 @@
     <navigator url="/pages/addressList/addressList"><van-cell title="收货地址" border="{{ false }}" is-link></van-cell></navigator> 
   </view>
   <view class="cell">
-    <van-cell title="我的拼团" border="{{ false }}" is-link></van-cell>
+    <navigator url="/pages/groupBuy/groupBuyList/groupBuyList"><van-cell title="我的拼团" border="{{ false }}" is-link></van-cell></navigator> 
   </view> 
   <view class="cell">
     <navigator url="/pages/coupon/coupon"><van-cell title="优惠券" border="{{ false }}" is-link></van-cell></navigator> 

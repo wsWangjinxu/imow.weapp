@@ -7,9 +7,14 @@ Page({
     show: false
   },
 
-  onLoad(){
+  onLoad(option){
+    //保存id
+    this.setData({
+      id: option.id
+    });
+
     //获取团购的信息
-    getGroupBuyInfo("POST").then(res => {
+    getGroupBuyInfo("POST", {id: option.id}).then(res => {
       console.log(res); //eslint-disable-line
       let data = res.data;
       this.setData({
@@ -68,6 +73,12 @@ Page({
             name: "",
             phone: ""
           });
+          setTimeout(function(){
+            wx.switchTab({
+              url: "/pages/index/index"
+            });
+          }, 1500);
+          
         }
       })
     }
