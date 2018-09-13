@@ -323,13 +323,10 @@ Page({
           this.setData({ skuId: item.id }); 
           this.setData({ isOnePrece: true });
           this.setData({ skuName: item.skuName });
-          // this.setData({ model: item.model }); 
-          // this.setData({ weight: item.weight });  //载重
-          // this.setData({ height: item.height }); //起升高度
-          // this.setData({ menjia: item.menjia }); //门架类型
-          // this.setData({ transmission: item.transmission }); //传动类型
           if (item.isDeposit) {
             this.setData({ depositShow: true });
+          }else{
+            this.setData({ depositShow: false });
           };
         }
       }
