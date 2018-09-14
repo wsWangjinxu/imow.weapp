@@ -1,5 +1,6 @@
 {
   "pages":[ 
+    "pages/special/special",
     "pages/my/my",
     "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/groupBuy/joinGroupBuy/joinGroupBuy",
@@ -8,7 +9,6 @@
     "pages/setMeal/setMeal",
     "pages/productDetail/productDetail",
     "pages/checkPay/checkPay",
-    "pages/special/special",
     "pages/addressList/addressList",
     "pages/addressForm/addressForm",
     "pages/coupon/coupon",

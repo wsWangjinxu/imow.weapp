@@ -129,7 +129,6 @@ Component({
           precent
         });
       });
-
     }
   }
 });

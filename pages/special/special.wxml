@@ -1,36 +1,38 @@
 <view class="special">
-  <swiper class="swiper">
-    <swiper-item><navigator url=""  hover-class="className"><image mode="scaleToFill" src="http://dummyimage.com/375x300" /></navigator></swiper-item>
+  <swiper class="swiper" indicator-dots="true">
+    <block wx:for="{{swipers}}" wx:key="{{index}}">
+      <swiper-item><navigator url="{{ item.url }}"  hover-class="className"><image mode="scaleToFill" src="{{item.image}}" /></navigator></swiper-item>
+    </block>
   </swiper>
   <lineTitle title="{{'双11专享优惠券'}}"></lineTitle>
   <view class="coupon-ctn">
-    <coupon class="coupon-item"></coupon>
-    <coupon class="coupon-item"></coupon>
-    <coupon class="coupon-item"></coupon>
-  </view>
-  <bulletTitle title="{{'超级拼团'}}" subTitle="{{'拼团一天，划算半年'}}"></bulletTitle>
-  <view class="super-group-ctn">
-    <block wx:for="{{3}}" wx:key="index">
-      <superGroup></superGroup>
+    <block wx:for="{{coupons}}" wx:key="index">
+      <coupon ctn="{{item}}" class="coupon-item"></coupon>
     </block>
   </view>
-  <bulletTitle title="{{'热销榜'}}" subTitle="{{'热销商品，一网打尽'}}"></bulletTitle>
-  <view class="hot-ctn">
-    <block wx:for="{{3}}" wx:key="index">
-      <hot></hot>
+  <bulletTitle title="{{'超级拼团'}}" bind:more="handleSuper" subTitle="{{'拼团一天，划算半年'}}" ></bulletTitle>
+  <view class="super-group-ctn" style="height: {{groupHeight}};">
+    <block wx:for="{{superGroupBuy}}" wx:key="index">
+      <superGroup ctn="{{item}}"></superGroup>
+    </block>
+  </view>
+  <bulletTitle title="{{'热销榜'}}"  bind:more="handleHot" subTitle="{{'热销商品，一网打尽'}}"></bulletTitle>
+  <view class="hot-ctn" style="height: {{hotHeight}};">
+    <block wx:for="{{hotProduct}}" wx:key="index">
+      <hot ctn="{{item}}"></hot>
     </block>
   </view>
   <view class="shop-list">
-    <view class="list-title"><view>杭州阿母工业</view><view>进入店铺，了解更多产品信息</view></view>
+    <view class="list-title"><view>{{selectedShop.shopName}}</view><view bindtap="gotoShop">进入店铺，了解更多产品信息</view></view>
     <view class="shop-ctn">
       <scroll-view class="left" scroll-y="true" style="height: {{scrollHeight}}px;">
-        <block wx:for="{{10}}" wx:key="index">
-          <view class="shopname">浙江中力机械</view>
+        <block wx:for="{{shopList}}" wx:key="index">
+          <view class="shopname" bindtap="handleListChange" data-id="{{item.shopId}}" data-shopName="{{item.shopName}}">{{item.shopName}}</view>
         </block>
       </scroll-view>
       <scroll-view class="right" scroll-y="true" style="height: {{scrollHeight}}px;">
-        <block wx:for="{{20}}" wx:key="index"> 
-          <product></product>
+        <block wx:for="{{productList}}" wx:key="index"> 
+          <product ctn="{{item}}"></product>
         </block>
       </scroll-view>
     </view>
