@@ -1,5 +1,5 @@
 <view class="hot">
-  <image mode="widthFix" style="width: 100%;" src="http://dummyimage.com/300x300" />
-  <view class="hot-title">EPT20-15ET2 1.5吨</view>
-  <view class="hot-num">已售<text>2315</text>件</view>
+  <image mode="widthFix" style="width: 100%;" src="{{ctn.image}}" />
+  <view class="hot-title">{{ctn.title}}</view>
+  <view class="hot-num">已售<text>{{num}}</text>件</view>
 </view>
