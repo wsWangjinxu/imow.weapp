@@ -6,7 +6,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    productId: String //传入的产品id
+    productId: String, //传入的产品id
+    skuCode: String,
+    deliveryTime: String
   },
 
   /**
@@ -14,46 +16,37 @@ Component({
    */
   data: {
     productSkus: [
-      // {
-      //   "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
-      //   "isDeposit": true,
-      //   "agentPrice": 122,
-      //   "skuCode": "01F02E072",
-      //   "deliveryTime": "14天",
-      //   "skuName":[{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      // },
-      // {
-      //   "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
-      //   "isDeposit": true,
-      //   "agentPrice": 1500,
-      //   "skuCode": "01F02E072",
-      //   "deliveryTime": "15天",
-      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      // },
-      // {
-      //   "id": "5D1E1d7D-383d-A8C6-9CEd-B5c4FD4Dc9Eb",
-      //   "isDeposit": true,
-      //   "agentPrice": 1200,
-      //   "skuCode": "01F02E072",
-      //   "deliveryTime": "20天",
-      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      // },
-      // {
-      //   "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
-      //   "isDeposit": true,
-      //   "agentPrice": 122,
-      //   "skuCode": "01F02E075",
-      //   "deliveryTime": "13天",
-      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      // },
-      // {
-      //   "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
-      //   "isDeposit": true,
-      //   "agentPrice": 122,
-      //   "skuCode": "01F02E076",
-      //   "deliveryTime": "13天",
-      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      // }
+      {
+        "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
+        "isDeposit": true,
+        "agentPrice": 122,
+        "skuCode": "01F02E072",
+        "deliveryTime": "14天",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      },
+      {
+        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
+        "isDeposit": true,
+        "agentPrice": 1500,
+        "skuCode": "01F02E072",
+        "deliveryTime": "15天",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      },
+      {
+        "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
+        "isDeposit": true,
+        "agentPrice": 122,
+        "skuCode": "01F02E075",
+        "deliveryTime": "13天",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      },
+      {
+        "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
+        "isDeposit": false,
+        "agentPrice": 122,
+        "skuCode": "01F02E076",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      }
     ],
     filedProductSkus: {
       sku: {
@@ -103,24 +96,58 @@ Component({
   methods: {
     init() {
       console.log(this.data.productId);
-      getProductSkus("GET", {
-        id: this.data.productId,
-      }).then(res => {
-        console.log(res.data.productSkus);
-        this.setData({
-          productSkus: res.data.productSkus
-        });
-        this.filted();
-        let productSkus = this.data.productSkus;
-        for (let index = 0; index < productSkus.length; index++) {
-          const item = productSkus[index];
-          if (item.deliveryTime) {
-            this.setData({ hasDeliveryTime: true });
-          } else {
-            this.setData({ depositShow: false });
-          };
-        }
-      })
+      console.log(this.data.skuCode);
+      console.log(this.data.deliveryTime);
+      this.filted();
+      let productSkus = this.data.productSkus;
+      for (let index = 0; index < productSkus.length; index++) {
+        const item = productSkus[index];
+        if (item.deliveryTime) {
+          this.setData({ hasDeliveryTime: true });
+        } else {
+          this.setData({ depositShow: false });
+        };
+      }
+
+      if (this.data.skuCode){               
+        let a = { currentTarget: { dataset: { content: "", state: 2, type: "skuCode" } } };
+        a.currentTarget.dataset.content = this.data.skuCode;
+        this.click(a);
+      }
+      if (this.data.deliveryTime){
+        let b = { currentTarget: { dataset: { content: "", state: 2, type: "deliveryTime" } } };
+        b.currentTarget.dataset.content = this.data.deliveryTime;
+        this.click(b);
+      }
+      // if (this.data.skuCode) {
+      //   let a = { currentTarget: { dataset: { content: "", state: 2, type: "skuCode" } } };
+      //   a.currentTarget.dataset.content = this.data.skuCode;
+      //   this.click(a);
+      // }
+      // if (this.data.deliveryTime) {
+      //   let b = { currentTarget: { dataset: { content: "", state: 2, type: "deliveryTime" } } };
+      //   b.currentTarget.dataset.content = this.data.deliveryTime;
+      //   this.click(b);
+      // }
+
+      // getProductSkus("GET", {
+      //   id: this.data.productId,
+      // }).then(res => {
+      //   console.log(res.data.productSkus);
+      //   this.setData({
+      //     productSkus: res.data.productSkus
+      //   });
+      //   this.filted();
+      //   let productSkus = this.data.productSkus;
+      //   for (let index = 0; index < productSkus.length; index++) {
+      //     const item = productSkus[index];
+      //     if (item.deliveryTime) {
+      //       this.setData({ hasDeliveryTime: true });
+      //     } else {
+      //       this.setData({ depositShow: false });
+      //     };
+      //   }
+      // })
     },
     filted: function (key, val) {
       const flag = {
@@ -223,14 +250,14 @@ Component({
       this.setData({ filedProductSkus: origenData });
     },
     click(e) {
-      console.log(e);
-      let key = e.currentTarget.dataset.type;
-      let val = e.currentTarget.dataset.content;
-      let state = e.currentTarget.dataset.state;
+      //console.log(e);
+      let key = e.currentTarget.dataset.type;     //判断skuCode还是deliveryTime
+      let val = e.currentTarget.dataset.content;  //当前skuCode或deliveryTime的值
+      let state = e.currentTarget.dataset.state;  //按钮状态(1选中、2普通、3禁用)
       if (state != 3) {
         this.filted(key, state === 1 ? undefined : val);        //调用过滤事件
-        console.log(this.data.filedProductSkus.sku.current);
-        console.log(this.data.filedProductSkus.deliveryTime.current);
+        // console.log(this.data.filedProductSkus.sku.current);
+        // console.log(this.data.filedProductSkus.deliveryTime.current);
         let skunow = this.data.filedProductSkus.sku.current;
         let timenow = this.data.filedProductSkus.deliveryTime.current;
         this.selectNow(skunow, timenow)
@@ -243,11 +270,9 @@ Component({
         for (let index = 0; index < productSkus.length; index++) {
           const item = productSkus[index];
           if (item.skuCode == sku && item.deliveryTime == time) {
-            console.log("当前代理价：" + item.agentPrice);
-            console.log("是否有定金：" + item.isDeposit);
-            this.setData({ price: item.agentPrice });           //根据sku号与交期确认顶部价格等数据
-            this.setData({ skuId: item.id });
+            this.setData({ price: item.agentPrice });           //确认一个价格
             this.setData({ isOnePrece: true });
+            this.setData({ skuId: item.id });
             this.setData({ skuName: item.skuName });
             if (item.isDeposit) {
               this.setData({ depositShow: true });
@@ -258,8 +283,8 @@ Component({
         }
       } else {
         if (sku) {
-          let skuArr = [];    //点击sku所有sku价格数组
-          let skuArr2 = [];  //去重排序后的
+          let skuArr = [];   //点击sku所有sku价格数组
+          let skuArr2 = [];  //去重排序后的sku价格数组
           let skuArr3 = [];  //点击sku所有对象数组
           for (let index = 0; index < productSkus.length; index++) {
             const item = productSkus[index];
@@ -271,49 +296,54 @@ Component({
           if (skuArr3.length == 1) {
             this.setData({ skuName: skuArr3[0].skuName });
             this.setData({ skuId: skuArr3[0].id });
+            this.setData({ price: skuArr3[0].agentPrice });          //确认一个价格
+            this.setData({ isOnePrece: true });
             if (skuArr3[0].isDeposit) {
               this.setData({ depositShow: true });
             } else {
               this.setData({ depositShow: false });
             };
+            if (skuArr3[0].deliveryTime) {
+              this.setData({ hasDeliveryTime: true });
+            }else{
+              this.setData({ hasDeliveryTime: false });
+            }
           } else {
+            this.setData({ hasDeliveryTime: true });
             this.setData({ skuName: "" });
-          }
-
-          let min;
-          let max;
-          for (var i = 0; i < skuArr.length; i++) {
-            if (skuArr2.indexOf(skuArr[i]) == -1) {
-              skuArr2.push(skuArr[i]);
-              skuArr2.sort(function (a, b) { return a - b; });
+            this.setData({ skuId: ""});
+            this.setData({ depositShow: false });
+            let min;
+            let max;
+            for (var i = 0; i < skuArr.length; i++) {
+              if (skuArr2.indexOf(skuArr[i]) == -1) {
+                skuArr2.push(skuArr[i]);
+                skuArr2.sort(function (a, b) { return a - b; });
+              }
+            }
+            if (skuArr2.length > 1) {                  //去重后多个价格
+              min = skuArr2[0];
+              max = skuArr2[skuArr2.length - 1];
+              this.setData({ minPrice: min });
+              this.setData({ maxPrice: max });
+              this.setData({ isOnePrece: false });
+            } else {                                  //去重后只有一个价格
+              this.setData({ price: skuArr2[0] });
+              this.setData({ isOnePrece: true });
             }
           }
 
-          if (skuArr2.length > 1) {
-            min = skuArr2[0];
-            max = skuArr2[skuArr2.length - 1];
-            this.setData({ minPrice: min });
-            this.setData({ maxPrice: max });
-            this.setData({ isOnePrece: false });
-            this.setData({ depositShow: false });
-          } else {
-            this.setData({ price: skuArr2[0] });
-            this.setData({ isOnePrece: true });
-            this.setData({ depositShow: false });
-          }
-
         } else if (time) {
-          let timeArr = [];
-          let timeArr2 = [];
-          let timeArr3 = [];
+          let timeArr = [];    //点击交期所有交期数组
+          let timeArr2 = [];   //去重排序后的交期数组
+          let timeArr3 = [];   //点击交期所有对象数组
           for (let index = 0; index < productSkus.length; index++) {
             const item = productSkus[index];
             if (item.deliveryTime == time) {
               timeArr.push(item.agentPrice);
               timeArr3.push(item)
             }
-          }
-          // console.log(timeArr);
+          } 
           if (timeArr3.length == 1) {
             this.setData({ skuName: timeArr3[0].skuName });
           } else {
@@ -326,8 +356,7 @@ Component({
               timeArr2.push(timeArr[i]);
               timeArr2.sort(function (a, b) { return a - b; });
             }
-          }
-          // console.log(timeArr2);  //排序去重后
+          } 
           if (timeArr2.length > 1) {
             min = timeArr2[0];
             max = timeArr2[timeArr2.length - 1];
@@ -364,25 +393,33 @@ Component({
             duration: 2000,
             image: "/static/imgs/warn.png"
           })
+        }else{  
+          this.triggerEvent('myevent', {       //sku和交期都存在
+            isShow: false,
+            price: this.data.price,
+            skuId: this.data.skuId,
+            productId: this.data.productId,
+            depositShow: this.data.depositShow,
+            skuCode: this.data.filedProductSkus.sku.current,
+            deliveryTime: this.data.filedProductSkus.deliveryTime.current
+          });
         }
       } else {
         // console.log(this.data.price);
         // console.log(this.data.skuId);
         // console.log(this.data.productId);
         // console.log(this.data.depositShow);
-        this.triggerEvent('myevent', {
+        this.triggerEvent('myevent', {          //只有sku
           isShow: false, 
           price: this.data.price, 
           skuId: this.data.skuId, 
           productId: this.data.productId,
-          depositShow: this.data.depositShow
+          depositShow: this.data.depositShow,
+          skuCode: this.data.filedProductSkus.sku.current,
+          deliveryTime: this.data.filedProductSkus.deliveryTime.current
         });
       }
     }
-
-
-
-
 
 
   }

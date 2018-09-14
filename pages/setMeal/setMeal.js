@@ -10,27 +10,38 @@ Page({
     num:1,
     popupshow: false,//弹出层是否显示
     productId:"",//当前选中产品id
+    skuCode: "",//当前选中产品id
+    deliveryTime: "",//当前选中产品id
     initArray:[
       { name: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代", price: 8900, oldprice: 9000, img: "https://dummyimage.com/135x135/fb0a2a", productId:11111111},
       { name: "EPT20 - 15ET2 2.5t全电动搬运车 中力小金刚2代", price: 8900, oldprice: 12000, img: "https://dummyimage.com/135x135/fb0a2a", productId:22222222},
       { name: "EPT20 - 15ET2 3.5t全电动搬运车 中力小金刚3代", price: 8900, oldprice: 15000, img: "https://dummyimage.com/135x135/fb0a2a", productId:33333333},
-    ]
+    ],
+    depositShow: false //定金是否存在
   },
   onLoad: function(e) { 
     console.log(e);
   },
-  //点击选择过个跳出弹出层
+  //点击选择规格跳出弹出层
   showpop(e){
-    // console.log(e.currentTarget.dataset.productid)
+    console.log(e)
     this.setData({ 
       popupshow: true, 
-      productId: e.currentTarget.dataset.productid
+      productId: e.currentTarget.dataset.productid     
     });
+    if (e.currentTarget.dataset.skuCode){
+      this.setData({
+        skuCode: e.currentTarget.dataset.skuCode ? e.currentTarget.dataset.skuCode : "",
+        deliveryTime: e.currentTarget.dataset.deliveryTime ? e.currentTarget.dataset.deliveryTime : ""
+      });
+    }
   },
   onClose() {
     this.setData({ 
       popupshow: false, 
-      productId: ""
+      productId: "",
+      skuCode: "",
+      deliveryTime: "",
     });
   },
   //套餐数量
@@ -104,19 +115,38 @@ Page({
     console.log(e.detail.isShow);
     console.log(e.detail.productId);
     console.log(e.detail.depositShow);
+    console.log(e.detail.skuCode);
+    console.log(e.detail.deliveryTime);
     let newArray = this.data.initArray;
     for (let index = 0; index < newArray.length; index++) {
       const item = newArray[index];
       if (item.productId == e.detail.productId) {        //判断选择产品id，再往数组匹配项添加skuId、price
         item.skuId = e.detail.skuId;
         item.nowPrice = e.detail.price;
+        item.depositShow = e.detail.depositShow;
+        item.skuCode = e.detail.skuCode;
+        item.deliveryTime = e.detail.deliveryTime;
       }
     }
-
     this.setData({
       popupshow: e.detail.isShow,//关闭弹出层
       initArray: newArray    //赋值新数组
     });
+
+    //判断是否每个产品都有定金
+    let count = 0;
+    let newArray2 = this.data.initArray;
+    for (let index = 0; index < newArray2.length; index++) {
+      const item = newArray2[index];
+      if (item.depositShow===true) {         
+        count++
+      }
+    }
+    if (count == newArray2.length){   
+      this.setData({ depositShow: true });    
+    }else{
+      this.setData({ depositShow: false });
+    }
 
 
   }

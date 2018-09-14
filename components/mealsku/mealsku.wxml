@@ -30,7 +30,7 @@
   <view class='hr' wx:if="{{hasDeliveryTime}}"></view>
   <view class='box' wx:if="{{hasDeliveryTime}}">
     <view class='titleName'>交期</view>
-    <view class="{{'status'+item.state}}" bindtap="click" wx:for="{{filedProductSkus.deliveryTime.data}}" wx:key="{{index}}" data-state='{{item.state}}' data-content='{{item.deliveryTime}}' data-type='deliveryTime'>
+    <view class="{{'status'+item.state}}" bindtap="click" wx:for="{{filedProductSkus.deliveryTime.data}}" wx:key="{{index}}" data-state='{{item.state}}' data-content='{{item.deliveryTime}}' data-type='deliveryTime' wx:if="{{item.deliveryTime}}">
       {{item.deliveryTime}}
     </view>
   </view>
