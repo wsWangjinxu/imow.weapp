@@ -12,9 +12,12 @@
         <view class='price' wx:else>￥{{minPrice}}~{{maxPrice}}</view>
       </van-col>
       <van-col span="10">
-        <block wx:for="{{skuName}}" wx:key="{{index}}">
+        <!-- <block wx:for="{{skuName}}" wx:key="{{index}}">
           <view class='textFont'>{{item.name}}： {{item.value}}</view>
-        </block>
+        </block> -->
+        <view class='textFont'>产品id： {{productId}}</view>
+        <view class='textFont'>sku： {{skuCode}}</view>
+        <view class='textFont'>交期： {{deliveryTime}}</view>
       </van-col>
     </van-row>
   </view>

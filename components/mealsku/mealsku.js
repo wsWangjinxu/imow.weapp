@@ -108,7 +108,7 @@ Component({
           this.setData({ depositShow: false });
         };
       }
-
+      //组建已选择过，弹出就有选中状态
       if (this.data.skuCode){               
         let a = { currentTarget: { dataset: { content: "", state: 2, type: "skuCode" } } };
         a.currentTarget.dataset.content = this.data.skuCode;
