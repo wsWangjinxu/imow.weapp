@@ -1,10 +1,11 @@
 <!--index.wxml-->
+<wxs module="filters" src="./double.wxs"></wxs>
 <view class="container">
 
 <view class='box'>
   <view class='head'>
-    <view class='headText1'>特惠价（不含属具）：<span class="big">￥11000000.00</span></view>
-    <view class='headText2'>原组合购买价：￥129700.00</view>
+    <view class='headText1'>特惠价（不含属具）：<span class="big">￥{{filters.toFix(total)}}</span></view>
+    <view class='headText2'>原组合购买价：￥{{filters.toFix(129700)}}</view>
     <view class='hot'>HOT</view>    
   </view>
   <!-- <view class='item'>
@@ -53,7 +54,7 @@
 <view class='footer'>
   <van-row>
     <van-col span="15">
-      <view class="footerL" bindtap='addcart'>
+      <view class="footerL">
         <text>小计(不含运费)</text>
         <text class="money">￥11000000</text>
       </view>

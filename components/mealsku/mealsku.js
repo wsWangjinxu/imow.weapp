@@ -17,9 +17,17 @@ Component({
   data: {
     productSkus: [
       {
+        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
+        "isDeposit": true,
+        "agentPrice": 133,
+        "skuCode": "01F02E072",
+        "deliveryTime": "16天",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      },
+      {
         "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
         "isDeposit": true,
-        "agentPrice": 122,
+        "agentPrice": 1200,
         "skuCode": "01F02E072",
         "deliveryTime": "14天",
         "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
@@ -27,7 +35,7 @@ Component({
       {
         "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
         "isDeposit": true,
-        "agentPrice": 1500,
+        "agentPrice": 1300,
         "skuCode": "01F02E072",
         "deliveryTime": "15天",
         "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
@@ -35,15 +43,15 @@ Component({
       {
         "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
         "isDeposit": true,
-        "agentPrice": 122,
+        "agentPrice": 1400,
         "skuCode": "01F02E075",
-        "deliveryTime": "13天",
+        "deliveryTime": "16天",
         "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
       },
       {
         "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
         "isDeposit": false,
-        "agentPrice": 122,
+        "agentPrice": 1500,
         "skuCode": "01F02E076",
         "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
       }
@@ -108,28 +116,6 @@ Component({
           this.setData({ depositShow: false });
         };
       }
-      //组建已选择过，弹出就有选中状态
-      if (this.data.skuCode){               
-        let a = { currentTarget: { dataset: { content: "", state: 2, type: "skuCode" } } };
-        a.currentTarget.dataset.content = this.data.skuCode;
-        this.click(a);
-      }
-      if (this.data.deliveryTime){
-        let b = { currentTarget: { dataset: { content: "", state: 2, type: "deliveryTime" } } };
-        b.currentTarget.dataset.content = this.data.deliveryTime;
-        this.click(b);
-      }
-      // if (this.data.skuCode) {
-      //   let a = { currentTarget: { dataset: { content: "", state: 2, type: "skuCode" } } };
-      //   a.currentTarget.dataset.content = this.data.skuCode;
-      //   this.click(a);
-      // }
-      // if (this.data.deliveryTime) {
-      //   let b = { currentTarget: { dataset: { content: "", state: 2, type: "deliveryTime" } } };
-      //   b.currentTarget.dataset.content = this.data.deliveryTime;
-      //   this.click(b);
-      // }
-
       // getProductSkus("GET", {
       //   id: this.data.productId,
       // }).then(res => {
@@ -148,6 +134,20 @@ Component({
       //     };
       //   }
       // })
+
+
+      //组件已选择过规格，弹出有选中状态
+      if (this.data.skuCode){               
+        let a = { currentTarget: { dataset: { content: "", state: 2, type: "skuCode" } } };
+        a.currentTarget.dataset.content = this.data.skuCode;
+        this.click(a);
+      }
+      if (this.data.deliveryTime){
+        let b = { currentTarget: { dataset: { content: "", state: 2, type: "deliveryTime" } } };
+        b.currentTarget.dataset.content = this.data.deliveryTime;
+        this.click(b);
+      }
+      
     },
     filted: function (key, val) {
       const flag = {
@@ -311,7 +311,7 @@ Component({
           } else {
             this.setData({ hasDeliveryTime: true });
             this.setData({ skuName: "" });
-            this.setData({ skuId: ""});
+            this.setData({ skuId: "" });
             this.setData({ depositShow: false });
             let min;
             let max;
