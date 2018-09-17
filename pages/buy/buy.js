@@ -311,14 +311,12 @@ Page({
   },
   //查找当前项
   selectNow(sku,time){
-    console.log("----");                              
+    console.log("--当前项--");                              
     let productSkus = this.data.productSkus;
     if (sku && time){
       for (let index = 0; index < productSkus.length; index++) {
         const item = productSkus[index];
         if (item.skuCode == sku && item.deliveryTime == time) {
-          console.log("当前代理价："+item.agentPrice);
-          console.log("是否有定金："+item.isDeposit);
           this.setData({ price: item.agentPrice });           //根据sku号与交期确认顶部价格等数据
           this.setData({ skuId: item.id }); 
           this.setData({ isOnePrece: true });
@@ -331,8 +329,6 @@ Page({
         }
       }
     }else{
-      // this.setData({ depositShow: false });
-      // this.setData({ price: '' });
       if (sku) {
         let skuArr = [];    //点击sku所有sku价格数组
         let skuArr2 = [];  //去重排序后的
@@ -347,30 +343,41 @@ Page({
         if (skuArr3.length==1){
           this.setData({ skuName: skuArr3[0].skuName });
           this.setData({ skuId: skuArr3[0].id }); 
-        }else{
-          this.setData({ skuName: "" });
-        }
-        console.log(skuArr);
-        let min;
-        let max;
-        for (var i = 0; i < skuArr.length; i++) {
-          if (skuArr2.indexOf(skuArr[i]) == -1) {
-            skuArr2.push(skuArr[i]);
-            skuArr2.sort(function (a, b) { return a - b; });
-          }
-        }
-        console.log(skuArr2);
-        if (skuArr2.length>1) {
-          min = skuArr2[0];
-          max = skuArr2[skuArr2.length - 1];
-          this.setData({ minPrice: min });
-          this.setData({ maxPrice: max });
-          this.setData({ isOnePrece: false });
-          this.setData({ depositShow: false });
-        }else{
-          this.setData({ price: skuArr2[0] });
+          this.setData({ price: skuArr3[0].agentPrice });          //确认一个价格
           this.setData({ isOnePrece: true });
+          if (skuArr3[0].isDeposit) {
+            this.setData({ depositShow: true });
+          } else {
+            this.setData({ depositShow: false });
+          };
+          if (skuArr3[0].deliveryTime) {
+            this.setData({ hasDeliveryTime: true });
+          }else{
+            this.setData({ hasDeliveryTime: false });
+          }
+        }else {
+          this.setData({ hasDeliveryTime: true });
+          this.setData({ skuName: "" });
+          this.setData({ skuId: "" });
           this.setData({ depositShow: false });
+          let min;
+          let max;
+          for (var i = 0; i < skuArr.length; i++) {
+            if (skuArr2.indexOf(skuArr[i]) == -1) {
+              skuArr2.push(skuArr[i]);
+              skuArr2.sort(function (a, b) { return a - b; });
+            }
+          }
+          if (skuArr2.length > 1) {                  //去重后多个价格
+            min = skuArr2[0];
+            max = skuArr2[skuArr2.length - 1];
+            this.setData({ minPrice: min });
+            this.setData({ maxPrice: max });
+            this.setData({ isOnePrece: false });
+          } else {                                  //去重后只有一个价格
+            this.setData({ price: skuArr2[0] });
+            this.setData({ isOnePrece: true });
+          }
         }
         
       } else if (time){

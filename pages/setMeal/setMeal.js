@@ -17,10 +17,40 @@ Page({
       { name: "EPT20 - 15ET2 2.5t全电动搬运车 中力小金刚2代", price: 8900, oldprice: 12000, img: "https://dummyimage.com/135x135/fb0a2a", productId:22222222},
       { name: "EPT20 - 15ET2 3.5t全电动搬运车 中力小金刚3代", price: 8900, oldprice: 15000, img: "https://dummyimage.com/135x135/fb0a2a", productId:33333333},
     ],
-    depositShow: false //定金是否存在
+    depositShow: false, //定金是否存在
+    total:""   //价格合计
   },
   onLoad: function(e) { 
     console.log(e);
+    this.init();
+  },
+  init() {
+    //获取套餐产品列表
+    // getProductSkus("GET", {
+    //   id: this.data.productId,
+    // }).then(res => {
+    //   console.log(res.data.productSkus);
+    //   this.setData({
+    //     productSkus: res.data.productSkus
+    //   });
+    //   this.filted();
+    //   let productSkus = this.data.productSkus;
+    //   for (let index = 0; index < productSkus.length; index++) {
+    //     const item = productSkus[index];
+    //     if (item.deliveryTime) {
+    //       this.setData({ hasDeliveryTime: true });
+    //     } else {
+    //       this.setData({ depositShow: false });
+    //     };
+    //   }
+    // })
+    let newArray = this.data.initArray;
+    let totalMoney =0;
+    for (let index = 0; index < newArray.length; index++) {
+      const item = newArray[index];
+      totalMoney+=item.price;
+    }
+    this.setData({ total: totalMoney })
   },
   //点击选择规格跳出弹出层
   showpop(e){
@@ -112,7 +142,7 @@ Page({
       });
     }
   },
-  //子组件传值
+  //子组件点击确认按钮传值
   onMyEvent: function (e) {
     console.log(e.detail.skuId);
     console.log(e.detail.price);
