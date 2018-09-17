@@ -16,12 +16,12 @@
       <superGroup ctn="{{item}}"></superGroup>
     </block>
   </view>
-  <bulletTitle title="{{'热销榜'}}"  bind:more="handleHot" subTitle="{{'热销商品，一网打尽'}}"></bulletTitle>
+<!--  <bulletTitle title="{{'热销榜'}}"  bind:more="handleHot" subTitle="{{'热销商品，一网打尽'}}"></bulletTitle>
   <view class="hot-ctn" style="height: {{hotHeight}};">
     <block wx:for="{{hotProduct}}" wx:key="index">
       <hot ctn="{{item}}"></hot>
-    </block>
-  </view>
+    </block> 
+  </view>-->
   <view class="shop-list">
     <view class="list-title"><view>{{selectedShop.shopName}}</view><view bindtap="gotoShop">进入店铺，了解更多产品信息</view></view>
     <view class="shop-ctn">

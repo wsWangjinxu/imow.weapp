@@ -33,9 +33,9 @@
   <view class="cell">
     <navigator url="/pages/coupon/coupon"><van-cell title="优惠券" border="{{ false }}" is-link></van-cell></navigator> 
   </view>
-  <!-- <view class="cell">
-    <van-cell title="我的优惠券" border="{{ false }}" is-link></van-cell>
-  </view> -->
+  <view class="cell" wx:if="{{shopId}}" >
+    <navigator url="{{'/pages/qr/qr?shopId=' + shopId}}" ><van-cell title="我的二维码名片" border="{{ false }}" is-link></van-cell></navigator> 
+  </view>
 </view>
 <view wx:else class="loginPane">
   <view class="login">

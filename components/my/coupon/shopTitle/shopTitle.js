@@ -18,7 +18,15 @@ Component({
     },
     shopName:String,
     shopId: String,
-    shopImg: String
+    shopImg: String,
+    hasBtn: {
+      type: Boolean,
+      value: true
+    },
+    detail: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**
@@ -34,6 +42,14 @@ Component({
   methods: {
     showShopId(e){
       console.log(e.currentTarget.dataset.shopid)
+    },
+
+    //查看店铺详情
+    navToDetail(e) {
+      let id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: "/pages/shopDetail/shopDetail?shopId=" + id
+      });
     }
   }
 })

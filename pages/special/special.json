@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "查看启动日志",
+  "navigationBarTitleText": "双十一专区",
   "usingComponents": {
     "lineTitle": "/components/special/lineTitle/lineTitle",
     "coupon": "/components/special/coupon/coupon",

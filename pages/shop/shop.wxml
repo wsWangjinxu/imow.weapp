@@ -1,0 +1,22 @@
+<view class="shop">
+    <view style="padding: 20rpx; background: #fff;" >
+      <shopTitle shopName="{{shopInfo.name}}" shopImg="{{shopInfo.logoSrc}}" shopId="{{id}}"  hasBtn="{{false}}" detail="{{true}}"></shopTitle>
+    </view>
+    <swiper indicator-dots="true">
+      <block wx:for="{{ bannerImageList }}" wx:key="index">
+        <swiper-item>
+          <image mode="widthFix" style="width: 100%;" src="http://dummyimage.com/1920x500/333333/" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view>
+      <block wx:for="{{paneList}}" wx:key="index">
+        <lineTitle title="{{item.title}}"></lineTitle>
+        <view class="productCtn">
+          <block wx:for="{{item.productList}}" wx:for-item="child"  wx:key="index">
+            <product ctn="{{child}}"></product>
+          </block>
+        </view>
+      </block>
+    </view>
+</view>

@@ -11,11 +11,13 @@ App({
             code: res.code
           }).then(res => {
             if (res.data.session) {
+              console.log(res.data.session);
               //如果session有值说明已经登陆成功，设置登陆状态，并写入缓存
               wx.setStorageSync("session", res.data.session);
               wx.setStorageSync("isLogin", true);
               that.globalData.nickname = res.data.nickname;
               that.globalData.imgSrc = res.data.imgSrc;
+              that.globalData.shopId = res.data.shopId;
               if (that.callback) {
                 that.callback();
               }
@@ -31,7 +33,8 @@ App({
 
   globalData: {
     nickname: "岁月不好",
-    imgSrc: ""
+    imgSrc: "",
+    shopId: false
   }
 
 })

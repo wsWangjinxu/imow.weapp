@@ -1,6 +1,7 @@
 { 
   "usingComponents": {
-    "van-icon": "/vantui/icon/index"
+    "van-icon": "/vantui/icon/index",
+    "van-popup": "/vantui/popup/index"
   },
   "backgroundTextStyle":"light",
   "navigationBarBackgroundColor": "#fe0000",
