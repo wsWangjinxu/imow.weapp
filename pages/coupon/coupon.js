@@ -29,19 +29,19 @@ Page({
     ],
     selectedId2: 101
   },
-  onLoad: function () {
+  onLoad() {
     //获取用户的平台优惠券
     getPlatformDiscountCoupon("POST").then(res => {
-      console.log(res.data.iMDiscountCoupon)
+      console.log(res.data.list)
       this.setData({
-        coupon: res.data.iMDiscountCoupon
+        coupon: res.data.list
       });
     });
 
     //获取用户的店铺优惠券
     getShopDiscountCoupon("POST").then(res => {
       this.setData({
-        shopCoupon: res.data.shopDiscountCoupon
+        shopCoupon: res.data.list
       });
     });
   },
@@ -53,15 +53,13 @@ Page({
     if(e.detail == "101") {
       getPlatformDiscountCoupon("POST").then(res => {
         this.setData({
-          coupon: res.data.iMDiscountCoupon
+          coupon: res.data.list
         });
       });
-
-      console.log(this.data.coupon);
     } else {
       getShopDiscountCoupon("POST").then(res => {
         this.setData({
-          shopCoupon: res.data.shopDiscountCoupon
+          shopCoupon: res.data.list
         });
       });
     }

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "skuItem": "/components/special/skuItem/skuItem"
+  }
+}

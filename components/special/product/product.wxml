@@ -7,7 +7,7 @@
         <view style="font-size: 30rpx; color:#ff1105;">￥{{ctn.discountPrice}}起</view>
         <view style="font-size: 26rpx; color: #9b9b9b;">原价 ￥{{ctn.price}}</view>
       </view>
-      <van-icon style="font-size: 36rpx; color: #fe0002;" name="add-o"></van-icon>
+      <view class="selectBtn" bindtap="handleAdd">选规格<view wx:if="{{num}}">{{num}}</view></view>
     </view>
   </view>
 </view>

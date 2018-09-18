@@ -16,12 +16,6 @@
       <superGroup ctn="{{item}}"></superGroup>
     </block>
   </view>
-<!--  <bulletTitle title="{{'热销榜'}}"  bind:more="handleHot" subTitle="{{'热销商品，一网打尽'}}"></bulletTitle>
-  <view class="hot-ctn" style="height: {{hotHeight}};">
-    <block wx:for="{{hotProduct}}" wx:key="index">
-      <hot ctn="{{item}}"></hot>
-    </block> 
-  </view>-->
   <view class="shop-list">
     <view class="list-title"><view>{{selectedShop.shopName}}</view><view bindtap="gotoShop">进入店铺，了解更多产品信息</view></view>
     <view class="shop-ctn">
@@ -32,10 +26,16 @@
       </scroll-view>
       <scroll-view class="right" scroll-y="true" style="height: {{scrollHeight}}px;">
         <block wx:for="{{productList}}" wx:key="index"> 
-          <product ctn="{{item}}"></product>
+          <product bind:showSku="handleSku" ctn="{{item}}"></product>
         </block>
       </scroll-view>
     </view>
     <view class="list-pay"><view>购物车</view><view>结算</view></view>
+  </view> 
+  <van-popup show="{{true}}" bind:close="handleClose">
+  <view style="width: 640rpx; padding: 20rpx;">
+      <view style="text-align: center; font-size: 34rpx;">中力小金刚</view>
+    <sku></sku>
   </view>
+  </van-popup>
 </view> 
