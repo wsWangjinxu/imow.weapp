@@ -18,7 +18,6 @@ Page({
     amPrice2:0,
     DLPrice1:0,      //代理价格
     DLPrice2: 0,
-    //saleNumber:122,     //已售数量 
     couponNum: 0,       //优惠券号  
     show: false,        //弹出层
     content:"",
@@ -169,9 +168,9 @@ Page({
       }
     });
 
-    getShopInfo("GET").then(res => {
-      console.log(this.data.shopId);
-      console.log(res);
+    getShopInfo("GET", {
+      id: this.data.shopId,
+    }).then(res => {
       if (res.statusCode=="200") {
         this.setData({
           shopLogo: res.data.logoSrc,
