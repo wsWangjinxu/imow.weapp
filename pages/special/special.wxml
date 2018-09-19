@@ -21,7 +21,7 @@
     <view class="shop-ctn">
       <scroll-view class="left" scroll-y="true" style="height: {{scrollHeight}}px;">
         <block wx:for="{{shopList}}" wx:key="index">
-          <view class="shopname" bindtap="handleListChange" data-id="{{item.shopId}}" data-shopName="{{item.shopName}}">{{item.shopName}}</view>
+          <view class="shopname" style="background-color:{{selectedShop.shopId == item.shopId ? 'white' : '3e4e4e4'}}" bindtap="handleListChange" data-id="{{item.shopId}}"  data-shopName="{{item.shopName}}">{{item.shopName}}<view class="radiusBtn">{{item.number}}</view></view>
         </block>
       </scroll-view>
       <scroll-view class="right" scroll-y="true" style="height: {{scrollHeight}}px;">
@@ -30,12 +30,12 @@
         </block>
       </scroll-view>
     </view>
-    <view class="list-pay"><view>购物车</view><view>结算</view></view>
+    <view class="list-pay"><view>购物车</view><view bindtap="handlePay">结算</view></view>
   </view> 
-  <van-popup show="{{true}}" bind:close="handleClose">
+  <van-popup show="{{skuShow}}" bind:close="handleClose"  >
   <view style="width: 640rpx; padding: 20rpx;">
       <view style="text-align: center; font-size: 34rpx;">中力小金刚</view>
-    <sku></sku>
+    <sku bind:modifyNumber="modifyNumber" productId="{{productId}}"></sku>
   </view>
   </van-popup>
 </view> 

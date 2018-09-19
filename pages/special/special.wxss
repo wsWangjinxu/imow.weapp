@@ -129,3 +129,16 @@ view.van-popup {
   width: 80% !important;
 }
 
+.radiusBtn {
+  display: inline-block;
+  width:  40rpx;
+  height: 40rpx;
+  line-height: 38rpx;
+  text-align: center;
+  font-size: 20rpx;
+  background-color: #fe0000;
+  color: white;
+  border-radius: 50%;
+  vertical-align: 25rpx;
+}
+

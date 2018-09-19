@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "skuItem": "/components/special/skuItem/skuItem"
+    "skuItem": "/components/special/skuItem/skuItem",
+    "van-stepper": "/vantui/stepper/index"
   }
 }

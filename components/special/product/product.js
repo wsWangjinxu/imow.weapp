@@ -3,10 +3,6 @@ Component({
     ctn: {
       type: Object,
       value: {}
-    },
-    num: {
-      type: Number,
-      value: 10
     }
   },
   methods: {

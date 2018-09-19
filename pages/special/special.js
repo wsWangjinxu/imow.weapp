@@ -2,28 +2,24 @@ import {
   getSwipers,
   getCoupons,
   getSuperGroupBuy,
-  getHotProduct,
   getShopList,
   getProductList
 } from "../../api/special/index";
 
 Page({
   data: {
-    scrollHeight: 0,
-    groupHeight: "285rpx",
-    hotHeight: "300rpx",
-    skuShow: false,
-    productId: "",
-    selectedList: [],
-    skuCode: "",
-    deliveryTime: ""
+    scrollHeight: 0,  //用来设置view-scroll的高度
+    groupHeight: "285rpx",  //热销产品的多行高度
+    hotHeight: "300rpx",  //热销产品的单行高度
+    skuShow: false, //是否显示sku选择的组件
+    productId: "",  //当前选中的产品的id，sku组件根据产品id来获取对应的sku信息
+    currentShopId: "" //当前的店铺id
   },
   onLoad() {
     let _this = this;
     //获取手机屏幕的高度
     wx.getSystemInfo({
       success(res) {
-        console.log(res);
         //获取窗口高度
         let windowHeight = res.windowHeight;
         let pixelRatio = res.pixelRatio;
@@ -31,13 +27,11 @@ Page({
         _this.setData({
           scrollHeight
         });
-        console.log(scrollHeight);
       }
     });
 
     //获取轮播图信息
     getSwipers("POST").then(res => {
-      console.log(res);
       this.setData({
         swipers: res.data.swipers
       });
@@ -45,7 +39,6 @@ Page({
 
     //获取优惠券信息
     getCoupons("POST").then(res => {
-      console.log(res);
       this.setData({
         coupons: res.data.specialCoupons
       });
@@ -53,17 +46,8 @@ Page({
 
     //获取超级拼团的内容
     getSuperGroupBuy("POST").then(res => {
-      console.log(res);
       this.setData({
         superGroupBuy: res.data.superGroupBuy
-      });
-    });
-
-    //获取热销榜产品
-    getHotProduct("POST").then(res => {
-      console.log(res);
-      this.setData({
-        hotProduct: res.data.hotProduct
       });
     });
 
@@ -71,11 +55,9 @@ Page({
     getShopList("POST").then(res => {
       let id = res.data.shopList[0].shopId;
 
-      console.log(id);
 
       //获取产品列表
       getProductList("post", { shopId: id }).then(res => {
-        console.log(res);
         this.setData({
           productList: res.data.productList
         });
@@ -91,12 +73,11 @@ Page({
 
   //点选修改店铺的产品列表
   handleListChange(e) {
-    console.log(e);
+    //获取点击的店铺的id和店铺名称
     let shopId = e.currentTarget.dataset.id;
     let shopName = e.currentTarget.dataset.shopname;
-    // console.log(shopId + shopName);
 
-    //设置当前选中的店铺
+    //设置当前选中的店铺id和名称
     this.setData({
       selectedShop: {
         shopId,
@@ -106,7 +87,6 @@ Page({
 
     //请求选中店铺的产品列表
     getProductList("post", { shopId }).then(res => {
-      console.log(res);
       this.setData({
         productList: res.data.productList
       });
@@ -121,7 +101,7 @@ Page({
     });
   },
 
-  //展示更多
+  //超级拼团的展示更多
   handleSuper(e) {
     let groupHeight;
     if (e.detail.status) {
@@ -134,62 +114,61 @@ Page({
     });
   },
 
-  //展示更多
-  handleHot(e) {
-    let hotHeight;
-    if (e.detail.status) {
-      hotHeight = "300rpx";
-    } else {
-      hotHeight = "auto";
-    }
-    this.setData({
-      hotHeight
-    });
-  },
-
+  //点击选择规格获取产品的productId，并传递给sku组件，sku组件根据产品id来获取对应的sku信息
   handleSku(e) {
-    console.log(e);
     let productId = e.detail.id;
-    let tempArray = this.data.selectedList;
-    let skuCode = "";
-    let deliveryTime = "";
-    tempArray.forEach(ele => {
-      if(ele.productId == productId) {
-        skuCode = ele.skuCode;
-        deliveryTime = ele.deliveryTime;
-      }
-    });
     this.setData({
       productId,
-      skuCode,
-      deliveryTime,
       skuShow: true
     });
   },
 
-  addToCart(e) {
-    let data = e.detail;
-    console.log(e.detail);
-    let tempArray = this.data.selectedList;
-    tempArray.push(data);
-    
-    this.setData({
-      skuShow: data.isShow,
-      selectedList: tempArray
-    });
-  },
-
-  //点击灰色区域取消
+  //点击灰色区域隐藏sku选择组件
   handleClose(){
     this.setData({
       skuShow: false
     });
   },
 
+  //根据sku组件的添加与减少购物车方法
+  modifyNumber(e) {
+    let productId = e.detail.productId;
+    let num = e.detail.num;
+    let productList = this.data.productList;
+
+    //更新对应产品的数量
+    productList.forEach(ele => {
+      if(ele.id = productId) {
+        ele.number += num;
+      }
+    });
+
+    let shopList = this.data.shopList;
+    let id = this.data.selectedShop.shopId;
+
+    //更新对应店铺的数量
+    shopList.forEach(ele => {
+      if(ele.shopId == id) {
+        ele.number += num;
+      }
+    });
+
+    //设置对应产品的数量
+    this.setData({
+      productList,
+      shopList
+    });
+  },
+
+  handlePay() {
+    let shopId = this.data.selectedShop.shopId;
+    //
+
+    
+
+    console.log(shopId);
+  },
+
   //屏蔽遮罩层下方的页面滚动
   move(){}
-
-
-
-
 }) 

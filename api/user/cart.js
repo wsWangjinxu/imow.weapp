@@ -48,4 +48,13 @@ function getShopCart(type, data) {
   });
 }
 
-export { getUserCart, changeNum, getOrderConfirmCart, getCartShopList, getShopCart }
+//新增购物车
+function addCart(type, data) {
+  return wxRequest({
+    url: baseUrl + "cart/add",
+      data: data,
+      type: type
+  });
+}
+
+export { getUserCart, changeNum, getOrderConfirmCart, getCartShopList, getShopCart, addCart }

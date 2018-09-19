@@ -1,12 +1,16 @@
 Component({
   properties: {
-    skuCode: {
+    text: {
       type: String,
-      value: "05FGTD"
+      value: ""
     },
-    skuId: {
+    color: {
       type: String,
-      value: "010124"
+      value: "333"
+    },
+    types: {
+      type: String,
+      value: ""
     }
   },
   data: {
@@ -14,18 +18,19 @@ Component({
     color: 'black'
   },
   methods: {
-    changeColor(){
-     if(this.data.color == "black") {
-       this.setData({
-         borderColor: '#fe0000',
-         color: '#fe0000'
-       });
-     } else {
-       this.setData({
-         borderColor: '#333',
-         color: 'black'
-       })
-     }
+    handletap() {
+      this.setData({
+        borderColor: '#fe0000',
+        color: '#fe0000'
+      });
+      //触发点击的事件
+      let type = this.data.types;
+      console.log(type);
+      if (type == 'sku') {
+        this.triggerEvent("handleSku", { skuCode: this.data.text });
+      } else {
+        this.triggerEvent("handleTime", { time: this.data.text });
+      }
     }
   }
-})
+});

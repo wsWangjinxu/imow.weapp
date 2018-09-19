@@ -12,8 +12,17 @@ function getSelfPickAddress(type, data) {
   });
 }
 
+//手机下单规格页产品详情
+function getProductSkus(type, data) {
+  return wxRequest({
+    url: baseUrl + "product/detail/productSkus",
+      data: data,
+      type: type
+  });
+}
 
 
 
 
-export { getSelfPickAddress }
+
+export { getSelfPickAddress, getProductSkus }
