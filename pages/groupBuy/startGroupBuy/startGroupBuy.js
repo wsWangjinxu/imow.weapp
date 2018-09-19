@@ -8,13 +8,18 @@ Page({
   },
 
   onLoad(option){
-    //保存id
-    this.setData({
-      id: option.id
-    });
+    //收集请求数据
+    let data = {
+      id: option.id,
+      productId: option.productId,
+      promotionId: options.promotionId
+    }
+
+    //保存数据
+    this.setData(data);
 
     //获取团购的信息
-    getGroupBuyInfo("POST", {id: option.id}).then(res => {
+    getGroupBuyInfo("GET", data).then(res => {
       console.log(res); //eslint-disable-line
       let data = res.data;
       this.setData({
@@ -62,7 +67,9 @@ Page({
       console.log(this.data.name + this.data.phone);
       groupBuyApply("POST", {
         name: this.data.name,
-        phone: this.data.phone
+        phone: this.data.phone,
+        productId: this.data.productId,
+        promotionId: this.data.promotionId
       }).then( res => {
         if(res.data.status) {
           wx.showToast({
@@ -112,6 +119,4 @@ Page({
       show: false
     });
   }
-
-
 });

@@ -5,7 +5,7 @@
         isOpen="{{false}}"
         bind:explain="handleExplain"            
     ></leaderInfo>
-    <product id="{{id}}" ctn="{{product}}"></product>
+    <product id="{{id}}" productId="{{productId}}" promotionId="{{promotionId}}" ctn="{{product}}"></product>
     <view class="startBuy">
         <view class="startBuy-title">开团设置</view>
         <view class="contact">

@@ -11,7 +11,12 @@ Page({
   data: {
     scrollHeight: 0,
     groupHeight: "285rpx",
-    hotHeight: "300rpx"
+    hotHeight: "300rpx",
+    skuShow: false,
+    productId: "",
+    selectedList: [],
+    skuCode: "",
+    deliveryTime: ""
   },
   onLoad() {
     let _this = this;
@@ -140,7 +145,49 @@ Page({
     this.setData({
       hotHeight
     });
-  }
+  },
+
+  handleSku(e) {
+    console.log(e);
+    let productId = e.detail.id;
+    let tempArray = this.data.selectedList;
+    let skuCode = "";
+    let deliveryTime = "";
+    tempArray.forEach(ele => {
+      if(ele.productId == productId) {
+        skuCode = ele.skuCode;
+        deliveryTime = ele.deliveryTime;
+      }
+    });
+    this.setData({
+      productId,
+      skuCode,
+      deliveryTime,
+      skuShow: true
+    });
+  },
+
+  addToCart(e) {
+    let data = e.detail;
+    console.log(e.detail);
+    let tempArray = this.data.selectedList;
+    tempArray.push(data);
+    
+    this.setData({
+      skuShow: data.isShow,
+      selectedList: tempArray
+    });
+  },
+
+  //点击灰色区域取消
+  handleClose(){
+    this.setData({
+      skuShow: false
+    });
+  },
+
+  //屏蔽遮罩层下方的页面滚动
+  move(){}
 
 
 

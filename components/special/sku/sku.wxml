@@ -1,0 +1,6 @@
+<view class="sku">
+  <view class="sku-title">规格：</view>
+  <skuItem></skuItem> <skuItem></skuItem> <skuItem></skuItem> <skuItem></skuItem>
+  <view class="sku-title">交期：</view>
+  <skuItem></skuItem> <skuItem></skuItem> <skuItem></skuItem> <skuItem></skuItem>
+</view>

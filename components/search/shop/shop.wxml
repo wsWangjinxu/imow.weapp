@@ -1,6 +1,6 @@
 <view class="shop">
   <view class="title">
-    <view><image src="{{ctn.logo}}" /><text>{{ctn.name}}</text></view>  <view class="title-btn">进店</view>
+    <view><image src="{{ctn.logo}}" /><text>{{ctn.name}}</text></view>  <view bindtap="navToShop" data-id="{{ctn.id}}" class="title-btn">进店</view>
   </view>
   <view class="business">主营：{{ctn.detail}}</view>
   <view class="productList">

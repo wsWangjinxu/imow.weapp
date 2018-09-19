@@ -21,14 +21,6 @@ function getCoupons(type, data) {
   });
 }
 
-//获取优惠券信息
-function getSuperGroupBuy(type, data) {
-  return wxRequest({
-    url: baseUrl + "/special/getSuperGroupBuy",
-      data: data,
-      type: type
-  });
-}
 
 //获取热销榜产品
 function getHotProduct(type, data) {
@@ -52,6 +44,15 @@ function getShopList(type, data) {
 function getProductList(type, data) {
   return wxRequest({
     url: baseUrl + "/special/getProductList",
+      data: data,
+      type: type
+  });
+}
+
+//获取产品列表
+function getSuperGroupBuy(type, data) {
+  return wxRequest({
+    url: baseUrl + "/special/getSuperGroupBuy",
       data: data,
       type: type
   });

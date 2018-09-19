@@ -19,26 +19,6 @@
  margin-left: 10rpx;
 }
 
-
-/* .super-group-ctn {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20rpx 30rpx;
-  background-color: #fff;
-  word-break: break-all;
-} */
-
-/* .super-group-ctn supergroup {
-  margin-left: 20rpx;
-  flex: 1;
-} */
-
-/* .super-group-ctn supergroup:first-child {
-  margin-left: 0;
-} */
-
 /* 热销榜 */ /* 超级拼团 */
 .hot-ctn, .super-group-ctn {
   display: flex;
@@ -135,5 +115,17 @@
   flex: 2.5;
   background-color: #fe0000;
   color: white;
+}
+
+.fixedCtn {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba(99,99,99,0.5);
+}
+
+view.van-popup {
+  width: 80% !important;
 }
 

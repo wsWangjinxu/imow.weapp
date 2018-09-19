@@ -22,6 +22,26 @@ function getShopDiscountCoupon(type, data) {
 }
 
 
+//获取双十一专属优惠券
+function getSuperGroupBuy(type, data) {
+  return wxRequest({
+    url: baseUrl + "/special/getSuperGroupBuy",
+      data: data,
+      type: type
+  });
+}
+
+//领取优惠券
+function getDiscountCoupon(type, data) {
+  return wxRequest({
+    url: baseUrl + "/getDiscountCoupon",
+      data: data,
+      type: type
+  });
+}
 
 
-export { getPlatformDiscountCoupon, getShopDiscountCoupon }
+
+export { getPlatformDiscountCoupon, 
+  getShopDiscountCoupon, 
+  getDiscountCoupon }

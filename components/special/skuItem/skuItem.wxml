@@ -1,0 +1,3 @@
+<view class="sku-item" bindtap="changeColor" style="border: 1px solid {{borderColor}}; color: {{color}};">
+  {{ skuCode }}
+</view>

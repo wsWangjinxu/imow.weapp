@@ -4,5 +4,6 @@
     <text>{{shopName}}</text>
     <text>工厂店</text>
   </view>
-  <button data-shopId="{{shopId}}" bindtap='showShopId'>进店</button>
+  <button wx:if="{{hasBtn}}" data-shopId="{{shopId}}" bindtap='showShopId'>进店</button>
+  <button wx:if="{{detail}}" bindtap="navToDetail" data-id="{{shopId}}">查看详情</button>
 </view>

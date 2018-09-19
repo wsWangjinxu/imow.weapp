@@ -1,0 +1,8 @@
+.productCtn {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  padding-top:30rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}

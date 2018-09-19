@@ -2,10 +2,10 @@
   <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange"></van-tab>
 <!--  <van-tab class="aside" list="{{list2}}" selected-id="{{selectedId2}}"></van-tab> -->
   <view class="couponCtn">
-    <block wx:if="{{ selectedId === 101 }}"  wx:for="{{coupon.list}}" wx:key="index">
+    <block wx:if="{{ selectedId === 101 }}"  wx:for="{{coupon}}" wx:key="index">
       <im-coupon ctn="{{item}}"></im-coupon>
     </block>
-    <block  wx:if="{{ selectedId === 102 }}" wx:for="{{shopCoupon.list}}" wx:key="index">
+    <block  wx:if="{{ selectedId === 102 }}" wx:for="{{shopCoupon}}" wx:key="index">
       <shop-coupon ctn="{{item}}"></shop-coupon>
     </block>
   </view>
