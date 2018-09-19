@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import { getProductDetail, getFactoryDiscountCouponList, getDiscountCoupon} from "../../api/productDetail/productDetail";
+import { getProductDetail, getFactoryDiscountCouponList, getDiscountCoupon, getShopInfo} from "../../api/productDetail/productDetail";
 import { getCartNum } from "../../api/productDetail/cartNum";
 const app = getApp();
 
@@ -45,10 +45,12 @@ Page({
     productImg2:"",
     productImg3: "",
     shopId:"",
+    shopLogo:"",
+    shopName:"",
     cartNum:0,
     productId:'',
     buyBtn: true,
-    hiddenLoading: false, //false显示加载中样式ture隐藏
+    hiddenLoading: false, //加载中，false显示ture隐藏
     request1:false,
     request2: false,
   },
@@ -146,7 +148,7 @@ Page({
           productImg: res.data.introduceImage,
           productImg2: res.data.packingImage,
           productImg3: res.data.serviceImage,
-          // shopId: res.data.shopId   //此商品对应店铺id
+          shopId: res.data.shopId   //此商品对应店铺id
         });
       }else{
         this.setData({hiddenLoading: true});
@@ -166,6 +168,17 @@ Page({
         });
       }
     });
+
+    getShopInfo("GET").then(res => {
+      console.log(this.data.shopId);
+      console.log(res);
+      if (res.statusCode=="200") {
+        this.setData({
+          shopLogo: res.data.logoSrc,
+          shopName: res.data.name
+        });
+      }
+    });
     // console.log(this.data.request1)
     // console.log(this.data.request2)
     // if (this.data.request1 && this.data.request2){
@@ -173,6 +186,7 @@ Page({
     // }else{
     //   wx.showToast({
     //     title:"网络错误",
+    //     image: "/static/imgs/warn.png"
     //     mask:true
     //   })
     // }

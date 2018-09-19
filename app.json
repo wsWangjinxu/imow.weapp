@@ -1,7 +1,8 @@
 {
   "pages":[ 
-    "pages/setMeal/setMeal",
     "pages/my/my",
+    "pages/setMeal/setMeal",
+    
     
     "pages/special/special",
     "pages/groupBuy/startGroupBuy/startGroupBuy",

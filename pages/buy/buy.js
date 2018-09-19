@@ -7,41 +7,45 @@ const app = getApp()
 Page({
   data: {
     productSkus: [
-      // {
-      //   "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
-      //   "isDeposit": true,
-      //   "agentPrice": 122,
-      //   "skuCode": "01F02E072",
-      //   "deliveryTime": "14天"
-      // },
-      // {
-      //   "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
-      //   "isDeposit": true,
-      //   "agentPrice": 1500,
-      //   "skuCode": "01F02E072",
-      //   "deliveryTime": "15天"
-      // },
-      // {
-      //   "id": "5D1E1d7D-383d-A8C6-9CEd-B5c4FD4Dc9Eb",
-      //   "isDeposit": true,
-      //   "agentPrice": 1200,
-      //   "skuCode": "01F02E072",
-      //   "deliveryTime": "20天"
-      // },
-      // {
-      //   "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
-      //   "isDeposit": true,
-      //   "agentPrice": 122,
-      //   "skuCode": "01F02E075",
-      //   "deliveryTime": "13天"
-      // },
-      // {
-      //   "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
-      //   "isDeposit": true,
-      //   "agentPrice": 122,
-      //   "skuCode": "01F02E076",
-      //   "deliveryTime": "13天"
-      // }
+      {
+        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
+        "isDeposit": true,
+        "agentPrice": 133,
+        "skuCode": "01F02E072",
+        "deliveryTime": "16天",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      },
+      {
+        "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
+        "isDeposit": true,
+        "agentPrice": 1200,
+        "skuCode": "01F02E072",
+        "deliveryTime": "14天",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      },
+      {
+        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
+        "isDeposit": true,
+        "agentPrice": 1300,
+        "skuCode": "01F02E072",
+        "deliveryTime": "15天",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      },
+      {
+        "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
+        "isDeposit": true,
+        "agentPrice": 1400,
+        "skuCode": "01F02E075",
+        "deliveryTime": "16天",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      },
+      {
+        "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
+        "isDeposit": false,
+        "agentPrice": 1500,
+        "skuCode": "01F02E076",
+        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      }
     ],
     filedProductSkus: {
       sku: {
@@ -99,6 +103,7 @@ Page({
     console.log(e);
     this.setData({ productId: e.productId});
     this.init();
+    console.log(this.data.filedProductSkus)
   },
   onChange(e) {
     this.setData({
@@ -106,7 +111,7 @@ Page({
     });
   },
   //加入购物车
-  addcart() {
+  addcartNow() {
     // console.log(this.data.num);
     // console.log(this.data.filedProductSkus.sku.current);
     // console.log(this.data.filedProductSkus.deliveryTime.current);
@@ -125,14 +130,44 @@ Page({
           duration: 2000,
           image: "/static/imgs/warn.png"
         })
+      }else if (this.data.paytype==0){
+        wx.showToast({
+          title: '请选择支付类型',
+          duration: 2000,
+          image: "/static/imgs/warn.png"
+        })
+      }else{
+        addCart("POST", {
+          productId: this.data.productId,
+          skuCode: this.data.filedProductSkus.sku.current,
+          skuId: this.data.skuId,
+          num: this.data.num
+        }).then(res => {
+          console.log(res);
+          if (res.data.status == 20) {
+            wx.switchTab({
+              url: '/pages/cart/cart'
+            })
+          } else {
+            wx.showToast({
+              title: '操作失败，请重试',
+              duration: 2000,
+              image: "/static/imgs/warn.png"
+            })
+            this.init();
+          }
+        }); 
       }
-    } else if (this.data.paytype == "" || this.data.paytype == undefined){
+
+    } 
+    else if (this.data.paytype==0){
       wx.showToast({
         title: '请选择支付类型',
         duration: 2000,
         image: "/static/imgs/warn.png"
       })
-    }else{
+    }
+    else{
       addCart("POST", {
         productId: this.data.productId,
         skuCode:this.data.filedProductSkus.sku.current,
@@ -170,8 +205,23 @@ Page({
           duration: 2000,
           image: "/static/imgs/warn.png"
         })
+      } else if (this.data.paytype == 0) {
+        wx.showToast({
+          title: '请选择支付类型',
+          duration: 2000,
+          image: "/static/imgs/warn.png"
+        })
+      } else {
+        //立即购买
+        let productId = this.data.productId;
+        let skuCode = this.data.filedProductSkus.sku.current;
+        let skuId = this.data.skuId;
+        let num = this.data.num;
+        wx.redirectTo({
+          url: '/pages/orderConfirm/orderConfirm?productId=' + productId + '&skuCode=' + skuCode + '&skuId=' + skuId + '&num=' + num,
+        })
       }
-    } else if (this.data.paytype == "" || this.data.paytype == undefined) {
+    } else if (this.data.paytype ==0) {
       wx.showToast({
         title: '请选择支付类型',
         duration: 2000,
@@ -470,22 +520,31 @@ Page({
   //页面初始化函数
   init() {
     //获取产品详情内容
-    getProductSkus("GET", {
-      id: this.data.productId,
-    }).then(res => {
-      console.log(res.data.productSkus);
-      this.setData({
-        productSkus: res.data.productSkus
-      });
-      this.filted();
-      let productSkus = this.data.productSkus;
-      for (let index = 0; index < productSkus.length; index++) {
-        const item = productSkus[index];
-        if (item.deliveryTime) {
-          this.setData({ hasDeliveryTime: true });
-        }
+    this.filted();
+    let productSkus = this.data.productSkus;
+    for (let index = 0; index < productSkus.length; index++) {
+      const item = productSkus[index];
+      if (item.deliveryTime) {
+        this.setData({ hasDeliveryTime: true });
       }
-    });
+    }
+
+    // getProductSkus("GET", {
+    //   id: this.data.productId,
+    // }).then(res => {
+    //   console.log(res.data.productSkus);
+    //   this.setData({
+    //     productSkus: res.data.productSkus
+    //   });
+    //   this.filted();
+    //   let productSkus = this.data.productSkus;
+    //   for (let index = 0; index < productSkus.length; index++) {
+    //     const item = productSkus[index];
+    //     if (item.deliveryTime) {
+    //       this.setData({ hasDeliveryTime: true });
+    //     }
+    //   }
+    // });
     getProductDetail("GET", {
       id: this.data.productId,
     }).then(res => {

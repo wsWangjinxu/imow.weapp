@@ -17,7 +17,7 @@ page{
   padding: 0 18rpx;
 }
 
-.top .title{
+.title{
   font-size: 28rpx;
   font-weight: bold
 }

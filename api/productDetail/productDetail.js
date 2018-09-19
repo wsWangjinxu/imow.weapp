@@ -47,5 +47,13 @@ function getDiscountCoupon(type, data) {
   });
 }
 
+//获取店铺的简易信息
+function getShopInfo(type, data) {
+  return wxRequest({
+    url: baseUrl + "getShopInfo",
+    data: data,
+    type: type
+  });
+}
 
-export { getProductDetail, addCart, getFactoryDiscountCouponList, getDiscountCoupon, getProductSkus}
+export { getProductDetail, addCart, getFactoryDiscountCouponList, getDiscountCoupon, getProductSkus,getShopInfo}

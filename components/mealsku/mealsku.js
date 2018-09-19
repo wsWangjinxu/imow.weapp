@@ -149,8 +149,8 @@ Component({
       }
       
     },
-    filted: function (key, val) {
-      const flag = {
+    filted: function (key, val) {   
+      const flag = {    //按钮状态(1选中、2普通、3禁用)
         CURRENT: 1,
         ACTIVE: 2,
         DISABLE: 3

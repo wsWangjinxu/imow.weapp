@@ -149,10 +149,10 @@
   <van-row>
   <navigator url='/pages/shopDetail/shopDetail?shopId={{shopId}}'>
     <van-col span="5">
-      <image class='logo' src='/static/imgs/logo.png'></image>
+      <view class='logo'><image src="{{shopLogo}}"></image></view>   
     </van-col>
     <van-col span="14">
-      <text style='font-weight:800;'>浙江中力机械有限公司</text>     
+      <text style='font-weight:800;'>{{shopName}}</text>     
     </van-col>
     <van-col span="4">
       <text style='color:#fe0000;'>进店看看</text>

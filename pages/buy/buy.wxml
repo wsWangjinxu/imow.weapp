@@ -55,7 +55,7 @@
 <view class='footer' wx:if="{{paytype==0}}">
   <van-row>
     <van-col span="12">
-      <view class="button3" bindtap='addcart'>加入购物车</view>
+      <view class="button3" bindtap='addcartNow'>加入购物车</view>
     </van-col>
     <van-col span="12" class="button4">
       <view class="button4" bindtap='buyNow'>立即购买</view>
@@ -65,7 +65,7 @@
 <view class='footer' wx:if="{{paytype==1}}">
   <van-row>
     <van-col span="12">
-      <view class="button3" bindtap='addcart'>加入购物车</view>
+      <view class="button3" bindtap='addcartNow'>加入购物车</view>
     </van-col>
     <van-col span="12" class="button4">
       <view class="button4 closed">立即购买</view>

@@ -116,15 +116,21 @@ swiper-item image{
   margin: 38rpx 0;
 }
 
+.shopName{
+  margin-top:16rpx;
+  margin-bottom:16rpx; 
+}
+
 .logo{
   width: 102rpx;
-  height: 28rpx;
+  height: 38rpx;
   background-color: blue;
 }
 
-.shopName{
-  margin-top:16rpx;
-  margin-bottom:16rpx;
+.logo image{
+  width: 102rpx;
+  height: 38rpx;
+  background-color: blue;
 }
 
 .productImg{
