@@ -6,7 +6,6 @@ const app = getApp();
 Page({
   data: {
     show: false,
-    adImgSrc:"",
     name: "",
     phone: null,
     area: "",
@@ -61,7 +60,6 @@ Page({
     }).then(res => {
       console.log(res)
       this.setData({
-        adImgSrc: res.data.adImgSrc,
         name: res.data.baseInfo.name,
         phone: res.data.baseInfo.phone,
         area: res.data.baseInfo.area,

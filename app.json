@@ -1,10 +1,11 @@
 {
   "pages":[ 
+    "pages/productDetail/productDetail",
+    "pages/index/index",
     "pages/my/my",
     "pages/setMeal/setMeal",
     "pages/special/special",
     "pages/qrCard/qrCard",
-    "pages/index/index",
     "pages/shop/shop",
     "pages/qr/qr",
     "pages/shopDetail/shopDetail",     
@@ -12,7 +13,7 @@
     "pages/groupBuy/joinGroupBuy/joinGroupBuy",
     "pages/groupBuy/groupBuyList/groupBuyList",
     "pages/groupBuy/operation/operation",
-    "pages/productDetail/productDetail",
+    
     "pages/checkPay/checkPay",
     "pages/addressList/addressList",
     "pages/addressForm/addressForm",

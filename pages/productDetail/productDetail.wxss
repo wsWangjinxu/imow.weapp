@@ -1,7 +1,7 @@
 /**index.wxss**/
 page{
   background-color: #f2f2f2;
-  padding-bottom: 108rpx;
+  padding-bottom: 110rpx;
 }
 
 swiper{
@@ -174,7 +174,7 @@ swiper-item image{
 } */
 
 .footer{
-  height: 108rpx;
+  height: 110rpx;
   position: fixed;
   bottom: 0;
   width:100%;
@@ -185,7 +185,7 @@ swiper-item image{
 }
 
 .button1{
-  height: 108rpx;
+  height: 110rpx;
   padding-top:14rpx;
   display: flex;
   flex-direction: column ;
@@ -226,17 +226,17 @@ swiper-item image{
 }
 
 .button3{
-  line-height: 108rpx;
-  font-size: 40rpx;
+  line-height: 110rpx;
+  font-size: 30rpx;
   background-color: #fe9900;
   color:white;
   font-weight: 600
 }
 
 .button4{
-  line-height: 108rpx; 
-  font-size: 40rpx;
-  background-color: #fe0000;
+  line-height: 110rpx; 
+  font-size: 30rpx;
+  background-color: #d7000f;
   color:white;
   font-weight: 600
 }
