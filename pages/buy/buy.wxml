@@ -5,7 +5,7 @@
   <van-row>
     <van-col span="10">
       <view class="productImg">
-        <image src="https://dummyimage.com/250x250/fb0a2a"></image>
+        <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{productImg}}?x-oss-process=image/resize,m_pad,l_125"></image>
       </view>
     </van-col>
     <van-col span="14">

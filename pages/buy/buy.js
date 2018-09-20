@@ -94,7 +94,8 @@ Page({
     hasDeliveryTime: false,//交期是否存在
     depositShow: false, //定金按钮显示隐藏
     num: 1, //数量
-    paytype: 0, //定金全款判断  
+    paytype: 0, //定金全款判断
+    productImg:"", //左上角产品图片
     paymethod: "", //支付方式文字
     CA: "item",
     CB: "item"
@@ -540,7 +541,8 @@ Page({
       id: this.data.productId,
     }).then(res => {
       this.setData({
-        paymethod: res.data.paymethod
+        paymethod: res.data.paymethod,
+        productImg: res.data.images[0]
       });
       
     });

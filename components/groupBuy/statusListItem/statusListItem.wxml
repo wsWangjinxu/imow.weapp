@@ -1,7 +1,7 @@
 <view bindtap="handleTap" class="statusListItem">
     <view class="time">{{ctn.time}}</view>
     <view class="product">
-        <image src="{{ctn.image}}" />
+        <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}?x-oss-process=image/resize,m_pad,l_75" />
         <view class="ctn">
             <view style="margin-top: -10rpx;">{{ctn.title}}</view>
             <block wx:for="{{ctn.skuList}}" wx:key="index">

@@ -1,5 +1,5 @@
 <navigator url="{{'/pages/productDetail/productDetail?id='+ctn.id}}" class="product">
-  <image src="{{ctn.imgSrc}}" />
+  <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.imgSrc}}?x-oss-process=image/resize,m_pad,l_175" />
   <text>{{ctn.title}}</text>
   <view>
     <text>￥{{ctn.price}}起</text>

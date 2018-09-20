@@ -5,10 +5,11 @@
   加载中...
 </loading>
 
+
 <swiper indicator-dots="{{indicatorDots}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key="{{index}}">
     <swiper-item>
-      <image src="{{item.url}}" class="slide-image" width="355" height="150"/>
+      <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}?x-oss-process=image/resize,m_pad,l_375" class="slide-image" width="355" height="150"/>
     </swiper-item>
   </block>
 </swiper>
@@ -31,7 +32,7 @@
     </van-col> -->
   </van-row>
   
-  <view class='priceBox2'>
+  <view class='priceBox2' wx:if="{{true}}">
     <van-row>
       <van-col span="5">
         <text>代理价</text>
@@ -91,19 +92,17 @@
 </view>  -->
 
 <view class="box send">
-  <view bindtap='showPopup' data-show="1">
   <van-row>
     <van-col span="5">
       <text>产品政策</text>
     </van-col>
     <van-col span="18">
-      <view class='textHidden'>{{productPolicy}}</view>
+      <view class='textHidden' bindtap='showPopup'>{{productPolicy}}</view>
     </van-col>
     <van-col span="1">
-      <text> > </text>
+      <text bindtap='showPopup'> > </text>
     </van-col> 
   </van-row>
-  </view> 
   <view class='sevenDay'>
     <van-row>
       <van-col span="5">
@@ -114,19 +113,17 @@
       </van-col>
     </van-row>
   </view>
-  <view bindtap='showPopup' data-show="2">
   <van-row>
     <van-col span="5">
       <text>支付方式</text>
     </van-col>
     <van-col span="18">
-      <view class='textHidden'>{{paymethod}}</view>
+      <view class='textHidden' bindtap='showPopup2'>{{paymethod}}</view>
     </van-col>
     <van-col span="1">
-      <text> > </text>
+      <text bindtap='showPopup2'> > </text>
     </van-col> 
   </van-row>
-  </view> 
 </view>
 
 <view class='box send'>
@@ -149,7 +146,7 @@
   <van-row>
   <navigator url='/pages/shopDetail/shopDetail?shopId={{shopId}}'>
     <van-col span="5">
-      <view class='logo'><image src="{{shopLogo}}"></image></view>   
+      <image class='logo' src="{{shopLogo}}"></image>  
     </van-col>
     <van-col span="14">
       <text style='font-weight:800;'>{{shopName}}</text>     
@@ -170,7 +167,7 @@
     <image src='/static/imgs/titleBg.png'></image>
   </view>
   <view class='productImg'>
-    <image mode="widthFix" src='{{productImg}}'></image>
+    <image mode="widthFix" src='http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{productImg}}'></image>
   </view>
 
   <view class='title'>
@@ -222,9 +219,13 @@
   </van-row>
 </view>
 
-<!-- 弹框 -->
+<!-- 政策弹框 -->
 <van-popup show="{{ show }}" position="top" overlay="{{ true }}" bind:close="onClose" catchtouchmove="ture">
-  {{content}}
+  <view class='popup'>{{productPolicy}}</view>
+</van-popup>
+<!-- 支付方式描述弹框 -->
+<van-popup show="{{ show2 }}" position="top" overlay="{{ true }}" bind:close="onClose" catchtouchmove="ture">
+  <view class='popup'>{{paymethod}}</view>
 </van-popup>
 
 </view>

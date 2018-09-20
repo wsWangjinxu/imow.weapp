@@ -1,7 +1,7 @@
 <view wx:if="{{isLogin}}" class="my">
   <view class="userInfo">
     <navigator style="align-self:flex-end;color:#626262;" url="/pages/setting/setting"><van-icon name="setting"></van-icon></navigator> 
-    <image src="{{avatarUrl}}" />
+    <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{avatarUrl}}?x-oss-process=image/resize,h_100"/>
     <text>{{nickname}}</text>
   </view> 
   <view class="myOrder">

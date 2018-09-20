@@ -1,12 +1,13 @@
 //shopDetail.js
 import { getShopDetail } from "../../api/shopDetail/shopDetail";
-
+import { getShopInfo } from "../../api/productDetail/productDetail";
 const app = getApp();
 
 Page({
   data: {
     show: false,
     name: "",
+    imgSrc: "",
     phone: null,
     area: "",
     addr:"",
@@ -73,6 +74,13 @@ Page({
         account: res.data.remitInfo.account,
         companeyInfo: res.data.companeyInfo,
         mainProduct: res.data.mainProduct
+      });
+    });
+    getShopInfo("GET", {
+      id: this.data.shopId
+    }).then(res => {
+      this.setData({
+        imgSrc: res.data.baseInfo.logoSrc
       });
     });
   }

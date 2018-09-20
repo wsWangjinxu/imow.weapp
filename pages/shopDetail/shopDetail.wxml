@@ -2,7 +2,7 @@
 <view class="container">
 
 <view class='head'>
-  <shopTitle shopName='{{name}}' shopId="{{shopId}}"></shopTitle>
+  <shopTitle shopName='{{name}}' shopId="{{shopId}}" imgSrc='{{imgSrc}}'></shopTitle>
 </view>
 
 <view class='top'> 
