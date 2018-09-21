@@ -54,26 +54,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "精选",
-        "iconPath": "static/icon/jx.png",
-        "selectedIconPath": "static/icon/jx-red.png"
+        "iconPath": "static/icons/ok-black.png",
+        "selectedIconPath": "static/icons/ok-red.png"
       },
       {
         "pagePath": "pages/special/special",
         "text": "喜欢",
-        "iconPath": "static/icon/collect.png",
-        "selectedIconPath": "static/icon/collect-red.png"
+        "iconPath": "static/icons/heart-black.png",
+        "selectedIconPath": "static/icons/heart-red.png"
       },
       {
         "pagePath": "pages/cart/cart",
         "text": "购物车",
-        "iconPath": "static/icon/cart.png",
-        "selectedIconPath": "static/icon/cart-red.png"
+        "iconPath": "static/icons/cart-black.png",
+        "selectedIconPath": "static/icons/cart-red.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
-        "iconPath": "static/icon/my.png",
-        "selectedIconPath": "static/icon/my-red.png"
+        "iconPath": "static/icons/my-black.png",
+        "selectedIconPath": "static/icons/my-red.png"
       }
     ]
   }

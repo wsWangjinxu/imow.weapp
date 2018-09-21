@@ -32,40 +32,40 @@ Page({
       {
         title: "工厂店",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "http://dummyimage.com/400x100/fb0a2a"
+        imgSrc: "/static/icons/factory-pink.png"
       },
       {
         title: "阿母团购",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "http://dummyimage.com/400x100/fb0a2a"
+        imgSrc: "/static/icons/group-pink.png"
       },
       {
         title: "二手车",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "http://dummyimage.com/400x100/fb0a2a"
+        imgSrc: "/static/icons/car-pink.png"
       },
       {
         title: "阿母币专区",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "http://dummyimage.com/400x100/fb0a2a"
+        imgSrc: "/static/icons/im-pink.png"
       },
       {
         title: "阿母学院",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "http://dummyimage.com/400x100/fb0a2a"
+        imgSrc: "/static/icons/book-pink.png"
       },
       {
         title: "关于阿母",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "http://dummyimage.com/400x100/fb0a2a"
+        imgSrc: "/static/icons/im-pink.png"
       },{
         title: "阿母服务店",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "http://dummyimage.com/400x100/fb0a2a"
+        imgSrc: "/static/icons/house-pink.png"
       },{
         title: "更多",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "http://dummyimage.com/400x100/fb0a2a"
+        imgSrc: "/static/icons/more-pink.png"
       }
     ]
   },

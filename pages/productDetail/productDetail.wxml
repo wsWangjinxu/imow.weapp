@@ -16,7 +16,7 @@
 
 <view class="productTitle box">
   <view class='name'>{{productName}}</view> 
-  <van-button size="small" open-type='share'><text  class='like'>分享</text><van-icon name="share" class='like'/></van-button>
+  <van-button size="small" open-type='share'><text  class='like'>分享</text></van-button>
 </view>
 
 <view class='box priceBox'>
@@ -100,7 +100,7 @@
       <view class='textHidden' bindtap='showPopup'>{{productPolicy}}</view>
     </van-col>
     <van-col span="1">
-      <text bindtap='showPopup'> > </text>
+      <view bindtap='showPopup'><image src='/static/icons/arrow-right-grey.png'></image></view>
     </van-col> 
   </van-row>
   <view class='sevenDay'>
@@ -121,7 +121,7 @@
       <view class='textHidden' bindtap='showPopup2'>{{paymethod}}</view>
     </van-col>
     <van-col span="1">
-      <text bindtap='showPopup2'> > </text>
+      <view bindtap='showPopup2'><image src='/static/icons/arrow-right-grey.png'></image></view>
     </van-col> 
   </van-row>
 </view>
@@ -136,7 +136,7 @@
       <text>规格、交期、支付类型</text>
     </van-col>
     <van-col span="1">
-      <text> > </text>
+      <view><image src='/static/icons/arrow-right-grey.png'></image></view>
     </van-col>
   </navigator>  
   </van-row>
@@ -155,7 +155,7 @@
       <text style='color:#fe0000;'>进店看看</text>
     </van-col>
     <van-col span="1">
-      <text> > </text>
+      <view><image class='arrow' src='/static/icons/arrow-right-grey.png'></image></view>
     </van-col>
   </navigator>  
   </van-row>
@@ -192,7 +192,7 @@
     <van-col span="4">
     <navigator url='/pages/index/index' open-type="switchTab">
       <view  class="button1">
-        <van-icon name="wap-home" />
+        <image src='/static/icons/hourse-grey.png'></image>
         <text>首页</text>
       </view>
     </navigator>      
@@ -200,7 +200,7 @@
     <van-col span="4">
     <navigator url='/pages/cart/cart' open-type="switchTab">
       <view  class="button2">
-        <van-icon name="cart" />
+        <image src='/static/icons/cart-grey.png'></image>
         <text>购物车</text>
         <view class='redPoint' wx:if="{{cartNum>0}}">{{cartNum}}</view>
       </view>

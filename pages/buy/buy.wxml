@@ -14,7 +14,7 @@
     </van-col>
     <van-col span="10">
       <block wx:for="{{skuName}}" wx:key="{{index}}">
-        <view class='textFont'>{{item.name}}： {{item.value}}</view>
+        <view class='textFont'>{{item.name}} {{item.value}}</view>
       </block>
     </van-col>
   </van-row>
