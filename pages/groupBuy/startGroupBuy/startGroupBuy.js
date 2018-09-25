@@ -12,7 +12,7 @@ Page({
     let data = {
       id: option.id,
       productId: option.productId,
-      promotionId: options.promotionId
+      promotionId: options.promotionId,
     }
 
     //保存数据
@@ -20,13 +20,13 @@ Page({
 
     //获取团购的信息
     getGroupBuyInfo("GET", data).then(res => {
-      console.log(res); //eslint-disable-line
       let data = res.data;
       this.setData({
-        profile: data.profile, //头像
-        bgUrl: data.bgUrl,  //背景图片
-        explain: data.explain,  //活动说明
-        product: data.product //产品的信息
+        leaderName: data.leaderName, //头像
+        // bgUrl: data.bgUrl,  //背景图片
+        // explain: data.explain,  //活动说明
+        product: data.product, //产品的信息
+        promotion: data.promotion  //促销信息
       });
     });
   },
@@ -64,7 +64,6 @@ Page({
 
     //发送开团申请
     if(temp) {
-      console.log(this.data.name + this.data.phone);
       groupBuyApply("POST", {
         name: this.data.name,
         phone: this.data.phone,

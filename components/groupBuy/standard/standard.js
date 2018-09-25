@@ -1,20 +1,32 @@
 import { joinGroupBuy, getGroupBuySku, getJoinedDetailList } from "../../../api/groupBuy/index";
 
+let app = getApp();
+
 Component({
   properties: {
-    stageId: {
+    promotionId: {
       type: String,
       value: "",
       observer(val) {
+        console.log(val);
         if (val) {
-          getGroupBuySku("POST", { id: this.data.stageId }).then(res => {
+          getGroupBuySku("GET", { id: this.data.promotionId }).then(res => {
             console.log(res);
             let skuList = res.data.skuList;
-            skuList.forEach(element => {
-              element.num = 0;
+            let category = res.data.categoryPropertys;
+            let skus = res.data.skus;
+            let tempArray = skuList;
+            tempArray.forEach((ele, idx) => {
+              //将对应的sku信息与skuList数组合并
+              ele.skus = skus[idx];
             });
+            
+            //拼接完成的数据
+            console.log(tempArray);
+
             this.setData({
-              skuList
+              skuList: tempArray,
+              num: skus.length ? (skus.length * 60 + 300) + 'px' : '100%'
             });
           });
         }
@@ -37,12 +49,14 @@ Component({
 
       //获取选择产品的列表
       let skuList = this.data.skuList;
+      console.log(skuList);
       let product = [];
       skuList.forEach((ele, idx) => {
         if (ele.num != 0) {
           product.push({
-            index: idx,
-            num: ele.num
+            skuCode: ele.skuCode,
+            id: ele.skuId,
+            num: ele.num ? ele.num : 0,
           });
         }
       });
@@ -90,6 +104,8 @@ Component({
         phone,
         remark,
         product,
+        wxName: app.globalData.nickname,
+        skuNum: product, 
         id: this.data.id
       }
 

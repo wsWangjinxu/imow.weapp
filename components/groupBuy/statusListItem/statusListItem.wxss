@@ -19,6 +19,10 @@
   position: relative;
 }
 
+.ctn {
+  flex: 2.6;
+}
+
 .ctn .detail {
   font-size: 24rpx;
   color: #fff;
@@ -41,6 +45,7 @@
 .price {
   font-weight: bold;
   margin-top: -10rpx;
+  flex: 1;
 }
 
 .end-time {
@@ -52,15 +57,17 @@
 }
 
 .price .order-status {
-  position: absolute;
+  /* position: absolute; */
   border: 1px solid #fb0000;
   color: #fb0000;
-  right: 20rpx;
-  bottom: 20rpx;
+  /* right: 20rpx; */
+  /* bottom: 20rpx; */
   height: 50rpx;
   line-height: 50rpx;
   border-radius: 25rpx;
   padding: 0 20rpx;
   font-size: 30rpx;
   font-weight: normal;
+  text-align: center;
+  margin-left: 10rpx;
 }

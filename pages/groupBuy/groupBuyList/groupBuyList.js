@@ -1,4 +1,4 @@
-import { getGroupBuyList, getJoinedDetailList } from "../../../api/groupBuy/index"
+import { getGroupBuyList } from "../../../api/groupBuy/index"
 
 Page({
   data: {
@@ -28,7 +28,7 @@ Page({
       }
     ],
     statusSelectedId: "1101",
-    isLeader: false,
+    // isLeader: false,
     status: "all",
     type: "launch",
     page: 1
@@ -47,12 +47,11 @@ Page({
     };
 
     //发送请求
-    getGroupBuyList("POST", data).then(res => {
-      console.log(res);
-      let isLeader = res.data.isLeader;
+    getGroupBuyList("GET", data).then(res => {
+      // let isLeader = res.data.isLeader;
       let groupBuyList = res.data.groupBuyList;
       this.setData({
-        isLeader,
+        // isLeader,
         groupBuyList
       });
     });
@@ -138,7 +137,7 @@ Page({
 
     //保存已经请求到的内容
     let tempArray = this.data.groupBuyList;
-    getGroupBuyList("POSt", data).then(res => {
+    getGroupBuyList("GET", data).then(res => {
       if (res.data.groupBuyList) {
         //拼接数据
         let groupBuyList = res.data.groupBuyList;

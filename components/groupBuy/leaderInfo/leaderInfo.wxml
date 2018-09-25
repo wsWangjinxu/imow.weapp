@@ -6,10 +6,10 @@
             <button wx:if="{{hasShare}}" size="mini" open-type="share"><van-icon  style="margin-right: 10rpx;vertical-align: -2rpx;" name="share"></van-icon> <text>分享</text></button>    
         </view> 
         <view>
-            <image bindtap="ringUp" class="head" src="{{profile}}"></image>
+            <text bindtap="ringUp">{{leaderName}}</text>
             <block wx:if="{{isOpen}}">
                 <image class="hand" src="/static/icon/hand.png"></image>
-                <text>点击团长头像询价参团</text>
+                <text>点击团长名字询价参团</text>
             </block>
         </view>   
     </view>

@@ -1,5 +1,5 @@
 <view class="list">
-    <van-tab wx:if="{{isLeader}}" bindtabchange="handleTabChange"  selectedId="{{selectedId}}" list="{{list}}"></van-tab>
+    <van-tab bindtabchange="handleTabChange"  selectedId="{{selectedId}}" list="{{list}}"></van-tab>
     <van-tab selectedId="{{statusSelectedId}}" bindtabchange="handleTabChange2" list="{{statusList}}"></van-tab>
     <view class="list-ctn">
         <block wx:for="{{groupBuyList}}" wx:key="index">

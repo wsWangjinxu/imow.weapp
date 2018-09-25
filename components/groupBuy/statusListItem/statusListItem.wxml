@@ -9,7 +9,6 @@
             </block>
         </view>
         <view class="price">
-            <text>￥{{ctn.price}}</text>
             <view class="order-status">{{ctn.status}}</view>
         </view>
     </view>

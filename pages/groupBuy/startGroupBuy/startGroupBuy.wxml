@@ -1,11 +1,11 @@
 <view class="start">
     <leaderInfo 
-        profile="{{profile}}" 
+        leaderName="{{leaderName}}" 
         bgUrl="{{bgUrl}}"  
         isOpen="{{false}}"
         bind:explain="handleExplain"            
     ></leaderInfo>
-    <product id="{{id}}" productId="{{productId}}" promotionId="{{promotionId}}" ctn="{{product}}"></product>
+    <product  promotionId="{{promotionId}}" ctn="{{product}}" promotion="{{promotion}}"></product>
     <view class="startBuy">
         <view class="startBuy-title">开团设置</view>
         <view class="contact">

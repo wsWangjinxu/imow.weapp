@@ -30,22 +30,20 @@ Page({
 
   onLoad(option) {
     //保存当前拼团记录的id
-    console.log(option.id);
     this.setData({
       id: option.id
     });
 
-    console.log(this.data.id);
-
     //获取参团的产品信息
-    getGroupBuyInfo("POST", {id: option.id}).then(res => {
+    getGroupBuyInfo("GET", {id: option.id}).then(res => {
       let data = res.data;
       this.setData({
-        profile: data.profile, //头像
-        bgUrl: data.bgUrl,  //背景图片
-        explain: data.explain,  //活动说明
+        leaderName: data.leaderName, //头像
+        // bgUrl: data.bgUrl,  //背景图片
+        // explain: data.explain,  //活动说明
         product: data.product, //产品的信息
-        leaderPhone: data.leaderPhone //团长的电话，点击头像可以拨打
+        leaderPhone: data.leaderPhone, //团长的电话，点击头像可以拨打
+        promotion: data.promotion  //促销信息
       });
     });
 
@@ -84,7 +82,7 @@ Page({
 
   //获取拼团列表
   getList(type) {
-    getJoinedDetailList("POST", {type, id: this.data.id}).then(res => {
+    getJoinedDetailList("GET", {type, id: this.data.id}).then(res => {
       let isLeader = res.data.isLeader;
       let DetailList = res.data.joinedDetailList;
       this.setData({

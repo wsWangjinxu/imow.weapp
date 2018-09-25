@@ -15,7 +15,6 @@
   justify-content: flex-start;
   align-items: center;
   font-size: 28rpx;
-  width: 130%;
   border-bottom: 1px solid #787878; 
   padding-top: 10rpx;
   padding-bottom: 10rpx;
@@ -28,31 +27,13 @@
 
 .standard-table .row>view {
   text-align: center;
-  margin-right: 5rpx;
 }
 
-.row .No {
-  flex: 1;
-}
-
-.row .SKU {
-  flex: 2;
-}
-
-.row .type {
-  flex: 2.5;
-}
-
-.row .load {
-  flex: 2;
-}
-
-.row .sold {
-  flex: 1.5;
-}
-
-.row .count {
-  flex: 4;
+.row-cell {
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+  word-break: break-all;
 }
 
 /* 我的信息 */
@@ -95,4 +76,15 @@
   background-color: #fe0000;
   color: white;
   width: 200rpx;
+}
+
+/* 表格布局 */
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.table .tr {
+  display: flex;
+  flex-direction: row;
 }

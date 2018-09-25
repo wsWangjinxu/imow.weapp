@@ -9,6 +9,10 @@ Component({
     isLeader: {
       type: Boolean,
       value: false
+    },
+    index: {
+      type: Number,
+      value: -1
     }
   },
 
@@ -26,13 +30,13 @@ Component({
 
     //取消编辑
     cancelEdit(e) {
-      console.log(e.target.dataset.id); 
+      console.log(e.target.dataset.id);
       saveLeaderRemark("POST", {
-        leaderRemark: e.detail.value, 
+        leaderRemark: e.detail.value,
         id: e.target.dataset.id
       }).then(res => {
         console.log(res);
-        if(res.data.status == true) {
+        if (res.data.status == true) {
           this.setData({
             canEdit: true,
             "ctn.leaderRemark": e.detail.value
@@ -51,27 +55,36 @@ Component({
           });
         }
       });
-      
+
     },
 
     //删除一条团购记录
     delete(e) {
       let id = e.target.dataset.id;
-      deleteGroupBuyRecord("POST", {id}).then(res => {
-        console.log(res);
-        if(res.data.status == true) {
-          wx.showToast({
-            title: "删除成功！",
-            icon: "success"
-          });
-          this.setData({
-            "ctn.status": "cancel"
-          });
-        } else {
-          wx.showToast({
-            title: "删除失败！",
-            image: "/static/icon/warning-white.png"
-          });
+      let _this = this;
+      wx.showModal({
+        title: "确认删除拼单？",
+        content: "删除之后拼单状态将变为已取消状态",
+        success(data) {
+          if (data.confirm === true) {
+            deleteGroupBuyRecord("POST", { id }).then(res => {
+              console.log(res);
+              if (res.data.status == true) {
+                wx.showToast({
+                  title: "删除成功！",
+                  icon: "success"
+                });
+                _this.setData({
+                  "ctn.status": "cancel"
+                });
+              } else {
+                wx.showToast({
+                  title: "删除失败！",
+                  image: "/static/icon/warning-white.png"
+                });
+              }
+            })
+          }
         }
       })
     },
@@ -79,22 +92,31 @@ Component({
     //确认定金
     confirm(e) {
       let id = e.target.dataset.id;
-      confirmGroupBuyRecord("POST", {id}).then(res => {
-        console.log(res);
-        if(res.data.status == true) {
-          wx.showToast({
-            title: "确认成功！",
-            icon: "success"
-          });
+      let _this = this;
+      wx.showModal({
+        title: "确认收到定金？",
+        content: "如果您确认收到对方定金，请按确定键，如未收到请取消。",
+        success(data) {
+          if (data.confirm === true) {
+            confirmGroupBuyRecord("POST", { id }).then(res => {
+              console.log(res);
+              if (res.data.status == true) {
+                wx.showToast({
+                  title: "确认成功！",
+                  icon: "success"
+                });
 
-          this.setData({
-            "ctn.status": "confirmed"
-          });
-        } else {
-          wx.showToast({
-            title: "确认失败！",
-            image: "/static/icon/warning-white,pne"
-          })
+                _this.setData({
+                  "ctn.status": "confirmed"
+                });
+              } else {
+                wx.showToast({
+                  title: "确认失败！",
+                  image: "/static/icon/warning-white,pne"
+                })
+              }
+            })
+          }
         }
       })
     }

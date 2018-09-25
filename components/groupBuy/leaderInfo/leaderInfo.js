@@ -11,7 +11,7 @@ Component({
       type: String,
       value: ""
     },
-    profile: {
+    leaderName: {
       type: String,
       value: ""
     },
@@ -33,8 +33,6 @@ Component({
     explain() {
       this.triggerEvent("explain");
     }
-
-
   }
   
 });

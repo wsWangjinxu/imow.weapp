@@ -1,25 +1,25 @@
 <view class="standard">
     <view class="standard-title">规格列表</view>
-    <scroll-view scroll-x class="standard-table">
+    <scroll-view scroll-x class="standard-table" style="width: {{num}}px;">
         <view class="row">
-            <view class="No">序号</view>
-            <view class="SKU">SKU号</view>
-            <view class="type">型号</view>
-            <view class="count">数量</view>
-            <view class="load">载重(kg)</view>
-            <view class="sold">已售</view>
-            
+        <view class="row-cell">序号</view>
+        <view class="row-cell">skuCode</view>
+        <view class="row-cell">已售</view>
+        <view class="row-cell" style="width: 115px;">已选数量</view>
+            <block wx:for="{{category}}" wx:key="{{index}}">
+                <view class="row-cell">{{item}}</view>
+            </block>   
         </view>
         <block wx:for="{{skuList}}" wx:key="index">
             <view class="row">
-                <view class="No">{{index}}</view>
-                <view class="SKU">{{item.sku}}</view>
-                <view class="type">{{item.type}}</view>
-                <view class="count">
+                <view class="row-cell">{{index}}</view>
+                <view class="row-cell">{{item.skuCode}}</view>
+                <view class="row-cell">{{item.saled}}</view>
+                <view class="row-cell">
                 <van-stepper min="0" integer max="100" step="1" value="{{ item.num }}" data-id="{{index}}" bind:change="handleChange"></van-stepper></view>
-                <view class="load">{{item.weight}}</view>
-                <view class="sold">{{item.saled}}</view>
-                
+                <block wx:for="{{item.skus}}" wx:for-item="child" wx:for-index="idx" wx:key="{{idx}}">
+                    <view class="row-cell">{{child}}</view>
+                </block>
             </view>
         </block>
     </scroll-view>

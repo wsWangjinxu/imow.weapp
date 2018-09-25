@@ -4,6 +4,10 @@ Component({
   properties: {
     ctn: {
       type: Object,
+      value: {}
+    },
+    promotion: {    //促销信息
+      type: Object,
       value: {},
       observer(val) {
         if (val) {
@@ -35,11 +39,11 @@ Component({
 
   methods: {
     clock() {
-      console.log(this.data);
+      console.log(this.data.promotion);
       //获取服务器传过来的时间
-      let startTime = this.data.ctn.startTime;
-      let currentTime = this.data.ctn.currentTime;
-      let endTime = this.data.ctn.endTime;
+      let startTime = this.data.promotion.startTime;
+      let currentTime = this.data.promotion.currentTime;
+      let endTime = this.data.promotion.endTime;
       //绑定this
       let _this = this;
       //时间差
@@ -116,7 +120,7 @@ Component({
 
     getStage() {
       //请求阶段信息
-      getGroupBuyStage("POST", { id: this.data.stageId }).then(res => {
+      getGroupBuyStage("GET", { id: this.data.stageId }).then(res => {
         console.log(res);
         this.setData({
           stage: res.data
