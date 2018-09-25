@@ -11,15 +11,15 @@
     </view>
     <view class="ctn">
       <navigator url="/pages/order/order?state=待付款">
-        <van-icon name="pending-payment"></van-icon>
+        <image src='/static/icons/purse.png' mode='aspectFit'></image>
         <text>待付款</text>
       </navigator>
       <navigator url="/pages/order/order?state=待发货">
-        <van-icon name="pending-deliver"></van-icon>
+        <image src='/static/icons/clock.png' mode='aspectFit'></image>
         <text>待发货</text>
       </navigator>
       <navigator url="/pages/order/order?state=待收货">
-        <van-icon name="logistics"></van-icon>
+        <image src='/static/icons/car.png' mode='aspectFit'></image>
         <text>待收货</text>
       </navigator>
     </view>

@@ -42,7 +42,7 @@ Component({
     //进入店铺
     navToShop(e){
       let shopId = e.currentTarget.dataset.shopid;
-      wx.navigateTo({
+      wx.redirectTo({
         url: "/pages/shop/shop?shopId=" + shopId
       });
     },
@@ -50,7 +50,7 @@ Component({
     //查看店铺详情
     navToDetail(e) {
       let id = e.currentTarget.dataset.id;
-      wx.navigateTo({
+      wx.redirectTo({
         url: "/pages/shopDetail/shopDetail?shopId=" + id
       });
     }

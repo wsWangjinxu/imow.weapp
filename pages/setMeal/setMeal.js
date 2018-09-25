@@ -18,7 +18,10 @@ Page({
       { name: "EPT20 - 15ET2 3.5t全电动搬运车 中力小金刚3代", price: 8900, oldprice: 15000, img: "https://dummyimage.com/135x135/fb0a2a", productId:33333333},
     ],
     depositShow: false, //定金是否存在
-    total:""   //价格合计
+    total:0   ,//价格合计
+    totalChange:0,
+    oldTotal:129700, //组合原价
+    oldTotalChange:0
   },
   onLoad: function(e) { 
     console.log(e);
@@ -78,9 +81,20 @@ Page({
   },
   //套餐数量
   onChange(e) {
-    this.setData({
-      num: e.detail
-    });
+    this.setData({ num: e.detail });
+    if (e.detail>1){
+      let totalChange = this.data.total * e.detail;
+      let oldTotalChange = this.data.oldTotal * e.detail;
+      this.setData({
+        totalChange: totalChange,
+        oldTotalChange: oldTotalChange
+      });
+    }else{
+      this.setData({
+        totalChange: 0,
+        oldTotalChange:0
+      });
+    }
   },
   //全款按钮事件
   payType1(){
@@ -170,13 +184,17 @@ Page({
 
     //判断是否每个产品都有定金
     let count = 0;
+    let totalMoney = 0;   //改变总价
     let newArray2 = this.data.initArray;
     for (let index = 0; index < newArray2.length; index++) {
       const item = newArray2[index];
+      totalMoney += item.nowPrice ? item.nowPrice:0;
       if (item.depositShow===true) {         
         count++
       }
     }
+    console.log("总价:" + totalMoney);
+    this.setData({ total: totalMoney });   
     if (count == newArray2.length){   
       this.setData({ depositShow: true });    
     }else{

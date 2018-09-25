@@ -1,5 +1,5 @@
 <view class="shop">
-    <view style="padding: 20rpx; background: #fff;" >
+    <view style="padding: 10rpx; background: #fff;" >
       <shopTitle shopName="{{shopInfo.name}}" shopImg="{{shopInfo.logoSrc}}" shopId="{{id}}"  hasBtn="{{false}}" detail="{{true}}"></shopTitle>
     </view>
     <swiper indicator-dots="true">

@@ -15,7 +15,7 @@ swiper-item image{
 }
 
 .box{
-  padding: 34rpx 36rpx 43rpx;
+  padding: 34rpx 36rpx;
   background-color: white;
   font-size: 28rpx;
   color: #3a3a3a;

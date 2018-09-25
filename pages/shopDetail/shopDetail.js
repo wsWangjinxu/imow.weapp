@@ -6,21 +6,21 @@ const app = getApp();
 Page({
   data: {
     show: false,
+    shopId: "",
     name: "",
     imgSrc: "",
-    phone: null,
+    phone: "",
     area: "",
     addr:"",
     businessLicense: "",//工商执照
     card: "",//名片
     wechat: "",//微信号
-    time: "2018-05-18 20:15:30",
+    time: "",//2018-05-18 20:15:30
     company: "",
     bank: "",
-    account: null,
+    account: "",
     companeyInfo: "",
     mainProduct: "",
-    shopId:null,
     showContent:""
   },
   onLoad: function (e) {
@@ -79,8 +79,9 @@ Page({
     getShopInfo("GET", {
       id: this.data.shopId
     }).then(res => {
+      console.log(res)
       this.setData({
-        imgSrc: res.data.baseInfo.logoSrc
+        imgSrc: res.data.logoSrc
       });
     });
   }

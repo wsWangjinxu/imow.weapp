@@ -4,8 +4,10 @@
 
 <view class='box'>
   <view class='head'>
-    <view class='headText1'>特惠价（不含属具）：<span class="big">￥{{filters.toFix(total)}}</span></view>
-    <view class='headText2'>原组合购买价：￥{{filters.toFix(129700)}}</view>
+    <view class='headText1' wx:if="{{totalChange==0}}">特惠价（不含属具）：<span class="big">￥{{filters.toFix(total)}}</span></view>
+    <view class='headText1' wx:if="{{totalChange>0}}">特惠价（不含属具）：<span class="big">￥{{filters.toFix(totalChange)}}</span></view>
+    <view class='headText2' wx:if="{{oldTotalChange==0}}">原组合购买价：￥{{filters.toFix(oldTotal)}}</view>
+    <view class='headText2' wx:if="{{oldTotalChange>0}}">原组合购买价：￥{{filters.toFix(oldTotalChange)}}</view>
     <view class='hot'>HOT</view>    
   </view>
   <!-- <view class='item'>

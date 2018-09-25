@@ -51,6 +51,13 @@ page {
   margin-bottom: -10rpx;
 }
 
+.ctn image{
+  width: 60rpx;
+  height: 50rpx;
+  display: block;
+  margin: 10rpx;
+}
+
 .ctn navigator {
   flex: 1;
   display: flex;

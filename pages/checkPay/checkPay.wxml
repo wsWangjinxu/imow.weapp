@@ -72,7 +72,7 @@
             <text class='underLine'>{{crePoint}}元</text>信用分支付</view>
         </van-col>
         <van-col span="2">
-          <checkbox value="{{'信用分'}}" checked="" color='red' />
+          <checkbox value="{{'信用分'}}" checked=""/>
         </van-col>
       </van-row>
       <view class='paymentItem2'>
@@ -85,7 +85,7 @@
               <text class='underLine'>{{balance}}元</text>店铺余额支付</view>
           </van-col>
           <van-col span="2">
-            <checkbox value="{{'店铺余额'}}" checked="" color='red' />
+            <checkbox value="{{'店铺余额'}}" checked=""/>
           </van-col>
         </van-row>
       </view>

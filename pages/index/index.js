@@ -47,7 +47,7 @@ Page({
       {
         title: "阿母币专区",
         url: "/pages/productDetail/productDetail",
-        imgSrc: "/static/icons/im-pink.png"
+        imgSrc: "/static/icons/money-pink.png"
       },
       {
         title: "阿母学院",
