@@ -18,7 +18,6 @@ Component({
     },
     shopName:String,
     shopId: String,
-    shopImg: String,
     hasBtn: {
       type: Boolean,
       value: true
@@ -40,8 +39,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    showShopId(e){
-      console.log(e.currentTarget.dataset.shopid)
+    //进入店铺
+    navToShop(e){
+      let shopId = e.currentTarget.dataset.shopid;
+      wx.navigateTo({
+        url: "/pages/shop/shop?shopId=" + shopId
+      });
     },
 
     //查看店铺详情

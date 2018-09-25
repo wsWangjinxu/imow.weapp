@@ -1,7 +1,7 @@
 import { wxRequest } from "../../utils/http";
 
-
-var baseUrl = "http://mock.eolinker.com/3FyelRg5d3c637ba0bb45244f85ed68d2b8bd1f8c65c055?uri=";
+// var baseUrl = "http://mock.eolinker.com/3FyelRg5d3c637ba0bb45244f85ed68d2b8bd1f8c65c055?uri=";
+var baseUrl = 'http://10.10.10.138:3667/';
 
 //获取首页轮播图的内容
 function getBannerItemList(type, data) {

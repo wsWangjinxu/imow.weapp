@@ -1,9 +1,9 @@
 <view class="shopTitle">
-  <image src="{{shopImg}}"></image>
+  <image src="{{imgSrc}}"></image>
   <view class="title">
     <text>{{shopName}}</text>
     <text>工厂店</text>
   </view>
-  <button wx:if="{{hasBtn}}" data-shopId="{{shopId}}" bindtap='showShopId'>进店</button>
-  <button wx:if="{{detail}}" bindtap="navToDetail" data-id="{{shopId}}">查看详情</button>
+  <button wx:if="{{hasBtn}}" data-shopId="{{shopId}}" bindtap='navToShop'>进店</button>
+  <button wx:if="{{detail}}" data-id="{{shopId}}" bindtap="navToDetail">查看详情</button>
 </view>

@@ -5,7 +5,7 @@
   </checkbox-group>
     <view wx:if="{{!useful}}">失效</view>
   </view>
-  <image src="{{ctn.img}}" />
+  <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.img}}?x-oss-process=image/resize,m_pad,l_80" />
   <view class="ctn">
     <view class="title">{{ctn.productName}}</view>
     <view class="standard">{{ctn.skuName}},{{ctn.deliveryTime}}</view>

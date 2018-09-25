@@ -19,10 +19,10 @@ Page({
     DLPrice1:0,      //代理价格
     DLPrice2: 0,
     couponNum: 0,       //优惠券号  
-    show: false,        //弹出层
-    content:"",
-    productPolicy:"XXXXXXXXXXXXXX啥老规矩XXXXXXXXXXXXXX啥老规矩",  //产品政策
-    paymethod:"承兑汇票.网银汇款.店铺余额.支付宝.微信",    //支付方式
+    show: false,        //弹出层1
+    show2: false,        //弹出层2
+    productPolicy:"无",  //产品政策
+    paymethod: "",    //支付方式,如承兑汇票.网银汇款.店铺余额.支付宝.微信
     couponList: [
       // {
       //   "value": 300,
@@ -45,7 +45,7 @@ Page({
     productImg3: "",
     shopId:"",
     shopLogo:"",
-    shopName:"",
+    shopName:"无",
     cartNum:0,
     productId:'',
     buyBtn: true,
@@ -70,7 +70,7 @@ Page({
   onShareAppMessage: function () {
     // console.log(this.data.title)
     return {
-      title: this.data.title,
+      title: this.data.productName,
       path: '/pages/productDetail/productDetail'
     }
   },
@@ -97,22 +97,14 @@ Page({
     });    
   },
   //弹框
-  showPopup(e) {
-    // console.log(e.currentTarget.dataset.show)
-    let showNo = e.currentTarget.dataset.show;
-    if (showNo == 1) {
-      let showContent = this.data.productPolicy;
-      this.setData({ content: showContent });
-    } else if (showNo == 2) {
-      let showContent2 = this.data.paymethod;
-      this.setData({ content: showContent2 });
-    } 
-    this.setData({
-      show: !this.data.show
-    });
+  showPopup() {
+    this.setData({ show: true });
+  },
+  showPopup2() {
+    this.setData({ show2: true });
   },
   onClose() {
-    this.setData({ show: false });
+    this.setData({ show: false, show2: false });
   },  
   //获取优惠券列表
   initCouponList() {   
@@ -142,7 +134,7 @@ Page({
           amPrice2: res.data.maxImowPrice,
           DLPrice1: res.data.minAgentPrice,
           DLPrice2: res.data.maxAgentPrice,
-          productPolicy: res.data.policy,
+          productPolicy: res.data.policy?res.data.policy:"无",
           paymethod: res.data.paymethod,
           productImg: res.data.introduceImage,
           productImg2: res.data.packingImage,

@@ -7,45 +7,45 @@ const app = getApp()
 Page({
   data: {
     productSkus: [
-      {
-        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
-        "isDeposit": true,
-        "agentPrice": 133,
-        "skuCode": "01F02E072",
-        "deliveryTime": "16天",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      },
-      {
-        "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
-        "isDeposit": true,
-        "agentPrice": 1200,
-        "skuCode": "01F02E072",
-        "deliveryTime": "14天",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      },
-      {
-        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
-        "isDeposit": true,
-        "agentPrice": 1300,
-        "skuCode": "01F02E072",
-        "deliveryTime": "15天",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      },
-      {
-        "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
-        "isDeposit": true,
-        "agentPrice": 1400,
-        "skuCode": "01F02E075",
-        "deliveryTime": "16天",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      },
-      {
-        "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
-        "isDeposit": false,
-        "agentPrice": 1500,
-        "skuCode": "01F02E076",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      }
+      // {
+      //   "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
+      //   "isDeposit": true,
+      //   "agentPrice": 133,
+      //   "skuCode": "01F02E072",
+      //   "deliveryTime": "16天",
+      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      // },
+      // {
+      //   "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
+      //   "isDeposit": true,
+      //   "agentPrice": 1200,
+      //   "skuCode": "01F02E072",
+      //   "deliveryTime": "14天",
+      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      // },
+      // {
+      //   "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
+      //   "isDeposit": true,
+      //   "agentPrice": 1300,
+      //   "skuCode": "01F02E072",
+      //   "deliveryTime": "15天",
+      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      // },
+      // {
+      //   "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
+      //   "isDeposit": true,
+      //   "agentPrice": 1400,
+      //   "skuCode": "01F02E075",
+      //   "deliveryTime": "16天",
+      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      // },
+      // {
+      //   "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
+      //   "isDeposit": false,
+      //   "agentPrice": 1500,
+      //   "skuCode": "01F02E076",
+      //   "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+      // }
     ],
     filedProductSkus: {
       sku: {
@@ -94,7 +94,8 @@ Page({
     hasDeliveryTime: false,//交期是否存在
     depositShow: false, //定金按钮显示隐藏
     num: 1, //数量
-    paytype: 0, //定金全款判断  
+    paytype: 0, //定金全款判断
+    productImg:"", //左上角产品图片
     paymethod: "", //支付方式文字
     CA: "item",
     CB: "item"
@@ -520,36 +521,28 @@ Page({
   //页面初始化函数
   init() {
     //获取产品详情内容
-    this.filted();
-    let productSkus = this.data.productSkus;
-    for (let index = 0; index < productSkus.length; index++) {
-      const item = productSkus[index];
-      if (item.deliveryTime) {
-        this.setData({ hasDeliveryTime: true });
+    getProductSkus("GET", {
+      id: this.data.productId,
+    }).then(res => {
+      console.log(res.data.productSkus);
+      this.setData({
+        productSkus: res.data.productSkus
+      });
+      this.filted();
+      let productSkus = this.data.productSkus;
+      for (let index = 0; index < productSkus.length; index++) {
+        const item = productSkus[index];
+        if (item.deliveryTime) {
+          this.setData({ hasDeliveryTime: true });
+        }
       }
-    }
-
-    // getProductSkus("GET", {
-    //   id: this.data.productId,
-    // }).then(res => {
-    //   console.log(res.data.productSkus);
-    //   this.setData({
-    //     productSkus: res.data.productSkus
-    //   });
-    //   this.filted();
-    //   let productSkus = this.data.productSkus;
-    //   for (let index = 0; index < productSkus.length; index++) {
-    //     const item = productSkus[index];
-    //     if (item.deliveryTime) {
-    //       this.setData({ hasDeliveryTime: true });
-    //     }
-    //   }
-    // });
+    });
     getProductDetail("GET", {
       id: this.data.productId,
     }).then(res => {
       this.setData({
-        paymethod: res.data.paymethod
+        paymethod: res.data.paymethod,
+        productImg: res.data.images[0]
       });
       
     });

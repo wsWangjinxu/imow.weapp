@@ -1,7 +1,7 @@
 /**index.wxss**/
 page{
   background-color: #f2f2f2;
-  padding-bottom: 108rpx;
+  padding-bottom: 110rpx;
 }
 
 swiper{
@@ -17,7 +17,7 @@ swiper-item image{
 .box{
   padding: 34rpx 36rpx 43rpx;
   background-color: white;
-  font-size: 24rpx;
+  font-size: 28rpx;
   color: #3a3a3a;
 }
 
@@ -97,8 +97,13 @@ swiper-item image{
 }
 
 .send{
-  margin-top:16rpx;
-  margin-bottom:16rpx;
+  margin-top:26rpx;
+  margin-bottom:26rpx;
+}
+
+.send image{
+  width:16rpx;
+  height:16rpx;
 }
 
 .send2{
@@ -121,16 +126,15 @@ swiper-item image{
   margin-bottom:16rpx; 
 }
 
+.shopName .arrow{
+  width:16rpx;
+  height:16rpx;
+}
+
 .logo{
   width: 102rpx;
   height: 38rpx;
-  background-color: blue;
-}
-
-.logo image{
-  width: 102rpx;
-  height: 38rpx;
-  background-color: blue;
+  background-color: red;
 }
 
 .productImg{
@@ -149,10 +153,7 @@ swiper-item image{
   text-align: center;
   line-height: 30rpx;
   margin: auto;
-  /* background-image: url("https://dummyimage.com/413x27");
-  background-size:100% 100%;  
-  background-repeat:no-repeat; */
-  font-size: 26rpx;
+  font-size: 28rpx;
   font-weight: bold;
   position: relative;
 }
@@ -174,7 +175,7 @@ swiper-item image{
 } */
 
 .footer{
-  height: 108rpx;
+  height: 110rpx;
   position: fixed;
   bottom: 0;
   width:100%;
@@ -185,8 +186,8 @@ swiper-item image{
 }
 
 .button1{
-  height: 108rpx;
-  padding-top:14rpx;
+  height: 110rpx;
+  padding-top:16rpx;
   display: flex;
   flex-direction: column ;
   font-size: 40rpx;
@@ -194,16 +195,21 @@ swiper-item image{
   border-right: 1px solid #cccccc;
 }
 
-.button1 text{
-  font-size: 18rpx;
+.button1 image{
+  display: block;
+  margin: 0 auto;
+  width: 47rpx;
+  height: 45rpx;
 }
 
-.button2 text{
+.button1 text{
+  margin-top: 10rpx;
   font-size: 18rpx;
 }
 
 .button2{
-  padding-top:14rpx;
+  height: 110rpx;
+  padding-top:16rpx;
   display: flex;
   flex-direction: column ;
   font-size: 40rpx;
@@ -211,10 +217,22 @@ swiper-item image{
   position: relative;
 }
 
+.button2 image{
+  display: block;
+  margin: 0 auto;     
+  width: 47rpx;
+  height: 45rpx;
+}
+
+.button2 text{
+  margin-top: 10rpx;
+  font-size: 18rpx;
+}
+
 .redPoint{
-  width: 30rpx;
-  height:30rpx;
-  line-height: 30rpx;
+  width: 34rpx;
+  height:34rpx;
+  line-height: 34rpx;
   text-align: center;
   border-radius: 50%;
   background: #fe0000;
@@ -226,17 +244,23 @@ swiper-item image{
 }
 
 .button3{
-  line-height: 108rpx;
-  font-size: 40rpx;
+  line-height: 110rpx;
+  font-size: 30rpx;
   background-color: #fe9900;
   color:white;
   font-weight: 600
 }
 
 .button4{
-  line-height: 108rpx; 
-  font-size: 40rpx;
-  background-color: #fe0000;
+  line-height: 110rpx; 
+  font-size: 30rpx;
+  background-color: #d7000f;
   color:white;
   font-weight: 600
+}
+
+.popup{
+  word-break: break-all;
+  padding:10rpx;
+  font-size:28rpx; 
 }

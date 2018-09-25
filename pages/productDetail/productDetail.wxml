@@ -5,17 +5,18 @@
   加载中...
 </loading>
 
+
 <swiper indicator-dots="{{indicatorDots}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key="{{index}}">
     <swiper-item>
-      <image src="{{item.url}}" class="slide-image" width="355" height="150"/>
+      <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}?x-oss-process=image/resize,m_pad,l_375" class="slide-image" width="355" height="150"/>
     </swiper-item>
   </block>
 </swiper>
 
 <view class="productTitle box">
   <view class='name'>{{productName}}</view> 
-  <van-button size="small" open-type='share'><text  class='like'>分享</text><van-icon name="share" class='like'/></van-button>
+  <van-button size="small" open-type='share'><text  class='like'>分享</text></van-button>
 </view>
 
 <view class='box priceBox'>
@@ -31,7 +32,7 @@
     </van-col> -->
   </van-row>
   
-  <view class='priceBox2'>
+  <view class='priceBox2' wx:if="{{true}}">
     <van-row>
       <van-col span="5">
         <text>代理价</text>
@@ -91,19 +92,17 @@
 </view>  -->
 
 <view class="box send">
-  <view bindtap='showPopup' data-show="1">
   <van-row>
     <van-col span="5">
       <text>产品政策</text>
     </van-col>
     <van-col span="18">
-      <view class='textHidden'>{{productPolicy}}</view>
+      <view class='textHidden' bindtap='showPopup'>{{productPolicy}}</view>
     </van-col>
     <van-col span="1">
-      <text> > </text>
+      <view bindtap='showPopup'><image src='/static/icons/arrow-right-grey.png'></image></view>
     </van-col> 
   </van-row>
-  </view> 
   <view class='sevenDay'>
     <van-row>
       <van-col span="5">
@@ -114,19 +113,17 @@
       </van-col>
     </van-row>
   </view>
-  <view bindtap='showPopup' data-show="2">
   <van-row>
     <van-col span="5">
       <text>支付方式</text>
     </van-col>
     <van-col span="18">
-      <view class='textHidden'>{{paymethod}}</view>
+      <view class='textHidden' bindtap='showPopup2'>{{paymethod}}</view>
     </van-col>
     <van-col span="1">
-      <text> > </text>
+      <view bindtap='showPopup2'><image src='/static/icons/arrow-right-grey.png'></image></view>
     </van-col> 
   </van-row>
-  </view> 
 </view>
 
 <view class='box send'>
@@ -139,7 +136,7 @@
       <text>规格、交期、支付类型</text>
     </van-col>
     <van-col span="1">
-      <text> > </text>
+      <view><image src='/static/icons/arrow-right-grey.png'></image></view>
     </van-col>
   </navigator>  
   </van-row>
@@ -149,7 +146,7 @@
   <van-row>
   <navigator url='/pages/shopDetail/shopDetail?shopId={{shopId}}'>
     <van-col span="5">
-      <view class='logo'><image src="{{shopLogo}}"></image></view>   
+      <image class='logo' src="{{shopLogo}}"></image>  
     </van-col>
     <van-col span="14">
       <text style='font-weight:800;'>{{shopName}}</text>     
@@ -158,7 +155,7 @@
       <text style='color:#fe0000;'>进店看看</text>
     </van-col>
     <van-col span="1">
-      <text> > </text>
+      <view><image class='arrow' src='/static/icons/arrow-right-grey.png'></image></view>
     </van-col>
   </navigator>  
   </van-row>
@@ -170,7 +167,7 @@
     <image src='/static/imgs/titleBg.png'></image>
   </view>
   <view class='productImg'>
-    <image mode="widthFix" src='{{productImg}}'></image>
+    <image mode="widthFix" src='http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{productImg}}'></image>
   </view>
 
   <view class='title'>
@@ -195,7 +192,7 @@
     <van-col span="4">
     <navigator url='/pages/index/index' open-type="switchTab">
       <view  class="button1">
-        <van-icon name="wap-home" />
+        <image src='/static/icons/hourse-grey.png'></image>
         <text>首页</text>
       </view>
     </navigator>      
@@ -203,7 +200,7 @@
     <van-col span="4">
     <navigator url='/pages/cart/cart' open-type="switchTab">
       <view  class="button2">
-        <van-icon name="cart" />
+        <image src='/static/icons/cart-grey.png'></image>
         <text>购物车</text>
         <view class='redPoint' wx:if="{{cartNum>0}}">{{cartNum}}</view>
       </view>
@@ -222,9 +219,13 @@
   </van-row>
 </view>
 
-<!-- 弹框 -->
+<!-- 政策弹框 -->
 <van-popup show="{{ show }}" position="top" overlay="{{ true }}" bind:close="onClose" catchtouchmove="ture">
-  {{content}}
+  <view class='popup'>{{productPolicy}}</view>
+</van-popup>
+<!-- 支付方式描述弹框 -->
+<van-popup show="{{ show2 }}" position="top" overlay="{{ true }}" bind:close="onClose" catchtouchmove="ture">
+  <view class='popup'>{{paymethod}}</view>
 </van-popup>
 
 </view>

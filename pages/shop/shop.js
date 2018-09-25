@@ -4,7 +4,7 @@ import { getFactoryBanner, getFactoryProductPaneList, getShopInfo } from "../../
 Page({
   onLoad(option) {
     //获取店铺id
-    let id = option.id;
+    let id = option.shopId;
     this.setData({ id });
     getFactoryBanner("GET", { id }).then(res => { 
       this.setData({
