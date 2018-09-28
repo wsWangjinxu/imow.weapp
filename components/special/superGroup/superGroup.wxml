@@ -1,5 +1,6 @@
 <view class="super-group">
-    <image mode="widthFix" style="width: 100%;" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}?x-oss-process=image/resize,m_pad,l_300" />
+    <image mode="widthFix" style="width: 100%;" src="{{ctn.image}}" />
+    <!-- <image mode="widthFix" style="width: 100%;" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}" /> -->
     <view class="super-ctn">
       <view class="super-num">
         <view>已团</view>

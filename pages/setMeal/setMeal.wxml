@@ -10,19 +10,6 @@
     <view class='headText2' wx:if="{{oldTotalChange>0}}">原组合购买价：￥{{filters.toFix(oldTotalChange)}}</view>
     <view class='hot'>HOT</view>    
   </view>
-  <!-- <view class='item'>
-    <image src="/static/imgs/aa.png" />
-    <view class='itemCenter'>
-      <view class='name'>EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代</view>
-      <view class='format'>
-        <view>
-          <view class='price'>￥8900起</view>
-          <view class='primePrice'>原价￥9900</view>
-        </view>
-        <view class='select' bindtap='showpop' data-productId="66666666">选择规格</view>
-      </view>
-    </view>
-  </view> -->
   <view class='item' wx:for="{{initArray}}" wx:key="{{index}}">
     <image src="{{item.img}}" />
     <view class='itemCenter'>

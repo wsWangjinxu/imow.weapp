@@ -1,7 +1,7 @@
 <view class="special">
   <swiper class="swiper" indicator-dots="true">
     <block wx:for="{{swipers}}" wx:key="{{index}}">
-      <swiper-item><navigator url="{{ item.url }}"  hover-class="className"><image mode="scaleToFill" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.image}}?x-oss-process=image/resize,m_pad,l_125" /></navigator></swiper-item>
+      <swiper-item><navigator url="{{ item.url }}"  hover-class="className"><image mode="scaleToFill" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.image}}" /></navigator></swiper-item>
     </block>
   </swiper>
   <lineTitle title="{{'双11专享优惠券'}}"></lineTitle>
