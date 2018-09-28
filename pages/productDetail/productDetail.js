@@ -78,10 +78,10 @@ Page({
     // console.log(e.currentTarget.dataset.no);
     this.setData({ couponNum: e.currentTarget.dataset.no });
     //领取优惠券
-    getDiscountCoupon("POST", {
+    getDiscountCoupon("get", {
       number: this.data.couponNum
     }).then(res => {
-      // console.log(res.data.status);
+      console.log(res);
       if (res.data.status) {
         wx.showToast({
           title: '领取成功',
@@ -125,7 +125,8 @@ Page({
     getProductDetail("GET",{
       id: this.data.productId,
     }).then(res => {
-      if (res.statusCode==200){        
+      if (res.statusCode==200){ 
+        console.log(res.data)       
         this.setData({
           hiddenLoading: true,   //请求成功
           productName: res.data.productName,
