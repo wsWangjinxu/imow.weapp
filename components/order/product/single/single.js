@@ -11,6 +11,14 @@ Component({
     isChecked: {
       type: Boolean,
       value: false
+    },
+    isKit: {
+      type: Boolean,
+      value: false
+    },
+    number: {
+      type: Number,
+      value: -1
     }
   },
   /**

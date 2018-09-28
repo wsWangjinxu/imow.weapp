@@ -3,6 +3,7 @@
   "usingComponents": {
     "van-stepper": "/vantui/stepper/index",
     "product": "/components/order/product/accessory/accessory",
-    "single": "/components/order/product/single/single"
+    "single": "/components/order/product/single/single",
+    "ctn": "/components/order/product/productCtn/productCtn"
   }
 }

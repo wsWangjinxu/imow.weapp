@@ -1,3 +1,18 @@
 .productCtn {
   border-bottom: 1px solid #cccccc;
 }
+
+.result-bar {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 20rpx;
+}
+
+.result-price {
+  color: #fe0000;
+  display: inline-block;
+  margin-left: 230rpx;
+}

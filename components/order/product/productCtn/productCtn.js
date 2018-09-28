@@ -35,6 +35,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    //当产品为套餐的时候修改套餐的数量
+    handleChange(e){
+      console.log(e);
+      this.setData({
+        "product.promotionModel.packageInfo.num": e.detail
+      });
+    },
+
     handleNum(e) {
       //点击修改product.num的值，然后批量修改属具的数量
       this.setData({
