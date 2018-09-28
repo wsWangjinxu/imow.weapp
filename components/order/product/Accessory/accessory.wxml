@@ -1,0 +1,17 @@
+<view class="product">
+  <view class="status">
+  <checkbox-group wx:if="{{!isOrderConfirm}}" bindchange="checkboxChange">
+    <checkbox  data-id="{{ctn.id}}" checked="{{isChecked}}"  wx:if="{{useful}}"></checkbox>
+  </checkbox-group>
+    <view wx:if="{{!useful}}">失效</view>
+  </view>
+  <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.img}}?x-oss-process=image/resize,m_pad,l_80" />
+  <view class="ctn">
+    <view class="title">{{ctn.productName}}</view>
+    <view class="standard">{{ctn.skuName}},{{ctn.deliveryTime}}</view>
+    <view class="price">
+      <text>￥{{ctn.price * ctn.num * number}}</text>
+      <text>X{{ctn.num * number}}</text>
+    </view>
+  </view> 
+</view>
