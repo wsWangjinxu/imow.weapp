@@ -28,17 +28,23 @@ Component({
   methods: {
     //记录用户选中的商品
     selectedProduct(e) {
-      if(e.detail.status === 1) {
+      console.log(e);
+      if (e.detail.status === 1) {
         let tempArray = this.data.selectedIndex;
         let temp = 0;
+        //当用户点击stepper的时候，更新已选中的购物车中的数据
         tempArray.forEach(element => {
-          if(element.index == e.detail.index) {
+          if (element.index == e.detail.index) {
             element.num = e.detail.num;
             temp = 1;
           }
         });
-        if(temp == 0) {
-          tempArray.push({index:e.detail.index, num: e.detail.num });
+        //当购物车中没有选中这件商品的时候，将这件商品加入购物车
+        if (temp == 0) {
+          tempArray.push({
+            index: e.detail.index,
+            num: e.detail.num
+          });
         }
         this.setData({
           selectedIndex: tempArray
@@ -48,8 +54,8 @@ Component({
         this.money();
       } else {
         let tempArray = this.data.selectedIndex;
-        tempArray.forEach((element,index)=>{
-          if(element.index === e.detail.index) {
+        tempArray.forEach((element, index) => {
+          if (element.index === e.detail.index) {
             tempArray.splice(index, 1);
           }
         });
@@ -86,26 +92,52 @@ Component({
       //给选中的数组排序，因为用户可能点选的顺序不一样
       tempArray.sort();
       //统计数量和总价
+      //产品的元数据
       let productArray = this.data.shop.orderCartProductSkus;
+      //产品的总件数
       let sumNumber = 0;
+      //产品的总钱数
       let sumMoney = 0;
+      //数据的总钱数
       let accessory = 0;
       let single = 0;
-      if(tempArray.length === productArray.length) {
+      if (tempArray.length === productArray.length) {
         this.setData({
           cancelCheck: true
         });
       }
-      for(let i = 0; i < tempArray.length; i ++) {
+      for (let i = 0; i < tempArray.length; i++) {
         let index = tempArray[i].index;
         let num = tempArray[i].num;
         sumNumber = sumNumber + num;
-        single += productArray[index].price * num;
-        productArray[index].accessories.forEach(element => {
-          accessory = accessory + element.price * num * element.num;
-        })
+        if (productArray[index].promotionModel === null) {
+          //计算不是套餐的产品的总钱数
+          console.log("null")
+          single += productArray[index].price * num;
+          if(productArray[index].accessories) {
+            productArray[index].accessories.forEach(element => {
+              accessory = accessory + element.price * num * element.num;
+            })
+          }
+        } else {
+          //计算是套餐的产品的总钱数
+          console.log("not null")
+          console.log(num);
+          
+          let ctn = productArray[index].promotionModel.packageInfo.orderCartProductSkus;
+          console.log(ctn)
+          for(let j = 0; j < ctn.length; j++) {
+            single += ctn[j].price * num * ctn[j].num;
+            if(ctn[j].accessories) {
+              ctn[j].accessories.forEach(ele => {
+                accessory = accessory + ele.price * num * ele.num;
+              })
+            }
+          } 
+        }
       }
       sumMoney = accessory + single;
+      console.log(sumMoney);
       this.setData({
         sumMoney: sumMoney,
         sumNumber: sumNumber
@@ -114,7 +146,7 @@ Component({
 
     //结算
     pay(e) {
-      if(this.data.sumMoney === 0) {
+      if (this.data.sumMoney === 0) {
         wx.showToast({
           title: "请选择商品",
           image: "/static/icon/warning-white.png"
@@ -125,11 +157,20 @@ Component({
         let productList = this.data.shop.orderCartProductSkus;
 
         let cartId = "";
-        for(let i = 0; i < temp.length; i++) {
-          let index = temp[i].index;
-          cartId += productList[index].cartId + ","
+        for (let i = 0; i < temp.length; i++) {
+          if(productList[i].promotionModel === null) {
+            let index = temp[i].index;
+            cartId += productList[i].cartId + ","
+          } else {
+            let ctnList = productList[i].promotionModel.packageInfo.orderCartProductSkus;
+            for(let j = 0; j < ctnList.length; j++) {
+              cartId += ctnList[j].cartId + ",";
+            }
+          }
+          
         }
-        cartId = cartId.slice(0, cartId.length-1);
+        cartId = cartId.slice(0, cartId.length - 1);
+        console.log(cartId);
         //跳转到确认订单页面
         wx.navigateTo({
           url: "/pages/orderConfirm/orderConfirm?cartId=" + cartId

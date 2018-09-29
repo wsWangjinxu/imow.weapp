@@ -13,6 +13,7 @@ Page({
 
   init() {
     getUserCart("GET").then(res => {
+      console.log(res);//eslint-disable-line
       this.setData({
         list: res.data.data
       });

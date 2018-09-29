@@ -19,8 +19,14 @@
   padding-right: 10rpx;
 }
 
+/* 控制产品的文字一行显示，超出以后显示省略号 */
 .product  text {
   font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical;
 }
 
 .product > view {

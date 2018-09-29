@@ -35,13 +35,32 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    //当产品为套餐的时候修改套餐的数量
+    handleChange(e){
+      console.log(e);
+      this.setData({
+        "product.promotionModel.packageInfo.num": e.detail
+      });
+      if(this.data.isChecked) {
+        if(this.data.product.promotionModel) {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
+        } else {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        }
+      }
+    },
+
     handleNum(e) {
       //点击修改product.num的值，然后批量修改属具的数量
       this.setData({
         "product.num": e.detail.num
       });
       if(this.data.isChecked) {
-        this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        if(this.data.product.promotionModel) {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
+        } else {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        }
       }
     },
 
@@ -52,7 +71,11 @@ Component({
         this.setData({
           isChecked: true
         });
-        this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        if(this.data.product.promotionModel) {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
+        } else {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        }
       } else {
         //取消单个产品包括属具
         this.setData({
