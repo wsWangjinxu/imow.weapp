@@ -16,3 +16,22 @@
   display: inline-block;
   margin-left: 230rpx;
 }
+
+.kit-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx 20rpx 5rpx 20rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+  margin-bottom: -20rpx;
+}
+
+.kit-title text:first-child {
+  background-color: #fe0000;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 10rpx;
+  padding: 3rpx 10rpx;
+  margin-right: 10rpx;
+}

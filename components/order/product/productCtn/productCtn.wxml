@@ -12,6 +12,7 @@
     </block>
 </block>
 <block wx:if="{{product.promotionModel}}">
+  <view class="kit-title"><text>组合套餐</text>{{product.promotionModel.name}}</view>
   <view wx:for="{{product.promotionModel.packageInfo.orderCartProductSkus}}" wx:for-index="idx" wx:key="idx">
     <single 
      bind:handleNum="handleNum"
@@ -27,7 +28,7 @@
     </block>
   </view>
   <view class="result-bar">
-      <text class="result-price">￥{{product.promotionModel.packageInfo.price}}</text>
+      <text class="result-price">￥{{product.promotionModel.packageInfo.price * product.promotionModel.packageInfo.num}}</text>
       <van-stepper value="{{product.promotionModel.packageInfo.num}}" bind:change="handleChange"></van-stepper>
   </view>
 </block>

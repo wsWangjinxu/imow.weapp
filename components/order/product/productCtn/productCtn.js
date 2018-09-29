@@ -41,6 +41,13 @@ Component({
       this.setData({
         "product.promotionModel.packageInfo.num": e.detail
       });
+      if(this.data.isChecked) {
+        if(this.data.product.promotionModel) {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
+        } else {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        }
+      }
     },
 
     handleNum(e) {
@@ -49,7 +56,11 @@ Component({
         "product.num": e.detail.num
       });
       if(this.data.isChecked) {
-        this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        if(this.data.product.promotionModel) {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
+        } else {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        }
       }
     },
 
@@ -60,7 +71,11 @@ Component({
         this.setData({
           isChecked: true
         });
-        this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        if(this.data.product.promotionModel) {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
+        } else {
+          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+        }
       } else {
         //取消单个产品包括属具
         this.setData({

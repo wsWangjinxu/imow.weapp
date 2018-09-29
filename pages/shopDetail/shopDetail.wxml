@@ -16,10 +16,10 @@
       <van-col span="6">服务电话</van-col>
       <van-col span="18">{{phone}}</van-col>
     </van-row>
-    <van-row>
+  <!--  <van-row>
       <van-col span="6">所在地区</van-col>
       <van-col span="18">{{area}}</van-col>
-    </van-row>
+    </van-row> -->
     <van-row>
       <van-col span="6">详细地址</van-col>
       <van-col span="18">{{addr}}</van-col>

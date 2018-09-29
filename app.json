@@ -1,5 +1,6 @@
 {
   "pages":[ 
+    "pages/cart/cart",
     "pages/index/index",
     "pages/my/my",
     "pages/groupBuy/startGroupBuy/startGroupBuy",
@@ -19,7 +20,6 @@
     "pages/coupon/coupon",
     "pages/order/order",  
     "pages/orderDetail/orderDetail",
-    "pages/cart/cart",
     "pages/search/search",
     "pages/buy/buy",
     "pages/finishPay/finishPay",
