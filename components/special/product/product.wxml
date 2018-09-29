@@ -1,5 +1,5 @@
 <view class="product">
-  <image mode="widthFix" style="flex: none;width: 160rpx;margin-right: 10rpx;" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}?x-oss-process=image/resize,m_pad,l_80" />
+  <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}?x-oss-process=image/resize,m_pad,l_80" />
   <view class="product-ctn" style="flxe: 2;">
     <view>{{ctn.title}}</view>
     <view>

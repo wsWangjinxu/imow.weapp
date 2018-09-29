@@ -2,6 +2,11 @@
   font-size:28rpx;
 }
 
+.super-group image{
+  width:228rpx;
+  height:228rpx;
+}
+
 .super-ctn {
   position: relative;
 }
