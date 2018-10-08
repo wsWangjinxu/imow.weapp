@@ -6,11 +6,7 @@ const app = getApp();
 
 Page({
   data: {
-    imgUrls: [
-      // 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      // 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      // 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+    imgUrls: [],
     indicatorDots: true,
     duration: 1000,      //--上边都是轮播需要属性
     productName: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代",
@@ -41,8 +37,8 @@ Page({
       // }
     ],     //获取优惠券列表
     productImg:"",   //产品介绍3张图
-    productImg2:"",
-    productImg3: "",
+    productImg2:[],
+    productImg3: [],
     shopId:"",
     shopLogo:"",
     shopName:"无",
@@ -52,6 +48,9 @@ Page({
     hiddenLoading: false, //加载中，false显示ture隐藏
     request1:false,
     request2: false,
+    promotionName:"活动名称",//活动名称
+    promotionId:"",//活动id
+    promotionType: ""
   },
   onLoad: function (e) {
     this.setData({ productId: e.id });
@@ -138,10 +137,21 @@ Page({
           productPolicy: res.data.policy?res.data.policy:"无",
           paymethod: res.data.paymethod,
           productImg: res.data.introduceImage,
-          productImg2: res.data.packingImage,
-          productImg3: res.data.serviceImage,
+          productImg2: res.data.packingImage.split(','),
+          productImg3: res.data.serviceImage.split(','),
           shopId: res.data.shopId   //此商品对应店铺id
         });
+        for (let index = 0; index < res.data.productSkus.length; index++) {
+          const item = res.data.productSkus[index];
+          if (item.promotionModel) {
+            this.setData({ 
+              promotionName: item.promotionModel.promotionName,
+              promotionId: item.promotionModel.id,
+              promotionType: item.promotionModel.type
+            });
+            return false;
+          }
+        }
       }else{
         this.setData({hiddenLoading: true});
         wx.showToast({

@@ -5,7 +5,6 @@
   加载中...
 </loading>
 
-
 <swiper indicator-dots="{{indicatorDots}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key="{{index}}">
     <swiper-item>
@@ -15,8 +14,11 @@
 </swiper>
 
 <view class="productTitle box">
-  <view class='name'>{{productName}}</view> 
-  <van-button size="small" open-type='share'><text  class='like'>分享</text></van-button>
+  <view class='name'>{{productName}}</view>
+  <van-button wx:if="{{!canCollage}}" size="small" open-type='share'><text  class='like'>分享</text></van-button>
+  <navigator url='pages/groupBuy/joinGroupBuy/joinGroupBuy?id={{promotionId}}'>
+    <van-button wx:if="{{canCollage}}" size="small"><text  class='like'>拼团</text></van-button>
+  </navigator>  
 </view>
 
 <view class='box priceBox'>
@@ -40,8 +42,14 @@
       <van-col span="14">
         <text class='price2'>￥{{DLPrice1}}~{{DLPrice2}}</text> 
       </van-col>
+      <van-col span="5" class="center" wx:if="{{promotionType==1}}">
+        <navigator url='/pages/groupBuy/joinGroupBuy/joinGroupBuy?id={{promotionId}}'><view wx:if="{{promotionName}}" class='tip'>{{promotionName}}</view></navigator>
+      </van-col>
+      <van-col span="5" class="center" wx:if="{{promotionType==4}}">
+        <navigator url='/pages/setMeal/setMeal?id={{promotionId}}'><view wx:if="{{promotionName}}" class='tip'>{{promotionName}}</view></navigator>
+      </van-col>
       <van-col span="5" class="center">
-        <view  class='tip'>阿母团购日</view>
+        <navigator url='/pages/setMeal/setMeal?id={{promotionId}}'><view wx:if="{{promotionName}}" class='tip'>{{promotionName}}</view></navigator>
       </van-col>
     </van-row> 
   </view>    
@@ -59,14 +67,14 @@
   <view class='youhui'>
     <view class='coupon' wx:for="{{couponList}}" wx:key="{{index}}" bindtap='getCoupon' data-no="{{item.number}}">满{{item.useAmountLimit}}减{{item.value}}券</view>
   </view>
-  <van-row>
+  <!-- <van-row>
     <van-col span="5">
       <text>店铺活动</text>
     </van-col>
     <van-col span="19">
       <text>部分产品参加满500包邮</text><view class='lookProduct'>查看活动产品</view>
     </van-col>   
-  </van-row>
+  </van-row> -->
 </view>
 
 <!-- <view class='box send'>
@@ -175,7 +183,9 @@
     <image src='/static/imgs/titleBg.png'></image>
   </view> 
   <view class='productImg'>
-   <image mode="widthFix" src='{{productImg2}}'></image>
+    <block wx:for="{{productImg2}}" wx:key="{{index}}">
+      <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}"></image>
+    </block>
   </view>
 
   <view class='title'>
@@ -183,7 +193,9 @@
     <image src='/static/imgs/titleBg.png'></image>
   </view>
   <view class='productImg'>
-   <image mode="widthFix" src='{{productImg3}}'></image>
+    <block wx:for="{{productImg3}}" wx:key="{{index}}">
+      <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}"></image>
+    </block>
   </view>
 </view>
 
