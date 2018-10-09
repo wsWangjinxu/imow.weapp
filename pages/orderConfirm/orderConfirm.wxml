@@ -55,8 +55,12 @@
     </checkbox-group>
     <view class="money">
       <view>
-        <text>订单总额（不含运费）</text>
+        <text>应付金额</text>
         <text>￥{{cartData.orderPrice}}</text>
+      </view>
+      <view wx:if="{{cartData.depositPrice}}">
+        <text>定金</text>
+        <text>￥{{cartData.depositPrice}}</text>
       </view>
       <view>
         <text>商品总价</text>
@@ -69,7 +73,7 @@
       <view wx:if="{{useConpon}}">
         <text>优惠券</text>
         <text>-￥{{cartData.couponTotleDiscount}}</text>
-      </view>
+      </view>   
     </view>
     <view class="submit">
       <view>
@@ -77,16 +81,4 @@
         <view class="submitBtn" bindtap="addOrder" style="background-color:{{showBtn? 'fb0200':'#333'}};">{{btnText}}</view>   
       </view>
     </view>
-  <!--  <van-popup position="bottom" show="{{show}}">
-      <view class="popCtn">
-        <view class="title">
-          <view>自提地点</view>
-          <view>浙江省杭州工厂（浙江省杭州市下城区永华街121号浙江中力机械）</view>
-        </view>
-        <view class="ctn">
-          <view>以下车型可供自提</view>
-          <view>这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型这里全是车型</view>
-        </view>
-      </view>
-    </van-popup> -->
 </view>

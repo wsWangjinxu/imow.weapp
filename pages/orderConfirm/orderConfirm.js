@@ -1,4 +1,4 @@
-import { getOrderConfirmCart } from "../../api/user/cart"
+import { getOrderConfirmCart1, getOrderConfirmCart2, getOrderConfirmCart3 } from "../../api/user/cart"
 import { getAddressList } from "../../api/user/address"
 import { getInvoiceInfo } from "../../api/user/invoice"
 import { addOrder } from "../../api/order/order"
@@ -41,7 +41,7 @@ Page({
     selfAddressId: ""
   },
   onLoad(option) {
-    let selfAddressData = "";
+    
 
     //下面一行注释用于测试，测试完毕以后放开注释,根据购物车id获取商品的信息
     if (option.cartId) {
@@ -50,11 +50,18 @@ Page({
         btnText: "提交订单",
         cartId: option.cartId
       });
-    } else if (option.groupBuyId) {
+      getOrderConfirmCart1("GET", {cartId: option.cartId}).then(res => {
+        this.firstRequest(res);
+      });
+
+    } else if (option.collageId) {
       //说明是从拼团页面过来的
       this.setData({
         btnText: "提交订单",
-        groupBuyId: option.groupBuyId
+        groupBuyId: option.collageId
+      });
+      getOrderConfirmCart2("GET", {collageId: option.collageId}).then(res => {
+        this.firstRequest(res);
       });
     } else {
       //说明是从定金产品过来的
@@ -63,34 +70,11 @@ Page({
         skuId: option.skuId,
         num: option.num
       });
-
-    }
-
-    //收集数据
-    let data = {
-      skuId: this.data.skuId,
-      num: this.data.num,
-      groupBuyId: this.data.groupBuyId,
-      cartId: this.data.cartId
-    }
-
-    //请求内容
-    getOrderConfirmCart("GET", data).then(res => {
-      //拼接产品id
-      let product = res.data.data.orderCartProductSkus;
-      product.forEach(ele => {
-        selfAddressData = selfAddressData + ele.id + ',';
+      getOrderConfirmCart3("GET", {skuId: option.skuId,
+        num: option.num}).then(res => {
+        this.firstRequest(res);
       });
-
-      //去掉结尾的逗号
-      selfAddressData = selfAddressData.slice(0, selfAddressData.length - 1);
-      //获取自提点
-      this.getSelfPick(selfAddressData);
-      //设置数据
-      this.setData({
-        cartData: res.data.data
-      });
-    });
+    }
 
     //第一次进入确认订单页面设置默认的地址
     getAddressList("POST").then(res => {
@@ -142,6 +126,27 @@ Page({
     });
   },
 
+  //第一次请求
+  firstRequest(res) {
+    console.log(res);
+    let selfAddressData = "";
+
+     //拼接产品id
+     let product = res.data.data.orderCartProductSkus;
+     product.forEach(ele => {
+       selfAddressData = selfAddressData + ele.id + ',';
+     });
+
+     //去掉结尾的逗号
+     selfAddressData = selfAddressData.slice(0, selfAddressData.length - 1);
+     //获取自提点
+     this.getSelfPick(selfAddressData);
+     //设置数据
+     this.setData({
+       cartData: res.data.data
+     });
+  },
+
   checkboxChange(e) {
     if (e) {
       this.setData({
@@ -157,7 +162,14 @@ Page({
     //判断是否勾选阿母币
     if (~this.data.checkedArray.indexOf("阿母币")) {
       useImb = true;
-      orderPrice -= this.data.cartData.imb;
+      //含有定金产品
+      if(this.data.cartData.depositPrice) {
+        orderPrice -= this.data.cartData.imb;
+        orderPrice += this.data.cartData.earnestImb;
+      } else {
+        //没有定金产品
+        orderPrice -= this.data.cartData.imb;
+      }
     } else {
       useImb = false;
     }
@@ -165,9 +177,21 @@ Page({
     //判断是否勾选优惠券
     if (~this.data.checkedArray.indexOf("优惠券")) {
       useConpon = true;
-      orderPrice -= this.data.cartData.couponTotleDiscount;
+      //有定金产品
+      if(this.data.cartData.depositPrice) {
+        orderPrice -= this.data.cartData.couponTotleDiscount;
+        orderPrice += this.data.cartData.earnestDiscount;
+      } else {
+        //没有定金产品
+        orderPrice -= this.data.cartData.couponTotleDiscount;
+      }
     } else {
       useConpon = false;
+    }
+
+    //活动优惠
+    if(this.data.cartData.promotionDiscount) {
+      orderPrice -= this.data.cartData.promotionDiscount;
     }
 
     let showBtn;
