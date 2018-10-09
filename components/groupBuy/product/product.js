@@ -120,7 +120,7 @@ Component({
 
     getStage() {
       //请求阶段信息
-      getGroupBuyStage("GET", { id: this.data.stageId }).then(res => {
+      getGroupBuyStage("GET", { id: this.data.stageId || this.data.promotion.id }).then(res => {
         console.log(res);
         this.setData({
           stage: res.data

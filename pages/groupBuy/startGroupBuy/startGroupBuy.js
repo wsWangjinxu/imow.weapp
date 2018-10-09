@@ -10,10 +10,11 @@ Page({
   onLoad(option){
     //收集请求数据
     let data = {
-      id: option.id,
-      productId: option.productId,
-      promotionId: options.promotionId,
+      id: option.id||"",
+      productId: 467685117182430,
+      promotionId: 547927562762747,
     }
+    
 
     //保存数据
     this.setData(data);

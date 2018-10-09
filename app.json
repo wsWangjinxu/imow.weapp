@@ -1,9 +1,10 @@
 {
   "pages":[ 
     "pages/index/index",
+    "pages/groupBuy/startGroupBuy/startGroupBuy",
+    "pages/developing/developing",
     "pages/cart/cart",
     "pages/my/my",
-    "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/groupBuy/joinGroupBuy/joinGroupBuy",
     "pages/setMeal/setMeal",
     "pages/special/special",

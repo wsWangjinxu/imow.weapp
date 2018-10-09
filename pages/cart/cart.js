@@ -1,4 +1,4 @@
-import { getUserCart, getCartShopList, getShopCart } from "../../api/user/cart.js"
+import { getUserCart, getCartShopList, getShopCart, removeCart } from "../../api/user/cart.js"
 
 Page({
   data: {
@@ -39,5 +39,40 @@ Page({
         });
       }
     });
+  },
+
+  //获取选中的产品
+  handleSelect(e){
+    //选中产品以后设置cartId
+    this.setData({
+      cartId: e.detail.cartId
+    });
+  },
+
+  //删除购物车中的产品
+  handleDelete() {
+    let _this = this;
+    if(this.data.cartId) {
+      removeCart("DELETE", {
+        cartId: _this.data.cartId
+      }).then(res => {
+        if(res.data.status) {
+          wx.showToast({
+            title: "删除成功",
+            icon: "success"
+          });
+        } else {
+          wx.showToast({
+            title: "删除失败",
+            image: "/static/icon/warning-white.png"
+          });
+        }
+      });
+    } else {
+      wx.showToast({
+        title: "请选择商品",
+        image: "/static/icon/warning-white.png"
+      })
+    }
   }
 })

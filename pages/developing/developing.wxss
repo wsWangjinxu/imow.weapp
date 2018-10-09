@@ -1,0 +1,10 @@
+page {
+  background-color: #fff;
+}
+
+.developing {
+  margin-top: 45%;
+  font-size: 30rpx;
+  text-align: center;
+  color: grey;
+}

@@ -1,4 +1,7 @@
-import { userLogin, getThirdSession } from "../../api/user/manage"
+import {
+  userLogin,
+  getThirdSession
+} from "../../api/user/manage"
 
 let app = getApp();
 
@@ -64,17 +67,22 @@ Page({
               account,
               password
             }).then(res => {
-              //设置缓存
-              wx.setStorageSync("session", res.data.userInfo.token);
-              wx.setStorageSync("isLogin", true);
-              console.log(res);
-              _this.setData({
-                isLogin: true,
-                isSeller: res.data.isSeller
-              });
+              if (res.data.userInfo.token) {
+                //设置缓存
+                wx.setStorageSync("session", res.data.userInfo.token);
+                wx.setStorageSync("isLogin", true);
+                console.log(res);
+                _this.setData({
+                  isLogin: true,
+                  isSeller: res.data.isSeller
+                });
+              } else {
+                wx.showToast({
+                  title: res.data.message,
+                  image: "/static/icon/warning-white.png"
+                });
+              }
             });
-            //获取用户的数据
-
           } else {
             console.log("登陆失败！" + res.errMsg);
           }

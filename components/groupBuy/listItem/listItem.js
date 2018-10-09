@@ -67,7 +67,7 @@ Component({
         content: "删除之后拼单状态将变为已取消状态",
         success(data) {
           if (data.confirm === true) {
-            deleteGroupBuyRecord("POST", { id }).then(res => {
+            deleteGroupBuyRecord("GET", { id }).then(res => {
               console.log(res);
               if (res.data.status == true) {
                 wx.showToast({
