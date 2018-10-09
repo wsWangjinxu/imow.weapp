@@ -65,7 +65,7 @@ Page({
               password
             }).then(res => {
               //设置缓存
-              wx.setStorageSync("session", res.data.session);
+              wx.setStorageSync("session", res.data.userInfo.token);
               wx.setStorageSync("isLogin", true);
               console.log(res);
               _this.setData({

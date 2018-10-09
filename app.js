@@ -7,7 +7,7 @@ App({
     wx.login({
       success(res) {
         if (res.code) {
-          getThirdSession("POST", {
+          getThirdSession("GET", {
             code: res.code
           }).then(res => {
             if (res.data.session) {
