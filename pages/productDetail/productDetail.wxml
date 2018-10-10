@@ -18,7 +18,7 @@
     <van-button wx:if="{{!canCollage}}" size="small" open-type='share'>
       <text class='like'>分享</text>
     </van-button>
-    <navigator url='pages/groupBuy/joinGroupBuy/joinGroupBuy?id={{promotionId}}'>
+    <navigator url='/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId={{promotionId}}&productId={{productId}}'>
       <van-button wx:if="{{canCollage}}" size="small">
         <text class='like'>拼团</text>
       </van-button>
@@ -33,12 +33,6 @@
       <van-col span="14">
         <text class='price2'>￥{{DLPrice1}}~{{DLPrice2}}</text> 
       </van-col>
-      <van-col span="5" class="center" wx:if="{{promotionType==1}}">
-        <navigator url='/pages/groupBuy/startGroupBuy/startGroupBuy?id={{promotionId}}'><view wx:if="{{promotionName}}" class='tip'>{{promotionName}}</view></navigator>
-      </van-col>
-      <!-- <van-col span="5" style="text-align:center">
-      <text style='color:#9b9b9b;'>已售 {{saleNumber}}件</text>
-    </van-col> -->
     </van-row>
 
     <view class='priceBox2' wx:if="{{true}}">
@@ -51,7 +45,7 @@
         </van-col>
         <van-col span="5" class="center">
           <block wx:if="{{promotionType==1}}">
-            <navigator url='/pages/groupBuy/startGroupBuy/startGroupBuy?id={{promotionId}}'>
+            <navigator url='/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId={{promotionId}}&productId={{productId}}'>
               <view class='tip'>{{promotionName}}</view>
             </navigator>
           </block>
