@@ -1,7 +1,5 @@
 import { wxRequest } from "../../utils/http";
-
-
-var baseUrl = "http://localhost:6569/";
+import { baseUrl } from "../baseUrl.js";
 
 //获取搜索历史
 function searchHistory(type, data) {

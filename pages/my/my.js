@@ -18,36 +18,34 @@ Page({
   },
 
   onLoad() {
-    console.log(app.globalData.imgSrc)
+    //flag用来标识Page页面的onLoad是否先于app.js中异步的执行
     //这种情况用于用户已经在服务器上边绑定了阿母账号，如果没有绑定阿母账号，则获取缓存isLogin为false
-    if (!app.globalData.imgSrc) {
+    if (app.globalData.flag === "-1") {
       //此条件用于page的onLoad方法先于app请求数据的回调执行
       let that = this;
       app.callback = function () {
         let isLogin = wx.getStorageSync("isLogin");
-        console.log(app.globalData);
         //判断用户已经在平台上绑定微信账号，则记录登陆状态，显示我的页面，并获取头像和昵称
         if (isLogin) {
+          //登陆成功以后获取用户的微信昵称和头像
+          this.getUserWXInfo();
+
+          //设置登陆状态
           that.setData({
-            isLogin: isLogin,
-            nickname: app.globalData.nickname,
-            avatarUrl: app.globalData.imgSrc,
-            shopId: app.globalData.shopId
+            isLogin: isLogin
           });
-          console.log(this.data.shopId);
         }
       }
     } else {
       let isLogin = wx.getStorageSync("isLogin");
-      console.log(isLogin);
-      console.log(app.globalData.shopId);
       //判断用户已经在平台上绑定微信账号，则记录登陆状态，显示我的页面，并获取头像和昵称
       if (isLogin) {
+        //登陆成功以后获取用户的微信昵称和头像
+        this.getUserWXInfo();
+
+        //设置登陆状态
         this.setData({
-          isLogin: isLogin,
-          nickname: app.globalData.nickname,
-          avatarUrl: app.globalData.imgSrc,
-          shopId: app.globalData.shopId
+          isLogin: isLogin
         });
       }
     }
@@ -67,14 +65,23 @@ Page({
               account,
               password
             }).then(res => {
+              console.log(res);
               if (res.data.userInfo.token) {
-                //设置缓存
+                //登陆成功，设置缓存
                 wx.setStorageSync("session", res.data.userInfo.token);
                 wx.setStorageSync("isLogin", true);
-                console.log(res);
+                
+                //获取用户的头像和昵称
+                wx.getUserInfo({
+                  success: function(res) {
+                    console.log(res);
+                  },
+                  fail: function(res) {
+                    console.log(err);
+                  }
+                })
                 _this.setData({
-                  isLogin: true,
-                  isSeller: res.data.isSeller
+                  isLogin: true
                 });
               } else {
                 wx.showToast({
@@ -115,6 +122,26 @@ Page({
     });
   },
 
-  //进入会员信息
+  //获取用户的微信信息，头像和昵称
+  getUserWXInfo() {
+    let that = this;
+    wx.getUserInfo({
+      success: function(res) {
+        let tempData = res.rawData;
+        //数据转换
+        tempData = JSON.parse(tempData);
+        that.setData({
+          nickname: tempData.nickName,
+          avatarUrl: tempData.avatarUrl
+        })
+      },
+      fail: function(err) {
+        wx.showToast({
+          title: "获取信息出错",
+          image: "/static/icon/warning-white.png"
+        })
+      }
+    })
+  }
 
 })

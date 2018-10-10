@@ -1,18 +1,19 @@
 <view class="start">
     <leaderInfo 
-        leaderName="{{leaderName}}" 
+        leaderName="{{nickname}}" 
         bgUrl="{{bgUrl}}"  
         isOpen="{{false}}"
         bind:explain="handleExplain"            
     ></leaderInfo>
-    <product  promotionId="{{promotionId}}" ctn="{{product}}" promotion="{{promotion}}"></product>
+    <product bind:isOver="handleOver" bind:timer="handleTimer" isStart="{{true}}" ctn="{{product}}" promotion="{{promotion}}"></product>
     <view class="startBuy">
         <view class="startBuy-title">开团设置</view>
         <view class="contact">
             <view><text>姓名：</text><input bindchange="handleName" value="{{name}}" type="text"/></view>
             <view><text>联系电话：</text><input bindchange="handlePhone" value="{{phone}}" type="text"/></view> 
         </view> 
-        <view class="btn" bindtap="start">我要开团</view>
+        <view wx:if="{{!isOver}}" class="btn" bindtap="start" >我要开团</view>
+        <view wx:if="{{isOver}}" class="btn2" >我要开团</view>
     </view>
     <van-popup show="{{ show }}" bind:close="onClose">
         <view style="padding: 20rpx;">

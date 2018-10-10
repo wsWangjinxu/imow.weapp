@@ -1,7 +1,5 @@
 import { wxRequest } from "../../utils/http";
-
-var baseUrl = 'http://10.10.10.120:3667/';
-//var baseUrl = "http://localhost:6569/";
+import { baseUrl } from "../baseUrl.js";
 
 //用户登陆
 function userLogin(type, data) {

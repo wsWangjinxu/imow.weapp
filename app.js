@@ -1,4 +1,6 @@
-import { getThirdSession } from "./api/user/manage"
+import {
+  getThirdSession
+} from "./api/user/manage"
 
 App({
   onLaunch: function () {
@@ -10,18 +12,16 @@ App({
           getThirdSession("GET", {
             code: res.code
           }).then(res => {
-            if (res.data.session) {
-              console.log(res.data.session);
+            if (res.data) {
               //如果session有值说明已经登陆成功，设置登陆状态，并写入缓存
               wx.setStorageSync("session", res.data.session);
               wx.setStorageSync("isLogin", true);
-              that.globalData.nickname = res.data.nickname;
-              that.globalData.imgSrc = res.data.imgSrc;
-              that.globalData.shopId = res.data.shopId;
+              that.globalData.flag = "1";
               if (that.callback) {
                 that.callback();
               }
-            } else {
+            }
+            else {
               //没有获取到session的时候，取消原有的登陆状态
               wx.setStorageSync("isLogin", false);
             }
@@ -33,8 +33,7 @@ App({
 
   globalData: {
     nickname: "岁月不好",
-    imgSrc: "",
-    shopId: false
+    flag: "-1"
   }
 
 })

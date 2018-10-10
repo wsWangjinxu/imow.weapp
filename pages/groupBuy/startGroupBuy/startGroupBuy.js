@@ -4,33 +4,71 @@ Page({
   data: {
     name: "",
     phone: "",
-    show: false
+    show: false,
+    isOver: false
   },
 
   onLoad(option){
     //收集请求数据
+    // let data = {
+    //   productId: option.productId,
+    //   promotionId: option.promotionId
+    // }
+
+    //用于测试
     let data = {
-      id: option.id||"",
       productId: 467685117182430,
       promotionId: 547927562762747,
     }
     
-
     //保存数据
     this.setData(data);
 
     //获取团购的信息
     getGroupBuyInfo("GET", data).then(res => {
+      //已经获取到要开团的拼团商品信息
       let data = res.data;
       this.setData({
-        leaderName: data.leaderName, //头像
-        // bgUrl: data.bgUrl,  //背景图片
-        // explain: data.explain,  //活动说明
         product: data.product, //产品的信息
         promotion: data.promotion  //促销信息
       });
     });
+
+    //获取用户的微信名字
+    let that = this;
+    wx.getUserInfo({
+      success: function(res) {
+        let tempData = res.rawData;
+        //数据转换
+        tempData = JSON.parse(tempData);
+        that.setData({
+          nickname: tempData.nickName,
+          avatarUrl: tempData.avatarUrl
+        })
+      },
+      fail: function(err) {
+        wx.showToast({
+          title: "获取信息出错",
+          image: "/static/icon/warning-white.png"
+        })
+      }
+    })
+
   },
+
+  //页面卸载时候清除定时器
+  onUnload() {
+    let timer = this.data.timer;
+    clearInterval(timer);
+  },
+
+  //接收组件开启的定时器
+  handleTimer(e) {
+    this.setData({
+      timer: e.detail.timer
+    });
+  },
+
 
   //开团表单提交
   start() {
@@ -89,6 +127,13 @@ Page({
         }
       })
     }
+  },
+
+  //团购结束，屏蔽按钮
+  handleOver() {
+    this.setData({
+      isOver: true
+    });
   },
 
   //更新姓名

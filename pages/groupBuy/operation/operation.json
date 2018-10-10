@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "leaderInfo": "/components/groupBuy/leaderInfo/leaderInfo",
-    "product": "/components/groupBuy/product/product",
-    "standard": "/components/groupBuy/standard/standard",
-    "listItem": "/components/groupBuy/listItem/listItem",
-    "van-icon": "/vantui/icon/index"
-  }
-}

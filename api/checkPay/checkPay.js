@@ -1,7 +1,5 @@
 import { wxRequest } from "../../utils/http";
-
-//var baseUrl = "http://localhost:6569/";
-var baseUrl = 'http://10.10.10.120:3667/';
+import { baseUrl } from "../baseUrl.js";
 
 //获得订单支付详情
 function getPayDetail(type, data) {
