@@ -43,7 +43,7 @@
         <text class='price2'>￥{{DLPrice1}}~{{DLPrice2}}</text> 
       </van-col>
       <van-col span="5" class="center" wx:if="{{promotionType==1}}">
-        <navigator url='/pages/groupBuy/joinGroupBuy/joinGroupBuy?id={{promotionId}}'><view wx:if="{{promotionName}}" class='tip'>{{promotionName}}</view></navigator>
+        <navigator url='/pages/groupBuy/startGroupBuy/startGroupBuy?id={{promotionId}}'><view wx:if="{{promotionName}}" class='tip'>{{promotionName}}</view></navigator>
       </van-col>
       <van-col span="5" class="center" wx:if="{{promotionType==4}}">
         <navigator url='/pages/setMeal/setMeal?id={{promotionId}}'><view wx:if="{{promotionName}}" class='tip'>{{promotionName}}</view></navigator>

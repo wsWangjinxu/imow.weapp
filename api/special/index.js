@@ -1,8 +1,7 @@
 import { wxRequest } from "../../utils/http";
+import { baseUrl } from "../baseUrl.js";
 
 
-var baseUrl = "http://localhost:6569/";
-// var baseUrl = 'http://10.10.10.138:3667';
 //获取轮播图信息
 function getSwipers(type, data) {
   return wxRequest({

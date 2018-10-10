@@ -1,7 +1,5 @@
 import { wxRequest } from "../../utils/http";
-
-
-var baseUrl = "http://localhost:6569/";
+import { baseUrl } from "../baseUrl.js";
 
 //获取店铺轮播图产品
 function getFactoryBanner(type, data) {

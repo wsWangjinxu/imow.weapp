@@ -1,7 +1,5 @@
 import { wxRequest } from "../../utils/http";
-
-
-var baseUrl = "http://localhost:6569/";
+import { baseUrl } from "../baseUrl.js";
 
 //获取请求二维码的接口凭证
 function getAccessToken(type, data) {

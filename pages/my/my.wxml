@@ -1,7 +1,7 @@
 <view wx:if="{{isLogin}}" class="my">
   <view class="userInfo">
     <navigator style="align-self:flex-end;color:#626262;" url="/pages/setting/setting"><van-icon name="setting"></van-icon></navigator> 
-    <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{avatarUrl}}?x-oss-process=image/resize,h_100"/>
+    <image src="{{avatarUrl}}"/>
     <text>{{nickname}}</text>
   </view> 
   <view class="myOrder">
@@ -42,7 +42,6 @@
     <input type="text" bindinput="handleAccount"  placeholder="  请输入阿母关联账号"/>
     <input type="text" bindinput="handlePassword" placeholder="  请输入密码" password/>
     <van-button type="danger" bindtap="login" style="width: 100%;margin-top: 30rpx;height: 80rpx;">立即登陆</van-button>
-    <view class="text">忘记密码？</view>
   </view>
 </view>
 

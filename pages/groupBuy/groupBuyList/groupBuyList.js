@@ -30,7 +30,7 @@ Page({
     statusSelectedId: "1101",
     // isLeader: false,
     status: "all",
-    type: "launch",
+    type: "joined",
     page: 1
   },
 

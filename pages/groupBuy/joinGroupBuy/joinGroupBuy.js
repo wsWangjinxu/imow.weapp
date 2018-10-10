@@ -51,6 +51,19 @@ Page({
     this.getList("全部"); 
   },
 
+  //页面卸载时候清除定时器
+  onUnload() {
+    let timer = this.data.timer;
+    clearInterval(timer);
+  },
+
+  //接收组件开启的定时器
+  handleTimer(e) {
+    this.setData({
+      timer: e.detail.timer
+    });
+  },
+
   //点击参与拼团下方的按钮分类获取参与拼团的信息
   handleSelect(e) {
     
@@ -83,6 +96,7 @@ Page({
   //获取拼团列表
   getList(type) {
     getJoinedDetailList("GET", {type, id: this.data.id}).then(res => {
+      console.log(res);
       let isLeader = res.data.isLeader;
       let DetailList = res.data.joinedDetailList;
       this.setData({
@@ -90,6 +104,11 @@ Page({
         DetailList
       });
     });
+  },
+
+  //参团成功以后获取拼团列表
+  handleGetList() {
+    this.getList();
   },
 
   //分享

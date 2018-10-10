@@ -10,22 +10,28 @@ Component({
       type: Object,
       value: {},
       observer(val) {
-        if (val) {
-          this.clock();
-        }
-      }
-    },
-    stageId: {
-      type: String,
-      value: "",
-      observer(val) {
         console.log(val);
         if (val) {
-          //请求阶段信息
+          this.clock();
           this.getStage();
         }
       }
+    },
+    isStart: {
+      type: Boolean,
+      value: false
     }
+    // stageId: {
+    //   type: String,
+    //   value: "",
+    //   observer(val) {
+    //     console.log(val);
+    //     if (val) {
+    //       //请求阶段信息
+    //       this.getStage();
+    //     }
+    //   }
+    // }
   },
   data: {
     day: "",  //天
@@ -54,6 +60,8 @@ Component({
         this.setData({
           isOver: true
         });
+
+        this.triggerEvent("isOver");
       } else {
         //活动还没有开始,那么判断是正在进行中还是还未开始
         if (currentTime < startTime) {
@@ -116,11 +124,15 @@ Component({
         // console.log(temp);
       }, 1000);
       // console.log(day + "天" + hour + "小时" + min + "分钟" + sec + "秒");
+
+      //将定时器交给页面
+      this.triggerEvent("timer", {timer: timer});
     },
 
     getStage() {
+      console.log(this.data.promotion);
       //请求阶段信息
-      getGroupBuyStage("GET", { id: this.data.stageId || this.data.promotion.id }).then(res => {
+      getGroupBuyStage("GET", { id: this.data.promotion.id }).then(res => {
         console.log(res);
         this.setData({
           stage: res.data

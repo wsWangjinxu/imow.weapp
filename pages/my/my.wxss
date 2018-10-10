@@ -106,13 +106,6 @@ page {
   width: 100%;
 }
 
-.login .text {
-  color: #989898;
-  align-self: flex-end;
-  font-size: 26rpx;
-  margin-top: 15rpx;
-}
-
 .btn {
   width: 100%;
 }

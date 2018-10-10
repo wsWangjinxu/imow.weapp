@@ -1,7 +1,6 @@
 import { wxRequest } from "../../utils/http";
+import { baseUrl } from "../baseUrl.js";
 
-
-var baseUrl = "http://localhost:6569/";
 
 //获取地址列表
 function getInvoiceInfo(type, data) {

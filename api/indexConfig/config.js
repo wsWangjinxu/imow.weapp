@@ -1,7 +1,5 @@
 import { wxRequest } from "../../utils/http";
-
-// var baseUrl = "http://localhost:6569/";
-var baseUrl = 'http://localhost:6569/';
+import { baseUrl } from "../baseUrl.js";
 
 //获取首页轮播图的内容
 function getBannerItemList(type, data) {
