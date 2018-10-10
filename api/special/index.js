@@ -1,7 +1,7 @@
 import { wxRequest } from "../../utils/http";
 import { baseUrl } from "../baseUrl.js";
 
-var baseUrl = 'http://10.10.10.120:3667/';
+// var baseUrl = 'http://10.10.10.120:3667/';
 //var baseUrl = "http://localhost:6569/";
 
 //获取轮播图信息

@@ -77,6 +77,7 @@ Component({
                 _this.setData({
                   "ctn.status": "cancel"
                 });
+                _this.triggerEvent("listUpdate");
               } else {
                 wx.showToast({
                   title: "删除失败！",
@@ -109,6 +110,7 @@ Component({
                 _this.setData({
                   "ctn.status": "confirmed"
                 });
+                _this.triggerEvent("listUpdate");
               } else {
                 wx.showToast({
                   title: "确认失败！",

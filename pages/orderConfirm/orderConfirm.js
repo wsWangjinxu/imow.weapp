@@ -38,7 +38,8 @@ Page({
     //备注
     remark: "",
     btnText: "",
-    selfAddressId: ""
+    selfAddressId: "",
+    status: ""
   },
   onLoad(option) {
     
@@ -48,7 +49,8 @@ Page({
       //说明是从购物车过来的
       this.setData({
         btnText: "提交订单",
-        cartId: option.cartId
+        cartId: option.cartId,
+        status: 1
       });
       getOrderConfirmCart1("GET", {cartId: option.cartId}).then(res => {
         this.firstRequest(res);
@@ -58,7 +60,8 @@ Page({
       //说明是从拼团页面过来的
       this.setData({
         btnText: "提交订单",
-        groupBuyId: option.collageId
+        groupBuyId: option.collageId,
+        status: 2
       });
       getOrderConfirmCart2("GET", {collageId: option.collageId}).then(res => {
         this.firstRequest(res);
@@ -68,7 +71,8 @@ Page({
       this.setData({
         btnText: "支付定金",
         skuId: option.skuId,
-        num: option.num
+        num: option.num,
+        status: 3
       });
       getOrderConfirmCart3("GET", {skuId: option.skuId,
         num: option.num}).then(res => {
@@ -267,8 +271,8 @@ Page({
         cartId = cartId + cartData.orderCartProductSkus[i].cartId + ",";
       }
       cartId = cartId.slice(0, cartId.length - 1);
-      let data = {
-        cartId: cartId,
+
+      let db = {
         UserOrderShipId: this.data.addrInfo.id,
         UserReceiptShipId: this.data.invoiceInfo.id,
         UseImb: this.data.useImb,
@@ -276,9 +280,21 @@ Page({
         Remark: this.data.remark,
         selfAddressId: this.data.selfAddressId
       }
+      if(this.data.status === 1) {
+        db.cartId = cartId
+      } 
 
-      console.log(data);
-      addOrder("POST", data).then(res => {
+      if(this.data.status === 2 ) {
+        db.groupBuyId = this.data.groupBuyId;
+      }
+
+      if(this.data.status === 3) {
+        db.skuId = this.data.skuId;
+        db.num = this.data.num;
+      }
+
+      console.log(db);
+      addOrder("POST", db).then(res => {
         if (res.data.status === 20) {
           wx.redirectTo({
             url: "/pages/checkPay/checkPay?orderId=" + res.data.orderId

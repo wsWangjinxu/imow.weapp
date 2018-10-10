@@ -30,8 +30,12 @@ Component({
 
             this.setData({
               skuList: tempArray,
-              num: skus.length ? (skus.length * 60 + 300) + 'px' : '100%'
+              num: category.length ? (category.length * 80 + 295) + 'px' : '100%',
+              category
             });
+
+            console.log(this.data.num);
+
           });
         }
       }
