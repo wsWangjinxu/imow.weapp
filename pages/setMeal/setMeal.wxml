@@ -11,17 +11,17 @@
     <view class='hot'>HOT</view>    
   </view>
   <view class='item' wx:for="{{initArray}}" wx:key="{{index}}">
-    <image src="{{item.img}}" />
+    <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.img}}?x-oss-process=image/resize,m_pad,h_67,w_67" />
     <view class='itemCenter'>
-      <view class='name'>{{item.name}}</view>
+      <view class='name'>{{item.productName}}</view>
       <view class='format'>
         <view>
           <view class='price' wx:if="{{item.nowPrice}}">￥{{item.nowPrice}}</view>
-          <view class='price' wx:if="{{!item.nowPrice}}">￥{{item.price}}起</view>
-          <view class='primePrice'>原价￥{{item.oldprice}}</view>
+          <view class='price' wx:if="{{!item.nowPrice}}">￥</view>
+          <view class='primePrice'>原价￥{{item.oldPrice}}</view>
         </view>
-        <view class='select' bindtap='showpop' data-productId="{{item.productId}}" data-skuCode="{{item.skuCode}}" data-deliveryTime="{{item.deliveryTime}}" wx:if="{{item.skuId}}">已选择</view>
-        <view class='select' bindtap='showpop' data-productId="{{item.productId}}" wx:if="{{!item.skuId}}">选择规格</view>
+        <view class='select' bindtap='showpop' data-topImg="{{item.img}}" data-productSkus="{{item.productSkus}}" data-productId="{{item.id}}" data-skuCode="{{item.skuCode}}" data-deliveryTime="{{item.deliveryTime}}" wx:if="{{item.skuId}}">已选择</view>
+        <view class='select' bindtap='showpop' data-topImg="{{item.img}}" data-productSkus="{{item.productSkus}}" data-productId="{{item.id}}" wx:if="{{!item.skuId}}">选择规格</view>
       </view>
     </view>
   </view>
@@ -45,7 +45,8 @@
     <van-col span="15">
       <view class="footerL">
         <text>小计(不含运费)</text>
-        <text class="money">￥11000000</text>
+        <text class="money" wx:if="{{totalChange==0}}">￥{{filters.toFix(total)}}</text>
+        <text class="money" wx:if="{{totalChange>0}}">￥{{filters.toFix(totalChange)}}</text>
       </view>
     </van-col>
     <van-col span="9">
@@ -62,7 +63,7 @@
     <view class='close' bindtap="onClose">
       <van-icon name="close" />
     </view>
-    <mealsku wx:if="{{productId}}" productId="{{productId}}" skuCode="{{skuCode}}" deliveryTime="{{deliveryTime}}" bind:myevent="onMyEvent"></mealsku>
+    <mealsku wx:if="{{productId}}" topImg="{{topImg}}" productSkus="{{productSkus}}" productId="{{productId}}" skuCode="{{skuCode}}" deliveryTime="{{deliveryTime}}" bind:myevent="onMyEvent"></mealsku>
   </view>
 </van-popup>
 </view>

@@ -60,7 +60,7 @@ page{
 }
 
 .item image{
-  width:135rpx;
+  width: 135rpx;
   height: 135rpx; 
 }
 
@@ -70,9 +70,9 @@ page{
   justify-content: space-between;
 }
 
-/* .name{
-  padding-bottom: 30rpx;
-} */
+.name{
+  width: 528rpx;
+}
 
 .format{
   display: flex;

@@ -122,20 +122,20 @@ Page({
       wx.showToast({
         title: '请选择sku号',
         duration: 2000,
-        image: "/static/imgs/warn.png"
+        image: "/static/icon/warning-white.png"
       })
     } else if (this.data.hasDeliveryTime){
       if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
         wx.showToast({
           title: '请选择交期',
           duration: 2000,
-          image: "/static/imgs/warn.png"
+          image: "/static/icon/warning-white.png"
         })
       }else if (this.data.paytype==0){
         wx.showToast({
           title: '请选择支付类型',
           duration: 2000,
-          image: "/static/imgs/warn.png"
+          image: "/static/icon/warning-white.png"
         })
       }else{
         addCart("POST", {
@@ -145,7 +145,7 @@ Page({
           num: this.data.num
         }).then(res => {
           console.log(res);
-          if (res.data.status == 20) {
+          if (res.data.status == 200) {
             wx.switchTab({
               url: '/pages/cart/cart'
             })
@@ -153,7 +153,7 @@ Page({
             wx.showToast({
               title: '操作失败，请重试',
               duration: 2000,
-              image: "/static/imgs/warn.png"
+              image: "/static/icon/warning-white.png"
             })
             this.init();
           }
@@ -165,7 +165,7 @@ Page({
       wx.showToast({
         title: '请选择支付类型',
         duration: 2000,
-        image: "/static/imgs/warn.png"
+        image: "/static/icon/warning-white.png"
       })
     }
     else{
@@ -184,7 +184,7 @@ Page({
           wx.showToast({
             title: '操作失败，请重试',
             duration: 2000,
-            image: "/static/imgs/warn.png"
+            image: "/static/icon/warning-white.png"
           })
           this.init();
         }
@@ -197,20 +197,20 @@ Page({
       wx.showToast({
         title: '请选择sku号',
         duration: 2000,
-        image: "/static/imgs/warn.png"
+        image: "/static/icon/warning-white.png"
       })
     } else if (this.data.hasDeliveryTime) {
       if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
         wx.showToast({
           title: '请选择交期',
           duration: 2000,
-          image: "/static/imgs/warn.png"
+          image: "/static/icon/warning-white.png"
         })
       } else if (this.data.paytype == 0) {
         wx.showToast({
           title: '请选择支付类型',
           duration: 2000,
-          image: "/static/imgs/warn.png"
+          image: "/static/icon/warning-white.png"
         })
       } else {
         //立即购买
@@ -226,7 +226,7 @@ Page({
       wx.showToast({
         title: '请选择支付类型',
         duration: 2000,
-        image: "/static/imgs/warn.png"
+        image: "/static/icon/warning-white.png"
       })
     } else {
       //立即购买

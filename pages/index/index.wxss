@@ -1,11 +1,11 @@
 /* 轮播图 */
-swiper-item{
-  width: 100%;
+swiper{
   height: 350rpx;
 }
 
 swiper-item image {
   width: 100%;
+  height: 350rpx;
 }
 /* 导航模块 */
 .nav-block {

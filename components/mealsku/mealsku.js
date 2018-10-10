@@ -1,5 +1,5 @@
 //套餐组件js
-import { addCart, getProductSkus } from "../../api/productDetail/productDetail";
+import { getPromotionPackage } from "../../api/setMeal/setMeal";
 
 Component({
   /**
@@ -8,54 +8,37 @@ Component({
   properties: {
     productId: String, //传入的产品id
     skuCode: String,
-    deliveryTime: String
+    deliveryTime: String,
+    productSkus:Array,
+    topImg:String
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    productSkus: [
-      {
-        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
-        "isDeposit": true,
-        "agentPrice": 133,
-        "skuCode": "01F02E072",
-        "deliveryTime": "16天",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      },
-      {
-        "id": "7bf7efA5-2cDB-85fd-4755-59E61A7D1e84",
-        "isDeposit": true,
-        "agentPrice": 1200,
-        "skuCode": "01F02E072",
-        "deliveryTime": "14天",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      },
-      {
-        "id": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
-        "isDeposit": true,
-        "agentPrice": 1300,
-        "skuCode": "01F02E072",
-        "deliveryTime": "15天",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      },
-      {
-        "id": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
-        "isDeposit": true,
-        "agentPrice": 1400,
-        "skuCode": "01F02E075",
-        "deliveryTime": "16天",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      },
-      {
-        "id": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
-        "isDeposit": false,
-        "agentPrice": 1500,
-        "skuCode": "01F02E076",
-        "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
-      }
-    ],
+    // productSkus: [
+    //   {
+    //     "skuId": "A83BC8CB-Df2C-8692-0159-8E4ddA487b2b",
+    //     "price": 133,
+    //     "originalPrice": 180,
+    //     "skuCode": "01F02E072"
+    //   },
+    //   {
+    //     "skuId": "fcf03C8a-8Dc1-Ffa2-4CA8-316c5DE3DeFC",
+    //     "price": 1400,
+    //     "originalPrice": 1600,
+    //     "skuCode": "01F02E075",
+    //     "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+    //   },
+    //   {
+    //     "skuId": "f43de71E-aAAb-B4d1-2E3D-cD6Ac9E26c2e",
+    //     "price": 1500,
+    //     "originalPrice": 1800,
+    //     "skuCode": "01F02E076",
+    //     "skuName": [{ name: "BX3(6k", value: "o]lB2" }, { name: "BX3(6k", value: "o]lB2" }]
+    //   }
+    // ],
     filedProductSkus: {
       sku: {
         title: 'SKU号',
@@ -91,6 +74,7 @@ Component({
     skuId: "",  //skuId
     isOnePrece: true,//判断显示单价还是价格区间
     price: "",  //价格
+    oldPrice:"",//原价
     minPrice: 0,
     maxPrice: 0,
     skuName: [],//产品信息
@@ -106,6 +90,7 @@ Component({
       console.log(this.data.productId);
       console.log(this.data.skuCode);
       console.log(this.data.deliveryTime);
+      console.log(this.data.productSkus);
       this.filted();
       let productSkus = this.data.productSkus;
       for (let index = 0; index < productSkus.length; index++) {
@@ -116,10 +101,10 @@ Component({
           this.setData({ depositShow: false });
         };
       }
-      // getProductSkus("GET", {
+      // getPromotionPackage("GET", {
       //   id: this.data.productId,
       // }).then(res => {
-      //   console.log(res.data.productSkus);
+      //   console.log(res);
       //   this.setData({
       //     productSkus: res.data.productSkus
       //   });
@@ -250,7 +235,7 @@ Component({
       this.setData({ filedProductSkus: origenData });
     },
     click(e) {
-      //console.log(e);
+      console.log(e);
       let key = e.currentTarget.dataset.type;     //判断skuCode还是deliveryTime
       let val = e.currentTarget.dataset.content;  //当前skuCode或deliveryTime的值
       let state = e.currentTarget.dataset.state;  //按钮状态(1选中、2普通、3禁用)
@@ -270,9 +255,10 @@ Component({
         for (let index = 0; index < productSkus.length; index++) {
           const item = productSkus[index];
           if (item.skuCode == sku && item.deliveryTime == time) {
-            this.setData({ price: item.agentPrice });           //确认一个价格
+            this.setData({ price: item.price });           //确认一个价格
+            this.setData({ oldPrice: item.originalPrice });  
             this.setData({ isOnePrece: true });
-            this.setData({ skuId: item.id });
+            this.setData({ skuId: item.skuId });
             this.setData({ skuName: item.skuName });
             if (item.isDeposit) {
               this.setData({ depositShow: true });
@@ -289,14 +275,15 @@ Component({
           for (let index = 0; index < productSkus.length; index++) {
             const item = productSkus[index];
             if (item.skuCode == sku) {
-              skuArr.push(item.agentPrice);
+              skuArr.push(item.price);
               skuArr3.push(item);
             }
           }
           if (skuArr3.length == 1) {
             this.setData({ skuName: skuArr3[0].skuName });
-            this.setData({ skuId: skuArr3[0].id });
-            this.setData({ price: skuArr3[0].agentPrice });          //确认一个价格
+            this.setData({ skuId: skuArr3[0].skuId });
+            this.setData({ price: skuArr3[0].price });          //确认一个价格
+            this.setData({ oldPrice: skuArr3[0].originalPrice });  
             this.setData({ isOnePrece: true });
             if (skuArr3[0].isDeposit) {
               this.setData({ depositShow: true });
@@ -309,28 +296,28 @@ Component({
               this.setData({ hasDeliveryTime: false });
             }
           } else {
-            this.setData({ hasDeliveryTime: true });
-            this.setData({ skuName: "" });
-            this.setData({ skuId: "" });
-            this.setData({ depositShow: false });
-            let min;
-            let max;
-            for (var i = 0; i < skuArr.length; i++) {
-              if (skuArr2.indexOf(skuArr[i]) == -1) {
-                skuArr2.push(skuArr[i]);
-                skuArr2.sort(function (a, b) { return a - b; });
-              }
-            }
-            if (skuArr2.length > 1) {                  //去重后多个价格
-              min = skuArr2[0];
-              max = skuArr2[skuArr2.length - 1];
-              this.setData({ minPrice: min });
-              this.setData({ maxPrice: max });
-              this.setData({ isOnePrece: false });
-            } else {                                  //去重后只有一个价格
-              this.setData({ price: skuArr2[0] });
-              this.setData({ isOnePrece: true });
-            }
+            // this.setData({ hasDeliveryTime: true });
+            // this.setData({ skuName: "" });
+            // this.setData({ skuId: "" });
+            // this.setData({ depositShow: false });
+            // let min;
+            // let max;
+            // for (var i = 0; i < skuArr.length; i++) {
+            //   if (skuArr2.indexOf(skuArr[i]) == -1) {
+            //     skuArr2.push(skuArr[i]);
+            //     skuArr2.sort(function (a, b) { return a - b; });
+            //   }
+            // }
+            // if (skuArr2.length > 1) {                  //去重后多个价格
+            //   min = skuArr2[0];
+            //   max = skuArr2[skuArr2.length - 1];
+            //   this.setData({ minPrice: min });
+            //   this.setData({ maxPrice: max });
+            //   this.setData({ isOnePrece: false });
+            // } else {                                  //去重后只有一个价格
+            //   this.setData({ price: skuArr2[0] });
+            //   this.setData({ isOnePrece: true });
+            // }
           }
 
         } else if (time) {
@@ -340,7 +327,7 @@ Component({
           for (let index = 0; index < productSkus.length; index++) {
             const item = productSkus[index];
             if (item.deliveryTime == time) {
-              timeArr.push(item.agentPrice);
+              timeArr.push(item.price);
               timeArr3.push(item)
             }
           } 
@@ -394,9 +381,10 @@ Component({
             image: "/static/imgs/warn.png"
           })
         }else{  
-          this.triggerEvent('myevent', {       //sku和交期都存在
+          this.triggerEvent('myevent', {       //sku和交期都存在,向父组件传值
             isShow: false,
             price: this.data.price,
+            oldPrice: this.data.oldPrice,
             skuId: this.data.skuId,
             productId: this.data.productId,
             depositShow: this.data.depositShow,
@@ -409,9 +397,10 @@ Component({
         // console.log(this.data.skuId);
         // console.log(this.data.productId);
         // console.log(this.data.depositShow);
-        this.triggerEvent('myevent', {          //只有sku
+        this.triggerEvent('myevent', {          //只有sku,向父组件传值
           isShow: false, 
           price: this.data.price, 
+          oldPrice:this.data.oldPrice,
           skuId: this.data.skuId, 
           productId: this.data.productId,
           depositShow: this.data.depositShow,

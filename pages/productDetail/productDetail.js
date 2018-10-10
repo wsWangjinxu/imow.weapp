@@ -9,7 +9,7 @@ Page({
     imgUrls: [],
     indicatorDots: true,
     duration: 1000,      //--上边都是轮播需要属性
-    productName: "EPT20 - 15ET2 1.5t全电动搬运车 中力小金刚二代",
+    productName: "",
     amPrice1:0,      //阿母价格
     amPrice2:0,
     DLPrice1:0,      //代理价格
@@ -50,9 +50,11 @@ Page({
     request2: false,
     promotionName:"活动名称",//活动名称
     promotionId:"",//活动id
-    promotionType: ""
+    promotionType: "",
+    canCollage:false//能否拼团
   },
   onLoad: function (e) {
+    console.log(e)
     this.setData({ productId: e.id });
     this.init();
     let isLogin = wx.getStorageSync("isLogin");
@@ -108,12 +110,25 @@ Page({
   //获取优惠券列表
   initCouponList() {   
     getFactoryDiscountCouponList("get", {
-      id: this.data.productId
+      productId: this.data.productId
     }).then(res => {
       console.log(res.data.coupons)
       this.setData({
         couponList:res.data.coupons
       });
+    });
+  },
+  //获取商店信息
+  getShop(){
+    getShopInfo("GET", {
+      id: this.data.shopId,
+    }).then(res => {
+      if (res.statusCode == "200") {
+        this.setData({
+          shopLogo: res.data.logoSrc,
+          shopName: res.data.name
+        });
+      }
     });
   },
   //页面初始化函数
@@ -135,12 +150,14 @@ Page({
           DLPrice1: res.data.minAgentPrice,
           DLPrice2: res.data.maxAgentPrice,
           productPolicy: res.data.policy?res.data.policy:"无",
-          paymethod: res.data.paymethod,
+          paymethod: res.data.paymethod ? res.data.paymethod:"无",
           productImg: res.data.introduceImage,
-          productImg2: res.data.packingImage.split(','),
-          productImg3: res.data.serviceImage.split(','),
-          shopId: res.data.shopId   //此商品对应店铺id
+          productImg2: res.data.packingImage ? res.data.packingImage.split(','):"",
+          productImg3: res.data.serviceImage ? res.data.serviceImage.split(','):"",
+          shopId: res.data.shopId,   //此商品对应店铺id
+          canCollage: res.data.canCollage
         });
+        this.getShop();
         for (let index = 0; index < res.data.productSkus.length; index++) {
           const item = res.data.productSkus[index];
           if (item.promotionModel) {
@@ -153,11 +170,11 @@ Page({
           }
         }
       }else{
-        this.setData({hiddenLoading: true});
+        this.setData({hiddenLoading: false});
         wx.showToast({
           mask:true,
           title: '请求失败',
-          image:"/static/imgs/warn.png"
+          image:"/static/icon/warning-white.png"
         })
       }
       
@@ -170,17 +187,7 @@ Page({
         });
       }
     });
-
-    getShopInfo("GET", {
-      id: this.data.shopId,
-    }).then(res => {
-      if (res.statusCode=="200") {
-        this.setData({
-          shopLogo: res.data.logoSrc,
-          shopName: res.data.name
-        });
-      }
-    });
+    
     // console.log(this.data.request1)
     // console.log(this.data.request2)
     // if (this.data.request1 && this.data.request2){
@@ -188,7 +195,7 @@ Page({
     // }else{
     //   wx.showToast({
     //     title:"网络错误",
-    //     image: "/static/imgs/warn.png"
+    //     image: "/static/icon/warning-white.png"
     //     mask:true
     //   })
     // }
