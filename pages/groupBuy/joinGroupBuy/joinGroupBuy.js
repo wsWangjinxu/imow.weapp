@@ -68,10 +68,14 @@ Page({
   handleSelect(e) {
     
     let id = e.currentTarget.dataset.id;
+    this.switchList(id);
+    
+  },
 
-    switch(id) {
+  switchList(num) {
+    switch(num) {
       case(0):  this.getList("全部");     this.modifyType(0);   break;
-      case(1):  this.getList("待确认");   this.modifyType(1);   break;
+      case(1):  this.getList("未确认");   this.modifyType(1);   break;
       case(2):  this.getList("已确认");   this.modifyType(2);   break;
       case(3):  this.getList("已取消");   this.modifyType(3);   break;
     }
@@ -89,7 +93,8 @@ Page({
     btns[id].type = "danger";
 
     this.setData({
-      type: btns
+      type: btns,
+      typeNum: id
     });
   },
 
@@ -161,5 +166,10 @@ Page({
     wx.navigateTo({
       url: "/pages/orderConfirm/orderConfirm?groupBuyId=" + this.data.id
     });
+  },
+
+  //更新列表
+  handleListUpdate() {
+    this.switchList(this.data.typeNum);
   }
 });

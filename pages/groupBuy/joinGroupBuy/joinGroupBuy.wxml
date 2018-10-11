@@ -17,7 +17,7 @@
             </block>
         </view>
         <block wx:for="{{DetailList}}" wx:key="index">
-            <listItem index="{{index}}" isLeader="{{isLeader}}" ctn="{{item}}"></listItem>
+            <listItem bind:listUpdate="handleListUpdate" index="{{index}}" isLeader="{{isLeader}}" ctn="{{item}}"></listItem>
         </block>
     </view>
     <view class="join-ctn">
