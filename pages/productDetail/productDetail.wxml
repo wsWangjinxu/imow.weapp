@@ -65,7 +65,7 @@
         <text>优惠</text>
       </van-col>
       <van-col span="14">
-        <text>阿母币可抵扣300~500元</text>
+        <text>阿母币可抵扣{{ImbDisacount}}元</text>
       </van-col>
     </van-row>
     <view class='youhui'>
@@ -230,7 +230,7 @@
           </view>
         </navigator>
       </van-col>
-      <block wx:if="{{buyBtn}}">
+      <!-- <block wx:if="{{buyBtn}}">
         <van-col span="8">
           <navigator url='/pages/buy/buy?productId={{productId}}'>
             <view class="button3" bindtap='buy'>加入购物车</view>
@@ -241,14 +241,12 @@
             <view class="button4">立即购买</view>
           </navigator>
         </van-col>
-      </block>
-      <block wx:if="{{!buyBtn}}">
-        <van-col span="16">
-          <navigator url='/pages/buy/buy?productId={{productId}}'>
-            <view class="button3" bindtap='buy'>加入购物车</view>
-          </navigator>
-        </van-col>
-      </block>
+      </block> -->
+      <van-col span="16">
+        <navigator url='/pages/buy/buy?productId={{productId}}'>
+          <view class="button3" bindtap='buy'>加入购物车</view>
+        </navigator>
+      </van-col>
     </van-row>
   </view>
 

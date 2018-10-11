@@ -5,7 +5,7 @@ import { baseUrl } from "../baseUrl.js";
 //获取用户的购物车
 function getUserCart(type, data) {
   return wxRequest({
-    url: "http://result.eolinker.com/3FyelRg5d3c637ba0bb45244f85ed68d2b8bd1f8c65c055?uri=" + "cart/get",
+    url: baseUrl + "cart/get",
       data: data,
       type: type
   });
@@ -83,4 +83,22 @@ function removeCart(type, data) {
   });
 }
 
-export { getUserCart, changeNum, getOrderConfirmCart1, getOrderConfirmCart2, getOrderConfirmCart3, getCartShopList, getShopCart, addCart, removeCart }
+//清除店铺中的失效产品
+function removeUnActive(type, data) {
+  return wxRequest({
+    url: baseUrl + "cart/removeUnActive",
+      data: data,
+      type: type
+  });
+}
+
+export { getUserCart, 
+  changeNum, 
+  getOrderConfirmCart1, 
+  getOrderConfirmCart2, 
+  getOrderConfirmCart3, 
+  getCartShopList, 
+  getShopCart, 
+  addCart, 
+  removeCart,
+  removeUnActive }

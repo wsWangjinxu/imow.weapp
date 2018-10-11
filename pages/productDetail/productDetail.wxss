@@ -79,13 +79,11 @@ swiper-item image{
 }
 
 .youhui{
-  padding-left: 138rpx;
   color:#ff3233;
 }
 
 .coupon{
-  margin-right:40rpx;
-  width:200rpx;
+  width:50%;
   line-height: 60rpx;
   display: inline-block
 }

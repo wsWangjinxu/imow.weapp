@@ -99,6 +99,20 @@ Component({
       //统计数量和总价
       //产品的元数据
       let productArray = this.data.shop.orderCartProductSkus;
+      let tempLength = 0;
+      //计算有效产品的数量
+      for (let i = 0; i < productArray.length; i++) {
+        if(productArray[i].promotionModel) {
+          if(!productArray[i].promotionModel.isExpire) {
+            tempLength += 1;
+          }
+        } else {
+          if(!productArray[i].isExpire) {
+            tempLength += 1;
+          }
+        }
+      }
+
       //产品的总件数
       let sumNumber = 0;
       //产品的总钱数
@@ -106,7 +120,7 @@ Component({
       //数据的总钱数
       let accessory = 0;
       let single = 0;
-      if (tempArray.length === productArray.length) {
+      if (tempArray.length === tempLength) {
         this.setData({
           cancelCheck: true
         });

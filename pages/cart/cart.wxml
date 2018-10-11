@@ -1,8 +1,17 @@
 <view>
     <view class="title">
         <text>购物车 <text style="font-size:20rpx;">共30件商品</text></text>
-        <text bindtap="handleDelete">删除</text>
+        <text>
+            <text bindtap="handleExpire">清除失效产品 </text>
+            <text bindtap="handleDelete">删除</text>
+        </text>
     </view>
-    <tab bindtabchange="handleTabChange" scroll="true" wx:if="{{shopList}}" list="{{shopList}}" selectedId="{{selectedId}}"></tab>
-    <shop bind:selectEvent="handleSelect" shop="{{list[num]}}"></shop>
+    <tab 
+    bindtabchange="handleTabChange" 
+    scroll="true" 
+    wx:if="{{shopList}}" 
+    list="{{shopList}}" 
+    selectedId="{{selectedId}}"
+    ></tab>
+    <shop style="margin-top: 20rpx;" bind:selectEvent="handleSelect" shop="{{list[num]}}"></shop>
 </view>

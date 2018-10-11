@@ -25,7 +25,9 @@ Page({
         type: "default",
         text: "已取消"
       }
-    ]
+    ],
+    isShow: false,
+    tmpNum: 0
   },
 
   onLoad(option) {
@@ -49,6 +51,13 @@ Page({
 
     //获取已经拼团的产品列表
     this.getList("全部"); 
+  },
+
+  //团购结束，屏蔽按钮
+  handleOver() {
+    this.setData({
+      isOver: true
+    });
   },
 
   //页面卸载时候清除定时器
@@ -104,6 +113,12 @@ Page({
       console.log(res);
       let isLeader = res.data.isLeader;
       let DetailList = res.data.joinedDetailList;
+      //如果没有人参团，则屏蔽去下单
+      if(this.data.tmpNum === 0) {
+        this.setData({
+          tmpNum: DetailList.length
+        });
+      }
       this.setData({
         isLeader,
         DetailList
@@ -163,9 +178,17 @@ Page({
 
   //下订单
   placeOrder() {
-    wx.navigateTo({
-      url: "/pages/orderConfirm/orderConfirm?groupBuyId=" + this.data.id
-    });
+    if(this.data.tmpNum) {
+      wx.navigateTo({
+        url: "/pages/orderConfirm/orderConfirm?groupBuyId=" + this.data.id
+      });
+    } else {
+      wx.showToast({
+        title: "无参团记录",
+        image: "/static/icon/warning-white.png"
+      });
+    }
+    
   },
 
   //更新列表
