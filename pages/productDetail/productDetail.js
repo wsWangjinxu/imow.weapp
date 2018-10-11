@@ -44,6 +44,7 @@ Page({
     shopName:"无",
     cartNum:0,
     productId:'',
+    ImbDisacount:"0",//可抵扣阿母币
     buyBtn: true, //检测当前用户是否会员？？
     hiddenLoading: false, //加载中，false显示ture隐藏
     request1:false,
@@ -54,7 +55,6 @@ Page({
     canCollage:false//能否拼团
   },
   onLoad: function (e) {
-    console.log(e)
     this.setData({ productId: e.id });
     this.init();
     let isLogin = wx.getStorageSync("isLogin");
@@ -149,6 +149,7 @@ Page({
           amPrice2: res.data.maxImowPrice,
           DLPrice1: res.data.minAgentPrice,
           DLPrice2: res.data.maxAgentPrice,
+          ImbDisacount:res.data.ImbDisacount,
           productPolicy: res.data.policy?res.data.policy:"无",
           paymethod: res.data.paymethod ? res.data.paymethod:"无",
           productImg: res.data.introduceImage,
@@ -181,7 +182,7 @@ Page({
     });
 
     getCartNum("GET").then(res => {
-      if(res.data.status){
+      if (res.statusCode==200){
         this.setData({
           cartNum: res.data.status
         });

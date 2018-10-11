@@ -25,8 +25,8 @@ Page({
     submitSure:false,    //弹框提交按钮禁用
     orderId:undefined,
     shipAmount: 0,  //运费
-    sellerName: "中力机械",  //卖家名称
-    buyerName: "阿母工业123",   //买家名称
+    sellerName: "",  //卖家名称
+    buyerName: "",   //买家名称
     productNames: [],        //商品名称
     buyTime: "",   
     crePoint: 0,    //可用信用分

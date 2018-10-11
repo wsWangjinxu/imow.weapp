@@ -92,16 +92,17 @@ Page({
     // menjia: "两级宽视野",  //门架类型
     // transmission: "液力传动",  //传动类型
     hasDeliveryTime: false,//交期是否存在
-    depositShow: false, //定金按钮显示隐藏
+    depositShow1: false, //定金按钮显示隐藏前提条件
+    depositShow: true, //定金按钮显示隐藏
     num: 1, //数量
     paytype: 0, //定金全款判断
     productImg:"", //左上角产品图片
     paymethod: "", //支付方式文字
     CA: "item",
-    CB: "item"
+    CB: "item",
+    IsEarnest:false   //加入购物车 （定金true，全款false）
   },
   onLoad: function(e) { 
-    console.log(e);
     this.setData({ productId: e.productId});
     this.init();
     console.log(this.data.filedProductSkus)
@@ -142,21 +143,22 @@ Page({
           productId: this.data.productId,
           skuCode: this.data.filedProductSkus.sku.current,
           skuId: this.data.skuId,
-          num: this.data.num
+          num: this.data.num,
+          IsEarnest: this.data.IsEarnest,
         }).then(res => {
           console.log(res);
-          if (res.data.status == 20) {
-            wx.switchTab({
-              url: '/pages/cart/cart'
-            })
-          } else {
-            wx.showToast({
-              title: '操作失败，请重试',
-              duration: 2000,
-              image: "/static/icon/warning-white.png"
-            })
-            this.init();
-          }
+          // if (res.data.status == 20) {
+          //   wx.switchTab({
+          //     url: '/pages/cart/cart'
+          //   })
+          // } else {
+          //   wx.showToast({
+          //     title: '操作失败，请重试',
+          //     duration: 2000,
+          //     image: "/static/icon/warning-white.png"
+          //   })
+          //   this.init();
+          // }
         }); 
       }
 
@@ -254,6 +256,9 @@ Page({
       let skunow = this.data.filedProductSkus.sku.current;
       let timenow = this.data.filedProductSkus.deliveryTime.current;
       this.selectNow(skunow, timenow)
+    }
+    if (!this.data.filedProductSkus.sku.current){ 
+      this.setData({depositShow: true});
     }
   },
   filted: function (key, val) {
@@ -480,19 +485,36 @@ Page({
 
     }    
   },
+  //全款定金筛选事件
+  selectProductSkus(){
+    let productSkus = this.data.productSkus;
+    let newArray = [];//筛选后定金ProductSkus
+    for (let index = 0; index < productSkus.length; index++) {
+      const item = productSkus[index];
+      if (item.isDeposit) {
+        newArray.push(item)
+      }
+    }
+    console.log(newArray)
+    this.setData({ productSkus: newArray });
+    this.filted();
+  },
   //全款按钮事件
   payType1(e) {                        
     let CA = this.data.CA;
     let CB = this.data.CB;
-    // console.log(e.target.dataset.paytype);
     this.setData({ paytype: e.target.dataset.paytype });
     console.log(this.data.paytype);
+    if (this.data.paytype==1){
+      this.setData({ IsEarnest: false });
+    }
     if (CA === "select") {
       CA = "item";
       this.setData({ paytype: 0 });
     } else {
-      CA = "select"
-      CB = "item"
+      CA = "select";
+      CB = "item";
+      this.init();
     }
     this.setData({
       CA: CA,
@@ -506,9 +528,14 @@ Page({
     // console.log(e.target.dataset.paytype);
     this.setData({ paytype: e.target.dataset.paytype });
     console.log(this.data.paytype);
+    if (this.data.paytype == 2) {
+      this.selectProductSkus();
+      this.setData({ IsEarnest: true });
+    }
     if (CB === "select") {
       CB = "item";
       this.setData({ paytype: 0 });
+      this.init();
     } else {
       CB = "select"
       CA = "item"
@@ -535,6 +562,9 @@ Page({
         if (item.deliveryTime) {
           this.setData({ hasDeliveryTime: true });
         }
+        if (item.isDeposit){                         //定金按钮显示前提
+          this.setData({ depositShow1: true }); 
+        }   
       }
     });
     getProductDetail("GET", {

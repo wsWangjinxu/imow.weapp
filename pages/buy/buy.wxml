@@ -34,7 +34,7 @@
   <view class='titleName'>支付类型</view>
   <view>
     <view class="{{CA}}" bindtap='payType1' data-payType='1'>全款</view>
-    <view wx:if="{{depositShow}}" class="{{CB}}" bindtap='payType2' data-payType='2'>定金</view>    
+    <view wx:if="{{depositShow1&&depositShow}}" class="{{CB}}" bindtap='payType2' data-payType='2'>定金</view>    
   </view> 
   <text>可 {{paymethod}} 支付</text>
 </view>
@@ -52,7 +52,7 @@
   </van-row>
 </view>
 
-<view class='footer' wx:if="{{paytype==0}}">
+<!-- <view class='footer' wx:if="{{paytype==0}}">
   <van-row>
     <van-col span="12">
       <view class="button3" bindtap='addcartNow'>加入购物车</view>
@@ -81,8 +81,14 @@
       <view class="button4" bindtap='buyNow'>立即购买</view>
     </van-col>
   </van-row>
+</view> -->
+<view class='footer'>
+  <van-row>
+    <van-col span="24">
+      <view class="button3" bindtap='addcartNow'>加入购物车</view>
+    </van-col>
+  </van-row>
 </view>
-
 
 </view>
 

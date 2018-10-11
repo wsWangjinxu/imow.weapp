@@ -4,7 +4,7 @@ import { baseUrl } from "../baseUrl.js";
 //获取产品详情
 function getCartNum(type, data) {
   return wxRequest({
-    url: baseUrl + "cart/get",
+    url: baseUrl + "getCartNum",
       data: data,
       type: type
   });

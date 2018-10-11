@@ -115,6 +115,14 @@
     <view class='surePay'>
       <van-row>
         <van-col span="5">
+          <text>定金</text>
+        </van-col>
+        <van-col span="19">
+          <view class="surePayNum textRight">￥{{filters.toFix(depositPrice)}}</view>
+        </van-col>
+      </van-row>
+      <van-row>
+        <van-col span="5">
           <text>本次应付款</text>
         </van-col>
         <van-col span="19">
@@ -154,14 +162,14 @@
         <view style="text-align: right">-￥{{filters.toFix(couponTotleDiscount)}}</view>
       </van-col>
     </van-row>
-    <van-row>
+    <!-- <van-row>
       <van-col span="5">
         <text>定金</text>
       </van-col>
       <van-col span="19">
-        <view style="text-align: right">-￥{{filters.toFix(depositPrice)}}</view>
+        <view style="text-align: right">-￥</view>
       </van-col>
-    </van-row>
+    </van-row> -->
     <van-row>
       <van-col span="5">
         <text>运费</text>
