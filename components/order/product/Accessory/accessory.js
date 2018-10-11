@@ -15,6 +15,13 @@ Component({
     isChecked: {
       type: Boolean,
       value: false
+    },
+    isExpire: {
+      type: Boolean,
+      value: false,
+      observer(val) {
+        console.log(val);
+      }
     }
   },
   /**

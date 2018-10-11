@@ -7,10 +7,11 @@
   line-height: 110rpx;
   background-color: white;
   padding: 0rpx 10rpx;
+  margin-bottom: 20rpx;
 }
 
 .title > text {
-  font-size: 40rpx;
+  font-size: 35rpx;
 }
 
 .product-list product:last-child .product--product {

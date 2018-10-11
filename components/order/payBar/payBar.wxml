@@ -7,7 +7,7 @@
   <view class="detail">
     <view>
       <text>合计：￥{{money}}</text>
-      <text>不含运费</text> 
+      <text>共计：{{num}}件 不含运费</text> 
     </view>
     <view bindtap="payment" class="navigator">结算</view>
   </view>

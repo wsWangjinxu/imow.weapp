@@ -2,19 +2,21 @@
 <block wx:if="{{product.promotionModel === null}}">
   <!-- 这里是单品 -->
     <single 
+     isExpire="{{product.isExpire}}"
      bind:handleNum="handleNum"
      bind:checkProduct="checkProduct" 
      isChecked="{{isChecked}}"
      ctn="{{product}}"></single>
     <!-- 这里是单品的属具 -->
     <block wx:for="{{product.accessories}}" wx:key="index">
-      <product bind:checkProduct="checkProduct" isChecked="{{isChecked}}" number="{{product.num}}" ctn="{{item}}"></product>
+      <product isExpire="{{product.isExpire}}" bind:checkProduct="checkProduct" isChecked="{{isChecked}}" number="{{product.num}}" ctn="{{item}}"></product>
     </block>
 </block>
 <block wx:if="{{product.promotionModel}}">
   <view class="kit-title"><text>组合套餐</text>{{product.promotionModel.name}}</view>
   <view wx:for="{{product.promotionModel.packageInfo.orderCartProductSkus}}" wx:for-index="idx" wx:key="idx">
     <single 
+     isExpire="{{product.promotionModel.isExpire}}"
      bind:handleNum="handleNum"
      bind:checkProduct="checkProduct" 
      isChecked="{{isChecked}}"
@@ -24,10 +26,10 @@
      ></single>
     <!-- 这里是单品的属具 -->
     <block wx:for="{{item.accessories}}" wx:key="index" wx:for-item="child">
-      <product isKit="{{true}}" bind:checkProduct="checkProduct" isChecked="{{isChecked}}" number="{{product.promotionModel.packageInfo.num}}" ctn="{{child}}"></product>
+      <product isExpire="{{product.promotionModel.isExpire}}" isKit="{{true}}" bind:checkProduct="checkProduct" isChecked="{{isChecked}}" number="{{product.promotionModel.packageInfo.num}}" ctn="{{child}}"></product>
     </block>
   </view>
-  <view class="result-bar">
+  <view class="result-bar" wx:if="{{!item.isExpire}}">
       <text class="result-price">￥{{product.promotionModel.packageInfo.price * product.promotionModel.packageInfo.num}}</text>
       <van-stepper value="{{product.promotionModel.packageInfo.num}}" bind:change="handleChange"></van-stepper>
   </view>

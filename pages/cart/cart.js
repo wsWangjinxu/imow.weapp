@@ -1,4 +1,4 @@
-import { getUserCart, getCartShopList, getShopCart, removeCart } from "../../api/user/cart.js"
+import { getUserCart, getCartShopList, getShopCart, removeCart, removeUnActive } from "../../api/user/cart.js"
 
 Page({
   data: {
@@ -8,25 +8,27 @@ Page({
     num: 0
   },
   onLoad(){
-    this.init();
+    this.init(this.data.num);
   },
 
-  init() {
+  init(num) {
     getUserCart("GET").then(res => {
       console.log(res);//eslint-disable-line
       this.setData({
-        list: res.data.data
+        list: res.data.data,
+        shopList: res.data.shopList,
+        selectedId: res.data.shopList[num].id
       });
     });
 
-    //获取购物车的店铺列表
-    getCartShopList("POST").then(res => {
-      console.log(res);
-      this.setData({
-        shopList: res.data.shopList,
-        selectedId: res.data.shopList[0].id
-      });
-    });
+    // //获取购物车的店铺列表
+    // getCartShopList("POST").then(res => {
+    //   console.log(res);
+    //   this.setData({
+    //     shopList: res.data.shopList,
+    //     selectedId: res.data.shopList[num].id
+    //   });
+    // });
   },
 
   //点击切换显示某个店铺的购物车
@@ -37,6 +39,29 @@ Page({
         this.setData({
           num: index
         });
+      }
+    });
+  },
+
+  //清除失效产品
+  handleExpire() {
+    let shopId = this.data.selectedId;
+    console.log(shopId);
+    removeUnActive("DELETE", { shopId }).then(res => {
+      if(res.status === 204) {
+        wx.showToast({
+          title: "清除成功！",
+          icon: "success"
+        });
+
+        //更新用户的购物车
+        this.init(this.data.selectedId);
+      } else {
+        console.log(res);
+        wx.showToast({
+          title: "清除失败！",
+          image: "/static/icon/warning-white.png"
+        })
       }
     });
   },

@@ -16,10 +16,12 @@ Component({
       type: Boolean,
       value: false,
       observer: function(newVal) {
-        if(newVal) {
-          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
-        } else {
-          this.triggerEvent("selectedProduct", { index: this.data.index, status: 0 });
+        if(!this.data.product.isExpire) {
+          if(newVal) {
+            this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+          } else {
+            this.triggerEvent("selectedProduct", { index: this.data.index, status: 0 });
+          }
         }
       }
     }

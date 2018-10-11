@@ -19,6 +19,10 @@ Component({
     number: {
       type: Number,
       value: -1
+    },
+    isExpire: {
+      type: Boolean,
+      value: true
     }
   },
   /**
