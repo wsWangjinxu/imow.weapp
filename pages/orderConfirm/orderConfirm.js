@@ -42,7 +42,7 @@ Page({
   },
   onLoad(option) {
     
-
+    debugger //eslint-disable-line
     //下面一行注释用于测试，测试完毕以后放开注释,根据购物车id获取商品的信息
     if (option.cartId) {
       //说明是从购物车过来的
@@ -54,13 +54,13 @@ Page({
         this.firstRequest(res);
       });
 
-    } else if (option.collageId) {
+    } else if (option.groupBuyId) {
       //说明是从拼团页面过来的
       this.setData({
         btnText: "提交订单",
-        groupBuyId: option.collageId
+        groupBuyId: option.groupBuyId
       });
-      getOrderConfirmCart2("GET", {collageId: option.collageId}).then(res => {
+      getOrderConfirmCart3("GET", {collageId: option.groupBuyId}).then(res => {
         this.firstRequest(res);
       });
     } else {
@@ -70,7 +70,7 @@ Page({
         skuId: option.skuId,
         num: option.num
       });
-      getOrderConfirmCart3("GET", {skuId: option.skuId,
+      getOrderConfirmCart2("GET", {skuId: option.skuId,
         num: option.num}).then(res => {
         this.firstRequest(res);
       });

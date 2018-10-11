@@ -1,3 +1,3 @@
-let baseUrl = "http://10.10.10.120:3667/";
+let baseUrl = "http://localhost:6569/";
 
 export { baseUrl };
