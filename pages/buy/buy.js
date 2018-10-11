@@ -145,7 +145,7 @@ Page({
           num: this.data.num
         }).then(res => {
           console.log(res);
-          if (res.data.status == 200) {
+          if (res.data.status == 20) {
             wx.switchTab({
               url: '/pages/cart/cart'
             })

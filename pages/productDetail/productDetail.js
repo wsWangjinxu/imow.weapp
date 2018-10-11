@@ -15,8 +15,8 @@ Page({
     DLPrice1:0,      //代理价格
     DLPrice2: 0,
     couponNum: 0,       //优惠券号  
-    show: false,        //弹出层1
-    show2: false,        //弹出层2
+    show: false,        //弹出层1（政策）
+    show2: false,        //弹出层2（支付方式）
     productPolicy:"无",  //产品政策
     paymethod: "",    //支付方式,如承兑汇票.网银汇款.店铺余额.支付宝.微信
     couponList: [
@@ -44,7 +44,7 @@ Page({
     shopName:"无",
     cartNum:0,
     productId:'',
-    buyBtn: true,
+    buyBtn: true, //检测当前用户是否会员？？
     hiddenLoading: false, //加载中，false显示ture隐藏
     request1:false,
     request2: false,

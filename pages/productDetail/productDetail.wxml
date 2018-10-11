@@ -35,7 +35,7 @@
       </van-col>
     </van-row>
 
-    <view class='priceBox2' wx:if="{{true}}">
+    <view class='priceBox2' wx:if="{{buyBtn}}">
       <van-row>
         <van-col span="5">
           <text>代理价</text>
@@ -142,7 +142,7 @@
     </van-row>
   </view>
 
-  <view class='box send'>
+  <!-- <view class='box send'>
     <van-row>
       <navigator url='/pages/buy/buy?productId={{productId}}'>
         <van-col span="5">
@@ -158,7 +158,7 @@
         </van-col>
       </navigator>
     </van-row>
-  </view>
+  </view> -->
 
   <view class="box shopName">
     <van-row>

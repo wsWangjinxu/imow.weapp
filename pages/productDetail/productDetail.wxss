@@ -145,6 +145,7 @@ swiper-item image{
 
 .productImg image{
   width:100%;
+  display: block;
 }
 
 .title{
