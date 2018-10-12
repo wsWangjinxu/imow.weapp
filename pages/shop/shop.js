@@ -1,12 +1,12 @@
 import { getFactoryBanner, getFactoryProductPaneList, getShopInfo } from "../../api/shop/index";
 
-
 Page({
   onLoad(option) {
     //获取店铺id
     let id = option.shopId;
     this.setData({ id });
     getFactoryBanner("GET", { id }).then(res => { 
+      console.log(res);
       this.setData({
         bannerImageList: res.data.bannerImgList
       })
@@ -14,6 +14,7 @@ Page({
 
     //获取店铺产品
     getFactoryProductPaneList("GET", { id }).then(res => {
+      console.log(res);
       this.setData({
         paneList: res.data.factoryProductPaneList
       });
@@ -21,6 +22,7 @@ Page({
 
     //获取店铺简易信息
     getShopInfo("GET", { id }).then(res => {
+      console.log(res);
       this.setData({
         shopInfo: res.data
       });

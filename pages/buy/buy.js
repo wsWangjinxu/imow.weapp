@@ -147,18 +147,18 @@ Page({
           IsEarnest: this.data.IsEarnest,
         }).then(res => {
           console.log(res);
-          // if (res.data.status == 20) {
-          //   wx.switchTab({
-          //     url: '/pages/cart/cart'
-          //   })
-          // } else {
-          //   wx.showToast({
-          //     title: '操作失败，请重试',
-          //     duration: 2000,
-          //     image: "/static/icon/warning-white.png"
-          //   })
-          //   this.init();
-          // }
+          if (res.data.status == 20) {
+            wx.switchTab({
+              url: '/pages/cart/cart'
+            })
+          } else {
+            wx.showToast({
+              title: '操作失败，请重试',
+              duration: 2000,
+              image: "/static/icon/warning-white.png"
+            })
+            this.init();
+          }
         }); 
       }
 

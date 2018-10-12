@@ -1,11 +1,11 @@
 <view class="shop">
     <view style="padding: 10rpx; background: #fff;" >
-      <shopTitle shopName="{{shopInfo.name}}" shopImg="{{shopInfo.logoSrc}}" shopId="{{id}}"  hasBtn="{{false}}" detail="{{true}}"></shopTitle>
+      <shopTitle shopName="{{shopInfo.name}}" shopImg="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{shopInfo.logoSrc}}" shopId="{{id}}"  hasBtn="{{false}}" detail="{{true}}"></shopTitle>
     </view>
     <swiper indicator-dots="true">
       <block wx:for="{{ bannerImageList }}" wx:key="index">
         <swiper-item>
-          <image mode="widthFix" style="width: 100%;" src="http://dummyimage.com/1920x500/333333/" />
+          <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.imgSrc}}"/>
         </swiper-item>
       </block>
     </swiper>
