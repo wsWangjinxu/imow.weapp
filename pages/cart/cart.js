@@ -11,6 +11,10 @@ Page({
     this.init(this.data.num);
   },
 
+  onshow() {
+    this.init(this.data.num);
+  },
+
   init(num) {
     getUserCart("GET").then(res => {
       console.log(res);//eslint-disable-line

@@ -189,7 +189,7 @@ Component({
       if (cartId) {
         //跳转到确认订单页面
         wx.navigateTo({
-          url: "/pages/orderConfirm/orderConfirm?cartId=" + cartId
+          url: "/pages/orderConfirm/orderConfirm?cartIds=" + cartId
         });
       } else {
         wx.showToast({
