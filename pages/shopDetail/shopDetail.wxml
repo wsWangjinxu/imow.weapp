@@ -2,7 +2,7 @@
 <view class="container">
 
 <view class='head'>
-  <shopTitle shopName='{{name}}' shopId="{{shopId}}" imgSrc='{{imgSrc}}'></shopTitle>
+  <shopTitle shopName='{{name}}' shopId="{{shopId}}" imgSrc='http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{imgSrc}}'></shopTitle>
 </view>
 
 <view class='top'> 
@@ -61,25 +61,24 @@
   </view>
 </view>
 
-<view class='box'> 
+<view class='box' wx:if="{{companeyInfo}}"> 
   <view class='title'>公司简介</view>
   <view>
     <rich-text nodes="{{companeyInfo}}"></rich-text>
-    <!-- <view>浙江重力式浙江重力式浙江重力江重力式浙江重式浙江重力式式浙江重力式浙江重力式浙江重力浙江重力式浙</view> -->
   </view>
 </view>
 
-<view class='box'> 
+<view class='box' wx:if="{{mainProduct}}"> 
   <view class='title'>主营产品</view>
-  <rich-text nodes="{{mainProduct}}"></rich-text>
-  <!-- <view>主营电瓶搬运车、电动堆高车、电动叉车</view>
-  <view>式浙江重力式浙江重力式浙江重力浙江重式浙江重力式浙江重力式浙江重力浙江重式浙江重力式浙江重力式浙江重力浙江重力式浙</view> -->
+  <view>
+    <rich-text nodes="{{mainProduct}}"></rich-text>
+  </view>
 </view>
 
 <!-- 弹框 -->
 <van-popup show="{{ show }}" position="center" bind:close="onClose" catchtouchmove="ture">
   <view class='zhezhao'>
-    <image src='{{showContent}}' mode="widthFix"></image>
+    <image src='http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{showContent}}' mode="widthFix"></image>
   </view>
 </van-popup>
 

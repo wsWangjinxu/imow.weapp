@@ -32,6 +32,7 @@ Page({
   //弹框
   showPopup(e) {
     let showNo = e.currentTarget.dataset.show;
+    console.log(showNo)
     if (showNo==1){
       let showContent = this.data.businessLicense;
       this.setData({ showContent: showContent });

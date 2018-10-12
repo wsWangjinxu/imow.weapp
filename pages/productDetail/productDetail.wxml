@@ -247,6 +247,7 @@
           <view class="button3" bindtap='buy'>加入购物车</view>
         </navigator>
       </van-col>
+
     </van-row>
   </view>
 
