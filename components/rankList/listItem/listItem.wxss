@@ -1,0 +1,76 @@
+.list-item {
+  position: relative;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 20rpx;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 17rpx;
+  left: 181rpx;
+  width:390rpx;
+}
+
+.leader {
+  font-size: 20rpx;
+  font-weight: bold;
+  color: #b80008;
+  position: absolute;
+  top: 103rpx;
+  left: 30rpx;
+  text-align: center;
+  width: 80rpx;
+}
+
+.tuanyuan {
+  font-size: 20rpx;
+  position: absolute;
+  top: 112rpx;
+  left: 118rpx;
+  text-align: left;
+}
+
+.distance  {
+  font-size: 20rpx;
+  color: #b80008;
+  position: absolute;
+  top: 126rpx;
+  left: 374rpx;
+}
+
+.paiming {
+  font-size: 20rpx;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 234rpx;
+  left: 230rpx;
+  text-align: left;
+
+}
+
+.paiming > view text:first-child {
+  display: inline-block;
+  width: 330rpx;
+} 
+
+.paiming .two {
+  margin-top: 13px;
+}
+
+.paiming .three {
+  margin-top: 14px;
+}
+
+
+.distance2 {
+  font-size: 20rpx;
+  width: 450rpx;
+  text-align: center;
+  position: absolute;
+  bottom: 80rpx;
+  left: 240rpx;
+}

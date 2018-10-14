@@ -1,0 +1,9 @@
+{ 
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTitleText": "阿母盛典",
+  "navigationBarTextStyle":"white",
+  "usingComponents": {
+    "listItem": "/components/rankList/listItem/listItem"
+  }
+}

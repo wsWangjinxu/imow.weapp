@@ -1,0 +1,38 @@
+<view class="rankList">
+	<view>
+		<image style="width: 100%;" mode="widthFix" src="/static/images/zongji.jpg" />
+		<view class="ctn">
+			<view class="item">
+				<text class="title">团购总金额</text>
+				<text class="number">188812.12</text>
+				<text class="unit">万元</text>
+			</view>
+			<view class="item">
+				<text class="title">团购总金额</text>
+				<text class="number">188812</text>
+				<text class="unit">台</text>
+			</view>
+		</view>
+	</view>
+	<view style="margin-top: -10rpx;position: relative;">
+		<image style="width: 100%;" mode="widthFix" src="/static/images/paiming.jpg" />
+		<view class="first">
+			<view class="num">100000<text>元</text></view>
+			<view class="company">浙江中力机械有限公司</view>
+		</view>
+    <view class="second">
+			<view class="num">100000<text>元</text></view>
+			<view class="company">浙江中力机械有限公司</view>
+		</view>
+    <view class="third">
+			<view class="num">100000<text>元</text></view>
+			<view class="company">浙江中力机械有限公司</view>
+		</view>
+    <view class="notice">您距离上榜还差<span style="color: #d31518;">990000</span>元，请继续努力加油哦！</view>
+	</view>
+  <view class="list">
+    <image style="width:410rpx;margin-top: 40px;margin-bottom: 20px;" mode="widthFix" src="/static/images/list-title.png"></image>
+    <listItem class="item" wx:for="{{4}}" wx:key="{{index}}"></listItem>
+  </view>
+</view>
+

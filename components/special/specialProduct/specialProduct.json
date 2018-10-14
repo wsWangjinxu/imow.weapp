@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-icon": "/vantui/icon/index",
+    "van-button": "/vantui/button/index",
+    "van-badge": "/vantui/badge/index"
+  }
+}

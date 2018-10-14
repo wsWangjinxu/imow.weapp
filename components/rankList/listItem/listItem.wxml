@@ -1,0 +1,47 @@
+<view class="list-item">
+	<image mode="widthFix" style="width: 100%;" src="/static/images/list-item.png" />
+	<view class="title">
+		3吨锂电壹号
+		<text>——CPD30L1 3.0吨电动叉车</text>
+	</view>
+	<view class="leader">郑大团长</view>
+	<view class="tuanyuan">
+		<view style="font-size: 20rpx;font-weight: bold;border-bottom:1px solid black;">团员600人</view>
+		<view style="font-size: 20rpx;">来自浙江中力机械有限公司</view>
+	</view>
+	<view class="distance">您距离人气团长还需增加团员100人</view>
+	<view class="paiming">
+		<view class="one">
+			<view>
+				<text>浙江中力机械有限公司</text>
+				<text>100台</text>
+			</view>
+		</view>
+		<view class="two">
+			<view>
+				<text>浙江中力机械有限公司</text>
+				<text>100台</text>
+			</view>
+			<view>
+				<text>浙江中力机械有限公司</text>
+				<text>100台</text>
+			</view>
+		</view>
+		<view class="three">
+			<view>
+				<text>浙江中力机械有限公司</text>
+				<text>100台</text>
+			</view>
+			<view>
+				<text>浙江中力机械有限公司</text>
+				<text>100台</text>
+			</view>
+      <view>
+				<text>浙江中力机械有限公司</text>
+				<text>100台</text>
+			</view>
+		</view>
+	</view>
+  <view class="distance2">您距离上榜还有 <text style="color: #c7080a;">100</text> 台距离，请继续努力加油哦！</view>
+</view>
+
