@@ -83,7 +83,7 @@ Component({
         tempStack.pop();
         //用新的数组替换原来的数组
         this.setData({
-          name: this.data.ctn.key
+          name: "分类"
         });
         this.triggerEvent("searchClass", [{name: this.data.ctn.key}]);
       } else {

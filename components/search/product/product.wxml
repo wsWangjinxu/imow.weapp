@@ -1,5 +1,5 @@
 <view class="product">
-  <image src="{{ctn.image}}" />
+  <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}" />
   <view>
     <navigator class="title" url="/pages/productDetail/productDetail" hover-class="className">{{ctn.name}}</navigator>
     <view><text class="activity">阿母团购日</text><text class="activity">满16800减300</text></view>

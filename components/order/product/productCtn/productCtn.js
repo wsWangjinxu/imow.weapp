@@ -16,9 +16,16 @@ Component({
       type: Boolean,
       value: false,
       observer: function(newVal) {
+        console.log(this.data.product.isExpire);
+        console.log(newVal);
         if(!this.data.product.isExpire) {
           if(newVal) {
-            this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+            //判断是不是套餐，如果是套餐的话就按计算套餐的计算，如果不是套餐的就不按计算套餐的计算
+            if(this.data.product.promotionModel) {
+              this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
+            } else {
+              this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+            }
           } else {
             this.triggerEvent("selectedProduct", { index: this.data.index, status: 0 });
           }

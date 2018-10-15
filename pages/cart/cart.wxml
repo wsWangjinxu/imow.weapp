@@ -13,5 +13,12 @@
     list="{{shopList}}" 
     selectedId="{{selectedId}}"
     ></tab>
-    <shop style="margin-top: 20rpx;" bind:selectEvent="handleSelect" shop="{{list[num]}}"></shop>
+<!--    <shop style="margin-top: 20rpx;" bind:selectEvent="handleSelect" shop="{{list[num]}}"></shop> -->
+    <block wx:for="{{list}}">
+        <shop 
+        style="margin-top: 20rpx;display:{{index === num ? 'block': 'none'}}" 
+        bind:selectEvent="handleSelect" 
+        shop="{{item}}" 
+        wx:key="index"></shop>
+    </block>
 </view>

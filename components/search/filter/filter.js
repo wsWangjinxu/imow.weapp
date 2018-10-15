@@ -27,7 +27,7 @@ Component({
     searchData:{
       minPrice:"",
       maxPrice: "",
-      PorpertyList: []
+      propertyList: []
     },
     cities:""
   },
@@ -111,7 +111,7 @@ Component({
 
     //获取用户选择的属性
     searchProperties(e){
-      let tempPropertyList = this.data.searchData.PorpertyList;
+      let tempPropertyList = this.data.searchData.propertyList;
       if(e.detail.name === false) {
         tempPropertyList.forEach(element => {
           if(element.id === e.detail.id) {
@@ -125,7 +125,7 @@ Component({
       
       //设置属性列表
       this.setData({
-        "searchData.PorpertyList": tempPropertyList
+        "searchData.propertyList": tempPropertyList
       });
 
       //调用最终的搜索

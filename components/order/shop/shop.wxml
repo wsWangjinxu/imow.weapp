@@ -1,4 +1,5 @@
-<view class="shop" wx:if="{{productNum}}}">
+<!--<view class="shop" wx:if="{{productNum}}}">-->
+<view class="shop">
 <!--  <shopTitle  bind:checkAll="checkAll" bind:checkCancel="checkCancel" cancelCheck="{{cancelCheck}}" checkAll="{{checkAll}}" shopName="{{shop.shopName}}" url="{{shop.url}}"></shopTitle> -->
   <productCtn 
     bind:selectedProduct="selectedProduct" 

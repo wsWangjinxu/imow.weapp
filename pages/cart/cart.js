@@ -1,13 +1,20 @@
-import { getUserCart, getCartShopList, getShopCart, removeCart, removeUnActive } from "../../api/user/cart.js"
+import {
+  getUserCart,
+  getCartShopList,
+  getShopCart,
+  removeCart,
+  removeUnActive
+} from "../../api/user/cart.js"
 
 Page({
   data: {
     list: "",
     shopList: "",
     selectedId: "",
-    num: 0
+    num: 0,
+    swap: true  //用户店铺购物车的切换
   },
-  onLoad(){
+  onLoad() {
     this.init(this.data.num);
   },
 
@@ -17,29 +24,22 @@ Page({
 
   init(num) {
     getUserCart("GET").then(res => {
-      console.log(res);//eslint-disable-line
-      this.setData({
-        list: res.data.data,
-        shopList: res.data.shopList,
-        selectedId: res.data.shopList[num].id
-      });
+      console.log(res); //eslint-disable-line
+      if (res.data.shopList.length !== 0) {
+        this.setData({
+          list: res.data.data,
+          shopList: res.data.shopList,
+          selectedId: res.data.shopList[num].id
+        });
+      }
     });
-
-    // //获取购物车的店铺列表
-    // getCartShopList("POST").then(res => {
-    //   console.log(res);
-    //   this.setData({
-    //     shopList: res.data.shopList,
-    //     selectedId: res.data.shopList[num].id
-    //   });
-    // });
   },
 
   //点击切换显示某个店铺的购物车
   handleTabChange(e) {
     let tempArray = this.data.list;
     tempArray.forEach((element, index) => {
-      if(element.shopId === e.detail) {
+      if (element.shopId === e.detail) {
         this.setData({
           num: index
         });
@@ -51,8 +51,10 @@ Page({
   handleExpire() {
     let shopId = this.data.selectedId;
     console.log(shopId);
-    removeUnActive("DELETE", { shopId }).then(res => {
-      if(res.status === 204) {
+    removeUnActive("DELETE", {
+      shopId
+    }).then(res => {
+      if (res.status === 204) {
         wx.showToast({
           title: "清除成功！",
           icon: "success"
@@ -71,7 +73,7 @@ Page({
   },
 
   //获取选中的产品
-  handleSelect(e){
+  handleSelect(e) {
     //选中产品以后设置cartId
     this.setData({
       cartId: e.detail.cartId
@@ -81,11 +83,11 @@ Page({
   //删除购物车中的产品
   handleDelete() {
     let _this = this;
-    if(this.data.cartId) {
+    if (this.data.cartId) {
       removeCart("DELETE", {
         cartId: _this.data.cartId
       }).then(res => {
-        if(res.data.status) {
+        if (res.data.status) {
           wx.showToast({
             title: "删除成功",
             icon: "success"

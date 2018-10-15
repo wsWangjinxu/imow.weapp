@@ -40,7 +40,8 @@ function getShopList(type, data) {
 //获取城市列表
 function getCities(type, data) {
   return wxRequest({
-    url: baseUrl + "getCities",
+    // url: baseUrl + "getCities",
+    url: "http://10.10.10.230:8052/" + "getCities",
       data: data,
       type: type
   });

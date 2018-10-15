@@ -30,7 +30,7 @@ Component({
   },
   data: {
     isFoldClass: "unfold",
-    selectedBrand: false,
+    selectedBrand: "",
     selectedId: ""
   },
   methods: {
@@ -65,9 +65,9 @@ Component({
     },
     //还原到未选中的状态
     resetBrand(e) {      
-      this.triggerEvent("brandSearch", {name: false, id: this.data.selectedId});
+      this.triggerEvent("brandSearch", {name: "", id: this.data.selectedId});
       this.setData({
-        selectedBrand: false,
+        selectedBrand: "",
         selectedId: false
       });
     }
