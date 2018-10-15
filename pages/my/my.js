@@ -17,6 +17,28 @@ Page({
     password: ""
   },
 
+    //获取用户的微信信息，头像和昵称
+    getUserWXInfo() {
+      let that = this;
+      wx.getUserInfo({
+        success: function(res) {
+          let tempData = res.rawData;
+          //数据转换
+          tempData = JSON.parse(tempData);
+          that.setData({
+            nickname: tempData.nickName,
+            avatarUrl: tempData.avatarUrl
+          })
+        },
+        fail: function(err) {
+          wx.showToast({
+            title: "获取信息出错",
+            image: "/static/icon/warning-white.png"
+          })
+        }
+      })
+    },
+
   onLoad() {
     //flag用来标识Page页面的onLoad是否先于app.js中异步的执行
     //这种情况用于用户已经在服务器上边绑定了阿母账号，如果没有绑定阿母账号，则获取缓存isLogin为false
@@ -120,28 +142,6 @@ Page({
     this.setData({
       password: e.detail.value
     });
-  },
-
-  //获取用户的微信信息，头像和昵称
-  getUserWXInfo() {
-    let that = this;
-    wx.getUserInfo({
-      success: function(res) {
-        let tempData = res.rawData;
-        //数据转换
-        tempData = JSON.parse(tempData);
-        that.setData({
-          nickname: tempData.nickName,
-          avatarUrl: tempData.avatarUrl
-        })
-      },
-      fail: function(err) {
-        wx.showToast({
-          title: "获取信息出错",
-          image: "/static/icon/warning-white.png"
-        })
-      }
-    })
   }
 
 })

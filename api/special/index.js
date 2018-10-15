@@ -7,7 +7,7 @@ import { baseUrl } from "../baseUrl.js";
 //获取轮播图信息
 function getSwipers(type, data) {
   return wxRequest({
-    url: baseUrl + "/special/getSwipers",
+    url: baseUrl + "special/getSwipers",
       data: data,
       type: type
   });
@@ -16,7 +16,7 @@ function getSwipers(type, data) {
 //获取优惠券信息
 function getCoupons(type, data) {
   return wxRequest({
-    url: baseUrl + "/special/getCoupons",
+    url: baseUrl + "special/getCoupons",
       data: data,
       type: type
   });
@@ -26,7 +26,7 @@ function getCoupons(type, data) {
 //获取热销榜产品
 function getHotProduct(type, data) {
   return wxRequest({
-    url: baseUrl + "/special/getHotProduct",
+    url: baseUrl + "special/getHotProduct",
       data: data,
       type: type
   });
@@ -35,7 +35,7 @@ function getHotProduct(type, data) {
 //获取店铺列表
 function getShopList(type, data) {
   return wxRequest({
-    url: baseUrl + "/special/getShopList",
+    url: baseUrl + "special/getShopList",
       data: data,
       type: type
   });
@@ -44,7 +44,7 @@ function getShopList(type, data) {
 //获取产品列表
 function getProductList(type, data) {
   return wxRequest({
-    url: baseUrl + "/special/getProductList",
+    url: baseUrl + "special/getProductList",
       data: data,
       type: type
   });
@@ -53,7 +53,7 @@ function getProductList(type, data) {
 //获取产品列表
 function getSuperGroupBuy(type, data) {
   return wxRequest({
-    url: baseUrl + "/special/getSuperGroupBuy",
+    url: baseUrl + "special/getSuperGroupBuy",
       data: data,
       type: type
   });

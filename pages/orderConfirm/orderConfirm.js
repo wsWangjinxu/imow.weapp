@@ -39,37 +39,41 @@ Page({
     remark: "",
     btnText: "",
     selfAddressId: "",
-    status: ""
+    status: "",
+    orderPrice: 0
   },
   onLoad(option) {
+    console.log(option);
     
     debugger //eslint-disable-line
     //下面一行注释用于测试，测试完毕以后放开注释,根据购物车id获取商品的信息
-    if (option.cartId) {
+    if (option.cartIds) {
       //说明是从购物车过来的
       this.setData({
         btnText: "提交订单",
-        cartId: option.cartId,
+        cartId: option.cartIds,
         status: 1
       });
-      getOrderConfirmCart1("GET", {cartId: option.cartId}).then(res => {
+      getOrderConfirmCart1("GET", {cartIds: option.cartIds}).then(res => {
         this.firstRequest(res);
+        this.checkboxChange();
       });
 
     } else if (option.groupBuyId) {
       //说明是从拼团页面过来的
       this.setData({
         btnText: "提交订单",
-        groupBuyId: option.groupBuyId,
+        collageId: option.groupBuyId,
         status: 2
       });
       getOrderConfirmCart3("GET", {collageId: option.groupBuyId}).then(res => {
         this.firstRequest(res);
+        this.checkboxChange();
       });
     } else {
       //说明是从定金产品过来的
       this.setData({
-        btnText: "支付定金",
+        btnText: "提交订单",
         skuId: option.skuId,
         num: option.num,
         status: 3
@@ -77,6 +81,7 @@ Page({
       getOrderConfirmCart2("GET", {skuId: option.skuId,
         num: option.num}).then(res => {
         this.firstRequest(res);
+        this.checkboxChange();
       });
     }
 
@@ -168,8 +173,7 @@ Page({
       useImb = true;
       //含有定金产品
       if(this.data.cartData.depositPrice) {
-        orderPrice -= this.data.cartData.imb;
-        orderPrice += this.data.cartData.earnestImb;
+        orderPrice = orderPrice - this.data.cartData.imb + this.data.cartData.earnestImb;
       } else {
         //没有定金产品
         orderPrice -= this.data.cartData.imb;
@@ -183,8 +187,7 @@ Page({
       useConpon = true;
       //有定金产品
       if(this.data.cartData.depositPrice) {
-        orderPrice -= this.data.cartData.couponTotleDiscount;
-        orderPrice += this.data.cartData.earnestDiscount;
+        orderPrice = orderPrice - this.data.cartData.couponTotleDiscount + this.data.cartData.earnestCouponDiscount;
       } else {
         //没有定金产品
         orderPrice -= this.data.cartData.couponTotleDiscount;
@@ -206,12 +209,11 @@ Page({
       showBtn = false;
     }
 
-
     //设置阿母币和优惠券的显示状态
     this.setData({
       useImb,
       useConpon,
-      "cartData.orderPrice": orderPrice,
+      orderPrice,
       showBtn: showBtn
     });
   },
@@ -266,9 +268,9 @@ Page({
   addOrder() {
     if (this.data.showBtn) {
       let cartData = this.data.cartData;
-      let cartId;
+      let cartId = "";
       for (let i = 0; i < cartData.orderCartProductSkus.length; i++) {
-        cartId = cartId + cartData.orderCartProductSkus[i].cartId + ",";
+        cartId = cartId + String(cartData.orderCartProductSkus[i].cartId) + ",";
       }
       cartId = cartId.slice(0, cartId.length - 1);
 
@@ -281,11 +283,11 @@ Page({
         selfAddressId: this.data.selfAddressId
       }
       if(this.data.status === 1) {
-        db.cartId = cartId
+        db.cartIds = cartId
       } 
 
       if(this.data.status === 2 ) {
-        db.collageId = this.data.groupBuyId;
+        db.collageId = this.data.collageId;
       }
 
       if(this.data.status === 3) {

@@ -56,7 +56,7 @@
     <view class="money">
       <view>
         <text>应付金额</text>
-        <text>￥{{cartData.orderPrice}}</text>
+        <text>￥{{orderPrice}}</text>
       </view>
       <view wx:if="{{cartData.depositPrice}}">
         <text>定金</text>
@@ -68,16 +68,16 @@
       </view>
       <view wx:if="{{useImb}}">
         <text>阿母币</text>
-        <text>-￥{{cartData.imb}}</text>
+        <text>-￥{{cartData.imb - cartData.earnestImb}}</text>
       </view>
       <view wx:if="{{useConpon}}">
         <text>优惠券</text>
-        <text>-￥{{cartData.couponTotleDiscount}}</text>
+        <text>-￥{{cartData.couponTotleDiscount - cartData.earnestCouponDiscount}}</text>
       </view>   
     </view>
     <view class="submit">
       <view>
-        <view>订单总额（不含运费）<text>￥{{cartData.orderPrice}}</text></view>
+        <view>应付金额（不含运费）<text>￥{{orderPrice}}</text></view>
         <view class="submitBtn" bindtap="addOrder" style="background-color:{{showBtn? 'fb0200':'#333'}};">{{btnText}}</view>   
       </view>
     </view>
