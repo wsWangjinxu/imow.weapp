@@ -27,7 +27,6 @@ Page({
       }
     ],
     selectedId: '猜你喜欢',
-    bannerList: "",
     navList: [
       {
         title: "工厂店",
@@ -102,11 +101,11 @@ Page({
   //页面初始化
   init() {
     //获取首页轮播图的内容
-    getBannerItemList("POST").then(res => {
-      this.setData({
-        "bannerList": res.data.bannerItemList
-      });
-    });
+    // getBannerItemList("POST").then(res => {
+    //   this.setData({
+    //     "bannerList": res.data.bannerItemList
+    //   });
+    // });
 
     //获取猜你喜欢的内容
     guessYourFavorite("POST").then(res => {

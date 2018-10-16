@@ -2,7 +2,7 @@
     <van-search slot="title" bindtap="navigatorToSearch" disabled="true" placeholder="搜索 商品/品牌/店铺"></van-search>
     <view class='banner'>
       <swiper indicator-dots="true">
-        <swiper-item wx:for="{{bannerList}}" wx:key="index"><navigator url="/pages/productDetail/productDetail"><image  src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.imgSrc}}" /></navigator></swiper-item>
+        <swiper-item wx:for="{{4}}" wx:key="index"><navigator url="/pages/productDetail/productDetail"><image  src="/static/images/banner{{index + 1}}.jpg" /></navigator></swiper-item>
       </swiper>
     </view>
     <view class="nav-block">
