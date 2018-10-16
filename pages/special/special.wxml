@@ -2,7 +2,7 @@
 	<image mode="widthFix" style="display: inline-block;width: 100%;" src="/static/images/bg.jpg" />
 	<view class="timer">
 		<image mode="widthFix" style="width: 100rpx;" src="/static/images/timer.png" />
-		<view class="timer-ctn" style="  margin-top: 5px;">
+		<view class="timer-ctn" style="margin-top: 5px;">
 			<view class="time-ctn-item">
 				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
 				<view class="time-ctn-item-ctn">
@@ -104,12 +104,12 @@
 			</swiper-item>
 		</block>
 	</swiper>
-	<lineTitle title="{{'双11专享优惠券'}}" />
+<!--	<lineTitle title="{{'双11专享优惠券'}}" />
 	<view class="coupon-ctn">
 		<block wx:for="{{coupons}}" wx:key="index">
 			<coupon ctn="{{item}}" class="coupon-item" />
 		</block>
-	</view>
+	</view> -->
 	<bulletTitle title="{{'超级拼团'}}" bind:more="handleSuper" subTitle="{{'拼团一天，划算半年'}}" />
 	<view class="super-group-ctn" style="height: {{groupHeight}};">
 		<block wx:for="{{superGroupBuy}}" wx:key="index">

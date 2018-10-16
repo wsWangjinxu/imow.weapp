@@ -6,7 +6,7 @@ const app = getApp();
 
 Page({
   data: {
-    paytype:false ,//false全款加入购物车 true定金立即购买
+    paytype: false,//false全款加入购物车 true定金立即购买
     num:1,
     popupshow: false,//弹出层是否显示
     productId:"",//当前选中产品id
@@ -24,11 +24,10 @@ Page({
     totalChange:0,
     oldTotal:0, //组合原价
     oldTotalChange:0,
-    promotionId: 549583908203049
+    promotionId: 0
   },
-  onLoad: function(e) { 
-    console.log(e);
-    // this.setData({ promotionId: e.id });
+  onLoad: function(e) {
+    this.setData({ promotionId: e.id });
     this.init();
   },
   init() {
@@ -36,8 +35,8 @@ Page({
     getPromotionPackage("GET", {
       promotionId: this.data.promotionId,
     }).then(res => {
+      console.log(res);
       if (res.statusCode == 200){
-        console.log(res.data.packageModel);
         this.setData({
           initArray: res.data.packageModel.products
         });
@@ -53,11 +52,11 @@ Page({
   },
   //点击选择规格跳出弹出层
   showpop(e){
-    console.log(e);  //打印当前产品要传给组件的值（自定义属性）
-    console.log(e.currentTarget.dataset.skucode);
-    console.log(e.currentTarget.dataset.deliverytime);
-    console.log(e.currentTarget.dataset.productskus);
-    console.log(e.currentTarget.dataset.topimg);
+    // console.log(e);  //打印当前产品要传给组件的值（自定义属性）
+    // console.log(e.currentTarget.dataset.skucode);
+    // console.log(e.currentTarget.dataset.deliverytime);
+    // console.log(e.currentTarget.dataset.productskus);
+    // console.log(e.currentTarget.dataset.topimg);
     this.setData({ 
       popupshow: true, 
       productId: e.currentTarget.dataset.productid,
@@ -112,15 +111,8 @@ Page({
   addcart(){
     let newArray = this.data.initArray;
     let count = 0; //记录已选择规格的数量，只有全部选择了才下一步操作
-    let cartArray = [];
     for (let index = 0; index < newArray.length; index++) {
       const item = newArray[index];
-      let a = {};
-      a.productId = item.id;
-      a.skuId = item.skuId;
-      a.skuCode = item.skuCode;
-      a.num = this.data.num;
-      cartArray.push(a);
       if (item.skuId == "" || item.skuId == undefined) {
         wx.showToast({
           title:'有产品未选规格',
@@ -132,25 +124,20 @@ Page({
       }
     }
     if (count == newArray.length){
-      console.log(newArray);
-      // wx.showToast({
-      //   title: '加入购物车success',
-      // });
       let cartArray=[];
       for (let index = 0; index < newArray.length; index++) {
         const item = newArray[index];
         let a ={};
         a.productId=item.id;
+        a.promotionId = this.data.promotionId;
         a.skuId=item.skuId;
         a.skuCode=item.skuCode;
-        a.num = this.data.num;
+        a.num = this.data.num * item.packageNum;
         cartArray.push(a);
       }
-      cartGroupPurchaseAdd("POST", {
-        cartModel:cartArray
-      }).then(res => {
-        console.log(res);
-        if (res.data.status == 200) {
+      console.log(cartArray)
+      cartGroupPurchaseAdd("POST",cartArray).then(res => {
+        if (res.data.status == 20) {
           wx.switchTab({
             url: '/pages/cart/cart'
           })
@@ -192,14 +179,14 @@ Page({
   },
   //子组件点击确认按钮传值
   onMyEvent: function (e) {
-    console.log(e.detail.skuId);
-    console.log(e.detail.price);
-    console.log(e.detail.oldPrice);
-    console.log(e.detail.isShow);//弹出层是否显示
-    console.log(e.detail.productId);
-    console.log(e.detail.depositShow);//是否有交期
-    console.log(e.detail.skuCode);
-    console.log(e.detail.deliveryTime);
+    // console.log(e.detail.skuId);
+    // console.log(e.detail.price);
+    // console.log(e.detail.oldPrice);
+    // console.log(e.detail.isShow);//弹出层是否显示
+    // console.log(e.detail.productId);
+    // console.log(e.detail.depositShow);//是否有交期
+    // console.log(e.detail.skuCode);
+    // console.log(e.detail.deliveryTime);
     let newArray = this.data.initArray;
     for (let index = 0; index < newArray.length; index++) {
       const item = newArray[index];
@@ -240,8 +227,6 @@ Page({
     }else{
       this.setData({ depositShow: false });
     }
-
-
   }
 
 

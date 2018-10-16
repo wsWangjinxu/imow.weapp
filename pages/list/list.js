@@ -1,13 +1,15 @@
-import {getProductList, getShopList} from "../../api/search/search"
+import {
+  getProductList,
+  getShopList
+} from "../../api/search/search"
 
 Page({
   data: {
     filterShow: "none",
     //保存最初的状态
-    keyword:"",
+    keyword: "",
     selectedId: "1",
-    list: [
-      {
+    list: [{
         id: "1",
         title: "产品"
       },
@@ -26,7 +28,9 @@ Page({
     let currentSearch = {
       keyword: option.keyword,
       pageIndex: 1,
-      pageSize: 8
+      pageSize: 8,
+      orderDesc: false,
+      order: ""
     };
 
     //记录最初的状态
@@ -37,11 +41,38 @@ Page({
       shopCurrentSearch: currentSearch
     });
 
-    if(option.id == "1") {
+    if (option.id == "1") {
       this.search(currentSearch);
     } else {
       this.search(this.data.shopCurrentSearch);
     }
+  },
+
+  //点击排序
+  handleOrderBuy() {
+    console.log("已经执行了排序操作");
+    let orderDesc = !this.data.currentSearch.orderDesc;
+    this.setData({
+      "currentSearch.orderDesc":orderDesc
+    });
+
+    this.search(this.data.currentSearch);
+  },
+
+  //点击按销量排序
+  handleSaleCount() {
+    console.log("已经执行了按销量排序");
+    let order = this.data.currentSearch.order;
+    if(order) {
+      order = ""
+    } else {
+      order = "saleCount";
+    }
+    this.setData({
+      "currentSearch.order": order
+    });
+
+    this.search(this.data.currentSearch);
   },
 
   //点击修改模式，是搜索店铺还是搜索产品
@@ -50,7 +81,7 @@ Page({
       selectedId: e.detail
     });
 
-    if(e.detail == "1") {
+    if (e.detail == "1") {
       this.search(this.data.currentSearch);
     } else {
       this.search(this.data.shopCurrentSearch);
@@ -61,7 +92,7 @@ Page({
   filterOpen() {
     this.setData({
       filterShow: true
-    }); 
+    });
   },
 
   //关闭筛选框
@@ -80,10 +111,14 @@ Page({
 
   //全局的搜索
   search(data) {
+    console.log(this.data.currentSearch);
+    console.log(data);
     let id = this.data.selectedId;
-    if(id=="1") {
+    if (id == "1") {
       //这里是产品搜索
       getProductList("GET", data).then(res => {
+        console.log("搜索到的数据");
+        console.log(res);
         //获取到的搜索的数据
         this.setData({
           searchResult: res.data
@@ -93,7 +128,7 @@ Page({
       //这里是店铺搜索
       getShopList("GET", data).then(res => {
         //获取到的搜索的数据
-        console.log(res.data);
+        console.log(res);
         this.setData({
           searchResult: res.data
         });
@@ -103,31 +138,39 @@ Page({
 
   //处理筛选组件的搜索
   handleSearch(e) {
+    let currentSearch = this.data.currentSearch;
+
     let data = e.detail;
-    data.keyword = this.data.keyword;
-    data.pageIndex = 1;
+    currentSearch.keyword = this.data.keyword;
+    currentSearch.pageIndex = 1;
+    for(let index in data) {
+      currentSearch[index] = data[index];
+    }
     //保存当前搜索状态，用于上拉加载(每一次搜索都要记录)
     this.setData({
-      currentSearch: data
+      currentSearch
     });
     //调用全局搜索
-    this.search(data);
+    this.search(currentSearch);
   },
 
   //处理筛选组件的重置（等同于下拉刷新）
   handleReset() {
     console.log("表示已经重置了");
-    this.search({keyword: this.data.keyword, pageIndex: 1});
+    this.search({
+      keyword: this.data.keyword,
+      pageIndex: 1
+    });
   },
 
   //下拉刷新
   onPullDownRefresh() {
-    if(this.data.selectedId == "1") {
+    if (this.data.selectedId == "1") {
       this.search(this.data.currentSearch);
     } else {
       this.search(this.data.shopCurrentSearch);
     }
-    
+
     wx.stopPullDownRefresh();
   },
 
@@ -144,16 +187,25 @@ Page({
     });
     console.log(this.data.currentSearch);
     //利用当前选中的id来判断是加载店铺搜索还是加载产品搜索
-    if(this.data.selectedId == "1") {
+    if (this.data.selectedId == "1") {
       getProductList("GET", this.data.currentSearch).then(res => {
         console.log(res);
         let tempList = this.data.searchResult.productList;
-        for(let i = 0; i < res.data.productList.length; i++) {
-          tempList.push(res.data.productList[i]);
+        if (res.data.productList) {
+          for (let i = 0; i < res.data.productList.length; i++) {
+            tempList.push(res.data.productList[i]);
+          }
+          this.setData({
+            "searchResult.productList": tempList
+          });
+
         }
-        this.setData({
-          "searchResult.productList": tempList
-        });
+        wx.hideLoading();
+        wx.showToast({
+          title: "已经到底了",
+          image: "/static/icons/warning-white.png"
+        })
+
         wx.hideLoading();
       }).then(err => {
         wx.hideLoading();
@@ -162,7 +214,7 @@ Page({
       getShopList("GET", this.data.shopCurrentSearch).then(res => {
         console.log(res);
         let tempList = this.data.searchResult.shopList;
-        for(let i = 0; i < res.data.shopList.length; i++) {
+        for (let i = 0; i < res.data.shopList.length; i++) {
           tempList.push(res.data.shopList[i]);
         }
         this.setData({
@@ -173,6 +225,5 @@ Page({
         wx.hideLoading();
       });
     }
-    
   },
 })

@@ -1,10 +1,16 @@
 /* 轮播图 */
+.banner{
+  background-color: white;
+  padding: 0 15rpx;
+}
+
 swiper{
+  width: 720rpx;
   height: 350rpx;
 }
 
 swiper-item image {
-  width: 100%;
+  width: 720rpx;
   height: 350rpx;
 }
 /* 导航模块 */

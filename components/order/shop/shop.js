@@ -48,9 +48,6 @@ Component({
         this.setData({
           selectedIndex: tempArray
         });
-
-        //计算已选的商品多少钱,并传递给结算条
-        this.money();
       } else {
         let tempArray = this.data.selectedIndex;
         tempArray.forEach((element, index) => {
@@ -64,7 +61,7 @@ Component({
         });
 
         //计算已选的商品多少钱,并传递给结算条
-        this.money();
+        
       }
 
       //获取购物车Id
@@ -72,15 +69,18 @@ Component({
       this.triggerEvent("selectEvent", {
         cartId
       });
+      this.money();
     },
 
     //全选 
     checkAll(e) {
+      let that = this;
       //更新一次状态
       this.setData({
         checkAll: true
+      }, function(){
+        that.money();
       });
-      this.money();
     },
 
     //取消全选
@@ -153,7 +153,7 @@ Component({
       }
       sumMoney = accessory + single;
       this.setData({
-        sumMoney: sumMoney,
+        sumMoney: parseFloat(sumMoney.toFixed(2)),
         sumNumber: sumNumber
       })
     },

@@ -40,10 +40,10 @@
         <van-col span="5">
           <text>代理价</text>
         </van-col>
-        <van-col span="14">
+        <van-col span="13">
           <text class='price2'>￥{{DLPrice1}}~{{DLPrice2}}</text>
         </van-col>
-        <van-col span="5" class="center">
+        <van-col span="6">
           <block wx:if="{{promotionType==1}}">
             <navigator url='/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId={{promotionId}}&productId={{productId}}'>
               <view class='tip'>{{promotionName}}</view>
@@ -65,7 +65,7 @@
         <text>优惠</text>
       </van-col>
       <van-col span="14">
-        <text>阿母币可抵扣{{ImbDisacount}}元</text>
+        <text>阿母币可抵扣{{imbDisacount?imbDisacount:0}}元</text>
       </van-col>
     </van-row>
     <view class='youhui'>
@@ -164,7 +164,7 @@
     <van-row>
       <navigator url='/pages/shopDetail/shopDetail?shopId={{shopId}}'>
         <van-col span="5">
-          <image class='logo' src="{{shopLogo}}"></image>
+          <image class='logo' src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{shopLogo}}"></image>
         </van-col>
         <van-col span="14">
           <text style='font-weight:800;'>{{shopName}}</text>

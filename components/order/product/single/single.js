@@ -47,15 +47,19 @@ Component({
         cartNum: this.data.ctn.num
       }).then(res => {
         if (~res.data.status) {
-          //如果有属具，通知属具数量改变了
-          if (this.data.ctn.hasAccessories) {
-            this.triggerEvent("handleNum", {
-              num: e.detail
-            });
-          }
+          // //如果有属具，通知属具数量改变了
+          // if (this.data.ctn.hasAccessories) {
+          //   this.triggerEvent("handleNum", {
+          //     num: e.detail
+          //   });
+          // }
           //无论有没有属具都需要把数量改变
           this.setData({
             "ctn.num": e.detail
+          });
+          //通知属具数量改变了
+          this.triggerEvent("handleNum", {
+            num: e.detail
           });
         }
       });

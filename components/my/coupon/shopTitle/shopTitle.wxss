@@ -13,6 +13,7 @@
   border-radius: 10rpx;
   flex: none;
   margin-right: 10rpx;
+  box-sizing: border-box
 }
 
 .shopTitle button {

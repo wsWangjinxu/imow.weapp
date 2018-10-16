@@ -1,13 +1,15 @@
 <view>
     <van-search slot="title" bindtap="navigatorToSearch" disabled="true" placeholder="搜索 商品/品牌/店铺"></van-search>
-    <swiper indicator-dots="true">
-        <swiper-item wx:for="{{bannerList}}" wx:key="index"><navigator url="/pages/productDetail/productDetail"><image  src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.imgSrc}}" /></navigator></swiper-item>
-    </swiper>
+    <view class='banner'>
+      <swiper indicator-dots="true">
+        <swiper-item wx:for="{{4}}" wx:key="index"><navigator url="/pages/productDetail/productDetail"><image  src="/static/images/banner{{index + 1}}.jpg" /></navigator></swiper-item>
+      </swiper>
+    </view>
     <view class="nav-block">
       <navCircle wx:for="{{navList}}" wx:key="index" url="{{item.url}}" title="{{item.title}}" imgSrc="{{item.imgSrc}}" ></navCircle>    
     </view>
     <view class="ad">
-        <navigator url="{{item.url}}"><image src="http://dummyimage.com/200x100"></image></navigator>
+        <navigator url="{{item.url}}"><image src="/static/images/indexAd.png"></image></navigator>
     </view>
     <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange"></van-tab>
     <view class="product-container">
