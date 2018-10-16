@@ -1,0 +1,31 @@
+.bullet-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 15rpx;
+  background-color: #fff;
+}
+
+.bullet-icon {
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: -4rpx;
+}
+
+.bullet-main-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.bullet-sub-title {
+  font-size: 24rpx;
+  color: #939393;
+}
+
+.bullet-btn {
+  border-radius: 30rpx;
+  border: 1px solid #666666;
+  font-size: 26rpx;
+  padding: 5rpx 15rpx;
+} 

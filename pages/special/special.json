@@ -7,6 +7,7 @@
     "superGroup": "/components/special/superGroup/superGroup",
     "hot": "/components/special/hot/hot",
     "product": "/components/special/product/product",
+    "specialProduct": "/components/special/specialProduct/specialProduct",
     "mealsku": "/components/mealsku/mealsku",
     "van-popup": "/vantui/popup/index",
     "sku": "/components/special/sku/sku"

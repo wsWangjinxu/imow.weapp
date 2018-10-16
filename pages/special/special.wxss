@@ -1,3 +1,130 @@
+.timer {
+  background-color: #970808;
+  margin-top: -10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 20rpx;
+
+}
+
+.time-ctn-item {
+  width: 540rpx;
+  height: 135rpx;
+  overflow: hidden;
+  border-radius: 20rpx;
+  position: relative;
+  background-color: cyan;
+  margin-bottom: 10px;
+}
+
+.time-ctn-item-ctn {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.title-left {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+}
+
+.ctn-left {
+  font-size: 18rpx;
+  color: #ffffff;
+  text-align: left;
+}
+
+.title-right {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #b7040c;
+  text-align: center;
+}
+
+.unopen {
+  font-size: 18rpx;
+  text-align: center;
+  padding: 3px 5rpx;
+  border-radius: 20rpx;
+  background-color: #494949;
+  color: white;
+}
+
+.opened {
+  font-size: 18rpx;
+  text-align: center;
+  padding: 3px 5rpx;
+  border-radius: 20rpx;
+  background-color: #b7040c;
+  color: white;
+}
+
+.white-bg {
+  width: 185rpx;
+  height: 140rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.group-money {
+  text-align: center;
+  font-size: 120rpx;
+  color: #fdd804;
+  position: absolute;
+  top: 240rpx;
+  width: 100%;
+}
+
+.group-money text {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fdd804;
+  text-align: center;
+  width: 100%;
+}
+
+.group-num {
+  text-align: center;
+  font-size: 120rpx;
+  color: #fdd804;
+  position: absolute;
+  top: 530rpx;
+  width: 100%;
+}
+
+.group-num text {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #fdd804;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-readList {
+  width: 405rpx;
+  height: 64rpx;
+  position: absolute;
+  top: 760rpx;
+  left: 192rpx;
+}
+
+.special-product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #5c0206;
+}
+
 swiper{
   width: 100%;
   height: 350rpx;

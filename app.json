@@ -1,5 +1,7 @@
 {
   "pages":[ 
+    "pages/special/special",
+    "pages/rankList/rankList",
     "pages/index/index",
     "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/developing/developing",
@@ -7,7 +9,6 @@
     "pages/my/my",
     "pages/groupBuy/joinGroupBuy/joinGroupBuy",
     "pages/setMeal/setMeal",
-    "pages/special/special",
     "pages/qrCard/qrCard",
     "pages/shop/shop",
     "pages/qr/qr",

@@ -1,41 +1,157 @@
 <view class="special">
-  <swiper class="swiper" indicator-dots="true">
-    <block wx:for="{{swipers}}" wx:key="{{index}}">
-      <swiper-item><navigator url="{{ item.url }}"  hover-class="className"><image mode="scaleToFill" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.image}}" /></navigator></swiper-item>
-    </block>
-  </swiper>
-  <lineTitle title="{{'双11专享优惠券'}}"></lineTitle>
-  <view class="coupon-ctn">
-    <block wx:for="{{coupons}}" wx:key="index">
-      <coupon ctn="{{item}}" class="coupon-item"></coupon>
-    </block>
+	<image mode="widthFix" style="display: inline-block;width: 100%;" src="/static/images/bg.jpg" />
+	<view class="timer">
+		<image mode="widthFix" style="width: 100rpx;" src="/static/images/timer.png" />
+		<view class="timer-ctn" style="  margin-top: 5px;">
+			<view class="time-ctn-item">
+				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<view class="time-ctn-item-ctn">
+					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-top: 20rpx;margin-right: 40rpx;">
+						<view class="title-left">中力小金刚拼团启幕</view>
+						<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view>
+					</view>
+					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+						<view class="title-right">#第2波#</view>
+						<view class="unopen">即将开启</view>
+						<view class="opened">已开启</view>
+					</view>
+				</view>
+			</view>
+			<view class="time-ctn-item">
+				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<view class="time-ctn-item-ctn">
+					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-top: 20rpx;margin-right: 40rpx;">
+						<view class="title-left">中力小金刚拼团启幕</view>
+						<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view>
+					</view>
+					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+						<view class="title-right">#第2波#</view>
+						<view class="unopen">即将开启</view>
+						<view class="opened">已开启</view>
+					</view>
+				</view>
+			</view>
+			<view class="time-ctn-item">
+				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<view class="time-ctn-item-ctn">
+					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-top: 20rpx;margin-right: 40rpx;">
+						<view class="title-left">中力小金刚拼团启幕</view>
+						<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view>
+					</view>
+					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+						<view class="title-right">#第2波#</view>
+						<view class="unopen">即将开启</view>
+						<view class="opened">已开启</view>
+					</view>
+				</view>
+			</view>
+			<view class="time-ctn-item">
+				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<view class="time-ctn-item-ctn">
+					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-top: 20rpx;margin-right: 40rpx;">
+						<view class="title-left">中力小金刚拼团启幕</view>
+						<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view>
+					</view>
+					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+						<view class="title-right">#第2波#</view>
+						<view class="unopen">即将开启</view>
+						<view class="opened">已开启</view>
+					</view>
+				</view>
+			</view>
+			<view class="time-ctn-item">
+				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<view class="time-ctn-item-ctn">
+					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-top: 20rpx;margin-right: 40rpx;">
+						<view class="title-left">中力小金刚拼团启幕</view>
+						<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view>
+					</view>
+					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+						<view class="title-right">#第2波#</view>
+						<view class="unopen">即将开启</view>
+						<view class="opened">已开启</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view style="position:relative;">
+		<image mode="widthFix" style="width: 100%;" src="/static/images/total.jpg" />
+		<view class="group-money">
+			180000.00
+			<text>万元</text>
+		</view>
+		<view class="group-num">
+			180000
+			<text>台</text>
+		</view>
+    <view class="btn-readList"></view>
+	</view>
+  <view style="background-color: #300306; text-align: center;margin-top: -10rpx;">
+    <image style="width: 690rpx;margin-bottom: 20rpx;" mode="widthFix" src="/static/images/more1.png"></image>
+    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="/static/images/more2.png"></image>
+    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="/static/images/more3.png"></image>
   </view>
-  <bulletTitle title="{{'超级拼团'}}" bind:more="handleSuper" subTitle="{{'拼团一天，划算半年'}}" ></bulletTitle>
-  <view class="super-group-ctn" style="height: {{groupHeight}};">
-    <block wx:for="{{superGroupBuy}}" wx:key="index">
-      <superGroup ctn="{{item}}"></superGroup>
-    </block>
+  <view class="special-product">
+    <specialProduct class="special-item" wx:for="{{4}}" wx:key="{{index}}"></specialProduct>
   </view>
-  <view class="shop-list">
-    <view class="list-title"><view>{{selectedShop.shopName}}</view><view bindtap="gotoShop">进入店铺，了解更多产品信息</view></view>
-    <view class="shop-ctn">
-      <scroll-view class="left" scroll-y="true" style="height: {{scrollHeight}}px;">
-        <block wx:for="{{shopList}}" wx:key="index">
-          <view class="shopname" style="background-color:{{selectedShop.shopId == item.shopId ? 'white' : '3e4e4e4'}}" bindtap="handleListChange" data-id="{{item.shopId}}"  data-shopName="{{item.shopName}}">{{item.shopName}}<view class="radiusBtn">{{item.number}}</view></view>
-        </block>
-      </scroll-view>
-      <scroll-view class="right" scroll-y="true" style="height: {{scrollHeight}}px;">
-        <block wx:for="{{productList}}" wx:key="index"> 
-          <product bind:showSku="handleSku" ctn="{{item}}"></product>
-        </block>
-      </scroll-view>
-    </view>
-    <view class="list-pay"><view>购物车</view><view bindtap="handlePay">结算</view></view>
-  </view> 
-  <van-popup show="{{skuShow}}" bind:close="handleClose"  >
-  <view style="width: 640rpx; padding: 20rpx;">
-      <view style="text-align: center; font-size: 34rpx;">中力小金刚</view>
-    <sku bind:modifyNumber="modifyNumber" productId="{{productId}}"></sku>
-  </view>
-  </van-popup>
-</view> 
+	<swiper class="swiper" indicator-dots="true">
+		<block wx:for="{{swipers}}" wx:key="{{index}}">
+			<swiper-item>
+				<navigator url="{{ item.url }}" hover-class="className">
+					<image mode="scaleToFill" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.image}}" />
+				</navigator>
+			</swiper-item>
+		</block>
+	</swiper>
+	<lineTitle title="{{'双11专享优惠券'}}" />
+	<view class="coupon-ctn">
+		<block wx:for="{{coupons}}" wx:key="index">
+			<coupon ctn="{{item}}" class="coupon-item" />
+		</block>
+	</view>
+	<bulletTitle title="{{'超级拼团'}}" bind:more="handleSuper" subTitle="{{'拼团一天，划算半年'}}" />
+	<view class="super-group-ctn" style="height: {{groupHeight}};">
+		<block wx:for="{{superGroupBuy}}" wx:key="index">
+			<superGroup ctn="{{item}}" />
+		</block>
+	</view>
+	<view class="shop-list">
+		<view class="list-title">
+			<view>{{selectedShop.shopName}}</view>
+			<view bindtap="gotoShop">进入店铺，了解更多产品信息</view>
+		</view>
+		<view class="shop-ctn">
+			<scroll-view class="left" scroll-y="true" style="height: {{scrollHeight}}px;">
+				<block wx:for="{{shopList}}" wx:key="index">
+					<view
+					 class="shopname"
+					 style="background-color:{{selectedShop.shopId == item.shopId ? 'white' : '3e4e4e4'}}"
+					 bindtap="handleListChange"
+					 data-id="{{item.shopId}}"
+					 data-shopName="{{item.shopName}}"
+					>
+						{{item.shopName}}
+						<view class="radiusBtn">{{item.number}}</view>
+					</view>
+				</block>
+			</scroll-view>
+			<scroll-view class="right" scroll-y="true" style="height: {{scrollHeight}}px;">
+				<block wx:for="{{productList}}" wx:key="index">
+					<product bind:showSku="handleSku" ctn="{{item}}" />
+				</block>
+			</scroll-view>
+		</view>
+		<view class="list-pay">
+			<view>购物车</view>
+			<view bindtap="handlePay">结算</view>
+		</view>
+	</view>
+	<van-popup show="{{skuShow}}" bind:close="handleClose">
+		<view style="width: 640rpx; padding: 20rpx;">
+			<view style="text-align: center; font-size: 34rpx;">中力小金刚</view>
+			<sku bind:modifyNumber="modifyNumber" productId="{{productId}}" />
+		</view>
+	</van-popup>
+</view>
+

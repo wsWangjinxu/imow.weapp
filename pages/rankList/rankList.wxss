@@ -1,0 +1,94 @@
+page {
+  background-color: #670207;
+}
+
+.ctn {
+  position: absolute;
+  top: 264rpx;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 100%;
+}
+
+.ctn .item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ctn .item:first-child {
+  flex: 1;
+  margin-left: 76rpx;
+}
+
+.ctn .item:last-child {
+  flex: 1;
+  margin-left: -76rpx;
+}
+
+.ctn .item .title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: white;
+}
+
+.ctn .item .number {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #fbcc07;
+} 
+
+.ctn .item .unit {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #fbcc07;
+}
+
+.first {
+  position: absolute;
+  top: 256rpx;
+  left: 400rpx;
+}
+
+.second {
+  position: absolute;
+  top: 460rpx;
+  left: 400rpx;
+}
+
+.third {
+  position: absolute;
+  top: 674rpx;
+  left: 400rpx;
+}
+
+.num {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #d31518;
+  border-bottom: 1px solid black;
+}
+
+.num text {
+font-size: 24rpx;
+font-weight: bold;
+}
+
+.company {
+  font-size: 22rpx;
+}
+
+.notice {
+  width: 610rpx;
+  font-size: 28rpx;
+  text-align: center;
+  position: absolute;
+  bottom: 60rpx;
+  left: 85rpx;
+}
+
+.list {
+  background-color: #670207;
+  text-align: center;
+  margin-top: -10rpx;
+}
