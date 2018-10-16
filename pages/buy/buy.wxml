@@ -12,7 +12,7 @@
       <view class='price' wx:if="{{isOnePrece}}">￥{{price}}</view>
       <view class='price' wx:else>￥{{minPrice}}~{{maxPrice}}</view>
     </van-col>
-    <van-col span="10">
+    <van-col span="14">
       <block wx:for="{{skuName}}" wx:key="{{index}}">
         <view class='textFont'>{{item.name}} {{item.value}}</view>
       </block>

@@ -13,7 +13,7 @@
       </van-col>
       <van-col span="10">
         <block wx:for="{{skuName}}" wx:key="{{index}}">
-          <view class='textFont'>{{item.name}}： {{item.value}}</view>
+          <view class='textFont'>{{item.name}}{{item.value}}</view>
         </block>
         <!-- 测试已选中sku与交期是否存在 -->
         <!-- <view class='textFont'>产品id： {{productId}}</view>

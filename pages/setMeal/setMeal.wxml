@@ -13,7 +13,7 @@
   <view class='item' wx:for="{{initArray}}" wx:key="{{index}}">
     <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.img}}?x-oss-process=image/resize,m_pad,h_67,w_67" />
     <view class='itemCenter'>
-      <view class='name'>{{item.productName}}</view>
+      <view class='name'>{{item.productName}} X{{item.packageNum}}</view>
       <view class='format'>
         <view>
           <view class='price' wx:if="{{item.nowPrice}}">￥{{item.nowPrice}}</view>

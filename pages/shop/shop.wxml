@@ -1,6 +1,6 @@
 <view class="shop">
     <view style="padding: 10rpx; background: #fff;" >
-      <shopTitle shopName="{{shopInfo.name}}" shopImg="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{shopInfo.logoSrc}}" shopId="{{id}}"  hasBtn="{{false}}" detail="{{true}}"></shopTitle>
+      <shopTitle shopName="{{shopInfo.name}}" imgSrc="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{shopInfo.logoSrc}}" shopId="{{id}}"  hasBtn="{{false}}" detail="{{true}}"></shopTitle>
     </view>
     <swiper indicator-dots="true">
       <block wx:for="{{ bannerImageList }}" wx:key="index">

@@ -44,7 +44,7 @@ Page({
     shopName:"无",
     cartNum:0,
     productId:'',
-    ImbDisacount:"0",//可抵扣阿母币
+    imbDisacount:"0",//可抵扣阿母币
     buyBtn: true, //检测当前用户是否会员？？
     hiddenLoading: false, //加载中，false显示ture隐藏
     request1:false,
@@ -112,10 +112,11 @@ Page({
     getFactoryDiscountCouponList("get", {
       productId: this.data.productId
     }).then(res => {
-      console.log(res.data.coupons)
-      this.setData({
-        couponList:res.data.coupons
-      });
+      if(res.data.coupons){
+        this.setData({
+          couponList: res.data.coupons
+        });
+      }
     });
   },
   //获取商店信息
@@ -140,7 +141,7 @@ Page({
       id: this.data.productId,
     }).then(res => {
       if (res.statusCode==200){ 
-        console.log(res.data)       
+        console.log(res)  
         this.setData({
           hiddenLoading: true,   //请求成功
           productName: res.data.productName,
@@ -149,7 +150,7 @@ Page({
           amPrice2: res.data.maxImowPrice,
           DLPrice1: res.data.minAgentPrice,
           DLPrice2: res.data.maxAgentPrice,
-          ImbDisacount:res.data.ImbDisacount,
+          imbDisacount: res.data.imbDisacount,
           productPolicy: res.data.policy?res.data.policy:"无",
           paymethod: res.data.paymethod ? res.data.paymethod:"无",
           productImg: res.data.introduceImage,
