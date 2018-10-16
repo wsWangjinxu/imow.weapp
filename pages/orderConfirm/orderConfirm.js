@@ -303,9 +303,9 @@ Page({
           });
         } else {
           wx.showToast({
-            title: res.data.errMsg,
+            title: String(res.data.errMsg),
             image: "/static/icon/warning-white.png"
-          })
+          });
         }
       });
     } else {
