@@ -30,22 +30,22 @@ Page({
       }
     });
 
-    //获取轮播图信息
-    getSwipers("POST").then(res => {
-      this.setData({
-        swipers: res.data.swipers
-      });
-    });
+    // //获取轮播图信息
+    // getSwipers("POST").then(res => {
+    //   this.setData({
+    //     swipers: res.data.swipers
+    //   });
+    // });
 
-    //获取优惠券信息
-    getCoupons("POST").then(res => {
-      this.setData({
-        coupons: res.data.specialCoupons
-      });
-    });
+    // //获取优惠券信息
+    // getCoupons("POST").then(res => {
+    //   this.setData({
+    //     coupons: res.data.specialCoupons
+    //   });
+    // });
 
     //获取超级拼团的内容
-    getSuperGroupBuy("POST").then(res => {
+    getSuperGroupBuy("GET").then(res => {
       this.setData({
         superGroupBuy: res.data.superGroupBuy
       });
