@@ -1,7 +1,9 @@
 <view class="product">
-  <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}" />
+    <navigator class="title" url="{{'/pages/productDetail/productDetail?id='+ctn.id}}" hover-class="className">  
+      <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}" />
+    </navigator>
   <view>
-    <navigator class="title" url="/pages/productDetail/productDetail" hover-class="className">{{ctn.name}}</navigator>
+    <navigator class="title" url="{{'/pages/productDetail/productDetail?id='+ctn.id}}" hover-class="className">{{ctn.name}}</navigator>
     <view><text class="activity">阿母团购日</text><text class="activity">满16800减300</text></view>
     <view><text class="price">￥<text style="font-weight: bold;">{{ctn.price}}</text>起 </text><text class="number"> 已售{{ctn.saleCount}}件</text></view>
     <view><navigator class="shopname" url="{{ctn.shop.contact}}" hover-class="className">{{ctn.shop.name}}</navigator></view>
