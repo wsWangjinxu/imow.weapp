@@ -251,7 +251,7 @@ Component({
       } else {
         wx.showToast({
           title: "请选择商品",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         })
       }
     },
@@ -304,7 +304,7 @@ Component({
         if (!res.data.status) {
           wx.showToast({
             title: "添加失败！",
-            image: "/static/image/warning-white.png"
+            image: "/static/icons/warning-white.png"
           });
         } else {
           //更新产品的数量，更新店铺的数量

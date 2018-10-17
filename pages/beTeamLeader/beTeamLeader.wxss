@@ -1,0 +1,112 @@
+/**index.wxss**/
+
+page {
+  background-color: white;
+}
+
+image{
+  display: block;
+}
+
+.top {
+  width: 750rpx;
+  height: 3034rpx;
+}
+
+.top image {
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  background-color: #f5dcbe;
+  font-size: 30rpx;
+}
+
+.form{
+  padding: 0 24rpx 40rpx;
+}
+
+.form input{
+  border: 1px solid #bebebe;
+}
+
+.formTop{
+  width: 750rpx;
+  height: 271rpx;
+}
+
+button{
+  width: 400rpx;
+  margin-top:20rpx;
+  margin-left: 160rpx;
+}
+
+.formBottom{
+  width: 750rpx;
+  height: 646rpx;
+}
+
+.bottom1{
+  width: 750rpx;
+  height: 222rpx;
+}
+
+.bottom {
+  padding: 0 46rpx;
+  background-color: #83050b; 
+  display: flex;
+  justify-content:space-between;
+  padding-bottom:22rpx; 
+}
+
+.bottom .product{
+  width: 319rpx;
+  height: 444rpx;
+  background-color: white;
+  position: relative;
+}
+
+.product .top11{
+  position: absolute;
+  width: 75rpx;
+  height: 94rpx;
+  top: -10rpx;
+  left: 10rpx;
+}
+
+.product .top11 image{
+  width: 100%;
+  height: 100%;
+}
+
+.product image{
+  width: 319rpx;
+  height: 315rpx;
+}
+
+.text{
+  width: 319rpx;
+  height: 80rpx;
+  text-align: center;
+  font-size: 16rpx;
+  padding:24rpx 26rpx 0;
+  box-sizing: border-box;
+}
+
+.button{
+  width: 130rpx;
+  height: 26rpx;
+  line-height: 26rpx;
+  text-align: center;
+  color: white;
+  background-color: #e8230e;
+  font-size: 14rpx;
+  border-radius: 16rpx;
+  margin: 0 auto;
+}
+
+.bottom2{
+  width: 750rpx;
+  height: 153rpx;
+}

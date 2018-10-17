@@ -117,7 +117,7 @@ Page({
         wx.showToast({
           title:'有产品未选规格',
           icon: 'none',
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
       }else{
         count++; 
@@ -145,7 +145,7 @@ Page({
           wx.showToast({
             title: '操作失败，请重试',
             duration: 2000,
-            image: "/static/icon/warning-white.png"
+            image: "/static/icons/warning-white.png"
           })
           this.init();
         }
@@ -163,7 +163,7 @@ Page({
         wx.showToast({
           title: '有产品未选规格',
           icon: 'none',
-          image: '/static/imgs/warn.png'
+          image: '/static/icons/warning-white.png'
         });
       } else {
         no++;

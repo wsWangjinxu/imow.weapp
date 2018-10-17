@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='top'>
+    <image src='/static/imgs/beTeamLeaderTop.jpg'></image>
+  </view>
+  <view class='box'>
+    <image class='formTop' src='/static/icons/formTop.jpg'></image>
+    <view class="form">
+      <view class="row">
+        <text>联系人姓名:</text>
+        <input type="text" bindchange="handleName"></input>
+      </view>
+      <view class="row">
+        <text>联系方式:</text>
+        <input type="number" bindchange="handlePhone"></input>
+      </view>
+      <view class="row">
+        <text>公司名称:</text>
+        <input type="text" bindchange="handleCompanyName"></input>
+      </view>
+      <view class="row">
+        <text>公司地址:</text>
+        <input type="text" bindchange="handleCompanyAddress"></input>
+      </view>
+      <view class="row">
+        <text>双十一预计采购金额:</text>
+        <input type="number" bindchange="handleMoney"></input>
+      </view>
+      <van-button size="small" bindtap='submit'>提交</van-button>
+    </view>
+    <image class='formBottom' src='/static/imgs/formBottom.jpg'></image>
+  </view>
+  <image class="bottom1" src='/static/icons/beTeamLeaderBottom1.jpg'></image>
+  <view class='bottom'>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='/static/imgs/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='/static/imgs/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='/static/imgs/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='/static/imgs/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <image class="bottom2" src='/static/icons/beTeamLeaderBottom2.jpg'></image>
+
+</view>

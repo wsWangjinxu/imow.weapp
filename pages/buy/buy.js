@@ -123,20 +123,20 @@ Page({
       wx.showToast({
         title: '请选择sku号',
         duration: 2000,
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       })
     } else if (this.data.hasDeliveryTime){
       if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
         wx.showToast({
           title: '请选择交期',
           duration: 2000,
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         })
       }else if (this.data.paytype==0){
         wx.showToast({
           title: '请选择支付类型',
           duration: 2000,
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         })
       }else{
         addCart("POST", {
@@ -155,7 +155,7 @@ Page({
             wx.showToast({
               title: '操作失败，请重试',
               duration: 2000,
-              image: "/static/icon/warning-white.png"
+              image: "/static/icons/warning-white.png"
             })
             this.init();
           }
@@ -167,7 +167,7 @@ Page({
       wx.showToast({
         title: '请选择支付类型',
         duration: 2000,
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       })
     }
     else{
@@ -186,7 +186,7 @@ Page({
           wx.showToast({
             title: '操作失败，请重试',
             duration: 2000,
-            image: "/static/icon/warning-white.png"
+            image: "/static/icons/warning-white.png"
           })
           this.init();
         }
@@ -199,20 +199,20 @@ Page({
       wx.showToast({
         title: '请选择sku号',
         duration: 2000,
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       })
     } else if (this.data.hasDeliveryTime) {
       if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
         wx.showToast({
           title: '请选择交期',
           duration: 2000,
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         })
       } else if (this.data.paytype == 0) {
         wx.showToast({
           title: '请选择支付类型',
           duration: 2000,
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         })
       } else {
         //立即购买
@@ -228,7 +228,7 @@ Page({
       wx.showToast({
         title: '请选择支付类型',
         duration: 2000,
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       })
     } else {
       //立即购买

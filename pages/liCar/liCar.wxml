@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class='top'>
+    <image src='/static/imgs/liCarTop.jpg'></image>
+  </view>
+
+  <view class='box'>
+    <view class='product'>
+      <image src='/static/imgs/licar1.jpg'></image>
+       <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+    </view>
+    <view class='product'>
+      <image src='/static/imgs/licar2.jpg'></image>
+      <view class="button">立即购买</view>
+    </view>
+    <view class='product'>
+      <image src='/static/imgs/licar3.jpg'></image>
+      <view class="button">立即购买</view>
+    </view>
+    <view class='product'>
+      <image src='/static/imgs/licar4.jpg'></image>
+      <view class="button">立即购买</view>
+    </view>
+    <view class='product'>
+      <image src='/static/imgs/licar5.jpg'></image>
+      <view class="button">立即购买</view>
+    </view>
+    <view class='product'>
+      <image src='/static/imgs/licar6.jpg'></image>
+      <view class="button">立即购买</view>
+    </view>
+    <view class='product'>
+      <image src='/static/imgs/licar7.jpg'></image>
+      <view class="button">立即购买</view>
+    </view>
+    <view class='product'>
+      <image src='/static/imgs/licar8.jpg'></image>
+      <view class="button">立即购买</view>
+    </view>
+    <view class='product'>
+      <image src='/static/imgs/licar9.jpg'></image>
+      <view class="button">立即购买</view>
+    </view>
+  </view>
+  <view class='bottom'>
+    <image src='/static/imgs/liCarBottom.jpg'></image>
+  </view>
+
+</view>

@@ -176,7 +176,7 @@ Page({
         wx.showToast({
           mask:true,
           title: '请求失败',
-          image:"/static/icon/warning-white.png"
+          image:"/static/icons/warning-white.png"
         })
       }
       
@@ -197,7 +197,7 @@ Page({
     // }else{
     //   wx.showToast({
     //     title:"网络错误",
-    //     image: "/static/icon/warning-white.png"
+    //     image: "/static/icons/warning-white.png"
     //     mask:true
     //   })
     // }

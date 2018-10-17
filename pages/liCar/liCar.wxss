@@ -1,0 +1,57 @@
+/**index.wxss**/
+
+page {
+  background-color: white;
+  padding-bottom: 69rpx;
+}
+
+.top {
+  width: 750rpx;
+  height: 1890rpx;
+}
+
+.top image {
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  padding: 0 24rpx 20rpx;
+  background-color: #22a060;
+  font-size: 24rpx;
+  color: #3e3e3e;
+}
+
+.product {
+  padding-top: 27rpx;
+  width: 702rpx;
+  height: 999rpx;
+  position: relative;
+}
+
+.product image {
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  position: absolute;
+  left: 220rpx;
+  bottom: 40rpx;
+  width: 250rpx;
+  height: 80rpx;
+  color: #cf2424;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: white;
+  border-radius: 34rpx;
+}
+
+.bottom{
+  height: 5288rpx;
+}
+
+.bottom image{
+  width: 100%;
+  height: 100%
+}

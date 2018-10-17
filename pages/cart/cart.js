@@ -18,11 +18,12 @@ Page({
     this.init(this.data.num);
   },
 
-  onshow() {
+  onShow() {
     this.init(this.data.num);
   },
 
   init(num) {
+    console.log(1);
     getUserCart("GET").then(res => {
       console.log(res); //eslint-disable-line
       if (res.data.shopList.length !== 0) {
