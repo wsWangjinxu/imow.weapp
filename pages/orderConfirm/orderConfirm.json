@@ -6,7 +6,7 @@
     "shopTitle": "/components/order/shopTitle/shopTitle",
     "van-popup": "/vantui/popup/index",
     "van-nav-bar": "/vantui/nav-bar/index",
-    "orderConfirmCtn": "/components/order/product/orderConfirmCtn/orderConfirmCtn",
+    "productCtn": "/components/order/product/productCtn/productCtn",
     "van-field": "/vantui/field/index"
   },
     "backgroundTextStyle":"light",

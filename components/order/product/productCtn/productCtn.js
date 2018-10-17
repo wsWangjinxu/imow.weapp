@@ -12,6 +12,10 @@ Component({
       type: Number,
       value: -1
     },
+    super: {
+      type: Boolean,
+      value: false
+    },
     isChecked: {
       type: Boolean,
       value: false,

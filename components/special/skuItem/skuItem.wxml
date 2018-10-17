@@ -1,5 +1,5 @@
 <view 
 class="sku-item" 
 bindtap="handletap" 
-style="border: 1px solid {{color == text ? '#fe0000' : '#999'}}; color: {{color == text ? '#fe0000' : 'black'}};"
+style="border: 1px solid {{ borderColor }}; color: {{color}};"
 >{{ text }}</view>

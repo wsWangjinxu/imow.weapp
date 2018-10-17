@@ -8,6 +8,7 @@
     wx:key="index" 
     index="{{index}}" 
     product="{{item}}"
+    super="{{ false }}"
   ></productCtn>
   <payBar 
     bind:pay="pay" 

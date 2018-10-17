@@ -23,9 +23,7 @@ Page({
   },
 
   init(num) {
-    console.log(1);
     getUserCart("GET").then(res => {
-      console.log(res); //eslint-disable-line
       if (res.data.shopList.length !== 0) {
         this.setData({
           list: res.data.data,
@@ -58,12 +56,10 @@ Page({
   handleExpire() {
     let shopId = this.data.selectedId;
     let _this = this;
-    console.log(shopId);
     removeUnActive("GET", {
       shopId
     }).then(res => {
       if (res.statusCode == 500) {
-        console.log(res.statusCode);
         wx.showToast({
           title: "清除失败！",
           image: "/static/icons/warning-white.png"
@@ -89,9 +85,7 @@ Page({
 
   //删除购物车中的产品
   handleDelete() {
-    console.log("删除！");
     let _this = this;
-    console.log(this.data.cartId);
     if (this.data.cartId) {
       removeCart("GET", {
         cartIds: _this.data.cartId

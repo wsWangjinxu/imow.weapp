@@ -8,7 +8,7 @@
          <text style="color: #888;" wx:if="{{!region}}">请输入省市区</text>{{region[0]}} {{region[1]}} {{region[2]}} 
       </van-cell>
     </picker>
-    <van-field  required bind:blur="detailVerify" confirm-type label="详细地址" value="{{detail}}" placeholder="街道门牌信息"></van-field>
+    <van-field  required bindchange="detailVerify" confirm-type label="详细地址" value="{{detail}}" placeholder="街道门牌信息"></van-field>
     <van-field  confirm-type label="邮政编码" value="{{postal}}" placeholder="邮政编码"></van-field>
   </van-cell-group>
   <view class="btnGroup">

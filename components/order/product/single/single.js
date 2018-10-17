@@ -23,6 +23,10 @@ Component({
     isExpire: {
       type: Boolean,
       value: true
+    },
+    super: {
+      type: Boolean,
+      value: false
     }
   },
   /**
@@ -44,7 +48,7 @@ Component({
       //用户点击input框，修改购物车的数量
       changeNum("POST", {
         cartId: this.data.ctn.cartId,
-        cartNum: this.data.ctn.num
+        cartNum: e.detail
       }).then(res => {
         if (~res.data.status) {
           // //如果有属具，通知属具数量改变了

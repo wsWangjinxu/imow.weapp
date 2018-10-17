@@ -141,6 +141,19 @@ Page({
 
      //拼接产品id
      let product = res.data.data.orderCartProductSkus;
+    //  let data = [];
+    //  for(let i = 0; i < product.length; i++) {
+    //   if(product[i].promotionModel==null) {
+    //     let tempProduct = product.promotionModel.packageInfo.orderCartProductSkus;
+    //     for(let j = 0; j < tempProduct.length; j++) {
+          
+    //     }
+    //   } else {
+    //     data.push(product[i]);
+    //   }
+    //  }
+     
+     console.log(product);
      product.forEach(ele => {
        selfAddressData = selfAddressData + ele.id + ',';
      });

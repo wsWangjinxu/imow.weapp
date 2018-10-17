@@ -63,7 +63,6 @@ Component({
         //计算已选的商品多少钱,并传递给结算条
         
       }
-
       //获取购物车Id
       let cartId = this.getCartId();
       this.triggerEvent("selectEvent", {
@@ -130,6 +129,7 @@ Component({
         let num = tempArray[i].num;
         sumNumber = sumNumber + num;
         if (productArray[index].promotionModel === null) {
+          console.log("执行的这里");
           //计算不是套餐的产品的总钱数
           single += productArray[index].price * num;
           if (productArray[index].accessories) {
@@ -140,7 +140,6 @@ Component({
         } else {
           //计算是套餐的产品的总钱数
           let ctn = productArray[index].promotionModel.packageInfo.orderCartProductSkus;
-          console.log(ctn)
           for (let j = 0; j < ctn.length; j++) {
             single += ctn[j].price * num * ctn[j].num;
             if (ctn[j].accessories) {
@@ -164,14 +163,16 @@ Component({
         //获取购物车ID
         let temp = this.data.selectedIndex;
         let productList = this.data.shop.orderCartProductSkus;
+        console.log(productList);
 
         let cartId = "";
         for (let i = 0; i < temp.length; i++) {
-          if (productList[i].promotionModel === null) {
-            let index = temp[i].index;
+          let index = temp[i].index;
+          if (productList[index].promotionModel === null) {
             cartId += productList[index].cartId + ","
           } else {
-            let ctnList = productList[i].promotionModel.packageInfo.orderCartProductSkus;
+            let ctnList = productList[index].promotionModel.packageInfo.orderCartProductSkus;
+            console.log(ctnList);
             for (let j = 0; j < ctnList.length; j++) {
               cartId += ctnList[j].cartId + ",";
             }

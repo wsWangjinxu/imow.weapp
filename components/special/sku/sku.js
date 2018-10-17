@@ -1,131 +1,112 @@
-import { promotionCartAdd } from "../../../api/special/index"
+import {
+  promotionCartAdd
+} from "../../../api/special/index"
 
 Component({
   properties: {
     skus: {
       type: Array,
       value: []
+    },
+    promotionId: {
+      type: String,
+      value: ""
+    },
+    productId: {
+      type: String,
+      value: ""
+    },
+    skuShow: {
+      type: Boolean,
+      value: false,
+      observer() {
+        this.setData({
+          skuCode: "",
+          price: ""
+        })
+      }
     }
   },
   data: {
-    skuCode: "",  //当前选中的skuCode
-    deliveryTime: "", //当前选中的deliveryTime
-    skuId: "",  //当前选中的skuId
-    showTime: false,  //是否显示deliveryTime
-    skuName: "",  //当前选中的skuName
-    price: "",  //组件显示的价格
-    number: 0 //当前的数量
+    skuCode: "", //当前选中的skuCode
+    skuId: "", //当前选中的skuId
+    skuName: "", //当前选中的skuName
+    price: 0, //组件显示的价格
+    number: 0, //当前的数量,
+    oldNumber: 0 //当前数量的副本
   },
+
   methods: {
     //接收从子组件传过来的sku
     handleSku(e) {
-      console.log(e);
       let skuCode = e.detail.skuCode;
-      let skuArray = this.data.skus;
-
-      this.setData({
-        skuCode
-      });
-
-      //true参数表示点选任意一个新的skuCode
-      this.getPrice(true);
-    },
-
-    //接收从子组件传过来的交期
-    handleTime(e) {
-      console.log(e);
-      let deliveryTime = e.detail.time;
-      let price;
-      let skuId;
+      let skus = this.data.skus;
       let number;
-      this.data.obj[this.data.skuCode].forEach(ele => {
-        console.log(ele);
-        if (ele.deliveryTime == deliveryTime) {
-          price = ele.agentPrice;
-          skuId = ele.id;
+
+      //获取数量
+      skus.forEach(ele => {
+        if (ele.skuCode == skuCode) {
           number = ele.number;
         }
-      })
-      this.setData({
-        deliveryTime,
-        price,
-        skuId,
-        number
       });
+
+      this.setData({
+        skuCode,
+        number,
+        oldNumber: number
+      });
+
+      //获取价格
       this.getPrice();
     },
 
-    getPrice(status) {
-      let skus = this.data.skus;  //获取数据对象
-      let skuCode = this.data.skuCode;  //获取当前点击的skuCode
 
-      //status表示是新点击一个skuCode
-      if (status) {
-        let current = obj[skuCode][0];
+    getPrice() {
+      let skus = this.data.skus; //获取数据对象
+      let skuCode = this.data.skuCode; //获取当前点击的skuCode
+      let price;
 
-        //点击一个新的sku，将选中当前sku的第一个产品的价格
-        this.setData({
-          price: current.agentPrice,
-          deliveryTime: current.deliveryTime,
-          skuId: current.id,
-          number: current.number,
-          skuName: current.skuName
-        });
-      } else {
-        let temp = obj[skuCode];
-        temp.forEach(ele => {
-          if (ele.deliveryTime == deliveryTime) {
-            this.setData({
-              price: ele.agentPrice,
-              skuId: ele.id,
-              number: ele.number,
-              skuName: ele.skuName
-            });
-          }
-        });
-      }
+      // 获取当前选中的sku的价格
+      skus.forEach(ele => {
+        if (ele.skuCode == skuCode) {
+          price = ele.discountPrice;
+        }
+      });
 
-      // console.log(skuName);
+      this.setData({
+        price
+      });
     },
 
     //点击加入购物车，将数量变为1
     addNumber() {
 
       //获取当前选中的内容
-      let obj = this.data.obj;
+      let skus = this.data.skus;
       let skuCode = this.data.skuCode;
 
       //判断用户是否已经选择价格
       if (this.data.price) {
-
-        //收集需要请求的数据
-        let data = {
-          productId: this.data.productId,
-          skuCode: this.data.skuCode,
-          num: 1,
-          skuId: this.data.skuId
-        };
-
-        console.log(this.data.skuId);
-        console.log(this.data.skuCode);
-
-        //更新现有产品的数量
-        obj[skuCode].forEach(ele => {
-          if (ele.id == this.data.skuId) {
-            ele.number = 1;
-            console.log("已经加1了");
-          }
-        })
-
-        console.log(obj);
-
         this.setData({
-          obj,
           number: 1
         });
 
+        //收集数据
+        let data = {};
+        skus.forEach(ele => {
+          if (ele.skuCode == skuCode) {
+            data.skuId = ele.skuId;
+            data.skuCode = ele.skuCode;
+            data.num = ele.number;
+            data.cartId = ele.cartId;
+          }
+        });
+
+        data.promotionId = this.data.promotionId;
+        data.id = this.data.productId;
+
         //操作购物车
-        this.modifyCart(data);
+        this.modifyCart(data, this.data.oldNumber);
       } else {
         wx.showToast({
           title: "请选择商品",
@@ -137,56 +118,55 @@ Component({
     //
     handleChange(e) {
       console.log(e);
-      let obj = this.data.obj;
+      let skus = this.data.skus;
       let skuCode = this.data.skuCode;
-      let tempNum;
 
-      //判断用户点击的是加还是减
-      if (this.data.number > e.detail) {
-        tempNum = -1;
-      } else {
-        tempNum = 1;
-      }
-
-      //更新现有产品的数量
-      obj[skuCode].forEach(ele => {
-        if (ele.id == this.data.skuId) {
-          ele.number += tempNum;
+      //收集需要请求的数据
+      let data = {};
+      skus.forEach(ele => {
+        if (ele.skuCode == skuCode) {
+          data.skuId = ele.skuId;
+          data.skuCode = ele.skuCode;
+          data.num = e.detail
+          data.cartId = ele.cartId;
         }
       });
 
-      console.log(obj);
-
-      this.setData({
-        number: e.detail,
-        obj
-      });
-
-      //收集需要请求的数据
-      let data = {
-        productId: this.data.productId,
-        skuCode: this.data.skuCode,
-        num: tempNum,
-        skuId: this.data.skuId
-      };
+      data.promotionId = this.data.promotionId;
+      data.id = this.data.productId;
 
       //操作购物车
-      this.modifyCart(data);
+      this.modifyCart(data, this.data.oldNumber);
     },
 
 
     //修改购物车
-    modifyCart(data) {
+    modifyCart(data, oldNumber) {
       console.log(data);
-      addCart("POST", data).then(res => {
-        if (!res.data.status) {
+      let _this = this;
+      promotionCartAdd("POST", data).then(res => {
+        console.log(res);
+        if (res.data.status != 20) {
           wx.showToast({
             title: "添加失败！",
             image: "/static/icons/warning-white.png"
           });
+          console.log(_this.data.number);
+          this.setData({
+            number: oldNumber
+          })
         } else {
-          //更新产品的数量，更新店铺的数量
-          this.triggerEvent("modifyNumber", { num: data.num, productId: data.productId });
+          //收集数据
+          let tempData = {
+            num: data.num,
+            productId: data.id,
+            promotionId: data.promotionId,
+            cartId: res.data.cartId,
+            skuCode: data.skuCode
+          }
+          console.log(tempData);
+          //更新产品的数量，更新店铺的数量, 更新对应产品的对应skuId的数量和购物车Id
+          this.triggerEvent("modifyNumber", tempData);
         }
       });
     }

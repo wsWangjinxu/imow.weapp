@@ -26,7 +26,8 @@
     <view class="productList">
       <shopTitle shopName="{{cartData.shopName}}"></shopTitle>
       <block wx:for="{{cartData.orderCartProductSkus}}" wx:key="index">
-        <orderConfirmCtn class="productCtn" ctn="{{item}}"></orderConfirmCtn>
+      <!--  <orderConfirmCtn class="productCtn" ctn="{{item}}"></orderConfirmCtn> -->
+        <productCtn super="{{true}}"  class="productCtn" product="{{item}}" wx:key="{{index}}"></productCtn>
       </block>
     </view>
     <checkbox-group bindchange="checkboxChange">

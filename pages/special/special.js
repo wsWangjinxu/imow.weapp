@@ -18,7 +18,9 @@ Page({
     totleCount: 0,  //拼团的数量
     totleMoney: 0, //拼团的金额
     isActive: 0,
-    dotClass: "dot1"
+    dotClass: "dot1",
+    promotionId: "",  //当前选规格的产品的promotionId
+    productId: "" //当前选规格的产品的产品id
   },
   onLoad() {
     let _this = this;
@@ -74,9 +76,6 @@ Page({
 
     console.log(this.data.isActice);    
 
-
-
-
     getStatistic("GET").then(res => {
       console.log(res);
       let tempData =  res.data.promotionStatisticResult
@@ -110,27 +109,17 @@ Page({
 
 
 
-    //获取店铺列表
+    //获取快速下单的内容
     getSuperGroupBuy("GET").then(res => {
-      console.log(res);
+      console.log(res); 
       let tempData = res.data.superGroupModel;
-      // let id = res.data.shopList[0].shopId;
-
-      console.log(tempData.superGroupBuy);
-
-
-      //获取产品列表
-      // getProductList("post", { shopId: id }).then(res => {
-        // this.setData({
-        //   productList: res.data.productList
-        // });
-      // });
+      console.log(tempData.shopList);
 
       //设置店铺名称列表
       this.setData({
         shopList: tempData.shopList,
-        selectedShop: tempData.shopList[0].shopId,
-        productList: tempData.superGroupBuy
+        selectedShop: 0,
+        productList: tempData.shopList[0].superGroupBuy
       });
     });
   },
@@ -140,21 +129,23 @@ Page({
     //获取点击的店铺的id和店铺名称
     let shopId = e.currentTarget.dataset.id;
     let shopName = e.currentTarget.dataset.shopname;
+    let index = e.currentTarget.dataset.index;
 
     //设置当前选中的店铺id和名称
     this.setData({
       selectedShop: {
         shopId,
         shopName
-      }
+      },
+      productList: this.data.shopList[index].superGroupBuy
     });
 
-    //请求选中店铺的产品列表
-    getProductList("post", { shopId }).then(res => {
-      this.setData({
-        productList: res.data.productList
-      });
-    });
+    // //请求选中店铺的产品列表
+    // getProductList("post", { shopId }).then(res => {
+    //   this.setData({
+    //     productList: res.data.productList
+    //   });
+    // });
   },
 
   //进入店铺
@@ -179,16 +170,18 @@ Page({
   },
 
   //点击选择规格获取产品的productId，并传递给sku组件，sku组件根据产品id来获取对应的sku信息
-  handleSku(e) {
+  handleInfo(e) {
     let num = e.detail.num;
     let productList = this.data.productList;
-    console.log(productList[num]);
+    console.log(productList[num].id);
     // this.setData({
     //   productId,
     //   skuShow: true
     // });
     this.setData({
       productSkus: productList[num].superGroupProductSkus,
+      productId: String(productList[num].id),
+      promotionId:  String(productList[num].promotionId),      
       skuShow: true    
     });
   },
@@ -200,16 +193,25 @@ Page({
     });
   },
 
-  //根据sku组件的添加与减少购物车方法
+  //根据sku组件的添加与减少更改本地的数量
   modifyNumber(e) {
+    console.log(e);
     let productId = e.detail.productId;
+    let promotionId = e.detail.promotionId;
+    let skuCode = e.detail.skuCode;
+    let cartId = e.detail.cartId;
     let num = e.detail.num;
     let productList = this.data.productList;
 
     //更新对应产品的数量
     productList.forEach(ele => {
-      if(ele.id = productId) {
-        ele.number += num;
+      if(ele.id == productId && ele.promotionId == promotionId) {
+        for(let i = 0; i < ele.superGroupProductSkus.length; i++) {
+          if(ele.superGroupProductSkus[i].skuCode == skuCode) {
+            ele.superGroupProductSkus[i].cartId = cartId;
+            ele.superGroupProductSkus[i].number = num;
+          }
+        }
       }
     });
 
@@ -218,12 +220,12 @@ Page({
 
     //更新对应店铺的数量
     shopList.forEach(ele => {
-      if(ele.shopId == id) {
+      if(ele.shopId == productId) {
         ele.number += num;
       }
     });
 
-    //设置对应产品的数量
+    //设置产品店铺
     this.setData({
       productList,
       shopList
@@ -232,8 +234,7 @@ Page({
 
   handlePay() {
     let shopId = this.data.selectedShop.shopId;
-    //
-    console.log(shopId);
+    
   },
 
   //屏蔽遮罩层下方的页面滚动
