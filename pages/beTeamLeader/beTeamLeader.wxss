@@ -25,6 +25,7 @@ image{
 
 .form{
   padding: 0 24rpx 40rpx;
+  font-size: 34rpx;
 }
 
 .form input{
