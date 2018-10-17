@@ -1,6 +1,6 @@
 <view class="imCtn">
-  <image wx:if="{{status=='unused'}}" mode="widthFix" src="/static/images/im-unused.png"/>
-  <image wx:if="{{status=='used' || status=='overdue'}}" mode="widthFix" src="/static/images/im-used.png"/>
+  <image wx:if="{{status=='unused'}}" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/im-unused.png"/>
+  <image wx:if="{{status=='used' || status=='overdue'}}" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/im-used.png"/>
   <view class="ctn">
     <view class="top">
       <view class="top-left">

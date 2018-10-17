@@ -22,7 +22,7 @@
     </view>
     <view class="join-ctn">
         <view class="join-ctn-title">参团流程</view>
-        <image mode="widthFix" src="/static/images/join-group.jpg"></image>
+        <image mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/join-group.jpg"></image>
     </view>
     <image style="width: 100%;" src="http://dummyimage.com/200x100/666666" />
     <view class="fixed-btn" wx:if="{{isLeader}}">

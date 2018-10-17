@@ -1,5 +1,5 @@
 <view class="list-item">
-	<image mode="widthFix" style="width: 100%;" src="/static/images/list-item.png" />
+	<image mode="widthFix" style="width: 100%;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/list-item.png" />
 	<view class="title">
 		3吨锂电壹号
 		<text>——CPD30L1 3.0吨电动叉车</text>

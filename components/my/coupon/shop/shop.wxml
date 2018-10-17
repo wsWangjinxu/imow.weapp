@@ -1,8 +1,5 @@
 <view class="shopCoupon">
-  <image mode="widthFix" src="/static/images/shop-common.png" />
-<!--  <image mode="widthFix" src="/static/images/shop-common.png" />
-  <image mode="widthFix" src="/static/images/shop-common.png" />
-  <image mode="widthFix" src="/static/images/shop-common.png" /> -->
+  <image mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/shop-common.png" />
   <view class="ctn">
     <image  mode="widthFix" src="http://dummyimage.com/300x300/fb0a2a"></image>
     <view class="detail">

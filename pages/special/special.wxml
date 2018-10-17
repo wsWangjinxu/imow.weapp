@@ -1,82 +1,97 @@
 <view class="special">
-	<image mode="widthFix" style="display: inline-block;width: 100%;" src="/static/images/bg.jpg" />
+	<image mode="widthFix" style="display: inline-block;width: 100%;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/bg.jpg" />
 	<view class="timer">
-		<image mode="widthFix" style="width: 50px;" src="/static/images/timer.png" />
+		<image mode="widthFix" style="width: 50px;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/timer.png" />
 		<view class="timer-ctn" style="margin-top: 4px;">
 			<view class="time-ctn-item">
-				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<image wx:if="{{isActive != 1}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time1.png" />
+				<image wx:if="{{isActive == 1}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time11.png" />
+				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
 					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
 						<view class="title-left"><text>阿母双11</text> <text> 拼团开启</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
-					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+					<view class="ctn-right">
 						<view class="title-right">#第1波#</view>
-						<view class="unopen">即将开启</view>
-						<view class="opened">已开启</view>
+						<view wx:if="{{isActive < 1}}" class="unopen">即将开启</view>
+						<view wx:if="{{isActive == 1}}" class="opened">已开启</view>
+						<view wx:if="{{isActive > 1}}" class="unopen">已结束</view>
 					</view>
 				</view>
 			</view>
 			<view class="time-ctn-item">
-				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<image wx:if="{{isActive != 1}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time2.png" />
+				<image wx:if="{{isActive == 1}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time22.png" />
+				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
 					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
 						<view class="title-left"><text>骑行比赛 </text> <text> 骑手招募</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
-					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+					<view class="ctn-right">
 						<view class="title-right">#第2波#</view>
-						<view class="unopen">即将开启</view>
-						<view class="opened">已开启</view>
+						<view wx:if="{{isActive < 1}}" class="unopen">即将开启</view>
+						<view wx:if="{{isActive == 1}}" class="opened">已开启</view>
+						<view wx:if="{{isActive > 1}}" class="unopen">已结束</view>
 					</view>
 				</view>
 			</view>
 			<view class="time-ctn-item">
-				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<image wx:if="{{isActive != 2}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time3.png" />
+				<image wx:if="{{isActive == 2}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time33.png" />
+				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
 					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
 						<view class="title-left"><text>发放</text> <text> 现场邀请函</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
-					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+					<view class="ctn-right">
 						<view class="title-right">#第3波#</view>
-						<view class="unopen">即将开启</view>
-						<view class="opened">已开启</view>
+						<view wx:if="{{isActive < 2}}" class="unopen">即将开启</view>
+						<view wx:if="{{isActive == 2}}" class="opened">已开启</view>
+						<view wx:if="{{isActive > 2}}" class="unopen">已结束</view>
 					</view>
 				</view>
 			</view>
 			<view class="time-ctn-item">
-				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<image  wx:if="{{isActive != 3}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time4.png" />
+				<image  wx:if="{{isActive == 3}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time44.png" />
+				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
 					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
 						<view class="title-left"><text>骑行比赛</text> <text> 正式开始</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
-					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+					<view class="ctn-right">
 						<view class="title-right">#第4波#</view>
-						<view class="unopen">即将开启</view>
-						<view class="opened">已开启</view>
+						<view wx:if="{{isActive < 3}}" class="unopen">即将开启</view>
+						<view wx:if="{{isActive == 3}}" class="opened">已开启</view>
+						<view wx:if="{{isActive > 3}}" class="unopen">已结束</view>
 					</view>
 				</view>
 			</view>
 			<view class="time-ctn-item">
-				<image class="white-bg" mode="widthFix" src="/static/images/time-bg.png" />
+				<image wx:if="{{isActive != 4}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time5.png" />
+				<image wx:if="{{isActive == 4}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time55.png" />
+				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
 					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
 						<view class="title-left"><text>阿母双11</text> <text> 现场活动</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
-					<view style="flex: 1;margin-top: 30rpx;margin-right: 20rpx;">
+					<view class="ctn-right">
 						<view class="title-right">#第5波#</view>
-						<view class="unopen">即将开启</view>
-						<view class="opened">已开启</view>
+						<view wx:if="{{isActive < 4}}" class="unopen">即将开启</view>
+						<view wx:if="{{isActive == 4}}" class="opened">已开启</view>
+						<view wx:if="{{isActive > 4}}" class="unopen">已结束</view>
 					</view>
 				</view>
 			</view>
 		</view>
 	</view>
 	<view style="position:relative;">
-		<image mode="widthFix" style="width: 100%;" src="/static/images/total.jpg" />
+		<image mode="widthFix" style="width: 100%;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/total.jpg" />
 		<view class="group-money">
 			{{totleMoney}}
 			<text>万元</text>
@@ -88,9 +103,9 @@
     <view class="btn-readList"></view>
 	</view>
   <view style="background-color: #300306; text-align: center;margin-top: -10rpx;">
-    <image style="width: 690rpx;margin-bottom: 20rpx;" mode="widthFix" src="/static/images/more1.png"></image>
-    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="/static/images/more2.png"></image>
-    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="/static/images/more3.png"></image>
+    <image style="width: 690rpx;margin-bottom: 20rpx;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more1.png"></image>
+    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more2.png"></image>
+    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more3.png"></image>
   </view>
   <view class="special-product">
     <specialProduct class="special-item" wx:for="{{4}}" wx:key="{{index}}"></specialProduct>
