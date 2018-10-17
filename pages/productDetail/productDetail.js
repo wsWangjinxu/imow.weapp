@@ -176,13 +176,21 @@ Page({
         this.getShop();
         for (let index = 0; index < res.data.productSkus.length; index++) {
           const item = res.data.productSkus[index];
-          if (item.promotionModel) {
+          if (item.promotionModel.type==1) {
             this.setData({ 
               promotionName: item.promotionModel.promotionName,
               promotionId: item.promotionModel.id,
               promotionType: item.promotionModel.type
             });
-            return false;
+            return;
+          }
+          if (item.promotionModel.type==4) {
+            this.setData({
+              promotionName: item.promotionModel.promotionName,
+              promotionId: item.promotionModel.id,
+              promotionType: item.promotionModel.type
+            });
+            return;
           }
         }
       }else{
