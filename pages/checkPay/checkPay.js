@@ -54,12 +54,12 @@ Page({
   },
   //事件处理函数
   // 选择支付方式
-  bindPickerChange: function (e) {
-    console.log('picker下标', e.detail.value)  
-    let payType = this.data.paymentMethod[e.detail.value].name
-    console.log(payType);
-    this.setData({payMethod: payType})
-  },  
+  // bindPickerChange: function (e) {
+  //   console.log('picker下标', e.detail.value)  
+  //   let payType = this.data.paymentMethod[e.detail.value].name
+  //   console.log(payType);
+  //   this.setData({payMethod: payType})
+  // },  
   //勾选事件
   checkboxChange(e) {
     console.log(e.detail.value);

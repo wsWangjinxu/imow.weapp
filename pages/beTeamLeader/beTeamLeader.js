@@ -71,7 +71,7 @@ Page({
     }
     if (this.data.form.money === "") {
       wx.showToast({
-        title: "双十一预计采购金额不能为空！",
+        title: "采购金额不为空！",
         image: "/static/icons/warning-white.png"
       })
       return;
