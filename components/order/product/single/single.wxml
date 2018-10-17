@@ -1,22 +1,22 @@
 <view class="product">
-  <view class="status">
-  <view style="width: 30px; text-align: center;" wx:if="{{!isExpire}}">
-    <checkbox-group bindchange="handleChecked">
-      <checkbox  value="{{ctn.id}}" checked="{{isChecked}}" ></checkbox>
-    </checkbox-group>
-  </view>
-  <view wx:if="{{isExpire}}" style="margin-top: 15px;width: 30px; font-size: 20rpx; text-align: center; border-radius: 10px; background-color: #ccc;"> 失效</view>
+  <view wx:if="{{!super}}" class="status">
+    <view style="width: 30px; text-align: center;" wx:if="{{!isExpire}}">
+      <checkbox-group bindchange="handleChecked">
+        <checkbox  value="{{ctn.id}}" checked="{{isChecked}}" ></checkbox>
+      </checkbox-group>
+    </view>
+    <view wx:if="{{isExpire}}" style="margin-top: 15px;width: 30px; font-size: 20rpx; text-align: center; border-radius: 10px; background-color: #ccc;"> 失效</view>
   </view>
   <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.img}}?x-oss-process=image/resize,m_pad,l_80" />
   <view class="ctn">
     <view class="title">{{ctn.productName}}</view>
     <view class="standard">{{ctn.skuName}},{{ctn.deliveryTime}}</view>
     <view class="price" wx:if="{{!isExpire}}">
-      <block wx:if="{{!isKit}}">
+      <block wx:if="{{!isKit }}">
         <text>￥{{ctn.price * ctn.num}}</text>
         <van-stepper  value="{{ctn.num}}" bind:change="handleChange"></van-stepper>
       </block>
-      <block wx:if="{{isKit}}">
+      <block wx:if="{{ isKit}}">
         <text>￥{{ctn.price * ctn.num * number}}</text>
         <text wx:if="{{isKit}}">x{{ctn.num * number}}</text>
       </block>

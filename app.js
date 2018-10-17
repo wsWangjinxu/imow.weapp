@@ -17,6 +17,7 @@ App({
     //有session，说明已经登陆
     if (session) {
       wx.setStorageSync("isLogin", true);
+
       wx.hideLoading({
         complete() {
           wx.showTabBar({});

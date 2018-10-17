@@ -10,16 +10,16 @@ Page({
 
   onLoad(option){
     //收集请求数据
-    // let data = {
-    //   productId: option.productId,
-    //   promotionId: option.promotionId
-    // }
+    let data = {
+      productId: option.productId,
+      promotionId: option.promotionId
+    }
 
     //用于测试
-    let data = {
-      productId: 467685117182430,
-      promotionId: 547927562762747,
-    }
+    // let data = {
+    //   productId: 467685117182430,
+    //   promotionId: 547927562762747,
+    // }
     
     //保存数据
     this.setData(data);

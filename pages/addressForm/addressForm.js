@@ -45,18 +45,21 @@ Page({
   //保存一条地址
   saveAddress() {
     let form = this.data;
+    console.log(form);
     let verifyKey = Boolean(form.name && form.phone && form.region && form.detail);
     console.log(verifyKey);
     if(verifyKey) {
       let data = {
         id: form.id,
-        region: form.region,
+        address: form.region,
         detail: form.detail,
         consignee: form.name,
         phone: form.phone,
         postal: form.postal,
         phoneCall: form.phoneCall
       }
+
+      console.log(data);
 
       //这里发送请求保存地址
       addAddress("POST", data).then(res => {
@@ -178,7 +181,7 @@ Page({
 
   detailVerify(e) {
     //详细地址的验证
-    let  value = e.detail.detail.value;
+    let  value = e.detail;
     if(!value) {
       wx.showToast({
         title: "详细地址为空",

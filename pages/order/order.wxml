@@ -10,7 +10,7 @@
       <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
     </view>
   </view>
-  <view class="footer">
+<!--  <view class="footer">
     <image src="http://dummyimage.com/200x100/fb0a2a" />
-  </view>
+  </view> -->
 </view>

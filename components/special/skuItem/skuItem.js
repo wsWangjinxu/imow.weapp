@@ -4,13 +4,24 @@ Component({
       type: String,
       value: ""
     },
-    color: {
+    currentSku: {
       type: String,
-      value: "333"
-    },
-    types: {
-      type: String,
-      value: ""
+      value: "",
+      observer: function (val) {
+        let borderColor;
+        let color;
+        if (this.data.text == val) {
+          borderColor = '#fe0000';
+          color = '#fe0000'
+        } else {
+          borderColor = '#333';
+          color = 'black'
+        }
+        this.setData({
+          borderColor,
+          color
+        });
+      }
     }
   },
   data: {
@@ -19,18 +30,10 @@ Component({
   },
   methods: {
     handletap() {
-      this.setData({
-        borderColor: '#fe0000',
-        color: '#fe0000'
+      // 通知父组件选中了这个sku
+      this.triggerEvent("handleSku", {
+        skuCode: this.data.text
       });
-      //触发点击的事件
-      let type = this.data.types;
-      console.log(type);
-      if (type == 'sku') {
-        this.triggerEvent("handleSku", { skuCode: this.data.text });
-      } else {
-        this.triggerEvent("handleTime", { time: this.data.text });
-      }
     }
   }
 });

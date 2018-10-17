@@ -22,6 +22,10 @@ Component({
       observer(val) {
         console.log(val);
       }
+    },
+    super: {
+      type: Boolean,
+      value: false
     }
   },
   /**

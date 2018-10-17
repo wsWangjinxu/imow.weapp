@@ -145,6 +145,7 @@
 					 style="background-color:{{selectedShop.shopId == item.shopId ? 'white' : '3e4e4e4'}}"
 					 bindtap="handleListChange"
 					 data-id="{{item.shopId}}"
+					 data-index="{{index}}"
 					 data-shopName="{{item.shopName}}"
 					>
 						{{item.shopName}}
@@ -154,7 +155,7 @@
 			</scroll-view>
 			<scroll-view class="right" scroll-y="true" style="height: {{scrollHeight}}px;">
 				<block wx:for="{{productList}}" wx:key="index">
-					<product bind:showSku="handleSku" num="{{index}}" ctn="{{item}}" />
+					<product bind:showSku="handleInfo" num="{{index}}" ctn="{{item}}" />
 				</block>
 			</scroll-view>
 		</view>
@@ -166,7 +167,12 @@
 	<van-popup show="{{skuShow}}" bind:close="handleClose">
 		<view style="width: 640rpx; padding: 20rpx;">
 			<view style="text-align: center; font-size: 34rpx;">中力小金刚</view>
-			<sku bind:modifyNumber="modifyNumber" skus="{{productSkus}}" />
+			<sku 
+			skuShow="{{skuShow}}" 
+			bind:modifyNumber="modifyNumber" 
+			promotionId="{{promotionId}}" 
+			productId="{{productId}}" 
+			skus="{{productSkus}}" />
 		</view>
 	</van-popup>
 </view>

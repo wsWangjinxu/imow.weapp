@@ -1,7 +1,7 @@
 {
   "pages":[ 
-    "pages/index/index",
     "pages/special/special", 
+    "pages/index/index",
     "pages/beTeamLeader/beTeamLeader",
     "pages/liCar/liCar",
     "pages/groupBuy/startGroupBuy/startGroupBuy",

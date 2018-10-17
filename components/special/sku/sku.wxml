@@ -1,20 +1,8 @@
 <view class="sku">
   <view class="sku-title">规格：</view>
   <block wx:for="{{skus}}" wx:key="index">
-    <skuItem types="{{'sku'}}" color="{{item.skuCode}}" bind:handleSku="handleSku" text="{{item.skuCode}}"></skuItem>
+    <skuItem currentSku="{{skuCode}}" bind:handleSku="handleSku" text="{{item.skuCode}}"></skuItem>
   </block>
-<!--  <block wx:if="{{showTime}}">
-    <view class="sku-title">交期：</view>
-    <block  wx:for="{{obj[skuCode]}}" wx:key="index">
-      <skuItem wx:if="{{item.deliveryTime}}" types="{{'time'}}" color="{{deliveryTime}}" bind:handleTime="handleTime" text="{{item.deliveryTime}}"></skuItem>
-    </block>
-  </block> -->
-  <view class="skus">
-    <view class="sku-title">已选车型： </view>
-    <block wx:for="{{skuName}}" wx:key="{{index}}">
-      <view>{{item.name}}:{{item.value}}</view>
-    </block>
-  </view>
   <view class="addCartBtn">
     <text>￥{{price}}</text> 
     <view wx:if="{{!number}}" bindtap="addNumber">加入购物车</view>
