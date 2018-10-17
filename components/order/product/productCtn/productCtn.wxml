@@ -1,5 +1,5 @@
 <view  class="productCtn">
-<block wx:if="{{product.promotionModel === null}}">
+<block wx:if="{{product.promotionModel.packageInfo == null}}">
   <!-- 这里是单品 -->
     <single 
      super="{{super}}"
@@ -13,7 +13,7 @@
       <product super="{{super}}" isExpire="{{product.isExpire}}" bind:checkProduct="checkProduct" isChecked="{{isChecked}}" number="{{product.num}}" ctn="{{item}}"></product>
     </block>
 </block>
-<block wx:if="{{product.promotionModel}}">
+<block wx:if="{{product.promotionModel.packageInfo}}">
   <view class="kit-title"><text>组合套餐</text>{{product.promotionModel.name}}</view>
   <view wx:for="{{product.promotionModel.packageInfo.orderCartProductSkus}}" wx:for-index="idx" wx:key="idx">
     <single 

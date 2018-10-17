@@ -12,13 +12,13 @@
     <view class="title">{{ctn.productName}}</view>
     <view class="standard">{{ctn.skuName}},{{ctn.deliveryTime}}</view>
     <view class="price" wx:if="{{!isExpire}}">
-      <block wx:if="{{!isKit }}">
+      <block wx:if="{{ !super && !isKit }}">
         <text>￥{{ctn.price * ctn.num}}</text>
         <van-stepper  value="{{ctn.num}}" bind:change="handleChange"></van-stepper>
       </block>
-      <block wx:if="{{ isKit}}">
+      <block wx:if="{{ isKit || super }}">
         <text>￥{{ctn.price * ctn.num * number}}</text>
-        <text wx:if="{{isKit}}">x{{ctn.num * number}}</text>
+        <text wx:if="{{isKit || super}}">x{{ctn.num * number}}</text>
       </block>
     </view>
   </view> 

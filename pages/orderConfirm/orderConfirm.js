@@ -43,9 +43,8 @@ Page({
     orderPrice: 0
   },
   onLoad(option) {
-    console.log(option);
-    
-    //下面一行注释用于测试，测试完毕以后放开注释,根据购物车id获取商品的信息
+
+    //根据购物车id获取商品的信息
     if (option.cartIds) {
       //说明是从购物车过来的
       this.setData({
@@ -136,24 +135,10 @@ Page({
 
   //第一次请求
   firstRequest(res) {
-    console.log(res);
     let selfAddressData = "";
 
      //拼接产品id
      let product = res.data.data.orderCartProductSkus;
-    //  let data = [];
-    //  for(let i = 0; i < product.length; i++) {
-    //   if(product[i].promotionModel==null) {
-    //     let tempProduct = product.promotionModel.packageInfo.orderCartProductSkus;
-    //     for(let j = 0; j < tempProduct.length; j++) {
-          
-    //     }
-    //   } else {
-    //     data.push(product[i]);
-    //   }
-    //  }
-     
-     console.log(product);
      product.forEach(ele => {
        selfAddressData = selfAddressData + ele.id + ',';
      });
@@ -232,6 +217,7 @@ Page({
 
   getSelfPick(data) {
     getSelfPickAddress("GET", { productIds: data }).then(res => {
+      console.log(res);
       let selfAddress = res.data.selfPickAddresses;
       if (selfAddress.length > 0) {
         this.setData({
@@ -306,8 +292,6 @@ Page({
         db.skuId = this.data.skuId;
         db.num = this.data.num;
       }
-
-      console.log(db);
       addOrder("POST", db).then(res => {
         if (res.data.status === 20) {
           wx.redirectTo({
