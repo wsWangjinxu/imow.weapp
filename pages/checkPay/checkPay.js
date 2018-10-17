@@ -155,10 +155,10 @@ Page({
   paySuccess(){
     console.log(this.data.payMethod);
     submitPayment("POST", {
-      id: this.data.orderId,
+      orderId: this.data.orderId,
       isUseCrepoint:this.data.credit,
       isUseBalance:this.data.useBalance,
-      payMethod: this.data.payMethod
+      payMethod: '线下汇款'
     }).then(res => {
       console.log(res);
       if(res.data.success){

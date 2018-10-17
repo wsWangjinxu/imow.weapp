@@ -17,6 +17,8 @@ Page({
     currentShopId: "", //当前的店铺id,
     totleCount: 0,  //拼团的数量
     totleMoney: 0, //拼团的金额
+    isActive: 0,
+    dotClass: "dot1"
   },
   onLoad() {
     let _this = this;
@@ -32,6 +34,48 @@ Page({
         });
       }
     });
+
+    let current = Date.now();
+    // let current = "2018 11 13";
+    current = new Date(current);
+    let date = String(current.getDate());
+    let month = String(current.getMonth() + 1);
+    let time = month + date;
+    let isActive = 0;
+    let dotClass = "dot1";
+    switch (time) {
+      case "1022":
+        isActive = 1;
+        dotClass = "dot2";
+        break;
+      case "116":
+        isActive = 2;
+       dotClass = "dot3";
+        break;
+      case "1111":
+        isActive = 3;
+        dotClass = "dot4";
+        break;
+      case "1112":
+        isActive = 4;
+        dotClass = "dot5";
+        break;
+    }
+
+    if(Number(time) > 1112) {
+      isActive = 5;
+      dotClass = "dot5";
+    }
+
+    this.setData({
+      isActive,
+      dotClass
+    })
+
+    console.log(this.data.isActice);    
+
+
+
 
     getStatistic("GET").then(res => {
       console.log(res);

@@ -14,7 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    selectedIndex: [],
+    selectedIndex: [], //已选购物车的下标的数组
     checkAll: false,
     //用于全选以后，用户取消单个产品的时候取消店铺标题的全选状态
     cancelCheck: false,
@@ -169,7 +169,7 @@ Component({
         for (let i = 0; i < temp.length; i++) {
           if (productList[i].promotionModel === null) {
             let index = temp[i].index;
-            cartId += productList[i].cartId + ","
+            cartId += productList[index].cartId + ","
           } else {
             let ctnList = productList[i].promotionModel.packageInfo.orderCartProductSkus;
             for (let j = 0; j < ctnList.length; j++) {
@@ -178,6 +178,7 @@ Component({
           }
         }
         cartId = cartId.slice(0, cartId.length - 1);
+        console.log(cartId);
         return cartId;
       }
       return false;
@@ -186,6 +187,7 @@ Component({
     //结算
     pay() {
       let cartId = this.getCartId();
+      console.log(cartId);
       if (cartId) {
         //跳转到确认订单页面
         wx.navigateTo({

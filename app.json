@@ -1,10 +1,18 @@
 {
+<<<<<<< HEAD
   "pages":[  
     "pages/index/index",  
     "pages/beTeamLeader/beTeamLeader",
     "pages/liCar/liCar",  
     "pages/rankList/rankList",
     "pages/special/special",
+=======
+  "pages":[ 
+    "pages/index/index",
+    "pages/special/special", 
+    "pages/beTeamLeader/beTeamLeader",
+    "pages/liCar/liCar",
+>>>>>>> 2c41fb2956c5e99281017135142db940c5b44d91
     "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/developing/developing",
     "pages/cart/cart",

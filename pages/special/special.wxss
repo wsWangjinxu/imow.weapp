@@ -5,7 +5,42 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 20px 20rpx;
+  position: relative;
+}
 
+.dot1 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 47px;
+}
+
+.dot2 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 122px;
+}
+
+.dot3 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 202px;
+}
+
+.dot4 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 279px;
+}
+
+.dot5 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 356px;
 }
 
 .time-ctn-item {
@@ -14,8 +49,19 @@
   overflow: hidden;
   border-radius: 20rpx;
   position: relative;
-  background-color: cyan;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.color-bg {
+  width: 373rpx;
+  position: absolute;
+}
+
+.ctn-right {
+  flex: 1;
+  margin-top: 30rpx;
+  margin-right: 20rpx;
+  padding-bottom: 15px;
 }
 
 .time-ctn-item-ctn {
@@ -130,7 +176,7 @@
   background-color: #5c0206;
 }
 
-swiper{
+swiper {
   width: 100%;
   height: 350rpx;
 }
@@ -149,18 +195,20 @@ swiper{
   border-bottom: 1px solid #cccccc;
   padding: 20rpx 0rpx;
   background-color: #fff;
-} 
-
-.coupon-ctn .coupon-item {
- flex: 1;
- margin-right: 10rpx;
- margin-left: 10rpx;
 }
 
-/* 热销榜 */ /* 超级拼团 */
-.hot-ctn, .super-group-ctn {
+.coupon-ctn .coupon-item {
+  flex: 1;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+}
+
+/* 热销榜 */
+/* 超级拼团 */
+.hot-ctn,
+.super-group-ctn {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   flex-direction: row;
   padding: 0 20rpx 30rpx;
   justify-content: space-between;
@@ -171,14 +219,16 @@ swiper{
   overflow: hidden;
 }
 
-.hot-ctn hot, .super-group-ctn supergroup {
+.hot-ctn hot,
+.super-group-ctn supergroup {
   /* margin-left: 20rpx; */
   /* flex: 1; */
   width: 32%;
   margin-bottom: 20rpx;
 }
 
-.hot-ctn hot:first-child, .super-group-ctn supergroup:first-child {
+.hot-ctn hot:first-child,
+.super-group-ctn supergroup:first-child {
   margin-left: 0;
 }
 
@@ -201,6 +251,7 @@ swiper{
   background-color: #fff;
   text-align: center;
 }
+
 .list-title view {
   flex: 1;
   height: 50px;
@@ -229,7 +280,7 @@ swiper{
   font-size: 30rpx;
   height: 100rpx;
   line-height: 100rpx;
-  border-top: 1px solid #e4e4e4; 
+  border-top: 1px solid #e4e4e4;
   background-color: #f2f2f2;
   box-sizing: border-box;
   text-align: center;
@@ -260,7 +311,7 @@ swiper{
   position: fixed;
   bottom: 0;
   height: 100%;
-  background-color: rgba(99,99,99,0.5);
+  background-color: rgba(99, 99, 99, 0.5);
 }
 
 view.van-popup {
@@ -269,7 +320,7 @@ view.van-popup {
 
 .radiusBtn {
   display: inline-block;
-  width:  40rpx;
+  width: 40rpx;
   height: 40rpx;
   line-height: 38rpx;
   text-align: center;
@@ -279,4 +330,3 @@ view.van-popup {
   border-radius: 50%;
   vertical-align: 25rpx;
 }
-

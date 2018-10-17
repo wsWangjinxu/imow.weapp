@@ -136,7 +136,7 @@ Page({
     return {
       title: this.data.product.title,
       path: "/pages/groupBuy/startGroupBuy/startGroupBuy",
-      imageUrl: "/static/images/groupBuy-share.jpg"
+      imageUrl: "https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/groupBuy-share.jpg"
     }
   },
 

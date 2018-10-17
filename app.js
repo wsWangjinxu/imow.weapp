@@ -20,7 +20,7 @@ App({
       wx.hideLoading({
         complete() {
           wx.showTabBar({});
-        }
+        } 
       });
     } else {
       //没有session, 检测用户是否已经在服务器绑定账号，如果绑定账号，默认状态为已经登陆

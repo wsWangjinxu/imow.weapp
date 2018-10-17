@@ -50,7 +50,9 @@ Page({
   //获取订单
   getOrders(state) {
     getOrderList("GET", {
-      state: state
+      state: state,
+      pageIndex:1,
+      pageSize:20
     }).then(res => {
       let orders = res.data.orders;
       //为每一个商品添加商品名，两个接口有一个键名与组件不一致
