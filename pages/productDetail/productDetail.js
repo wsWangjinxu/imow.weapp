@@ -67,6 +67,20 @@ Page({
   onShow:function() {
     this.initCouponList();    //优惠券初始化
   },
+  //拼团按钮
+  pintuan(){
+    if (this.data.canCollage){
+      let promotionId = this.data.promotionId;
+      let productId = this.data.productId;
+      wx.navigateTo({
+        url: "/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId=" + promotionId + "&productId=" + productId
+      })
+    }else{
+      wx.navigateTo({
+        url: "/pages/beTeamLeader/beTeamLeader"
+      })
+    }
+  },
   //分享
   onShareAppMessage: function () {
     // console.log(this.data.title)
@@ -162,13 +176,21 @@ Page({
         this.getShop();
         for (let index = 0; index < res.data.productSkus.length; index++) {
           const item = res.data.productSkus[index];
-          if (item.promotionModel) {
+          if (item.promotionModel.type==1) {
             this.setData({ 
               promotionName: item.promotionModel.promotionName,
               promotionId: item.promotionModel.id,
               promotionType: item.promotionModel.type
             });
-            return false;
+            return;
+          }
+          if (item.promotionModel.type==4) {
+            this.setData({
+              promotionName: item.promotionModel.promotionName,
+              promotionId: item.promotionModel.id,
+              promotionType: item.promotionModel.type
+            });
+            return;
           }
         }
       }else{
