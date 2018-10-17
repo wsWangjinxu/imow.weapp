@@ -49,7 +49,7 @@ Page({
       fail: function(err) {
         wx.showToast({
           title: "获取信息出错",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         })
       }
     })
@@ -78,7 +78,7 @@ Page({
     if(!this.data.phone.match(/^1[3-9][0-9]{9}/)) {
       wx.showToast({
         title: "手机号码不正确",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       });
       temp = false;
     }
@@ -87,7 +87,7 @@ Page({
     if(!this.data.phone) {
       wx.showToast({
         title: "电话不能为空",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       });
       temp = false;
     }
@@ -96,7 +96,7 @@ Page({
     if(!this.data.name) {
       wx.showToast({
         title: "姓名不能为空",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       });
       temp = false;
     }

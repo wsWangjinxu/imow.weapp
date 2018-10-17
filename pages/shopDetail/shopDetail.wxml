@@ -26,15 +26,15 @@
     </van-row>
     <van-row>
       <van-col span="6">工商执照</van-col>
-      <van-col span="18"><image src='/static/imgs/SDicon1.png'></image><view class='underL' bindtap="showPopup" data-show="1">点击查看</view></van-col>
+      <van-col span="18"><image src='/static/icons/SDicon1.png'></image><view class='underL' bindtap="showPopup" data-show="1">点击查看</view></van-col>
     </van-row>
     <van-row>
       <van-col span="6">店铺名片</van-col>
-      <van-col span="18"><image src='/static/imgs/SDicon2.png'></image><view class='underL' bindtap="showPopup" data-show="2">点击查看</view></van-col>
+      <van-col span="18"><image src='/static/icons/SDicon2.png'></image><view class='underL' bindtap="showPopup" data-show="2">点击查看</view></van-col>
     </van-row>
     <van-row>
       <van-col span="6">店铺微信</van-col>
-      <van-col span="18"><image src='/static/imgs/SDicon2.png'></image><view class='underL' bindtap="showPopup" data-show="3">点击查看</view></van-col>
+      <van-col span="18"><image src='/static/icons/SDicon2.png'></image><view class='underL' bindtap="showPopup" data-show="3">点击查看</view></van-col>
     </van-row>
     <van-row>
       <van-col span="6">开店时间</van-col>

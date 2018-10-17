@@ -1,9 +1,10 @@
 import {
   getSwipers,
-  getCoupons,
+  // getCoupons,
   getSuperGroupBuy,
-  getShopList,
-  getProductList
+  // getShopList,
+  // getProductList,
+  getStatistic
 } from "../../api/special/index";
 
 Page({
@@ -12,8 +13,10 @@ Page({
     groupHeight: "285rpx",  //热销产品的多行高度
     hotHeight: "300rpx",  //热销产品的单行高度
     skuShow: false, //是否显示sku选择的组件
-    productId: "",  //当前选中的产品的id，sku组件根据产品id来获取对应的sku信息
-    currentShopId: "" //当前的店铺id
+    productSkus: "",  //当前选中的产品，sku组件根据产品获取对应的sku信息
+    currentShopId: "", //当前的店铺id,
+    totleCount: 0,  //拼团的数量
+    totleMoney: 0, //拼团的金额
   },
   onLoad() {
     let _this = this;
@@ -30,12 +33,21 @@ Page({
       }
     });
 
-    // //获取轮播图信息
-    // getSwipers("POST").then(res => {
-    //   this.setData({
-    //     swipers: res.data.swipers
-    //   });
-    // });
+    getStatistic("GET").then(res => {
+      console.log(res);
+      let tempData =  res.data.promotionStatisticResult
+      this.setData({
+        totleCount: tempData.totleCount,
+        totleMoney: (tempData.totleMoney / 10000).toFixed(2)
+      });
+    }),
+
+    //获取轮播图信息
+    getSwipers("POST").then(res => {
+      this.setData({
+        swipers: res.data.swipers
+      });
+    });
 
     // //获取优惠券信息
     // getCoupons("POST").then(res => {
@@ -44,29 +56,37 @@ Page({
     //   });
     // });
 
-    //获取超级拼团的内容
-    getSuperGroupBuy("GET").then(res => {
-      this.setData({
-        superGroupBuy: res.data.superGroupBuy
-      });
-    });
+    // //获取超级拼团的内容
+    // getSuperGroupBuy("GET").then(res => {
+    //   console.log(res);
+    //   this.setData({
+    //     superGroupBuy: res.data.superGroupBuy
+    //   });
+    // });
+
+
 
     //获取店铺列表
-    getShopList("POST").then(res => {
-      let id = res.data.shopList[0].shopId;
+    getSuperGroupBuy("GET").then(res => {
+      console.log(res);
+      let tempData = res.data.superGroupModel;
+      // let id = res.data.shopList[0].shopId;
+
+      console.log(tempData.superGroupBuy);
 
 
       //获取产品列表
-      getProductList("post", { shopId: id }).then(res => {
-        this.setData({
-          productList: res.data.productList
-        });
-      });
+      // getProductList("post", { shopId: id }).then(res => {
+        // this.setData({
+        //   productList: res.data.productList
+        // });
+      // });
 
       //设置店铺名称列表
       this.setData({
-        shopList: res.data.shopList,
-        selectedShop: res.data.shopList[0]
+        shopList: tempData.shopList,
+        selectedShop: tempData.shopList[0].shopId,
+        productList: tempData.superGroupBuy
       });
     });
   },
@@ -116,10 +136,16 @@ Page({
 
   //点击选择规格获取产品的productId，并传递给sku组件，sku组件根据产品id来获取对应的sku信息
   handleSku(e) {
-    let productId = e.detail.id;
+    let num = e.detail.num;
+    let productList = this.data.productList;
+    console.log(productList[num]);
+    // this.setData({
+    //   productId,
+    //   skuShow: true
+    // });
     this.setData({
-      productId,
-      skuShow: true
+      productSkus: productList[num].superGroupProductSkus,
+      skuShow: true    
     });
   },
 
@@ -163,9 +189,6 @@ Page({
   handlePay() {
     let shopId = this.data.selectedShop.shopId;
     //
-
-    
-
     console.log(shopId);
   },
 

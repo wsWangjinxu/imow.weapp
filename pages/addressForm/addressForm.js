@@ -78,7 +78,7 @@ Page({
       //验证没有通过
       wx.showToast({
         title: "请填写必要信息",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       })
     }
   },
@@ -101,7 +101,7 @@ Page({
       } else {
         wx.showToast({
           title: "删除失败",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
       }
     });
@@ -130,7 +130,7 @@ Page({
     if(!value) {
       wx.showToast({
         title: "收货人不能为空",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       });
     } else {
       this.setData({
@@ -145,13 +145,13 @@ Page({
     if(!value) {
       wx.showToast({
         title: "手机号不能为空",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       });
     } else {
       if(!value.match(/^1[3-9][0-9]{9}/)) {
         wx.showToast({
           title: "手机号码不正确",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
       } else {
         this.setData({
@@ -167,7 +167,7 @@ Page({
     if(!value) {
       wx.showToast({
         title: "地区不能为空",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       });
     } else {
       this.setData({
@@ -182,7 +182,7 @@ Page({
     if(!value) {
       wx.showToast({
         title: "详细地址为空",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       });
     } else {
       this.setData({

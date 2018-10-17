@@ -73,7 +73,7 @@ Component({
       if (product.length === 0) {
         wx.showToast({
           title: "请选择产品",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
         return;
       }
@@ -82,7 +82,7 @@ Component({
       if (!name) {
         wx.showToast({
           title: "姓名不能为空",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
         return;
       }
@@ -91,7 +91,7 @@ Component({
       if (!phone) {
         wx.showToast({
           title: "手机号不能为空",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
         return;
       }
@@ -100,7 +100,7 @@ Component({
       if (!phone.match(/^1[3-9][0-9]{9}/)) {
         wx.showToast({
           title: "手机号码不正确",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
         return;
       }
@@ -147,7 +147,7 @@ Component({
         fail: function (err) {
           wx.showToast({
             title: "获取信息出错",
-            image: "/static/icon/warning-white.png"
+            image: "/static/icons/warning-white.png"
           })
         }
       })

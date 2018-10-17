@@ -13,47 +13,65 @@ function getSwipers(type, data) {
   });
 }
 
-//获取优惠券信息
-function getCoupons(type, data) {
-  return wxRequest({
-    url: baseUrl + "special/getCoupons",
-      data: data,
-      type: type
-  });
-}
+// //获取优惠券信息
+// function getCoupons(type, data) {
+//   return wxRequest({
+//     url: baseUrl + "special/getCoupons",
+//       data: data,
+//       type: type
+//   });
+// }
 
 
-//获取热销榜产品
-function getHotProduct(type, data) {
-  return wxRequest({
-    url: baseUrl + "special/getHotProduct",
-      data: data,
-      type: type
-  });
-}
+// //获取热销榜产品
+// function getHotProduct(type, data) {
+//   return wxRequest({
+//     url: baseUrl + "special/getHotProduct",
+//       data: data,
+//       type: type
+//   });
+// }
 
-//获取店铺列表
-function getShopList(type, data) {
-  return wxRequest({
-    url: baseUrl + "special/getShopList",
-      data: data,
-      type: type
-  });
-}
+// //获取店铺列表
+// function getShopList(type, data) {
+//   return wxRequest({
+//     url: baseUrl + "special/getShopList",
+//       data: data,
+//       type: type
+//   });
+// }
 
-//获取产品列表
-function getProductList(type, data) {
-  return wxRequest({
-    url: baseUrl + "special/getProductList",
-      data: data,
-      type: type
-  });
-}
+// //获取产品列表
+// function getProductList(type, data) {
+//   return wxRequest({
+//     url: baseUrl + "promotion/getProductList",
+//       data: data,
+//       type: type
+//   });
+// }
 
 //获取产品列表
 function getSuperGroupBuy(type, data) {
   return wxRequest({
-    url: baseUrl + "special/getSuperGroupBuy",
+    url: baseUrl + "promotion/superGroupBuy",
+      data: data,
+      type: type
+  });
+}
+
+//新增购物车
+function promotionCartAdd(type, data) {
+  return wxRequest({
+    url: baseUrl + "promotion/cart/add",
+      data: data,
+      type: type
+  });
+}
+
+//获取团购的数量与金额
+function getStatistic(type, data) {
+  return wxRequest({
+    url: baseUrl + "promotion/statistic",
       data: data,
       type: type
   });
@@ -62,8 +80,11 @@ function getSuperGroupBuy(type, data) {
 
 export { 
   getSwipers, 
-  getCoupons, 
+  // getCoupons, 
   getSuperGroupBuy, 
-  getHotProduct, 
-  getShopList,
-  getProductList }
+  // getHotProduct, 
+  // getShopList,
+  // getProductList 
+  promotionCartAdd,
+  getStatistic
+}

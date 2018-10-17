@@ -153,14 +153,14 @@ Page({
         wx.hideLoading();
         wx.showToast({
           title: "加载失败！",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
       }
     }).catch(err => {
       wx.hideLoading();
         wx.showToast({
           title: "网络连接失败！",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         });
     });
   }

@@ -96,7 +96,7 @@ Page({
                 wx.hideLoading();
                 wx.showToast({
                   title: res.data.message,
-                  image: "/static/icon/warning-white.png"
+                  image: "/static/icons/warning-white.png"
                 });
               }
             });
@@ -104,7 +104,7 @@ Page({
             wx.hideLoading();
             wx.showToast({
               title: '获取code失败',
-              image: '/static/icon/warning-white.png'
+              image: '/static/icons/warning-white.png'
             })
             console.log("登陆失败！" + res.errMsg);
           }
@@ -154,7 +154,7 @@ Page({
       fail: function (err) {
         wx.showToast({
           title: "获取信息出错",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         })
       },
       complete

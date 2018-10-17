@@ -1,7 +1,7 @@
 <view class="product">
   <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}?x-oss-process=image/resize,m_pad,l_80" />
   <view class="product-ctn" style="flxe: 2;">
-    <view>{{ctn.title}}</view>
+    <view class="ctn-title">{{ctn.title}}</view>
     <view>
       <view>
         <view style="font-size: 30rpx; color:#ff1105;">￥{{ctn.discountPrice}}起</view>

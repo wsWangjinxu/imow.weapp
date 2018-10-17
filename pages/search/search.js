@@ -40,7 +40,7 @@ Page({
     if (!this.data.keyword) {
       wx.showToast({
         title: "请输入搜索关键字",
-        image: "../../static/icon/warning-white.png",
+        image: "../../static/icons/warning-white.png",
         duration: 2000
       });
     } else {

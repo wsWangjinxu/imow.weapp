@@ -8,7 +8,7 @@
         <view>
             <text bindtap="ringUp">{{leaderName}}</text>
             <block wx:if="{{isOpen}}">
-                <image class="hand" src="/static/icon/hand.png"></image>
+                <image class="hand" src="/static/icons/hand.png"></image>
                 <text>点击团长名字询价参团</text>
             </block>
         </view>   

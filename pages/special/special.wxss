@@ -25,13 +25,18 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .title-left {
   font-size: 30rpx;
-  font-weight: bold;
   color: white;
   text-align: left;
+  font-weight: 100;
+}
+
+.title-left text:last-child {
+  font-weight: bold;
 }
 
 .ctn-left {
@@ -76,7 +81,7 @@
 
 .group-money {
   text-align: center;
-  font-size: 120rpx;
+  font-size: 100rpx;
   color: #fdd804;
   position: absolute;
   top: 240rpx;
@@ -93,7 +98,7 @@
 
 .group-num {
   text-align: center;
-  font-size: 120rpx;
+  font-size: 100rpx;
   color: #fdd804;
   position: absolute;
   top: 530rpx;

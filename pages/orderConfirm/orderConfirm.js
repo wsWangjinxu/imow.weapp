@@ -304,14 +304,14 @@ Page({
         } else {
           wx.showToast({
             title: String(res.data.errMsg),
-            image: "/static/icon/warning-white.png"
+            image: "/static/icons/warning-white.png"
           });
         }
       });
     } else {
       wx.showToast({
         title: "请查看协议",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       })
     }
   }

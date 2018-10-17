@@ -22,7 +22,7 @@ function hotSearch(type, data) {
 //产品搜索
 function getProductList(type, data) {
   return wxRequest({
-    url: baseUrl + "search/productList",
+    url: baseUrl + "/search/productList",
       data: data,
       type: type
   });
@@ -41,7 +41,7 @@ function getShopList(type, data) {
 function getCities(type, data) {
   return wxRequest({
     // url: baseUrl + "getCities",
-    url: "http://10.10.10.230:8052/" + "getCities",
+    url: baseUrl + "getCities",
       data: data,
       type: type
   });

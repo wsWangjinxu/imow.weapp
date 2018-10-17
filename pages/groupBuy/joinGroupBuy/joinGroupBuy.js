@@ -185,7 +185,7 @@ Page({
     } else {
       wx.showToast({
         title: "无参团记录",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       });
     }
     

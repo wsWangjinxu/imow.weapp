@@ -59,7 +59,7 @@
       <text>{{userInfo.region}}</text>
     </view>
   </view>
-  <view class="exit">
+  <view wx:if="{{false}}" class="exit">
     退出当前账户
   </view>
 </view> 
