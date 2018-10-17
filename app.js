@@ -4,24 +4,24 @@ import {
 
 App({
   onLaunch: function () {
-    wx.showLoading({
-      title: '玩命加载中',
-      mask: 'true',
-      complete() {
-        wx.hideTabBar({});
-      }
-    });
+    // wx.showLoading({
+    //   title: '玩命加载中',
+    //   mask: 'true',
+    //   complete() {
+    //     wx.hideTabBar({});
+    //   }
+    // });
     let session = wx.getStorageSync("session");
     console.log(session);
 
     //有session，说明已经登陆
     if (session) {
       wx.setStorageSync("isLogin", true);
-      wx.hideLoading({
-        complete() {
-          wx.showTabBar({});
-        } 
-      });
+      // wx.hideLoading({
+      //   complete() {
+      //     wx.showTabBar({});
+      //   } 
+      // });
     } else {
       //没有session, 检测用户是否已经在服务器绑定账号，如果绑定账号，默认状态为已经登陆
       let that = this;

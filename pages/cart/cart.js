@@ -32,6 +32,12 @@ Page({
           shopList: res.data.shopList,
           selectedId: res.data.shopList[num].id
         });
+      } else {
+        this.setData({
+          list: [],
+          shopList: [],
+          selectedId: []
+        })
       }
     });
   },

@@ -67,6 +67,20 @@ Page({
   onShow:function() {
     this.initCouponList();    //优惠券初始化
   },
+  //拼团按钮
+  pintuan(){
+    if (this.data.canCollage){
+      let promotionId = this.data.promotionId;
+      let productId = this.data.productId;
+      wx.navigateTo({
+        url: "/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId=" + promotionId + "&productId=" + productId
+      })
+    }else{
+      wx.navigateTo({
+        url: "/pages/beTeamLeader/beTeamLeader"
+      })
+    }
+  },
   //分享
   onShareAppMessage: function () {
     // console.log(this.data.title)

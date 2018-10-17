@@ -1,6 +1,7 @@
 <view>
     <van-search slot="title" bindtap="navigatorToSearch" disabled="true" placeholder="搜索 商品/品牌/店铺"></van-search>
     <view class='banner'>
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="zan-btn zan-btn--primary">授权阿母访问你的信息登录</button>
       <swiper indicator-dots="true">
         <swiper-item wx:for="{{4}}" wx:key="index"><image  src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/banner{{index + 1}}.jpg" /></swiper-item>
       </swiper>
@@ -15,4 +16,5 @@
     <view class="product-container">
         <product wx:for="{{productList}}" ctn="{{item}}"  wx:key="index"></product>
     </view>
+    
 </view>
