@@ -1,9 +1,8 @@
 {
   "pages":[ 
-    "pages/special/special",
     "pages/index/index",
+    "pages/special/special",
     "pages/rankList/rankList",
-    
     "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/developing/developing",
     "pages/cart/cart",
