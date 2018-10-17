@@ -51,7 +51,7 @@ Component({
           });
           wx.showToast({
             title: "修改失败！",
-            image: "/static/icon/warning-white.png"
+            image: "/static/icons/warning-white.png"
           });
         }
       });
@@ -81,7 +81,7 @@ Component({
               } else {
                 wx.showToast({
                   title: "删除失败！",
-                  image: "/static/icon/warning-white.png"
+                  image: "/static/icons/warning-white.png"
                 });
               }
             })

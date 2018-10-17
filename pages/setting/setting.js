@@ -9,7 +9,7 @@ Page({
     getUserInfo("POST").then(res=>{
       console.log(res);
       this.setData({
-        userInfo: res.data
+        userInfo: res.data.data
       })
     })
   }

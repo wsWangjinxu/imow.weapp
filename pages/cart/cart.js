@@ -18,7 +18,7 @@ Page({
     this.init(this.data.num);
   },
 
-  onshow() {
+  onShow() {
     this.init(this.data.num);
   },
 
@@ -50,24 +50,24 @@ Page({
   //清除失效产品
   handleExpire() {
     let shopId = this.data.selectedId;
+    let _this = this;
     console.log(shopId);
-    removeUnActive("DELETE", {
+    removeUnActive("GET", {
       shopId
     }).then(res => {
-      if (res.status === 204) {
+      if (res.statusCode == 500) {
+        console.log(res.statusCode);
+        wx.showToast({
+          title: "清除失败！",
+          image: "/static/icons/warning-white.png"
+        })
+      } else {
         wx.showToast({
           title: "清除成功！",
           icon: "success"
         });
-
         //更新用户的购物车
-        this.init(this.data.selectedId);
-      } else {
-        console.log(res);
-        wx.showToast({
-          title: "清除失败！",
-          image: "/static/icon/warning-white.png"
-        })
+        _this.init(_this.data.num);
       }
     });
   },
@@ -82,27 +82,30 @@ Page({
 
   //删除购物车中的产品
   handleDelete() {
+    console.log("删除！");
     let _this = this;
+    console.log(this.data.cartId);
     if (this.data.cartId) {
-      removeCart("DELETE", {
-        cartId: _this.data.cartId
+      removeCart("GET", {
+        cartIds: _this.data.cartId
       }).then(res => {
-        if (res.data.status) {
+        if (res.statusCode == 204) {
           wx.showToast({
             title: "删除成功",
             icon: "success"
           });
+          _this.init(_this.data.num);
         } else {
           wx.showToast({
             title: "删除失败",
-            image: "/static/icon/warning-white.png"
+            image: "/static/icons/warning-white.png"
           });
         }
       });
     } else {
       wx.showToast({
         title: "请选择商品",
-        image: "/static/icon/warning-white.png"
+        image: "/static/icons/warning-white.png"
       })
     }
   }

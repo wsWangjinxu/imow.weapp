@@ -3,12 +3,15 @@ Component({
     ctn: {
       type: Object,
       value: {}
+    },
+    num: {
+      type: Number,
+      value: -1
     }
   },
   methods: {
     handleAdd() {
-      console.log(this.data.ctn.id);
-      this.triggerEvent("showSku", {id: this.data.ctn.id} );
+      this.triggerEvent("showSku", {num: this.data.num} );
     }
   }
 })

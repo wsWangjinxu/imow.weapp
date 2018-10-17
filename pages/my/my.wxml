@@ -1,6 +1,6 @@
 <view wx:if="{{isLogin}}" class="my">
   <view class="userInfo">
-    <navigator style="align-self:flex-end;color:#626262;" url="/pages/setting/setting"><van-icon name="setting"></van-icon></navigator> 
+    <navigator style="align-self:flex-end;color:#626262;font-size:50rpx;" url="/pages/setting/setting"><van-icon name="setting"></van-icon></navigator> 
     <image src="{{avatarUrl}}"/>
     <text>{{nickname}}</text>
   </view> 

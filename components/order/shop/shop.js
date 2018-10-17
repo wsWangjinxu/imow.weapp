@@ -194,7 +194,7 @@ Component({
       } else {
         wx.showToast({
           title: "请选择商品",
-          image: "/static/icon/warning-white.png"
+          image: "/static/icons/warning-white.png"
         })
       }
 
