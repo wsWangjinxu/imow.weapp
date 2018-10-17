@@ -29,6 +29,7 @@ Component({
     //跳转到申请开团页面
     handleGroupBuy() {  
       let promotionId = this.data.ctn.promotionId;
+      debugger //eslint-disable-line
       let productId = this.data.ctn.id;
       wx.navigateTo({
         url: '/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId=' + promotionId + '&productId=' + productId
@@ -38,7 +39,7 @@ Component({
     handleMeal() {
       let promotionId = this.data.ctn.promotionId;
       wx.navigateTo({
-        url: '/pages/setMeal/setMeal?promotionId=' + promotionId
+        url: '/pages/setMeal/setMeal?id=' + promotionId
       })
     }
   }
