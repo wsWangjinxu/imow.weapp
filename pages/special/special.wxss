@@ -5,7 +5,42 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 20px 20rpx;
+  position: relative;
+}
 
+.dot1 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 47px;
+}
+
+.dot2 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 122px;
+}
+
+.dot3 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 202px;
+}
+
+.dot4 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 279px;
+}
+
+.dot5 {
+  position: absolute;
+  width: 30px;
+  left: 37px;
+  top: 356px;
 }
 
 .time-ctn-item {
@@ -14,7 +49,7 @@
   overflow: hidden;
   border-radius: 20rpx;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .color-bg {

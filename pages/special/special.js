@@ -35,15 +35,14 @@ Page({
       }
     });
 
-    // let current = Date.now();
-    let current = "2018 11 6";
+    let current = Date.now();
+    // let current = "2018 11 13";
     current = new Date(current);
     let date = String(current.getDate());
     let month = String(current.getMonth() + 1);
-    console.log(month + date); //eslint-disable-line
     let time = month + date;
     let isActive = 0;
-    let dotClass = "";
+    let dotClass = "dot1";
     switch (time) {
       case "1022":
         isActive = 1;
@@ -65,7 +64,7 @@ Page({
 
     if(Number(time) > 1112) {
       isActive = 5;
-      dotClass = 4;
+      dotClass = "dot5";
     }
 
     this.setData({

@@ -1,7 +1,8 @@
 <view class="special">
 	<image mode="widthFix" style="display: inline-block;width: 100%;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/bg.jpg" />
 	<view class="timer">
-		<image mode="widthFix" style="width: 50px;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/timer.png" />
+		<image mode="widthFix" style="width: 50px;" src="/static/images/time.png" />
+		<image mode="widthFix" class="{{ dotClass }}" src="/static/icons/dot.png"></image>
 		<view class="timer-ctn" style="margin-top: 4px;">
 			<view class="time-ctn-item">
 				<image wx:if="{{isActive != 1}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time1.png" />
