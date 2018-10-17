@@ -18,11 +18,10 @@
     <van-button wx:if="{{!canCollage}}" size="small" open-type='share'>
       <text class='like'>分享</text>
     </van-button>
-    <navigator url='/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId={{promotionId}}&productId={{productId}}'>
-      <van-button wx:if="{{canCollage}}" size="small">
-        <text class='like'>拼团</text>
-      </van-button>
-    </navigator>
+   
+    <van-button wx:if="{{canCollage}}" size="small">
+      <text class='like' bindtap='pintuan'>拼团</text>
+    </van-button>
   </view>
 
   <view class='box priceBox'>
@@ -45,9 +44,7 @@
         </van-col>
         <van-col span="6">
           <block wx:if="{{promotionType==1}}">
-            <navigator url='/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId={{promotionId}}&productId={{productId}}'>
-              <view class='tip'>{{promotionName}}</view>
-            </navigator>
+            <view class='tip' bindtap='pintuan'>{{promotionName}}</view>
           </block>
           <block wx:if="{{promotionType==4}}">
             <navigator url='/pages/setMeal/setMeal?id={{promotionId}}'>
