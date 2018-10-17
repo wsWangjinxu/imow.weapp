@@ -45,7 +45,6 @@ Page({
   onLoad(option) {
     console.log(option);
     
-    debugger //eslint-disable-line
     //下面一行注释用于测试，测试完毕以后放开注释,根据购物车id获取商品的信息
     if (option.cartIds) {
       //说明是从购物车过来的

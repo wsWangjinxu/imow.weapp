@@ -1,10 +1,10 @@
 <view class="invoice">
   <text>发票信息</text>
-  <text>名称：{{ctn.name}}</text>
-  <text>纳税人识别号：{{ctn.dutyParagraph}}</text>
-  <text>地址：{{ctn.address}}</text>
-  <text>电话：{{ctn.phone}}</text>
-  <text>开户行：{{ctn.bank}}</text>
-  <text>开户行帐号：{{ctn.bankAccount}}</text>
+  <text wx:if="{{ctn.name}}">名称：{{ctn.name}}</text>
+  <text wx:if="{{ctn.dutyParagraph}}">纳税人识别号：{{ctn.dutyParagraph}}</text>
+  <text wx:if="{{ctn.address}}">地址：{{ctn.address}}</text>
+  <text wx:if="{{ctn.phone}}">电话：{{ctn.phone}}</text>
+  <text wx:if="{{ctn.bank}}">开户行：{{ctn.bank}}</text>
+  <text wx:if="{{ctn.bankAccount}}">开户行帐号：{{ctn.bankAccount}}</text>
 </view>
 
