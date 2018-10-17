@@ -1,6 +1,6 @@
 <view class="rankList">
 	<view>
-		<image style="width: 100%;" mode="widthFix" src="/static/images/zongji.jpg" />
+		<image style="width: 100%;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/zongji.jpg" />
 		<view class="ctn">
 			<view class="item">
 				<text class="title">团购总金额</text>
@@ -15,7 +15,7 @@
 		</view>
 	</view>
 	<view style="margin-top: -10rpx;position: relative;">
-		<image style="width: 100%;" mode="widthFix" src="/static/images/paiming.jpg" />
+		<image style="width: 100%;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/paiming.jpg" />
 		<view class="first">
 			<view class="num">100000<text>元</text></view>
 			<view class="company">浙江中力机械有限公司</view>
@@ -31,7 +31,7 @@
     <view class="notice">您距离上榜还差<span style="color: #d31518;">990000</span>元，请继续努力加油哦！</view>
 	</view>
   <view class="list">
-    <image style="width:410rpx;margin-top: 40px;margin-bottom: 20px;" mode="widthFix" src="/static/images/list-title.png"></image>
+    <image style="width:410rpx;margin-top: 40px;margin-bottom: 20px;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/list-title.png"></image>
     <listItem class="item" wx:for="{{4}}" wx:key="{{index}}"></listItem>
   </view>
 </view>
