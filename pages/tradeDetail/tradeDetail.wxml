@@ -56,7 +56,7 @@
 </view>
 
 <view class='footer'>
-  <image src='/static/imgs/footer.png'></image>
+  <image src='/static/icons/footer.jpg'></image>
 </view>
 
 </view>

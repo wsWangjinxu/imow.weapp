@@ -371,14 +371,14 @@ Component({
         wx.showToast({
           title: '请选择sku号',
           duration: 2000,
-          image: "/static/imgs/warn.png"
+          image: "/static/icons/warning-white.png"
         })
       } else if (this.data.hasDeliveryTime) {
         if (this.data.filedProductSkus.deliveryTime.current == "" || this.data.filedProductSkus.deliveryTime.current == undefined) {
           wx.showToast({
             title: '请选择交期',
             duration: 2000,
-            image: "/static/imgs/warn.png"
+            image: "/static/icons/warning-white.png"
           })
         }else{  
           this.triggerEvent('myevent', {       //sku和交期都存在,向父组件传值

@@ -23,6 +23,7 @@ Page({
   },
 
   init(num) {
+    console.log(1);
     getUserCart("GET").then(res => {
       console.log(res); //eslint-disable-line
       if (res.data.shopList.length !== 0) {

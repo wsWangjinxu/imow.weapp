@@ -163,7 +163,7 @@ Page({
         wx.showToast({
           title: '有产品未选规格',
           icon: 'none',
-          image: '/static/imgs/warn.png'
+          image: '/static/icons/warning-white.png'
         });
       } else {
         no++;
