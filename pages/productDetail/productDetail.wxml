@@ -15,11 +15,11 @@
 
   <view class="productTitle box">
     <view class='name'>{{productName}}</view>
-    <van-button wx:if="{{!canCollage}}" size="small" open-type='share'>
+    <van-button wx:if="{{promotionType!=1}}" size="small" open-type='share'>
       <text class='like'>分享</text>
     </van-button>
    
-    <van-button wx:if="{{canCollage}}" size="small">
+    <van-button wx:if="{{promotionType==1}}" size="small">
       <text class='like' bindtap='pintuan'>拼团</text>
     </van-button>
   </view>
