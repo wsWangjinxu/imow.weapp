@@ -162,7 +162,8 @@ Component({
             promotionId: data.promotionId,
             cartId: res.data.cartId,
             skuCode: data.skuCode,
-            shopNum:data.shopNum
+            shopId:res.data.shopId,
+            shopNum:res.data.shopNum
           }
           this.data.skus.forEach(ele => {
             if (ele.skuCode == data.skuCode) {

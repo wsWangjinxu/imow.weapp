@@ -14,7 +14,7 @@
             <view class="row" style="width: {{num}};">
                 <view class="row-cell" style="width: 60px">{{index}}</view>
                 <view class="row-cell">{{item.skuCode}}</view>
-                <view class="row-cell" style="width: 60px">{{item.num}}</view>
+                <view class="row-cell" style="width: 60px">{{item.saled}}</view>
                 <view class="row-cell" style="width: 150px;">
                 <van-stepper min="0" integer max="100" step="1" value="{{ item.num }}" data-id="{{index}}" bind:change="handleChange"></van-stepper></view>
                 <block wx:for="{{item.skus}}" wx:for-item="child" wx:for-index="idx" wx:key="{{idx}}">

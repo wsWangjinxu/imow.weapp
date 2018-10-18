@@ -214,7 +214,8 @@ Page({
     let cartId = e.detail.cartId;
     let num = e.detail.num;
     let productList = this.data.productList;
-    let shopId = this.data.shopId;
+    let shopId = e.detail.shopId;
+    let shopNum =  e.detail.shopNum;
 
     //更新对应产品的数量
     productList.forEach(ele => {
@@ -234,7 +235,7 @@ Page({
     //更新对应店铺的数量
     shopList.forEach(ele => {
       if(ele.shopId == shopId) {
-        ele.number += num;
+        ele.number = shopNum;
       }
     });
 
