@@ -3,6 +3,7 @@
     "pages/setMeal/setMeal",
     "pages/special/special",
     "pages/index/index",  
+    "pages/special/special",
     "pages/beTeamLeader/beTeamLeader",
     "pages/liCar/liCar",  
     "pages/rankList/rankList",
@@ -11,7 +12,6 @@
     "pages/cart/cart",
     "pages/my/my",
     "pages/groupBuy/joinGroupBuy/joinGroupBuy",
-    
     "pages/qrCard/qrCard",
     "pages/shop/shop",
     "pages/qr/qr",

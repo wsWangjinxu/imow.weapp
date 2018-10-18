@@ -234,7 +234,9 @@ Page({
 
   handlePay() {
     let shopId = this.data.selectedShop.shopId;
-    
+    wx.navigateTo({
+      url: "/pages/orderConfirm/orderConfirm?shopId=" + shopId
+    });
   },
 
   //屏蔽遮罩层下方的页面滚动

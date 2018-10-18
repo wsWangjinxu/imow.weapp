@@ -47,6 +47,15 @@ function getOrderConfirmCart3(type, data) {
   });
 }
 
+//购物车下单信息确认(从拼团快速下单来)
+function getOrderConfirmCart4(type, data) {
+  return wxRequest({
+    url: baseUrl + "cart/get/shopId",
+      data: data,
+      type: type
+  });
+}
+
 //获取购物车中的店铺列表
 function getCartShopList(type, data) {
   return wxRequest({
@@ -97,6 +106,7 @@ export { getUserCart,
   getOrderConfirmCart1, 
   getOrderConfirmCart2, 
   getOrderConfirmCart3, 
+  getOrderConfirmCart4,
   getCartShopList, 
   getShopCart, 
   addCart, 
