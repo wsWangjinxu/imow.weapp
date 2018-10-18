@@ -39,6 +39,9 @@ Component({
           });
         }
       }
+    },
+    isShow:{
+      type:Boolean
     }
   },
   data: {

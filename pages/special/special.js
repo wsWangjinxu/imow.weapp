@@ -110,6 +110,16 @@ Page({
 
 
     //获取快速下单的内容
+    // this.initSuperGroupBuy();
+  },
+  onShow(){
+      //获取快速下单的内容
+      this.initSuperGroupBuy();
+  },
+  initSuperGroupBuy(){
+    wx.showLoading({
+      title: '玩命加载中'
+    });
     getSuperGroupBuy("GET").then(res => {
       console.log(res); 
       let tempData = res.data.superGroupModel;
@@ -121,8 +131,10 @@ Page({
         selectedShop: 0,
         productList: tempData.shopList[0].superGroupBuy
       });
+      wx.hideLoading({});
     });
   },
+
 
   //点选修改店铺的产品列表
   handleListChange(e) {
@@ -174,7 +186,6 @@ Page({
     let superGroupProductSkus = e.detail.superGroupProductSkus;
     let productId =  e.detail.productId;
     let promotionId =  e.detail.promotionId;
-    debugger 
     // this.setData({
     //   productId,
     //   skuShow: true
@@ -196,7 +207,6 @@ Page({
 
   //根据sku组件的添加与减少更改本地的数量
   modifyNumber(e) {
-    debugger //eslint-disable-line
     console.log(e);
     let productId = e.detail.productId;
     let promotionId = e.detail.promotionId;
@@ -204,6 +214,7 @@ Page({
     let cartId = e.detail.cartId;
     let num = e.detail.num;
     let productList = this.data.productList;
+    let shopId = this.data.shopId;
 
     //更新对应产品的数量
     productList.forEach(ele => {
@@ -222,7 +233,7 @@ Page({
 
     //更新对应店铺的数量
     shopList.forEach(ele => {
-      if(ele.shopId == productId) {
+      if(ele.shopId == shopId) {
         ele.number += num;
       }
     });

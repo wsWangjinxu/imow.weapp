@@ -17,21 +17,13 @@ Component({
         }
       }
     },
+    stageId:{
+      type:String
+    },
     isStart: {
       type: Boolean,
       value: false
     }
-    // stageId: {
-    //   type: String,
-    //   value: "",
-    //   observer(val) {
-    //     console.log(val);
-    //     if (val) {
-    //       //请求阶段信息
-    //       this.getStage();
-    //     }
-    //   }
-    // }
   },
   data: {
     day: "",  //天
@@ -132,7 +124,7 @@ Component({
     getStage() {
       console.log(this.data.promotion);
       //请求阶段信息
-      getGroupBuyStage("GET", { id: this.data.promotion.id }).then(res => {
+      getGroupBuyStage("GET", { id: this.data.stageId||this.data.promotion.id }).then(res => {
         console.log(res);
         this.setData({
           stage: res.data

@@ -8,6 +8,7 @@ Component({
     canCollage:{
       type: Boolean
     },
+    
     ctn: {
       type: Object,
       value: {},

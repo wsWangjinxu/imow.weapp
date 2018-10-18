@@ -80,7 +80,6 @@ Component({
 
     //点击加入购物车，将数量变为1
     addNumber() {
-      debugger //eslint-disable-line
       //获取当前选中的内容
       let skus = this.data.skus;
       let skuCode = this.data.skuCode;
@@ -118,7 +117,6 @@ Component({
     //
     handleChange(e) {
       console.log(e);
-      debugger //eslint-disable-line
       let skus = this.data.skus;
       let skuCode = this.data.skuCode;
 
@@ -163,11 +161,12 @@ Component({
             productId: data.id,
             promotionId: data.promotionId,
             cartId: res.data.cartId,
-            skuCode: data.skuCode
+            skuCode: data.skuCode,
+            shopNum:data.shopNum
           }
           this.data.skus.forEach(ele => {
             if (ele.skuCode == data.skuCode) {
-              ele.cartId = ele.cartId;
+              ele.cartId =  res.data.cartId;
             }
           });
           console.log(tempData);
