@@ -18,7 +18,25 @@ Component({
     },
     number: {
       type: Number,
-      value: 1
+      value: 1,
+      observer(val) {
+        changeNum("POST", {
+          cartId: this.data.ctn.cartId,
+          cartNum: val
+        }).then(res => {
+          if (~res.data.status) {
+            //无论有没有属具都需要把数量改变
+            this.setData({
+              "ctn.num": val
+            });
+            //通知属具数量改变了
+            this.triggerEvent("handleNum", {
+              num: val
+            });
+          }
+        });
+
+      }
     },
     isExpire: {
       type: Boolean,
@@ -51,12 +69,6 @@ Component({
         cartNum: e.detail
       }).then(res => {
         if (~res.data.status) {
-          // //如果有属具，通知属具数量改变了
-          // if (this.data.ctn.hasAccessories) {
-          //   this.triggerEvent("handleNum", {
-          //     num: e.detail
-          //   });
-          // }
           //无论有没有属具都需要把数量改变
           this.setData({
             "ctn.num": e.detail

@@ -43,7 +43,6 @@ Page({
     orderPrice: 0
   },
   onLoad(option) {
-    debugger
     //根据购物车id获取商品的信息
     if (option.cartIds) {
       //说明是从购物车过来的

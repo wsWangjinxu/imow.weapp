@@ -1,5 +1,5 @@
 <view class="special-product">
-  <image mode="widthFix" style="width: 97rpx;position:absolute;top: -10rpx;left: 15rpx;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/hot-logo.png" />
+  <image mode="widthFix" style="width: 97rpx;position:absolute;top: -10rpx;left: 15rpx;" src="/static/icons/top11.png" />
   <view style="width: 336rpx;height: 380rpx;line-height: 380rpx;">
   <image mode="widthFix" style="width: 100%;vertical-align: middle;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/hot-logo.png" />
   </view>

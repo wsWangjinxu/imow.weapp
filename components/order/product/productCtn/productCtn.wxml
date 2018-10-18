@@ -7,6 +7,7 @@
      bind:handleNum="handleNum"
      bind:checkProduct="checkProduct" 
      isChecked="{{isChecked}}"
+     number="{{product.promotionModel.packageInfo.num}}"
      ctn="{{product}}"></single>
     <!-- 这里是单品的属具 -->
     <block wx:for="{{product.accessories}}" wx:key="index">
