@@ -89,7 +89,7 @@ Page({
     // console.log(this.data.title)
     return {
       title: this.data.productName,
-      path: '/pages/productDetail/productDetail'
+      path: '/pages/productDetail/productDetail?id=' + this.data.productId
     }
   },
   getCoupon(e){

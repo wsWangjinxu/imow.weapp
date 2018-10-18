@@ -16,31 +16,26 @@ Page({
 
   },
   handleName(e) {
-    console.log(e.detail.value)
     this.setData({
       "form.name": e.detail.value
     });
   },
   handlePhone(e) {
-    console.log(e.detail.value)
     this.setData({
       "form.phone": e.detail.value
     });
   },
   handleCompanyName(e) {
-    console.log(e.detail.value)
     this.setData({
       "form.companyName": e.detail.value
     });
   },
   handleCompanyAddress(e) {
-    console.log(e.detail.value)
     this.setData({
       "form.companyAddress": e.detail.value
     });
   },
   handleMoney(e) {
-    console.log(e.detail.value)
     this.setData({
       "form.money": e.detail.value
     });
@@ -92,7 +87,7 @@ Page({
     addHeadGroup("POST", datas).then(res => {
       if (res.data.status) {
         wx.showToast({
-          title: "申请成功，等待客服联系",
+          title: "请等待客服联系",
           icon: "success"
         })
         this.setData({
