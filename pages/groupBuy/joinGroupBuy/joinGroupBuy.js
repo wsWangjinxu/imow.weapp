@@ -135,7 +135,7 @@ Page({
   onShareAppMessage() {
     return {
       title: this.data.product.title,
-      path: "/pages/groupBuy/startGroupBuy/startGroupBuy",
+      path: "/pages/groupBuy/joinGroup/joinGroup",
       imageUrl: "https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/groupBuy-share.jpg"
     }
   },

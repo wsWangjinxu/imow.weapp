@@ -134,11 +134,20 @@ Component({
                 if (res.data.status) {
                   wx.showToast({
                     title: "参团成功！",
-                    icon: "success"
+                    icon: "success",
+                    mask: true,
+                    duration: 1000
                   });
 
                   //参团成功以后更新列表
                   that.triggerEvent("getList");
+                } else {
+                  wx.showToast({
+                    title: "参团失败！",
+                    image: "/static/icons/warning-white.png",
+                    mask: true,
+                    duration: 1000
+                  })
                 }
               });
             }
