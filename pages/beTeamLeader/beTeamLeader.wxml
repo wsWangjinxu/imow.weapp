@@ -75,6 +75,94 @@
       </navigator>
     </view>
   </view>
+  <view class='bottom'>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='product'>
+      <navigator url="/pages/productDetail/productDetail?id=">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/teamLeaderproduct.jpg'></image>
+        <view class='text'>EPT20-15ET2 1.5吨全电动搬运车 中力小金刚二代 </view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
   <image class="bottom2" src='/static/icons/beTeamLeaderBottom2.jpg'></image>
 
 </view>
