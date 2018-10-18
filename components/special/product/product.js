@@ -1,5 +1,13 @@
+
+import {
+  GetCanCollage
+} from "../../../api/special/index";
+
 Component({
   properties: {
+    canCollage:{
+      type: Boolean
+    },
     ctn: {
       type: Object,
       value: {},
@@ -29,11 +37,17 @@ Component({
     //跳转到申请开团页面
     handleGroupBuy() {  
       let promotionId = this.data.ctn.promotionId;
-      debugger //eslint-disable-line
       let productId = this.data.ctn.id;
-      wx.navigateTo({
-        url: '/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId=' + promotionId + '&productId=' + productId
-      })
+
+      GetCanCollage().then(res => {
+        let url = res.data.canCollage?'/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId=' + promotionId + '&productId=' + productId:
+        '/pages/beTeamLeader/beTeamLeader';
+        wx.navigateTo({
+          url: url
+        })
+      });
+
+      
     },
 
     handleMeal() {

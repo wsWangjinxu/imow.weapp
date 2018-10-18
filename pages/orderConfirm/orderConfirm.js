@@ -1,4 +1,4 @@
-import { getOrderConfirmCart1, getOrderConfirmCart2, getOrderConfirmCart3 } from "../../api/user/cart"
+import { getOrderConfirmCart1, getOrderConfirmCart2, getOrderConfirmCart3,getOrderConfirmCart4 } from "../../api/user/cart"
 import { getAddressList } from "../../api/user/address"
 import { getInvoiceInfo } from "../../api/user/invoice"
 import { addOrder } from "../../api/order/order"
@@ -43,7 +43,7 @@ Page({
     orderPrice: 0
   },
   onLoad(option) {
-
+    debugger
     //根据购物车id获取商品的信息
     if (option.cartIds) {
       //说明是从购物车过来的
@@ -68,7 +68,18 @@ Page({
         this.firstRequest(res);
         this.checkboxChange();
       });
-    } else {
+    } else if (option.shopId) {
+      //说明是从拼团页面过来的
+      this.setData({
+        btnText: "提交订单",
+        shopId: option.shopId,
+        status: 4
+      });
+      getOrderConfirmCart4("GET", {shopId: option.shopId}).then(res => {
+        this.firstRequest(res);
+        this.checkboxChange();
+      });
+    }else {
       //说明是从定金产品过来的
       this.setData({
         btnText: "提交订单",
@@ -291,6 +302,9 @@ Page({
       if(this.data.status === 3) {
         db.skuId = this.data.skuId;
         db.num = this.data.num;
+      }
+      if(this.data.status ===4 ) {
+        db.shopId = this.data.shopId;
       }
       addOrder("POST", db).then(res => {
         if (res.data.status === 20) {

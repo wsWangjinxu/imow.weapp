@@ -78,6 +78,17 @@ function getStatistic(type, data) {
 }
 
 
+
+//获取团购的数量与金额
+function GetCanCollage() {
+  return wxRequest({
+    url: baseUrl + "promotion/canCollage",
+      type: 'GET'
+  });
+}
+
+
+
 export { 
   getSwipers, 
   // getCoupons, 
@@ -86,5 +97,6 @@ export {
   // getShopList,
   // getProductList 
   promotionCartAdd,
-  getStatistic
+  getStatistic,
+  GetCanCollage
 }

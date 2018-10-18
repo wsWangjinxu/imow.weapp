@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import { getProductDetail, getFactoryDiscountCouponList, getDiscountCoupon, getShopInfo} from "../../api/productDetail/productDetail";
+import {  GetCanCollage} from "../../api/special/index";
 import { getCartNum } from "../../api/productDetail/cartNum";
 const app = getApp();
 
@@ -69,17 +70,19 @@ Page({
   },
   //拼团按钮
   pintuan(){
-    if (this.data.canCollage){
-      let promotionId = this.data.promotionId;
-      let productId = this.data.productId;
-      wx.navigateTo({
-        url: "/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId=" + promotionId + "&productId=" + productId
-      })
-    }else{
-      wx.navigateTo({
-        url: "/pages/beTeamLeader/beTeamLeader"
-      })
-    }
+    GetCanCollage().then(res => {
+      if (res.data.canCollage){
+        let promotionId = this.data.promotionId;
+        let productId = this.data.productId;
+        wx.navigateTo({
+          url: "/pages/groupBuy/startGroupBuy/startGroupBuy?promotionId=" + promotionId + "&productId=" + productId
+        })
+      }else{
+        wx.navigateTo({
+          url: "/pages/beTeamLeader/beTeamLeader"
+        })
+      }
+    });
   },
   //分享
   onShareAppMessage: function () {
