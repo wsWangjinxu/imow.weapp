@@ -16,26 +16,31 @@ Page({
 
   },
   handleName(e) {
+    console.log(e.detail.value)
     this.setData({
       "form.name": e.detail.value
     });
   },
   handlePhone(e) {
+    console.log(e.detail.value)
     this.setData({
       "form.phone": e.detail.value
     });
   },
   handleCompanyName(e) {
+    console.log(e.detail.value)
     this.setData({
       "form.companyName": e.detail.value
     });
   },
   handleCompanyAddress(e) {
+    console.log(e.detail.value)
     this.setData({
       "form.companyAddress": e.detail.value
     });
   },
   handleMoney(e) {
+    console.log(e.detail.value)
     this.setData({
       "form.money": e.detail.value
     });
