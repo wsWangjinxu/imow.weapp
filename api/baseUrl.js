@@ -1,3 +1,3 @@
-let baseUrl = "http://localhost:6569/";
+let baseUrl = "https://apitest.imow.cn/";
 
 export { baseUrl };

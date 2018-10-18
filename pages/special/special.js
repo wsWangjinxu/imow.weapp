@@ -171,17 +171,18 @@ Page({
 
   //点击选择规格获取产品的productId，并传递给sku组件，sku组件根据产品id来获取对应的sku信息
   handleInfo(e) {
-    let num = e.detail.num;
-    let productList = this.data.productList;
-    console.log(productList[num].id);
+    let superGroupProductSkus = e.detail.superGroupProductSkus;
+    let productId =  e.detail.productId;
+    let promotionId =  e.detail.promotionId;
+    debugger 
     // this.setData({
     //   productId,
     //   skuShow: true
     // });
     this.setData({
-      productSkus: productList[num].superGroupProductSkus,
-      productId: String(productList[num].id),
-      promotionId:  String(productList[num].promotionId),      
+      productSkus: superGroupProductSkus,
+      productId: String(productId),
+      promotionId:  String(promotionId),      
       skuShow: true    
     });
   },
@@ -195,6 +196,7 @@ Page({
 
   //根据sku组件的添加与减少更改本地的数量
   modifyNumber(e) {
+    debugger //eslint-disable-line
     console.log(e);
     let productId = e.detail.productId;
     let promotionId = e.detail.promotionId;

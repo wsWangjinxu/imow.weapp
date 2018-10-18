@@ -80,7 +80,7 @@ Component({
 
     //点击加入购物车，将数量变为1
     addNumber() {
-
+      debugger //eslint-disable-line
       //获取当前选中的内容
       let skus = this.data.skus;
       let skuCode = this.data.skuCode;
@@ -97,7 +97,7 @@ Component({
           if (ele.skuCode == skuCode) {
             data.skuId = ele.skuId;
             data.skuCode = ele.skuCode;
-            data.num = ele.number;
+            data.num = ele.number||1;
             data.cartId = ele.cartId;
           }
         });
@@ -118,6 +118,7 @@ Component({
     //
     handleChange(e) {
       console.log(e);
+      debugger //eslint-disable-line
       let skus = this.data.skus;
       let skuCode = this.data.skuCode;
 
@@ -164,6 +165,11 @@ Component({
             cartId: res.data.cartId,
             skuCode: data.skuCode
           }
+          this.data.skus.forEach(ele => {
+            if (ele.skuCode == data.skuCode) {
+              ele.cartId = ele.cartId;
+            }
+          });
           console.log(tempData);
           //更新产品的数量，更新店铺的数量, 更新对应产品的对应skuId的数量和购物车Id
           this.triggerEvent("modifyNumber", tempData);

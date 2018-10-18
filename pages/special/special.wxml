@@ -154,8 +154,8 @@
 				</block>
 			</scroll-view>
 			<scroll-view class="right" scroll-y="true" style="height: {{scrollHeight}}px;">
-				<block wx:for="{{productList}}" wx:key="index">
-					<product bind:showSku="handleInfo" num="{{index}}" ctn="{{item}}" />
+				<block wx:for="{{productList}}"  wx:for-index="index" wx:key="index">
+					<product bind:showSku="handleInfo" ctn="{{item}}" />
 				</block>
 			</scroll-view>
 		</view>

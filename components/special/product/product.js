@@ -24,14 +24,17 @@ Component({
         })
       }
     }
+   
   },
-  data: {
-    num: 0
-  },
+  
   methods: {
     //打开选规格的弹层
     handleAdd() {
-      this.triggerEvent("showSku", {num: this.data.num} );
+      this.triggerEvent("showSku", {
+        superGroupProductSkus: this.data.ctn.superGroupProductSkus,
+        productId:this.data.ctn.id,
+        promotionId:this.data.ctn.promotionId
+      } );
     },
 
     //跳转到申请开团页面
