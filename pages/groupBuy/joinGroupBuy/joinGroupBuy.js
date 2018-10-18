@@ -133,9 +133,10 @@ Page({
 
   //分享
   onShareAppMessage() {
+    debugger
     return {
       title: this.data.product.title,
-      path: "/pages/groupBuy/startGroupBuy/startGroupBuy?id="+this.id,
+      path: "/pages/groupBuy/joinGroupBuy/joinGroupBuy?id="+this.data.id,
       imageUrl: "https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/groupBuy-share.jpg"
     }
   },

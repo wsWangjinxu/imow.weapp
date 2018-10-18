@@ -32,13 +32,13 @@
   <view class='changeNumber'><van-stepper value="{{num}}" bind:change="onChange" /></view>
 </view>
       
-<view class='bottomBox bottomBox2'>
+<!-- <view class='bottomBox bottomBox2'>
   <view>支付类型</view>
   <view>
     <view class='{{paytype?"button":"selected"}}' bindtap='payType1'>全款</view>
     <view class='{{paytype?"selected":"button"}}' bindtap='payType2' wx:if="{{depositShow}}">定金</view>
   </view>
-</view>
+</view> -->
 
 <view class='footer'>
   <van-row>

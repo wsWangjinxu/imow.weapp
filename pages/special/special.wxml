@@ -1,5 +1,5 @@
 <view class="special">
-	<image mode="widthFix" style="display: inline-block;width: 100%;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/bg.jpg" />
+	<image mode="widthFix" style="display: inline-block;width: 100%;" src="/static/images/bg.jpg" />
 	<view class="timer">
 		<image mode="widthFix" style="width: 50px;" src="/static/images/time.png" />
 		<image mode="widthFix" class="{{ dotClass }}" src="/static/icons/dot.png"></image>

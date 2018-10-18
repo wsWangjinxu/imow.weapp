@@ -59,9 +59,6 @@ Component({
           selectedIndex: tempArray,
           cancelCheck: false
         });
-
-        //计算已选的商品多少钱,并传递给结算条
-        
       }
       //获取购物车Id
       let cartId = this.getCartId();
@@ -128,6 +125,7 @@ Component({
         let index = tempArray[i].index;
         let num = tempArray[i].num;
         sumNumber = sumNumber + num;
+        console.log(num);
         if (productArray[index].promotionModel === null) {
           console.log("执行的这里");
           //计算不是套餐的产品的总钱数

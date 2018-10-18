@@ -1,6 +1,8 @@
 <view>
     <view class="title">
-        <text>购物车 <text style="font-size:20rpx;">共30件商品</text></text>
+        <text>购物车 
+        <!--    <text style="font-size:20rpx;">共30件商品</text> -->
+        </text>
         <view>
             <view class="btn" bindtap="handleExpire">清除失效产品 </view>
             <view class="btn" bindtap="handleDelete"> 删除</view>

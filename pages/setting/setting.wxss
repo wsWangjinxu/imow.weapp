@@ -35,7 +35,7 @@
   font-size: 30rpx;
   padding:30rpx;
   background-color: #fff;
-  margin-top: 20rpx;
+  /* margin-top: 20rpx; */
 } 
 
 .userInfoDetail > view {

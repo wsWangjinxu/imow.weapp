@@ -17,8 +17,8 @@
         <van-stepper  value="{{ctn.num}}" bind:change="handleChange"></van-stepper>
       </block>
       <block wx:if="{{ isKit || super }}">
-        <text>￥{{ctn.price * ctn.num * number}}</text>
-        <text wx:if="{{isKit || super}}">x{{ctn.num * number}}</text>
+        <text>￥{{ctn.price * ctn.num}}</text>
+        <text wx:if="{{isKit || super}}">x{{ctn.num}}</text>
       </block>
     </view>
   </view> 
