@@ -1,10 +1,9 @@
 {
   "pages":[  
+    "pages/beTeamLeader/beTeamLeader",
     "pages/setMeal/setMeal",
     "pages/special/special",
-    "pages/index/index",  
-    "pages/special/special",
-    "pages/beTeamLeader/beTeamLeader",
+    "pages/index/index",     
     "pages/liCar/liCar",  
     "pages/rankList/rankList",
     "pages/groupBuy/startGroupBuy/startGroupBuy",
