@@ -90,11 +90,14 @@ Component({
     money() {
       //给已选的商品排序
       let tempArray = this.data.selectedIndex;
+      console.log(tempArray);
+
       //给选中的数组排序，因为用户可能点选的顺序不一样
       tempArray.sort();
       //统计数量和总价
       //产品的元数据
       let productArray = this.data.shop.orderCartProductSkus;
+      console.log(productArray); //eslint-disable-line
       let tempLength = 0;
       //计算有效产品的数量
       for (let i = 0; i < productArray.length; i++) {
@@ -126,10 +129,10 @@ Component({
         let num = tempArray[i].num;
         sumNumber = sumNumber + num;
         console.log(num);
-        if (productArray[index].promotionModel === null) {
+        if (productArray[index].promotionModel === null || productArray[index].promotionModel.packageInfo == null ) {
           console.log("执行的这里");
           //计算不是套餐的产品的总钱数
-          single += productArray[index].price * num;
+          single = single + productArray[index].price * num;
           if (productArray[index].accessories) {
             productArray[index].accessories.forEach(element => {
               accessory = accessory + element.price * num * element.num;
@@ -139,10 +142,10 @@ Component({
           //计算是套餐的产品的总钱数
           let ctn = productArray[index].promotionModel.packageInfo.orderCartProductSkus;
           for (let j = 0; j < ctn.length; j++) {
-            single += ctn[j].price * num * ctn[j].num;
+            single = single + ctn[j].price * num;
             if (ctn[j].accessories) {
               ctn[j].accessories.forEach(ele => {
-                accessory = accessory + ele.price * num * ele.num;
+                accessory = accessory + ele.price * num *  ele.num;
               })
             }
           }
