@@ -14,7 +14,7 @@
 .result-price {
   color: #fe0000;
   display: inline-block;
-  margin-left: 230rpx;
+  margin-left: 60rpx;
 }
 
 .kit-title {

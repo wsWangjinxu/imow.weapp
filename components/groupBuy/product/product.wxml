@@ -28,13 +28,13 @@
         <view class="barBg">
             <view wx:if="{{!isStart}}" class="bar" style="width: {{precent}}%;"></view>
             <view wx:if="{{isStart}}" class="bar" style="background-color: #cccccc;"></view>
-            <image class="image1" wx:if="{{stage.prev}}" src="/static/icons/red-down.png"></image>
+            <image class="image1" wx:if="{{stage.prev && state.prev.limit}}" src="/static/icons/red-down.png"></image>
             <image class="image2" wx:if="{{stage.next}}" src="/static/icons/grey-down.png"></image>
             <image class="image3" wx:if="{{stage.final}}" src="/static/icons/grey-down.png"></image>
             <view class="stageCtn">
-                <view class="stage1" wx:if="{{stage.prev}}"><view>达到{{stage.prev.limit}}台再减{{stage.prev.discount}}元</view></view>
-                <view class="stage2" wx:if="{{stage.next}}"><view>达到{{stage.next.limit}}台再减{{stage.next.discount}}元</view></view>
-                <view class="stage3" wx:if="{{stage.final}}"><view>达到{{stage.final.limit}}台再减{{stage.final.discount}}元</view></view>
+                <view class="stage1" wx:if="{{stage.prev}}"><view>达到{{stage.prev.limit}}台减{{stage.prev.discount}}元</view></view>
+                <view class="stage2" wx:if="{{stage.next}}"><view>达到{{stage.next.limit}}台减{{stage.next.discount}}元</view></view>
+                <view class="stage3" wx:if="{{stage.final}}"><view>达到{{stage.final.limit}}台减{{stage.final.discount}}元</view></view>
             </view>
         </view>
     </view>

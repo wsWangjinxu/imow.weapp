@@ -1,3 +1,5 @@
+<wxs module="filters" src="../../../../pages/setMeal/double.wxs"></wxs>
+
 <view class="product">
   <view wx:if="{{!super}}" class="status">
     <view style="width: 30px; text-align: center;" wx:if="{{!isExpire}}">
@@ -14,7 +16,7 @@
     <view class="title">{{ctn.productName}}</view>
     <view class="standard">{{ctn.skuName}},{{ctn.deliveryTime}}</view>
     <view class="price" wx:if="{{!isExpire}}">
-      <text>￥{{ctn.price * ctn.num * number}}</text>
+      <text>￥{{filters.toFix(ctn.price * ctn.num * number)}}</text>
       <text>X{{ctn.num * number}}</text>
     </view>
   </view> 

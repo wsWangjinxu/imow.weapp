@@ -1,3 +1,5 @@
+<wxs module="filters" src="../../../pages/setMeal/double.wxs"></wxs>
+
 <view class="payBar">
   <view class="checkbox1">
   <checkbox-group bindchange="checkboxChange">
@@ -6,7 +8,7 @@
   </view> 
   <view class="detail">
     <view>
-      <text>合计：￥{{money}}</text>
+      <text>合计：￥{{filters.toFix(money)}}</text>
       <text>共计：{{num}}件 不含运费</text> 
     </view>
     <view bindtap="payment" class="navigator">结算</view>

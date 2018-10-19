@@ -1,10 +1,11 @@
 <navigator url="{{'/pages/addressList/addressList?status=' + status}}">
-<view class="addr">
+<view wx:if="{{ctn}}" class="addr">
   <view class="addrDetail">
     <view>{{ctn.consignee}} {{ctn.phone}} <!-- <text>默认</text> --></view>
     <view>{{ctn.address[0] + ctn.address[1] + ctn.address[2] + ctn.address[3]}}{{ctn.detail}}</view>
   </view>
   <van-icon name="arrow"></van-icon>
 </view>
+<view wx:if="{{!ctn}}" class="notice">您还没有设置地址！</view>
 </navigator>
 

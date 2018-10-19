@@ -1,3 +1,5 @@
+<wxs module="filters" src="../../../../pages/setMeal/double.wxs"></wxs>
+
 <view  class="productCtn">
 <block wx:if="{{product.promotionModel.packageInfo == null}}">
   <!-- 这里是单品 -->
@@ -33,7 +35,7 @@
     </block>
   </view>
   <view class="result-bar" wx:if="{{!item.isExpire}}">
-      <text wx:if="{{!super}}" class="result-price">￥{{product.promotionModel.packageInfo.price * product.promotionModel.packageInfo.num}}</text>
+      <text wx:if="{{!super}}" class="result-price">￥{{filters.toFix(product.promotionModel.packageInfo.price * product.promotionModel.packageInfo.num) }}</text>
       <van-stepper wx:if="{{!super}}" value="{{product.promotionModel.packageInfo.num}}" bind:change="handleChange"></van-stepper>
   </view>
 </block>

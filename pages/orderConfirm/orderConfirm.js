@@ -97,8 +97,8 @@ Page({
     getAddressList("POST").then(res => {
       let addrList = res.data.addressList;
       this.setData({
-        addrInfo: addrList[0],
-        invoiceInfo: addrList[0],
+        addrInfo: addrList[0] || false,
+        invoiceInfo: addrList[0] || false,
       });
     });
 
@@ -119,8 +119,19 @@ Page({
     getAddressList("POST").then(res => {
       //存储地址列表
       let addrList = res.data.addressList;
+
+
       let status = wx.getStorageSync("status");
       let addrId = wx.getStorageSync("addrId");
+
+      if(addrList.length === 0) {
+        this.setData ({
+          addrInfo: false,
+          invoiceInfo :false,
+          addrList: []
+        })
+      }
+
       /*
       生命周期onLoad->onShow，这个时候缓存中可能没有内容，在onLoad中设置了地址，
       在onShow中需要判断缓存内容是否有，如果有内容就执行地址替换，如果没有什么也不做
@@ -275,12 +286,25 @@ Page({
   //提交订单
   addOrder() {
     if (this.data.showBtn) {
-      let cartData = this.data.cartData;
-      let cartId = "";
-      for (let i = 0; i < cartData.orderCartProductSkus.length; i++) {
-        cartId = cartId + String(cartData.orderCartProductSkus[i].cartId) + ",";
+      let cartId = this.data.cartId;
+      // let cartId = "";
+      // for (let i = 0; i < cartData.orderCartProductSkus.length; i++) {
+      //   cartId = cartId + String(cartData.orderCartProductSkus[i].cartId) + ",";
+      // }
+      // cartId = cartId.slice(0, cartId.length - 1);
+      let temp = false;
+      if(this.data.addrInfo.id || this.data.invoiceInfo.id || this.data.selfAddressId) {
+        temp = true;
       }
-      cartId = cartId.slice(0, cartId.length - 1);
+
+      if(temp == false) {
+        wx.showModal({
+          title: "地址错误",
+          content: "请在页面上方选择配送方式，物流发货或者自提",
+        });
+        return;
+      }
+
 
       let db = {
         UserOrderShipId: this.data.addrInfo.id,
@@ -305,6 +329,9 @@ Page({
       if(this.data.status ===4 ) {
         db.shopId = this.data.shopId;
       }
+
+      console.log(db);
+
       addOrder("POST", db).then(res => {
         if (res.data.status === 20) {
           wx.redirectTo({

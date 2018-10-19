@@ -106,7 +106,7 @@
   <view style="background-color: #300306; text-align: center;margin-top: -10rpx;">
     <image style="width: 690rpx;margin-bottom: 20rpx;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more1.png"></image>
     <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more2.png"></image>
-    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more3.png"></image>
+    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="/static/images/leader.png"></image>
   </view>
   <view class="special-product">
     <specialProduct class="special-item" wx:for="{{4}}" wx:key="{{index}}"></specialProduct>
