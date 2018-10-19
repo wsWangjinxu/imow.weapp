@@ -16,24 +16,13 @@ page{
 
 .content {
   width: 750rpx;
-  height: 313rpx;
+  height: 1664rpx;
 }
 
 .content image {
   width: 100%;
   height: 100%;
 }
-
-.content2 {
-  width: 750rpx;
-  height: 1349rpx;
-}
-
-.content2 image {
-  width: 100%;
-  height: 100%;
-}
-
 
 .footer{
   width: 445rpx;
