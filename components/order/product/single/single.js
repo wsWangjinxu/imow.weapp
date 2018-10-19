@@ -1,4 +1,6 @@
-import { changeNum } from "../../../../api/user/cart"
+import {
+  changeNum
+} from "../../../../api/user/cart"
 Component({
   /**
    * 组件的属性列表
@@ -10,14 +12,7 @@ Component({
     },
     isChecked: {
       type: Boolean,
-      value: false,
-      observer(val){
-        if(val) {
-          this.triggerEvent("checkProduct", { status: 1 });
-        } else {
-          this.triggerEvent("checkProduct", { status: 0 });
-        }
-      }
+      value: false
     },
     isKit: {
       type: Boolean,
@@ -26,23 +21,11 @@ Component({
     number: {
       type: Number,
       value: 1,
-      observer(val) {
-        if(val) {
-          changeNum("POST", {
-            cartId: this.data.ctn.cartId,
-            cartNum: val
-          }).then(res => {
-            if (~res.data.status) {
-              //无论有没有属具都需要把数量改变
-              this.setData({
-                "ctn.num": val
-              });
-              //通知属具数量改变了
-              this.triggerEvent("handleNum", {
-                num: val
-              });
-            }
-          });
+      observer() {
+        if (this.data.super) {
+          this.setData({
+            number: 1
+          })
         }
       }
     },
@@ -92,9 +75,13 @@ Component({
     //这里触发选中产品的事件
     handleChecked(e) {
       if (e.detail.value.length > 0) {
-        this.triggerEvent("checkProduct", { status: 1 });
+        this.triggerEvent("checkProduct", {
+          status: 1
+        });
       } else {
-        this.triggerEvent("checkProduct", { status: 0 });
+        this.triggerEvent("checkProduct", {
+          status: 0
+        });
       }
     }
   }

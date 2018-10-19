@@ -9,17 +9,17 @@
      bind:handleNum="handleNum"
      bind:checkProduct="checkProduct" 
      isChecked="{{isChecked}}"
-     number="{{product.promotionModel.packageInfo.num}}"
      ctn="{{product}}"></single>
     <!-- 这里是单品的属具 -->
     <block wx:for="{{product.accessories}}" wx:key="index">
       <product super="{{super}}" isExpire="{{product.isExpire}}" bind:checkProduct="checkProduct" isChecked="{{isChecked}}" number="{{product.num}}" ctn="{{item}}"></product>
     </block>
 </block>
-<block wx:if="{{product.promotionModel.packageInfo}}">
+<block wx:if="{{product.promotionModel.packageInfo != null}}" wx:for-index="idx">
   <view class="kit-title"><text>组合套餐</text>{{product.promotionModel.name}}</view>
-  <view wx:for="{{product.promotionModel.packageInfo.orderCartProductSkus}}" wx:for-index="idx" wx:key="idx">
+  <view wx:for="{{product.promotionModel.packageInfo.orderCartProductSkus}}"  >
     <single 
+     wx:key="idx"
      super="{{super}}"
      isExpire="{{product.promotionModel.isExpire}}"
      bind:handleNum="handleNum"

@@ -1,4 +1,4 @@
-// components/index/navCircle.js
+import { changeNum } from "../../../../api/user/cart"
 Component({
   /**
    * 组件的属性列表
@@ -18,23 +18,7 @@ Component({
     },
     isChecked: {
       type: Boolean,
-      value: false,
-      observer: function(newVal) {
-        console.log(this.data.product.isExpire);
-        console.log(newVal);
-        if(!this.data.product.isExpire) {
-          if(newVal) {
-            //判断是不是套餐，如果是套餐的话就按计算套餐的计算，如果不是套餐的就不按计算套餐的计算
-            if(this.data.product.promotionModel) {
-              this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
-            } else {
-              this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
-            }
-          } else {
-            this.triggerEvent("selectedProduct", { index: this.data.index, status: 0 });
-          }
-        }
-      }
+      value: false
     }
   },
   /**
@@ -50,21 +34,33 @@ Component({
   methods: {
     //当产品为套餐的时候修改套餐的数量
     handleChange(e){
-      console.log(e);
-      this.setData({
-        "product.promotionModel.packageInfo.num": e.detail
-      });
-      if(this.data.isChecked) {
-        if(this.data.product.promotionModel) {
-          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.promotionModel.packageInfo.num});
-        } else {
-          this.triggerEvent("selectedProduct", { index: this.data.index, status: 1 , num: this.data.product.num});
+      let that = this;
+      debugger;
+      changeNum("POST", {
+        cartId: that.data.product.promotionModel.packageInfo.cartIds,
+        cartNum: e.detail 
+      }).then(res => {
+        console.log(res);
+        if(res.data.status == 20) {
+          debugger
+          that.setData({
+            "product.promotionModel.packageInfo.num": e.detail
+          });
+          if(that.data.isChecked) {
+            if(that.data.product.promotionModel) {
+              that.triggerEvent("selectedProduct", { index: that.data.index, status: 1 , num: that.data.product.promotionModel.packageInfo.num});
+            } else {
+              that.triggerEvent("selectedProduct", { index: that.data.index, status: 1 , num: that.data.product.num});
+            }
+          }
         }
-      }
+      });
     },
 
     handleNum(e) {
+      debugger;
       //点击修改product.num的值，然后批量修改属具的数量
+      console.log(this.data.product);
       this.setData({
         "product.num": e.detail.num
       });
