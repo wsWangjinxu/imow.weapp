@@ -1,7 +1,7 @@
 <view class="special">
-	<image mode="widthFix" class="topImg" src="/static/images/bg.jpg"/>
+	<image mode="widthFix" class="topImg" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/bg2.jpg"/>
 	<view class="timer">
-		<image mode="widthFix" style="width: 50px;" src="/static/images/time.png" />
+		<image mode="widthFix" style="width: 50px;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time.png" />
 		<image mode="widthFix" class="{{ dotClass }}" src="/static/icons/dot.png"></image>
 		<view class="timer-ctn" style="margin-top: 4px;">
 			<view class="time-ctn-item">
@@ -111,7 +111,7 @@
       <image class="roomImg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more2.png"></image>
     </navigator>
     <navigator url="/pages/beTeamLeader/beTeamLeader">
-      <image class="roomImg" mode="widthFix" src="/static/images/leader.png"></image>
+      <image class="roomImg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/leader.png"></image>
     </navigator>
   </view>
   <!-- <view class="special-product">

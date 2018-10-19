@@ -151,7 +151,7 @@
       <text>￥{{order.payable}}</text>
     </view>
   </view>
-  <view class="contact">
+  <view wx:if="false" class="contact">
     <view><van-icon class="icon" name="chat"></van-icon> <text> 联系卖家</text></view>
     <view><van-icon class="icon" name="phone"></van-icon> <text> 拨打电话</text></view>
   </view>
