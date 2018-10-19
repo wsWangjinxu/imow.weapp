@@ -1,3 +1,8 @@
+.topImg{
+  display: inline-block;
+  width: 100%;
+}
+
 .timer {
   background-color: #970808;
   margin-top: -10rpx;
@@ -72,6 +77,13 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+}
+
+.titleBox{
+  flex: 2; 
+  padding: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 40rpx;
 }
 
 .title-left {
@@ -165,6 +177,17 @@
   position: absolute;
   top: 760rpx;
   left: 192rpx;
+}
+
+.roomBox{
+  background-color: #300306; 
+  text-align: center;
+  margin-top: -10rpx;
+}
+
+.roomImg{
+  width: 690rpx;
+  margin-bottom: 20rpx;
 }
 
 .special-product {

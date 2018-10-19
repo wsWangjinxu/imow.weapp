@@ -1,0 +1,10 @@
+{ 
+  "navigationBarBackgroundColor": "#fe0000",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "骑行越野大赛",
+  "backgroundColor": "blue",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "van-button": "/vantui/button/index"
+  }
+}
