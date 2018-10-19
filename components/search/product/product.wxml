@@ -1,6 +1,6 @@
 <view class="product">
     <navigator class="title" url="{{'/pages/productDetail/productDetail?id='+ctn.id}}" hover-class="className">  
-      <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}" />
+      <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.image}}?x-oss-process=image/resize,m_pad,l_151" />
     </navigator>
   <view>
     <navigator class="title" url="{{'/pages/productDetail/productDetail?id='+ctn.id}}" hover-class="className">{{ctn.name}}</navigator>

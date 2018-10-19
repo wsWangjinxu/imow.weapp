@@ -184,7 +184,9 @@
       <image src='/static/icons/titleBg.png'></image>
     </view>
     <view class='productImg'>
-      <image mode="widthFix" src='http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{productImg}}'></image>
+        <block wx:for="{{productImg1}}" wx:key="{{index}}">
+            <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}?x-oss-process=image/quality,q_50" bindtap="previewImg" data-img="{{item}}"></image>
+          </block>
     </view>
 
     <view class='title'>
@@ -193,7 +195,7 @@
     </view>
     <view class='productImg'>
       <block wx:for="{{productImg2}}" wx:key="{{index}}">
-        <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}"></image>
+        <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}?x-oss-process=image/quality,q_50" bindtap="previewImg" data-img="{{item}}"></image>
       </block>
     </view>
 
@@ -203,7 +205,7 @@
     </view>
     <view class='productImg'>
       <block wx:for="{{productImg3}}" wx:key="{{index}}">
-        <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}"></image>
+        <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item}}?x-oss-process=image/quality,q_50" bindtap="previewImg" data-img="{{item}}"></image>
       </block>
     </view>
   </view>

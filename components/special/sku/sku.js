@@ -143,8 +143,13 @@ Component({
     modifyCart(data, oldNumber) {
       console.log(data);
       let _this = this;
+      wx.showLoading({
+        title: '加入中',
+        mask: 'true'
+      });
       promotionCartAdd("POST", data).then(res => {
         console.log(res);
+        wx.hideLoading({});
         if (res.data.status != 20) {
           wx.showToast({
             title: "添加失败！",

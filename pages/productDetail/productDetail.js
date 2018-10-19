@@ -37,9 +37,10 @@ Page({
       //   "number": "0101576520713"
       // }
     ],     //获取优惠券列表
-    productImg:"",   //产品介绍3张图
+    productImg1:[],   //产品介绍3张图
     productImg2:[],
     productImg3: [],
+    productImgAll:[],
     shopId:"",
     shopLogo:"",
     shopName:"无",
@@ -67,6 +68,20 @@ Page({
   },
   onShow:function() {
     this.initCouponList();    //优惠券初始化
+  },
+  previewImg(e){
+    debugger
+    let that = this
+    const src = 'http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com'
+    const img = `${src}/${e.currentTarget.dataset.img}`
+    let imgs = []
+    this.data.productImgAll.forEach(i=>{
+      imgs.push(`${src}/${i}`)
+    })
+    wx.previewImage({
+      current: img,
+      urls: imgs
+    })
   },
   //拼团按钮
   pintuan(){
@@ -159,6 +174,10 @@ Page({
     }).then(res => {
       if (res.statusCode==200){ 
         console.log(res)  
+        let productImg1 = res.data.introduceImage ? res.data.introduceImage.split(','):"";
+        let productImg2 = res.data.packingImage ? res.data.packingImage.split(','):""
+        let productImg3 = res.data.serviceImage ? res.data.serviceImage.split(','):""
+
         this.setData({
           hiddenLoading: true,   //请求成功
           productName: res.data.productName,
@@ -170,9 +189,10 @@ Page({
           imbDisacount: res.data.imbDisacount,
           productPolicy: res.data.policy?res.data.policy:"无",
           paymethod: res.data.paymethod ? res.data.paymethod:"无",
-          productImg: res.data.introduceImage,
-          productImg2: res.data.packingImage ? res.data.packingImage.split(','):"",
-          productImg3: res.data.serviceImage ? res.data.serviceImage.split(','):"",
+          productImg1: productImg1,
+          productImg2: productImg2,
+          productImg3: productImg3,
+          productImgAll:[].concat(productImg1,productImg2,productImg3),
           shopId: res.data.shopId,   //此商品对应店铺id
           canCollage: res.data.canCollage
         });
