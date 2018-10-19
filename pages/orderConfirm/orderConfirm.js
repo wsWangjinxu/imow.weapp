@@ -38,7 +38,7 @@ Page({
     //备注
     remark: "",
     btnText: "",
-    selfAddressId: "",
+    selfAddressId: 0,
     status: "",
     orderPrice: 0
   },
@@ -161,7 +161,14 @@ Page({
      //拼接产品id
      let product = res.data.data.orderCartProductSkus;
      product.forEach(ele => {
-       selfAddressData = selfAddressData + ele.id + ',';
+       if(ele.promotionModel && ele.promotionModel.packageInfo) {
+         let ctn = ele.promotionModel.packageInfo.orderCartProductSkus;
+         for(let i = 0; i < ctn.length; i++) {
+          selfAddressData = selfAddressData + ctn[i].productId + ',';
+         }
+       } else {
+        selfAddressData = selfAddressData + ele.productId + ',';
+       }
      });
 
      //去掉结尾的逗号
@@ -297,6 +304,14 @@ Page({
         temp = true;
       }
 
+      if(!this.data.invoice) {
+        wx.showModal({
+          title: "错误提示！",
+          content: "获取发票信息为空，请联系客服添加！"
+        })
+        return ;
+      }
+
       if(temp == false) {
         wx.showModal({
           title: "地址错误",
@@ -305,15 +320,21 @@ Page({
         return;
       }
 
-
       let db = {
-        UserOrderShipId: this.data.addrInfo.id,
-        UserReceiptShipId: this.data.invoiceInfo.id,
         UseImb: this.data.useImb,
         UseCoupons: this.data.useConpon,
         Remark: this.data.remark,
-        selfAddressId: this.data.selfAddressId
+        SelfReceivedId: this.data.selfAddressId
       }
+
+      // if(this.data.selfAddressId) {
+      //   db.UserOrderShipId = "";
+      //   db.UserReceiptShipId = "";
+      // } else {
+        db.UserOrderShipId = this.data.addrInfo.id;
+        db.UserReceiptShipId = this.data.invoiceInfo.id;
+      // }
+  
       if(this.data.status === 1) {
         db.cartIds = cartId
       } 
