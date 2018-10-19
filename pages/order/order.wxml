@@ -7,7 +7,7 @@
           <orderConfirmCtn ctn="{{child}}"></orderConfirmCtn>
         </block>
       <view class="settleBar"><text>共{{item.productSku.length}}件商品</text><text>合计：￥{{item.payment}}（含运费￥{{item.freight}}）</text></view>
-      <view class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
+      <view wx:if="{{false}}" class="payBar"><van-button size="small" type="danger">付尾款</van-button></view>
     </view>
   </view>
 <!--  <view class="footer">

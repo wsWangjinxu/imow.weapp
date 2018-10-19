@@ -10,7 +10,14 @@ Component({
     },
     isChecked: {
       type: Boolean,
-      value: false
+      value: false,
+      observer(val){
+        if(val) {
+          this.triggerEvent("checkProduct", { status: 1 });
+        } else {
+          this.triggerEvent("checkProduct", { status: 0 });
+        }
+      }
     },
     isKit: {
       type: Boolean,
@@ -20,22 +27,23 @@ Component({
       type: Number,
       value: 1,
       observer(val) {
-        changeNum("POST", {
-          cartId: this.data.ctn.cartId,
-          cartNum: val
-        }).then(res => {
-          if (~res.data.status) {
-            //无论有没有属具都需要把数量改变
-            this.setData({
-              "ctn.num": val
-            });
-            //通知属具数量改变了
-            this.triggerEvent("handleNum", {
-              num: val
-            });
-          }
-        });
-
+        if(val) {
+          changeNum("POST", {
+            cartId: this.data.ctn.cartId,
+            cartNum: val
+          }).then(res => {
+            if (~res.data.status) {
+              //无论有没有属具都需要把数量改变
+              this.setData({
+                "ctn.num": val
+              });
+              //通知属具数量改变了
+              this.triggerEvent("handleNum", {
+                num: val
+              });
+            }
+          });
+        }
       }
     },
     isExpire: {

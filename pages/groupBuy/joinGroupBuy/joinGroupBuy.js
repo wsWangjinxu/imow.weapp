@@ -27,6 +27,7 @@ Page({
       }
     ],
     isShow: false,
+    unAudit: false,
     tmpNum: 0
   },
 
@@ -39,7 +40,7 @@ Page({
     //获取参团的产品信息
     getGroupBuyInfo("GET", {id: option.id}).then(res => {
       let data = res.data;
-      let isShow = data.promotion.currentTime < data.promotion.endTime
+      let isShow = data.promotion.currentTime < data.promotion.endTime && !data.unAudit
       this.setData({
         leaderName: data.leaderName, //头像
         // bgUrl: data.bgUrl,  //背景图片
@@ -47,7 +48,8 @@ Page({
         product: data.product, //产品的信息
         leaderPhone: data.leaderPhone, //团长的电话，点击头像可以拨打
         promotion: data.promotion,  //促销信息
-        isShow : isShow
+        isShow : isShow,
+        unAudit:data.unAudit
       });
     });
 

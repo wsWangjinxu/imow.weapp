@@ -1,3 +1,5 @@
+<wxs module="filters" src="../setMeal/double.wxs"></wxs>
+
 <view class="orderConfirm">
     <van-tab list="{{list}}" selected-id="{{selectedId}}" bindtabchange="handleTabChange"></van-tab>
     <view wx:if="{{!pick}}" class="flow">
@@ -42,7 +44,7 @@
           <text>抵扣使用{{cartData.imb}}阿母币</text> <checkbox checked="{{isChecked}}" value="{{'阿母币'}}"></checkbox>
         </view>
       </view>
-      <view wx:if="{{cartData.couponStr}}" class="item">
+      <view wx:if="{{cartData.couponStr.length}}" class="item">
         <view>优惠券</view>
         <view>
           <text>商品参与阿母团购日活动，使用<block wx:for="{{cartData.couponStr}}" wx:key="index"> {{item}} </block>优惠券</text><checkbox checked="{{isChecked}}" value="{{'优惠券'}}"></checkbox>
@@ -57,28 +59,28 @@
     <view class="money">
       <view>
         <text>应付金额</text>
-        <text>￥{{orderPrice}}</text>
+        <text>￥{{filters.toFix(orderPrice)}}</text>
       </view>
       <view wx:if="{{cartData.depositPrice}}">
         <text>定金</text>
-        <text>￥{{cartData.depositPrice}}</text>
+        <text>￥{{filters.toFix(cartData.depositPrice)}}</text>
       </view>
       <view>
         <text>商品总价</text>
-        <text>￥{{cartData.orderProductPrice}}</text>
+        <text>￥{{filters.toFix(cartData.orderProductPrice)}}</text>
       </view>
-      <view wx:if="{{useImb}}">
+      <view wx:if="{{cartData.imb && useImb}}">
         <text>阿母币</text>
-        <text>-￥{{cartData.imb - cartData.earnestImb}}</text>
+        <text>-￥{{filters.toFix(cartData.imb - cartData.earnestImb)}}</text>
       </view>
-      <view wx:if="{{useConpon}}">
+      <view wx:if="{{cartData.couponStr.length && useConpon}}">
         <text>优惠券</text>
-        <text>-￥{{cartData.couponTotleDiscount - cartData.earnestCouponDiscount}}</text>
+        <text>-￥{{filters.toFix(cartData.couponTotleDiscount - cartData.earnestCouponDiscount)}}</text>
       </view>   
     </view>
     <view class="submit">
       <view>
-        <view>应付金额（不含运费）<text>￥{{orderPrice}}</text></view>
+        <view>应付金额（不含运费）<text>￥{{filters.toFix(orderPrice)}}</text></view>
         <view class="submitBtn" bindtap="addOrder" style="background-color:{{showBtn? 'fb0200':'#333'}};">{{btnText}}</view>   
       </view>
     </view>

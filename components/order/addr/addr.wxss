@@ -25,3 +25,12 @@
   padding: 0rpx 10rpx;
   vertical-align: 5rpx;
 }
+
+.notice {
+  font-size: 30rpx;
+  color: #ccc;
+  padding-top: 20rpx; 
+  padding-bottom: 40rpx; 
+  text-align: center;
+  background-color: #fff;
+}

@@ -7,7 +7,7 @@
         bind:explain="handleExplain"
         bind:ringUp="handleRingUp" 
         ></leaderInfo>
-    <product bind:isOver="handleOver" bind:timer="handleTimer" stageId="{{id}}" promotion="{{promotion}}" ctn="{{product}}"></product>
+    <product  bind:isOver="handleOver" bind:timer="handleTimer" stageId="{{id}}" promotion="{{promotion}}" ctn="{{product}}"></product>
     <standard bind:getList="handleGetList" promotionId="{{id}}" isShow="{{isShow}}"></standard>
     <view class="join-action">
         <view class="join-ctn-title" style=" padding-bottom: 20rpx;margin-bottom: 0rpx;">参与拼团</view>
@@ -35,7 +35,7 @@
             <text>购物车</text>
         </view>
         <view wx:if="{{isShow}}" bindtap="placeOrder" style="flex: 4;color:#fff; background-color: #fe0000; font-weight: bold;">去下单</view>
-        <view wx:if="{{!isShow}}" style="flex: 4;color:#fff; background-color: #cccccc; font-weight: bold;">已结束</view>
+        <view wx:if="{{!isShow}}" style="flex: 4;color:#fff; background-color: #cccccc; font-weight: bold;">{{unAudit?'未审核':'已结束'}}</view>
     </view>
     <van-popup show="{{ show }}" bind:close="onClose">
         <view style="padding: 20rpx;">

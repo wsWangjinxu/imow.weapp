@@ -1,9 +1,9 @@
 var filters = {
   toFix: function (value) {
     if (value){
-      return value.toFixed(2)//此处2为保留两位小数
+      return Number(value).toFixed(2)//此处2为保留两位小数
     }else{
-      return "";
+      return "0.00";
     };
   }
 }

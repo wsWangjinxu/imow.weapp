@@ -1,3 +1,5 @@
+<wxs module="filters" src="../../../../pages/setMeal/double.wxs"></wxs>
+
 <view class="product">
   <view wx:if="{{!super}}" class="status">
     <view style="width: 30px; text-align: center;" wx:if="{{!isExpire}}">
@@ -13,11 +15,11 @@
     <view class="standard">{{ctn.skuName}},{{ctn.deliveryTime}}</view>
     <view class="price" wx:if="{{!isExpire}}">
       <block wx:if="{{ !super && !isKit }}">
-        <text>￥{{ctn.price * ctn.num}}</text>
+        <text>￥{{filters.toFix(ctn.price * ctn.num)}}</text>
         <van-stepper  value="{{ctn.num}}" bind:change="handleChange"></van-stepper>
       </block>
       <block wx:if="{{ isKit || super }}">
-        <text>￥{{ctn.price * ctn.num}}</text>
+        <text>￥{{filters.toFix(ctn.price * ctn.num)}}</text>
         <text wx:if="{{isKit || super}}">x{{ctn.num}}</text>
       </block>
     </view>

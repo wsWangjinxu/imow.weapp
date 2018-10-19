@@ -14,7 +14,14 @@ Component({
     },
     isChecked: {
       type: Boolean,
-      value: false
+      value: false,
+      observer(val){
+        if(val) {
+          this.triggerEvent("checkProduct", { status: 1 });
+        } else {
+          this.triggerEvent("checkProduct", { status: 0 });
+        }
+      }
     },
     isExpire: {
       type: Boolean,

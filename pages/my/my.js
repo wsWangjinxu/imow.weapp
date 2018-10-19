@@ -60,10 +60,6 @@ Page({
   },
 
   login() {
-    wx.showLoading({
-      title: '玩命加载中'
-      // mask: 'true'
-    });
     let account = this.data.account;
     let password = this.data.password;
     let _this = this;
@@ -78,22 +74,23 @@ Page({
               password
             }).then(res => {
               console.log(res);
-              if (res.data.userInfo.token) {
+              if (res.data.userInfo && res.data.userInfo.token) {
                 //登陆成功，设置缓存
                 wx.setStorageSync("session", res.data.userInfo.token);
                 wx.setStorageSync("isLogin", true);
-
+                wx.showToast({
+                  title: "登陆成功！",
+                  icon: "success"
+                });
                 //获取用户的头像和昵称
                 _this.getUserWXInfo(
                   function () {
-                    wx.hideLoading();
                     _this.setData({
                       isLogin: true
                     });
                   }
                 );
               } else {
-                wx.hideLoading();
                 wx.showToast({
                   title: res.data.message,
                   image: "/static/icons/warning-white.png"
@@ -101,7 +98,6 @@ Page({
               }
             });
           } else {
-            wx.hideLoading();
             wx.showToast({
               title: '获取code失败',
               image: '/static/icons/warning-white.png'
@@ -110,13 +106,13 @@ Page({
           }
         },
         fail() {
-          wx.hideLoading();
+          wx.showToast("网络错误！");
           console.log("登陆时网络错误");
         }
       });
     } else {
       wx.showToast({
-        title: "账号密码不能为空",
+        title: "账号密码为空",
         image: "/static/icon/warning-white"
       })
     }
