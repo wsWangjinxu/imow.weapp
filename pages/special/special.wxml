@@ -110,7 +110,7 @@
     <navigator url="/pages/bicycle/bicycle">
       <image class="roomImg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more2.png"></image>
     </navigator>
-    <navigator url="/pages/bicycle/bicycle">
+    <navigator url="/pages/beTeamLeader/beTeamLeader">
       <image class="roomImg" mode="widthFix" src="/static/images/leader.png"></image>
     </navigator>
   </view>
@@ -140,8 +140,7 @@
 	</view> -->
 	<view class="shop-list">
 		<view class="list-title">
-			<view>{{selectedShop.shopName}}</view>
-			<view bindtap="gotoShop">进入店铺，了解更多产品信息</view>
+			<view bindtap="gotoShop">{{selectedShop.shopName}}</view>
 		</view>
 		<view class="shop-ctn">
 			<scroll-view class="left" scroll-y="true" style="height: {{scrollHeight}}px;">
@@ -151,11 +150,12 @@
 					 style="background-color:{{selectedShop.shopId == item.shopId ? 'white' : '3e4e4e4'}}"
 					 bindtap="handleListChange"
 					 data-id="{{item.shopId}}"
+					 data-number="{{item.number}}"
 					 data-index="{{index}}"
 					 data-shopName="{{item.shopName}}"
 					>
-						{{item.shopName}}
-						<view class="radiusBtn">{{item.number}}</view>
+						<view>{{item.shopName}}</view>
+						<view wx:if="{{item.number}}" class="radiusBtn">{{item.number}}</view>
 					</view>
 				</block>
 			</scroll-view>
@@ -166,7 +166,6 @@
 			</scroll-view>
 		</view>
 		<view class="list-pay">
-			<view>购物车</view>
 			<view bindtap="handlePay">结算</view>
 		</view>
 	</view>

@@ -128,7 +128,11 @@ Page({
       //设置店铺名称列表
       this.setData({
         shopList: tempData.shopList,
-        selectedShop: 0,
+        selectedShop: {
+          shopId: tempData.shopList[0].shopId,
+          shopName: tempData.shopList[0].shopName,
+          number: tempData.shopList[0].number
+        },
         productList: tempData.shopList[0].superGroupBuy
       });
       wx.hideLoading({});
@@ -141,13 +145,15 @@ Page({
     //获取点击的店铺的id和店铺名称
     let shopId = e.currentTarget.dataset.id;
     let shopName = e.currentTarget.dataset.shopname;
+    let number = e.currentTarget.dataset.number;
     let index = e.currentTarget.dataset.index;
 
     //设置当前选中的店铺id和名称
     this.setData({
       selectedShop: {
         shopId,
-        shopName
+        shopName,
+        number
       },
       productList: this.data.shopList[index].superGroupBuy
     });
@@ -163,9 +169,10 @@ Page({
   //进入店铺
   gotoShop() {
     let shopId = this.data.selectedShop.shopId;
-    wx.navigateTo({
-      url: shopId
-    });
+    console.log(shopId);
+    // wx.navigateTo({
+    //   url: "/pages/shop/shop?shopId=" + shopId
+    // });
   },
 
   //超级拼团的展示更多
@@ -248,9 +255,17 @@ Page({
 
   handlePay() {
     let shopId = this.data.selectedShop.shopId;
-    wx.navigateTo({
-      url: "/pages/orderConfirm/orderConfirm?shopId=" + shopId
-    });
+    let number = this.data.selectedShop.number;
+     if(number) {
+      wx.navigateTo({
+        url: "/pages/orderConfirm/orderConfirm?shopId=" + shopId
+      });
+    } else {
+      wx.showToast({
+        title: "请选择商品",
+        image: "/static/icons/warning-white.png"
+      })
+    }
   },
 
   //屏蔽遮罩层下方的页面滚动
