@@ -35,7 +35,7 @@
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=516388226083765">
         <image src='/static/images/h1.jpg'></image>
-        <view class='text'>中力小金刚二代   EPT20-15ET2</view>
+        <view class='text'>1.5吨经济型电动搬运车（小金刚二代）EPT20-15ET2</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -45,7 +45,7 @@
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=494691865923714">
         <image src='/static/images/h2.jpg'></image>
-        <view class='text'>中力小金刚二代 EPT20-15ET2-Li</view>
+        <view class='text'>1.5吨经济型锂电搬运车（小金刚二代锂电池） EPT20-15ET2-L</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -57,7 +57,7 @@
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=493015335627212">
         <image src='/static/images/h3.jpg'></image>
-        <view class='text'>中力大金刚 EPT20-ET</view>
+        <view class='text'>2.0吨中力大金刚 EPT20-ET</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -67,7 +67,7 @@
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=526296612858050">
         <image src='/static/images/h4.jpg'></image>
-        <view class='text'>中力变金刚 EPT20-SR</view>
+        <view class='text'>2.0吨锂电池电子转向搬运车（中力变金刚）</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -77,9 +77,9 @@
   </view>
   <view class='bottom'>
     <view class='product'>
-      <navigator url="/pages/productDetail/productDetail?id=555681650698181">
+      <navigator url="/pages/productDetail/productDetail?id=528298752571858">
         <image src='/static/images/h5.jpg'></image>
-        <view class='text'>锂电1号3吨  CPD30L1B(270AH） </view>
+        <view class='text'>（裸机）3.0吨电动平衡重叉车（锂电壹号）</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -89,7 +89,7 @@
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=469416662601076">
         <image src='/static/images/h6.jpg'></image>
-        <view class='text'>锂电1号-B CPD15/20L1</view>
+        <view class='text'>1.5-2.0吨锂电叉车（锂电壹号）CPD15-20L1</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -99,9 +99,9 @@
   </view>
   <view class='bottom'>
     <view class='product'>
-      <navigator url="/pages/productDetail/productDetail?id=565103262089147">
+      <navigator url="/pages/productDetail/productDetail?id=469198207479962">
         <image src='/static/images/h7.jpg'></image>
-        <view class='text'>CPD15L-B 1.5吨电动平衡重叉车</view>
+        <view class='text'>1.5吨电动平衡重电动叉车 CPD15L-B</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -111,7 +111,7 @@
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=498690139695287">
         <image src='/static/images/h8.jpg'></image>
-        <view class='text'>钢铁侠19款 EST121(限2.7/3M)</view>
+        <view class='text'>1.2吨中力电动堆高车（钢铁侠19款）EST121</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -123,7 +123,7 @@
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=545689789493028">
         <image src='/static/images/h9.jpg'></image>
-        <view class='text'>RPL201（48V) 2.0吨电动搬运车</view>
+        <view class='text'>2.0吨锂电池电子转向搬运车 RPL201</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>
@@ -133,7 +133,7 @@
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=500711030507512">
         <image src='/static/images/h10.jpg'></image>
-        <view class='text'>RSE141 1.4吨电动堆高车</view>
+        <view class='text'>1.4吨全电动堆高车 RSE141</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
           <image src='/static/icons/top11.png'></image>

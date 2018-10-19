@@ -18,9 +18,8 @@
     <van-button wx:if="{{promotionType!=1}}" size="small" open-type='share'>
       <text class='like'>分享</text>
     </van-button>
-   
-    <van-button wx:if="{{promotionType==1}}" size="small">
-      <text class='like' bindtap='pintuan'>拼团</text>
+    <van-button wx:if="{{promotionType==1}}" size="small" bindtap='pintuan'>
+      <text class='like'>拼团</text>
     </van-button>
   </view>
 
