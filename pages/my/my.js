@@ -37,7 +37,7 @@ Page({
     //     }
     //   }
     // } else {
-    let isLogin = wx.getStorageSync("isLogin");
+    let isLogin = false;// wx.getStorageSync("isLogin");
     //判断用户已经在平台上绑定微信账号，则记录登陆状态，显示我的页面，并获取头像和昵称
     if (isLogin) {
       let _this = this;
@@ -52,72 +52,79 @@ Page({
     } else {
       this.setData({
         isLogin: false
-      }, function() {
+      }, function () {
         wx.hideLoading();
       })
     }
     // }
   },
 
-  login() {
-    let account = this.data.account;
-    let password = this.data.password;
-    let _this = this;
-    if (account && password) {
-      wx.login({
-        timeout: "5000",
-        success(res) {
-          if (res.code) {
-            userLogin("POST", {
-              code: res.code,
-              account,
-              password
-            }).then(res => {
-              console.log(res);
-              if (res.data.userInfo && res.data.userInfo.token) {
-                //登陆成功，设置缓存
-                wx.setStorageSync("session", res.data.userInfo.token);
-                wx.setStorageSync("isLogin", true);
-                wx.showToast({
-                  title: "登陆成功！",
-                  icon: "success"
-                });
-                //获取用户的头像和昵称
-                _this.getUserWXInfo(
-                  function () {
-                    _this.setData({
-                      isLogin: true
-                    });
-                  }
-                );
-              } else {
-                wx.showToast({
-                  title: res.data.message,
-                  image: "/static/icons/warning-white.png"
-                });
-              }
-            });
-          } else {
-            wx.showToast({
-              title: '获取code失败',
-              image: '/static/icons/warning-white.png'
-            })
-            console.log("登陆失败！" + res.errMsg);
+
+  login(e) {
+    if (e.detail.userInfo) {
+      let account = this.data.account;
+      let password = this.data.password;
+      let _this = this;
+      if (account && password) {
+        wx.login({
+          timeout: "5000",
+          success(res) {
+            if (res.code) {
+              userLogin("POST", {
+                code: res.code,
+                account,
+                password
+              }).then(res => {
+                console.log(res);
+                if (res.data.userInfo && res.data.userInfo.token) {
+                  //登陆成功，设置缓存
+                  wx.setStorageSync("session", res.data.userInfo.token);
+                  wx.setStorageSync("isLogin", true);
+                  wx.showToast({
+                    title: "登陆成功！",
+                    icon: "success"
+                  });
+                  //获取用户的头像和昵称
+                  _this.getUserWXInfo(
+                    function () {
+                      _this.setData({
+                        isLogin: true
+                      });
+                    }
+                  );
+                } else {
+                  wx.showToast({
+                    title: res.data.message,
+                    image: "/static/icons/warning-white.png"
+                  });
+                }
+              });
+            } else {
+              wx.showToast({
+                title: '获取code失败',
+                image: '/static/icons/warning-white.png'
+              })
+              console.log("登陆失败！" + res.errMsg);
+            }
+          },
+          fail() {
+            wx.showToast("网络错误！");
+            console.log("登陆时网络错误");
           }
-        },
-        fail() {
-          wx.showToast("网络错误！");
-          console.log("登陆时网络错误");
-        }
-      });
-    } else {
+        });
+      } else {
+        wx.showToast({
+          title: "账号密码为空",
+          image: "/static/icon/warning-white"
+        })
+      }
+    }else{
       wx.showToast({
-        title: "账号密码为空",
-        image: "/static/icon/warning-white"
+        title: "请授权后登录",
+        image: "/static/icons/warning-white.png"
       })
     }
-    console.log("account" + this.data.account);
-    console.log("password" + this.data.password);
+
   },
 
   //更新用户的账户信息

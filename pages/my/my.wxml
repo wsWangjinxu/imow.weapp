@@ -41,7 +41,7 @@
   <view class="login">
     <input type="text" bindinput="handleAccount"  placeholder="  请输入阿母关联账号"/>
     <input type="text" bindinput="handlePassword" placeholder="  请输入密码" password/>
-    <van-button type="danger" bindtap="login" style="width: 100%;margin-top: 30rpx;height: 80rpx;">立即登陆</van-button>
+    <button open-type="getUserInfo" bindgetuserinfo="login" style="width: 100%;margin-top: 30rpx;height: 80rpx;background-color: #fe0000;color: aliceblue" >立即登陆</button>
   </view>
 </view>
 
