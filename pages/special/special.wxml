@@ -114,7 +114,7 @@
       <image class="roomImg" mode="widthFix" src="/static/images/leader.png"></image>
     </navigator>
   </view>
-  <view class="special-product">
+  <!-- <view class="special-product">
     <specialProduct class="special-item" wx:for="{{4}}" wx:key="{{index}}"></specialProduct>
   </view>
 	<swiper class="swiper" indicator-dots="true">
@@ -125,7 +125,7 @@
 				</navigator>
 			</swiper-item>
 		</block>
-	</swiper>
+	</swiper> -->
 <!--	<lineTitle title="{{'双11专享优惠券'}}" />
 	<view class="coupon-ctn">
 		<block wx:for="{{coupons}}" wx:key="index">

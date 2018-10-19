@@ -322,7 +322,7 @@ Page({
         return;
       }
 
-
+      var _self=this;
       wx.showModal({
         title: '选择发货类型',
         content: '整单一次性出货：订单生产好后一次性全部出货,不可再变更。             需要分批次出货：客户需要在订单生成后申请分批,工厂根据客户申请的分批内容按申请批次出货',
@@ -332,35 +332,35 @@ Page({
         success: function (res) {
           
           let db = {
-            UseImb: this.data.useImb,
-            UseCoupons: this.data.useConpon,
-            Remark: this.data.remark,
-            SelfReceivedId: this.data.selfAddressId
+            UseImb: _self.data.useImb,
+            UseCoupons: _self.data.useConpon,
+            Remark: _self.data.remark,
+            SelfReceivedId: _self.data.selfAddressId
           }
           db.isFullStockUp = !res.cancel;
     
-          // if(this.data.selfAddressId) {
+          // if(_self.data.selfAddressId) {
           //   db.UserOrderShipId = "";
           //   db.UserReceiptShipId = "";
           // } else {
-            db.UserOrderShipId = this.data.addrInfo.id;
-            db.UserReceiptShipId = this.data.invoiceInfo.id;
+            db.UserOrderShipId = _self.data.addrInfo.id;
+            db.UserReceiptShipId = _self.data.invoiceInfo.id;
           // }
       
-          if(this.data.status === 1) {
+          if(_self.data.status === 1) {
             db.cartIds = cartId
           } 
     
-          if(this.data.status === 2 ) {
-            db.collageId = this.data.collageId;
+          if(_self.data.status === 2 ) {
+            db.collageId = _self.data.collageId;
           }
     
-          if(this.data.status === 3) {
-            db.skuId = this.data.skuId;
-            db.num = this.data.num;
+          if(_self.data.status === 3) {
+            db.skuId = _self.data.skuId;
+            db.num = _self.data.num;
           }
-          if(this.data.status ===4 ) {
-            db.shopId = this.data.shopId;
+          if(_self.data.status ===4 ) {
+            db.shopId = _self.data.shopId;
           }
     
           console.log(db);
