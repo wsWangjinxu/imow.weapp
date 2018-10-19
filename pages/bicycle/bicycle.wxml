@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="container">
   <view class='top'>
-    <image mode="widthFix" src='/static/images/bicycleTop.jpg'></image>
+    <image mode="widthFix" src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/bicycleTop.jpg'></image>
   </view>
   <view class='content'>
-    <image src='/static/images/bicycleContent.jpg'></image>
+    <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/bicycleContent.jpg'></image>
   </view>
   <view class='footer'>
     <image src='/static/icons/footer2.jpg'></image>

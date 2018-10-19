@@ -34,7 +34,7 @@
   <view class='bottom'>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=516388226083765">
-        <image src='/static/images/h1.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h1.jpg'></image>
         <view class='text'>1.5吨经济型电动搬运车（小金刚二代）EPT20-15ET2</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -44,7 +44,7 @@
     </view>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=494691865923714">
-        <image src='/static/images/h2.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h2.jpg'></image>
         <view class='text'>1.5吨经济型锂电搬运车（小金刚二代锂电池） EPT20-15ET2-L</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -56,7 +56,7 @@
   <view class='bottom'>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=493015335627212">
-        <image src='/static/images/h3.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h3.jpg'></image>
         <view class='text'>2.0吨中力大金刚 EPT20-ET</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -66,7 +66,7 @@
     </view>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=526296612858050">
-        <image src='/static/images/h4.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h4.jpg'></image>
         <view class='text'>2.0吨锂电池电子转向搬运车（中力变金刚）</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -78,7 +78,7 @@
   <view class='bottom'>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=528298752571858">
-        <image src='/static/images/h5.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h5.jpg'></image>
         <view class='text'>（裸机）3.0吨电动平衡重叉车（锂电壹号）</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -88,7 +88,7 @@
     </view>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=469416662601076">
-        <image src='/static/images/h6.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h6.jpg'></image>
         <view class='text'>1.5-2.0吨锂电叉车（锂电壹号）CPD15-20L1</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -100,7 +100,7 @@
   <view class='bottom'>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=469198207479962">
-        <image src='/static/images/h7.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h7.jpg'></image>
         <view class='text'>1.5吨电动平衡重电动叉车 CPD15L-B</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -110,7 +110,7 @@
     </view>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=498690139695287">
-        <image src='/static/images/h8.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h8.jpg'></image>
         <view class='text'>1.2吨中力电动堆高车（钢铁侠19款）EST121</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -122,7 +122,7 @@
   <view class='bottom'>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=545689789493028">
-        <image src='/static/images/h9.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h9.jpg'></image>
         <view class='text'>2.0吨锂电池电子转向搬运车 RPL201</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -132,7 +132,7 @@
     </view>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=500711030507512">
-        <image src='/static/images/h10.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h10.jpg'></image>
         <view class='text'>1.4吨全电动堆高车 RSE141</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -141,10 +141,10 @@
       </navigator>
     </view>
   </view>
-  <view class='bottom'>
+  <!-- <view class='bottom'>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=">
-        <image src='/static/images/h11.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h11.jpg'></image>
         <view class='text'>手动搬运车</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -154,7 +154,7 @@
     </view>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=">
-        <image src='/static/images/h12.jpg'></image>
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h12.jpg'></image>
         <view class='text'>半电动堆高车</view>
         <view class='button'>了解详情 ></view>
         <view class='top11'>
@@ -162,7 +162,7 @@
         </view>
       </navigator>
     </view>
-  </view>
+  </view> -->
   <image class="bottom2" src='/static/icons/beTeamLeaderBottom2.jpg'></image>
 
 </view>

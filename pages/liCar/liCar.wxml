@@ -42,6 +42,6 @@
     </view>
   </view>
   <view class='bottom'>
-    <image  src='/static/images/liCarBottom.jpg'></image>
+    <image  src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/liCarBottom.jpg'></image>
   </view>
 </view>
