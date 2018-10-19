@@ -1,9 +1,10 @@
 {
-  "pages":[  
-    "pages/index/index",
-    "pages/setMeal/setMeal",
-    "pages/special/special",
+  "pages":[ 
+    "pages/index/index", 
+    "pages/bicycle/bicycle",
     "pages/beTeamLeader/beTeamLeader",
+    "pages/setMeal/setMeal",
+    "pages/special/special",  
     "pages/liCar/liCar",  
     "pages/rankList/rankList",
     "pages/groupBuy/startGroupBuy/startGroupBuy",
@@ -61,7 +62,7 @@
       },
       {
         "pagePath": "pages/special/special",
-        "text": "喜欢",
+        "text": "双11会场",
         "iconPath": "static/icons/heart-black.png",
         "selectedIconPath": "static/icons/heart-red.png"
       },

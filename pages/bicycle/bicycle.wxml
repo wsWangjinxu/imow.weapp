@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='top'>
+    <image src='/static/images/bicycleTop.jpg'></image>
+  </view>
+  <view class='content'>
+    <image src='/static/images/bicycleQR.jpg'></image>
+  </view>
+  <view class='content2'>
+    <image src='/static/images/bicycleImg.jpg'></image>
+  </view>
+  <view class='footer'>
+    <image src='/static/icons/footer2.jpg'></image>
+  </view>
+</view>
