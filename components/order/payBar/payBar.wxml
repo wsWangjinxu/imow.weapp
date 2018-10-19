@@ -2,9 +2,9 @@
 
 <view class="payBar">
   <view class="checkbox1">
-  <checkbox-group bindchange="checkboxChange">
+ <!--  <checkbox-group bindchange="checkboxChange">
     <checkbox checked="{{cancelCheck}}"><text style="font-size: 26rpx;">全选</text></checkbox>
-  </checkbox-group>
+  </checkbox-group> -->
   </view> 
   <view class="detail">
     <view>

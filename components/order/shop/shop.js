@@ -71,6 +71,7 @@ Component({
     //全选 
     checkAll(e) {
       let that = this;
+      console.log(this.data.selectedIndex);
       //更新一次状态
       this.setData({
         checkAll: true
@@ -81,10 +82,12 @@ Component({
 
     //取消全选
     checkCancel(e) {
+      let that = this;
       this.setData({
         checkAll: false
+      }, function(){
+        that.money();
       });
-      this.money();
     },
 
     money() {
