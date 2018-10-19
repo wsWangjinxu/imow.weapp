@@ -6,42 +6,42 @@
   <view class='box'>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar1.jpg'></image>
-       <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+       <navigator url="/pages/productDetail/productDetail?id=498690139695287"><view class="button">立即购买</view></navigator>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar2.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+      <navigator url="/pages/productDetail/productDetail?id=500711030507512"><view class="button">立即购买</view></navigator>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar3.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+      <navigator url="/pages/productDetail/productDetail?id=545689789493028"><view class="button">立即购买</view></navigator>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar4.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+      <navigator url="/pages/productDetail/productDetail?id=555681650698181"><view class="button">立即购买</view></navigator>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar5.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+      <navigator url="/pages/productDetail/productDetail?id=565103262089147"><view class="button">立即购买</view></navigator>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar6.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+      <navigator url="/pages/productDetail/productDetail?id="><view class="button">立即购买</view></navigator>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar7.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+      <navigator url="/pages/productDetail/productDetail?id="><view class="button">立即购买</view></navigator>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar8.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+      <navigator url="/pages/productDetail/productDetail?id="><view class="button">立即购买</view></navigator>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar9.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=530365656838987"><view class="button">立即购买</view></navigator>
+      <navigator url="/pages/productDetail/productDetail?id="><view class="button">立即购买</view></navigator>
     </view>
   </view>
   <view class='bottom'>
-    <image src='/static/imgs/liCarBottom.jpg'></image>
+    <image  src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/liCarBottom.jpg'></image>
   </view>
 </view>
