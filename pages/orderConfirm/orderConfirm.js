@@ -38,7 +38,7 @@ Page({
     //备注
     remark: "",
     btnText: "",
-    selfAddressId: "",
+    selfAddressId: 0,
     status: "",
     orderPrice: 0
   },
@@ -161,7 +161,14 @@ Page({
      //拼接产品id
      let product = res.data.data.orderCartProductSkus;
      product.forEach(ele => {
-       selfAddressData = selfAddressData + ele.id + ',';
+       if(ele.promotionModel && ele.promotionModel.packageInfo) {
+         let ctn = ele.promotionModel.packageInfo.orderCartProductSkus;
+         for(let i = 0; i < ctn.length; i++) {
+          selfAddressData = selfAddressData + ctn[i].productId + ',';
+         }
+       } else {
+        selfAddressData = selfAddressData + ele.productId + ',';
+       }
      });
 
      //去掉结尾的逗号
@@ -285,6 +292,8 @@ Page({
 
   //提交订单
   addOrder() {
+   
+
     if (this.data.showBtn) {
       let cartId = this.data.cartId;
       // let cartId = "";
@@ -297,6 +306,14 @@ Page({
         temp = true;
       }
 
+      if(!this.data.invoice) {
+        wx.showModal({
+          title: "错误提示！",
+          content: "获取发票信息为空，请联系客服添加！"
+        })
+        return ;
+      }
+
       if(temp == false) {
         wx.showModal({
           title: "地址错误",
@@ -306,44 +323,64 @@ Page({
       }
 
 
-      let db = {
-        UserOrderShipId: this.data.addrInfo.id,
-        UserReceiptShipId: this.data.invoiceInfo.id,
-        UseImb: this.data.useImb,
-        UseCoupons: this.data.useConpon,
-        Remark: this.data.remark,
-        selfAddressId: this.data.selfAddressId
-      }
-      if(this.data.status === 1) {
-        db.cartIds = cartId
-      } 
-
-      if(this.data.status === 2 ) {
-        db.collageId = this.data.collageId;
-      }
-
-      if(this.data.status === 3) {
-        db.skuId = this.data.skuId;
-        db.num = this.data.num;
-      }
-      if(this.data.status ===4 ) {
-        db.shopId = this.data.shopId;
-      }
-
-      console.log(db);
-
-      addOrder("POST", db).then(res => {
-        if (res.data.status === 20) {
-          wx.redirectTo({
-            url: "/pages/checkPay/checkPay?orderId=" + res.data.orderId
-          });
-        } else {
-          wx.showToast({
-            title: String(res.data.errMsg),
-            image: "/static/icons/warning-white.png"
+      wx.showModal({
+        title: '选择发货类型',
+        content: '整单一次性出货：订单生产好后一次性全部出货,不可再变更。             需要分批次出货：客户需要在订单生成后申请分批,工厂根据客户申请的分批内容按申请批次出货',
+        showCancel: true,
+        cancelText:"分批出货",
+        confirmText:"一次出货",
+        success: function (res) {
+          
+          let db = {
+            UseImb: this.data.useImb,
+            UseCoupons: this.data.useConpon,
+            Remark: this.data.remark,
+            SelfReceivedId: this.data.selfAddressId
+          }
+          db.isFullStockUp = !res.cancel;
+    
+          // if(this.data.selfAddressId) {
+          //   db.UserOrderShipId = "";
+          //   db.UserReceiptShipId = "";
+          // } else {
+            db.UserOrderShipId = this.data.addrInfo.id;
+            db.UserReceiptShipId = this.data.invoiceInfo.id;
+          // }
+      
+          if(this.data.status === 1) {
+            db.cartIds = cartId
+          } 
+    
+          if(this.data.status === 2 ) {
+            db.collageId = this.data.collageId;
+          }
+    
+          if(this.data.status === 3) {
+            db.skuId = this.data.skuId;
+            db.num = this.data.num;
+          }
+          if(this.data.status ===4 ) {
+            db.shopId = this.data.shopId;
+          }
+    
+          console.log(db);
+    
+          addOrder("POST", db).then(res => {
+            if (res.data.status === 20) {
+              wx.redirectTo({
+                url: "/pages/checkPay/checkPay?orderId=" + res.data.orderId
+              });
+            } else {
+              wx.showToast({
+                title: String(res.data.errMsg),
+                image: "/static/icons/warning-white.png"
+              });
+            }
           });
         }
-      });
+     })
+
+     
     } else {
       wx.showToast({
         title: "请查看协议",

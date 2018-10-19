@@ -1,3 +1,8 @@
+.topImg{
+  display: inline-block;
+  width: 100%;
+}
+
 .timer {
   background-color: #970808;
   margin-top: -10rpx;
@@ -50,6 +55,7 @@
   border-radius: 20rpx;
   position: relative;
   margin-bottom: 12px;
+  margin-top: 5px;
 }
 
 .color-bg {
@@ -72,6 +78,13 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+}
+
+.titleBox{
+  flex: 2; 
+  padding: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 40rpx;
 }
 
 .title-left {
@@ -167,6 +180,17 @@
   left: 192rpx;
 }
 
+.roomBox{
+  background-color: #300306; 
+  text-align: center;
+  margin-top: -10rpx;
+}
+
+.roomImg{
+  width: 690rpx;
+  margin-bottom: 20rpx;
+}
+
 .special-product {
   display: flex;
   flex-direction: row;
@@ -248,7 +272,7 @@ swiper {
   justify-content: space-between;
   align-items: center;
   font-size: 30rpx;
-  background-color: #fff;
+  background-color: #f3f3f3;
   text-align: center;
 }
 
@@ -256,12 +280,6 @@ swiper {
   flex: 1;
   height: 50px;
   line-height: 50px;
-}
-
-
-.list-title view:last-child {
-  flex: 2.5;
-  background-color: #ffe5e6;
 }
 
 .shop-ctn .left {
@@ -278,12 +296,20 @@ swiper {
 
 .shopname {
   font-size: 30rpx;
-  height: 100rpx;
-  line-height: 100rpx;
+  min-height: 100rpx;
+  word-wrap: break-word;
+  word-break: break-all;
   border-top: 1px solid #e4e4e4;
   background-color: #f2f2f2;
   box-sizing: border-box;
   text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
 }
 
 .list-pay {
@@ -319,6 +345,9 @@ view.van-popup {
 }
 
 .radiusBtn {
+  position: absolute;
+  left: 160rpx;
+  top: 6rpx;
   display: inline-block;
   width: 40rpx;
   height: 40rpx;

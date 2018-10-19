@@ -1,5 +1,5 @@
 <view class="special">
-	<image mode="widthFix" style="display: inline-block;width: 100%;" src="/static/images/bg.jpg" />
+	<image mode="widthFix" class="topImg" src="/static/images/bg.jpg"/>
 	<view class="timer">
 		<image mode="widthFix" style="width: 50px;" src="/static/images/time.png" />
 		<image mode="widthFix" class="{{ dotClass }}" src="/static/icons/dot.png"></image>
@@ -9,7 +9,7 @@
 				<image wx:if="{{isActive == 1}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time11.png" />
 				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
-					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
+					<view class="titleBox">
 						<view class="title-left"><text>阿母双11</text> <text> 拼团开启</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
@@ -26,7 +26,7 @@
 				<image wx:if="{{isActive == 1}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time22.png" />
 				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
-					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
+					<view class="titleBox">
 						<view class="title-left"><text>骑行比赛 </text> <text> 骑手招募</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
@@ -43,7 +43,7 @@
 				<image wx:if="{{isActive == 2}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time33.png" />
 				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
-					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
+					<view class="titleBox">
 						<view class="title-left"><text>发放</text> <text> 现场邀请函</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
@@ -60,7 +60,7 @@
 				<image  wx:if="{{isActive == 3}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time44.png" />
 				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
-					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
+					<view class="titleBox">
 						<view class="title-left"><text>骑行比赛</text> <text> 正式开始</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
@@ -77,7 +77,7 @@
 				<image wx:if="{{isActive == 4}}" class="color-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time55.png" />
 				<image class="white-bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/time-bg.png" />
 				<view class="time-ctn-item-ctn">
-					<view style="flex: 2; padding: 10rpx;margin-left: 20rpx;margin-right: 40rpx;">
+					<view class="titleBox">
 						<view class="title-left"><text>阿母双11</text> <text> 现场活动</text></view>
 					<!--	<view class="ctn-left">全新拼团形式惊喜价格，超乎你的想象！</view> -->
 					</view>
@@ -103,10 +103,16 @@
 		</view>
     <view class="btn-readList"></view>
 	</view>
-  <view style="background-color: #300306; text-align: center;margin-top: -10rpx;">
-    <image style="width: 690rpx;margin-bottom: 20rpx;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more1.png"></image>
-    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more2.png"></image>
-    <image style="width: 690rpx; margin-bottom: 20rpx;" mode="widthFix" src="/static/images/leader.png"></image>
+  <view class='roomBox'>
+    <navigator url="/pages/liCar/liCar">
+      <image class="roomImg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more1.png"></image>
+    </navigator>
+    <navigator url="/pages/bicycle/bicycle">
+      <image class="roomImg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/more2.png"></image>
+    </navigator>
+    <navigator url="/pages/beTeamLeader/beTeamLeader">
+      <image class="roomImg" mode="widthFix" src="/static/images/leader.png"></image>
+    </navigator>
   </view>
   <view class="special-product">
     <specialProduct class="special-item" wx:for="{{4}}" wx:key="{{index}}"></specialProduct>
@@ -134,8 +140,7 @@
 	</view> -->
 	<view class="shop-list">
 		<view class="list-title">
-			<view>{{selectedShop.shopName}}</view>
-			<view bindtap="gotoShop">进入店铺，了解更多产品信息</view>
+			<view bindtap="gotoShop">{{selectedShop.shopName}}</view>
 		</view>
 		<view class="shop-ctn">
 			<scroll-view class="left" scroll-y="true" style="height: {{scrollHeight}}px;">
@@ -145,11 +150,12 @@
 					 style="background-color:{{selectedShop.shopId == item.shopId ? 'white' : '3e4e4e4'}}"
 					 bindtap="handleListChange"
 					 data-id="{{item.shopId}}"
+					 data-number="{{item.number}}"
 					 data-index="{{index}}"
 					 data-shopName="{{item.shopName}}"
 					>
-						{{item.shopName}}
-						<view class="radiusBtn">{{item.number}}</view>
+						<view>{{item.shopName}}</view>
+						<view wx:if="{{item.number}}" class="radiusBtn">{{item.number}}</view>
 					</view>
 				</block>
 			</scroll-view>
@@ -160,7 +166,6 @@
 			</scroll-view>
 		</view>
 		<view class="list-pay">
-			<view>购物车</view>
 			<view bindtap="handlePay">结算</view>
 		</view>
 	</view>
