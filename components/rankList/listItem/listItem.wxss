@@ -13,17 +13,6 @@
   width:390rpx;
 }
 
-.leader {
-  font-size: 20rpx;
-  font-weight: bold;
-  color: #b80008;
-  position: absolute;
-  top: 103rpx;
-  left: 30rpx;
-  text-align: center;
-  width: 80rpx;
-}
-
 .tuanyuan {
   font-size: 20rpx;
   position: absolute;
@@ -71,6 +60,104 @@
   width: 450rpx;
   text-align: center;
   position: absolute;
-  bottom: 80rpx;
+  bottom: 112rpx;
   left: 240rpx;
+}
+
+.list-item-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-item-top {
+  position: absolute;
+  top: 100px;
+}
+
+.list-item-top .leader {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #b80008 !important; 
+  margin-left: 25rpx;
+  width: 60px;
+  text-align: center;
+}
+
+.list-item-top .leader {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: black;
+  width: 120rpx;
+  text-align: center; 
+}
+
+.list-item-top .teamNum {
+  width: 200rpx;
+  font-size: 30rpx;
+  font-weight: bold; 
+  text-align: center;
+}
+
+.list-item-top .from {
+  font-size: 22rpx;
+  width: 400rpx;
+  text-align: center;
+  line-height: 45rpx;
+  height: 50rpx;
+}
+
+.distance1 {
+  position: absolute;
+  top: 138px;
+  font-size: 22rpx;
+  text-align: center;
+  width: 100%;
+  color: #b80008;
+}
+
+.top-third {
+  width: 500rpx;
+  font-size: 22rpx;
+  position: absolute;
+  top: 184px;
+  left: 110px;
+}
+
+.top-third > view {
+  width: 500rpx;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 14px;
+}
+
+.top-third .company,
+.top-ten .company {
+  width: 380rpx; 
+  text-align: left;
+}
+
+.top-ten {
+  width: 500rpx;
+  font-size: 22rpx;
+  position: absolute;
+  top: 277px;
+  left: 100px;
+}
+
+.top-ten > view {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.top-ten .num {
+  width: 20px;
+  margin-left: -10px;
+}
+
+.product {
+ position: absolute;
+ left: -20px;
+ zoom: 0.4;
+ bottom: 75px;
 }

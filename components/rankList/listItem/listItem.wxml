@@ -1,45 +1,65 @@
 <view class="list-item">
-	<image mode="widthFix" style="width: 100%;" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/list-item.png" />
+	<!-- 左下角的图片 -->
+	<image class="product" mode="widthFix" src="{{'/static/rankListProduct/' + status + '.png'}}"></image>
+	<image mode="widthFix" style="width: 100%;" src="/static/images/list-item.png" />
 	<view class="title">
 		3吨锂电壹号
 		<text>——CPD30L1 3.0吨电动叉车</text>
 	</view>
-	<view class="leader">郑大团长</view>
-	<view class="tuanyuan">
-		<view style="font-size: 20rpx;font-weight: bold;border-bottom:1px solid black;">团员600人</view>
-		<view style="font-size: 20rpx;">来自浙江中力机械有限公司</view>
+	<view class="list-item-top">
+		<view class="leader">郑大团长</view>
+		<view class="teamNum">团员600人</view>
+		<view class="from">来自浙江中力机械有限公司</view>
 	</view>
-	<view class="distance">您距离人气团长还需增加团员100人</view>
-	<view class="paiming">
-		<view class="one">
-			<view>
-				<text>浙江中力机械有限公司</text>
-				<text>100台</text>
-			</view>
+	<view class="distance1">您距离人气团长还需增加团员100人</view>
+	<!-- 前三名 -->
+	<view class="top-third">
+		<view>
+			<view class="company">浙江中力机械搬运设备有限公司</view><view>1000台</view>
 		</view>
-		<view class="two">
-			<view>
-				<text>浙江中力机械有限公司</text>
-				<text>100台</text>
-			</view>
-			<view>
-				<text>浙江中力机械有限公司</text>
-				<text>100台</text>
-			</view>
+		<view>
+			<view class="company">浙江中力机械搬运设备有限公司</view><view>1000台</view>
 		</view>
-		<view class="three">
-			<view>
-				<text>浙江中力机械有限公司</text>
-				<text>100台</text>
-			</view>
-			<view>
-				<text>浙江中力机械有限公司</text>
-				<text>100台</text>
-			</view>
-      <view>
-				<text>浙江中力机械有限公司</text>
-				<text>100台</text>
-			</view>
+		<view>
+			<view class="company">浙江中力机械搬运设备有限公司</view><view>1000台</view>
+		</view>
+	</view>
+	<!-- 前十名 -->
+	<view class="top-ten">
+		<view>
+			<view class="num">4.</view>
+			<view class="company">浙江中力机械搬运设备有限公司</view>
+			<view>1000台</view>
+		</view>
+		<view>
+			<view class="num">5.</view>
+			<view class="company">浙江中力机械搬运设备有限公司</view>
+			<view>1000台</view>
+		</view>
+		<view>
+			<view class="num">6.</view>
+			<view class="company">浙江中力机械搬运设备有限公司</view>
+			<view>1000台</view>
+		</view>
+		<view>
+			<view class="num">7.</view>
+			<view class="company">浙江中力机械搬运设备有限公司</view>
+			<view>1000台</view>
+		</view>
+		<view>
+			<view class="num">8.</view>
+			<view class="company">浙江中力机械搬运设备有限公司</view>
+			<view>1000台</view>
+		</view>
+		<view>
+			<view class="num">9.</view>
+			<view class="company">浙江中力机械搬运设备有限公司</view>
+			<view>1000台</view>
+		</view>
+		<view>
+			<view class="num">10.</view>
+			<view class="company">浙江中力机械搬运设备有限公司</view>
+			<view>1000台</view>
 		</view>
 	</view>
   <view class="distance2">您距离上榜还有 <text style="color: #c7080a;">100</text> 台距离，请继续努力加油哦！</view>

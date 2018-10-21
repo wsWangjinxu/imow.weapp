@@ -10,8 +10,9 @@ Component({
     },
     status: {
       type: String,
-      value: "false"
-    }
+      value: 8
+    },
+
   },
 
   /**

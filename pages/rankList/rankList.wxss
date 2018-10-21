@@ -6,7 +6,7 @@ page {
   position: absolute;
   top: 264rpx;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   text-align: center;
   width: 100%;
 }
@@ -18,12 +18,13 @@ page {
 
 .ctn .item:first-child {
   flex: 1;
-  margin-left: 76rpx;
+  display: inline-block;
+  padding-top: 35px;
 }
 
 .ctn .item:last-child {
   flex: 1;
-  margin-left: -76rpx;
+  padding-top: 60px;
 }
 
 .ctn .item .title {
@@ -33,62 +34,165 @@ page {
 }
 
 .ctn .item .number {
-  font-size: 40rpx;
+  font-size: 130rpx;
   font-weight: bold;
   color: #fbcc07;
 } 
 
 .ctn .item .unit {
-  font-size: 36rpx;
+  font-size: 48rpx;
   font-weight: bold;
   color: #fbcc07;
 }
 
-.first {
-  position: absolute;
-  top: 256rpx;
-  left: 400rpx;
-}
 
-.second {
-  position: absolute;
-  top: 460rpx;
-  left: 400rpx;
-}
-
-.third {
-  position: absolute;
-  top: 674rpx;
-  left: 400rpx;
-}
-
-.num {
-  font-size: 40rpx;
-  font-weight: bold;
-  color: #d31518;
-  border-bottom: 1px solid black;
-}
-
-.num text {
-font-size: 24rpx;
-font-weight: bold;
-}
-
-.company {
-  font-size: 22rpx;
-}
-
-.notice {
-  width: 610rpx;
-  font-size: 28rpx;
-  text-align: center;
-  position: absolute;
-  bottom: 60rpx;
-  left: 85rpx;
-}
 
 .list {
   background-color: #670207;
   text-align: center;
   margin-top: -10rpx;
+}
+
+/* 排名 */
+.ranking {
+  position: relative;
+  margin-bottom: 15px;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.ranking2 {
+  margin-top: 18px;
+}
+
+.ranking-ctn {
+  position: absolute;
+  width: 300rpx;
+  height: 100px;
+  z-index: 10;
+  top: 38px;
+  left: 164px;
+}
+
+.ranking-ctn2 {
+  position: absolute;
+  width: 300rpx;
+  height: 100px;
+  z-index: 10;
+  top: 20px;
+  left: 146px;
+}
+
+.ranking2 image {
+  width: 290px;
+}
+
+.ranking-ctn .num {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #670207
+}
+
+.ranking-ctn .num text {
+  font-size: 24rpx;
+}
+
+.ranking-ctn .company {
+  font-size: 22rpx;
+}
+
+
+.kuang-ctn {
+  width: 350px;
+  height: 30px;
+  line-height: 30px;
+  margin: 15px auto;
+  font-size: 30rpx;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.list-item {
+  height: 30rpx;
+  line-height: 30rpx;
+  border-bottom: 1px solid #800006;
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  width: 650rpx;
+  margin: 10px auto;
+  color: white;
+  padding-bottom: 10px;
+}
+
+.super {
+  padding-top: 10px;
+}
+
+.list-item .order {
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #feba16;
+  flex: 0.8;
+}
+
+.list-item .company {
+  flex: 3;
+  text-align: left;
+}
+
+.list-item .money {
+  flex: 1;
+}
+
+.supplier {
+  text-align: center;
+  position: relative;
+}
+
+.top-third {
+  width: 500rpx;
+  font-size: 22rpx;
+  position: absolute;
+  top: 87px;
+  left: 110px;
+}
+
+.top-third > view {
+  width: 500rpx;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 14px;
+}
+
+.top-third .company,
+.top-ten .company {
+  width: 380rpx; 
+  text-align: left;
+}
+
+.top-ten {
+  width: 500rpx;
+  font-size: 22rpx;
+  position: absolute;
+  top: 185px;
+  left: 100px;
+}
+
+.top-ten > view {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.top-ten .num {
+  width: 20px;
+  margin-left: -10px;
+}
+
+.product {
+ position: absolute;
+ left: -20px;
+ zoom: 0.4;
+ bottom: 75px;
 }
