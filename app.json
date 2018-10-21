@@ -1,12 +1,13 @@
 {
   "pages":[ 
+    "pages/rankList/rankList",
     "pages/index/index", 
     "pages/bicycle/bicycle",
     "pages/beTeamLeader/beTeamLeader",
     "pages/setMeal/setMeal",
     "pages/special/special",  
     "pages/liCar/liCar",  
-    "pages/rankList/rankList",
+    
     "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/developing/developing",
     "pages/cart/cart",
