@@ -141,6 +141,28 @@
       </navigator>
     </view>
   </view>
+  <view class="bottom">
+      <view class='product'>
+      <navigator url="/pages/setMeal/setMeal?id=484622422749562">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h13.jpg'></image>
+        <view class='text'>CPC30 3.0吨内燃叉车*3+CPD30L1-B 锂电壹号3.0吨电动平衡重叉车</view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+    <view class='product'>
+      <navigator url="/pages/setMeal/setMeal?id=557582844463510">
+        <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/h14.jpg'></image>
+        <view class='text'>CPC30 3吨内燃叉车*3+CPD15L1-B 锂电壹号1.5吨电动平衡重叉车</view>
+        <view class='button'>了解详情 ></view>
+        <view class='top11'>
+          <image src='/static/icons/top11.png'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
   <!-- <view class='bottom'>
     <view class='product'>
       <navigator url="/pages/productDetail/productDetail?id=">
