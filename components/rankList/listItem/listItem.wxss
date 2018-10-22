@@ -10,7 +10,7 @@
   position: absolute;
   top: 28rpx;
   left: 181rpx;
-  width:390rpx;
+  width: 390rpx;
 }
 
 .tuanyuan {
@@ -21,7 +21,7 @@
   text-align: left;
 }
 
-.distance  {
+.distance {
   font-size: 20rpx;
   color: #b80008;
   position: absolute;
@@ -41,10 +41,10 @@
 
 }
 
-.paiming > view text:first-child {
+.paiming>view text:first-child {
   display: inline-block;
   width: 330rpx;
-} 
+}
 
 .paiming .two {
   margin-top: 13px;
@@ -77,7 +77,7 @@
 .list-item-top .leader {
   font-size: 26rpx;
   font-weight: bold;
-  color: #b80008 !important; 
+  color: #b80008 !important;
   margin-left: 25rpx;
   width: 60px;
   text-align: center;
@@ -88,13 +88,13 @@
   font-weight: bold;
   color: black;
   width: 120rpx;
-  text-align: center; 
+  text-align: center;
 }
 
 .list-item-top .teamNum {
   width: 200rpx;
   font-size: 30rpx;
-  font-weight: bold; 
+  font-weight: bold;
   text-align: center;
 }
 
@@ -123,31 +123,44 @@
   left: 230rpx;
 }
 
-.top-third > view {
+.top-third>view {
   width: 500rpx;
   display: flex;
   flex-direction: row;
-  margin-bottom: 14px;
+  height: 60rpx;
+  line-height: 30rpx;
 }
 
 .top-third .company,
 .top-ten .company {
-  width: 380rpx; 
+  width: 380rpx;
   text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .top-ten {
   width: 500rpx;
   font-size: 22rpx;
   position: absolute;
-  top: 277px;
+  top: 554rpx;
   left: 100px;
 }
 
-.top-ten > view {
+.top-ten>view {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin-bottom: 6rpx;
+}
+
+.top-ten .company {
+  line-height: 30rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .top-ten .num {
@@ -156,8 +169,8 @@
 }
 
 .product {
- position: absolute;
- left: -20px;
- zoom: 0.4;
- bottom: 75px;
+  position: absolute;
+  left: -20px;
+  zoom: 0.4;
+  bottom: 75px;
 }

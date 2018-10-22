@@ -37,7 +37,7 @@ page {
   font-size: 130rpx;
   font-weight: bold;
   color: #fbcc07;
-} 
+}
 
 .ctn .item .unit {
   font-size: 48rpx;
@@ -68,19 +68,25 @@ page {
 .ranking-ctn {
   position: absolute;
   width: 300rpx;
-  height: 100px;
+  height: 170rpx;
   z-index: 10;
-  top: 38px;
+  bottom: 10rpx;
   left: 164px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;justify-content: center;
 }
 
 .ranking-ctn2 {
   position: absolute;
   width: 300rpx;
-  height: 100px;
+  height: 170rpx;
   z-index: 10;
-  top: 20px;
+  bottom: 8rpx;
   left: 146px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;justify-content: center;
 }
 
 .ranking2 image {
@@ -107,13 +113,13 @@ page {
   height: 30px;
   line-height: 30px;
   margin: 15px auto;
-  font-size: 30rpx;
+  font-size: 24rpx;
   background-color: white;
   border-radius: 15px;
 }
 
 .list-item {
-  height: 30rpx;
+  min-height: 30rpx;
   line-height: 30rpx;
   border-bottom: 1px solid #800006;
   display: flex;
@@ -158,31 +164,32 @@ page {
   left: 230rpx;
 }
 
-.top-third > view {
+.top-third>view {
   width: 500rpx;
   display: flex;
   flex-direction: row;
-  margin-bottom: 14px;
 }
 
 .top-third .company,
 .top-ten .company {
-  width: 330rpx; 
+  width: 330rpx;
   text-align: left;
+  height: 60rpx;
+  line-height: 30rpx;
 }
 
 .top-ten {
   width: 500rpx;
   font-size: 22rpx;
   position: absolute;
-  top: 185px;
-  left: 100px;
+  top: 185rpx;
+  left: 100rpx;
 }
 
-.top-ten > view {
+.top-ten>view {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin-bottom: 4rpx;
 }
 
 .top-ten .num {
@@ -191,8 +198,8 @@ page {
 }
 
 .product {
- position: absolute;
- left: -20px;
- zoom: 0.4;
- bottom: 75px;
+  position: absolute;
+  left: -20px;
+  zoom: 0.4;
+  bottom: 75px;
 }

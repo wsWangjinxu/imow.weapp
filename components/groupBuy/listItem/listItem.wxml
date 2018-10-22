@@ -20,7 +20,7 @@
         <view style="align-self: flex-end;margin-bottom: 20rpx;">
             <block wx:if="{{isLeader &&  ctn.status != '已取消'}}"> 
                 <van-button bindtap="delete" style="margin-right: 20rpx;" data-id="{{ctn.id}}" size="small">删除</van-button>
-                <van-button bindtap="confirm" wx:if="{{ctn.status != '已确认'}}" data-id="{{ctn.id}}" size="small">确认收到订金</van-button><van-button wx:if="{{ctn.status == '已确认'}}" disabled="true" size="small">已确认收到订金</van-button>
+                <van-button type="danger" bindtap="confirm" wx:if="{{ctn.status != '已确认'}}" data-id="{{ctn.id}}" size="small">确认收到订金</van-button><van-button wx:if="{{ctn.status == '已确认'}}" disabled="true" size="small">已确认收到订金</van-button>
             </block>
             <block wx:if="{{!isLeader && status == '已确认'}}">
                 <van-icon style="color: #fe0000;vertical-align: -5rpx; margin-right: 10rpx;" name="warn"></van-icon><text style="color: #fe0000;">团长已收定金</text>
