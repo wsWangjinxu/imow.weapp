@@ -46,7 +46,7 @@
     <view>请与
       <view class='freightNum'>
         <navigator url="/page/">
-          <van-icon name="chat" />浙江中力机械</navigator>
+          <van-icon name="chat" />卖家</navigator>
       </view> 核对实际运费</view>
   </view>
 
@@ -275,7 +275,7 @@
                 <view>单位名称:</view>
               </van-col>
               <van-col span="18">
-                <view>安吉阿母工业设备有限公司</view>
+                <view>{{underLineEntity.companyName}}</view>
               </van-col>
             </van-row>
             <van-row>
@@ -283,7 +283,7 @@
                 <text text space="ensp">开 户 行:</text>
               </van-col>
               <van-col span="18">
-                <view>工商银行安吉支行</view>
+                <view>{{underLineEntity.bank}}</view>
               </van-col>
             </van-row>
             <van-row>
@@ -291,7 +291,7 @@
                 <text text space="ensp">账    号:</text>
               </van-col>
               <van-col span="18">
-                <view>1205290009000761667</view>
+                <view>{{underLineEntity.account}}</view>
               </van-col>
             </van-row>
             <van-row>
@@ -299,7 +299,7 @@
                 <view>汇款备注:</view>
               </van-col>
               <van-col span="18">
-                <view>1630266344</view>
+                <view>{{orderCode}}</view>
               </van-col>
             </van-row>
             <view class='tip'>可通过网银转账或银行柜台转账汇款，线下公司转账方式的到账时间是1-3个工作日确认</view>

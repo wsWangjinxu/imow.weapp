@@ -1,140 +1,73 @@
+<wxs module="filters" src="./money.wxs"></wxs>
+
 <view class="rankList">
 	<view style="text-align: center;">
 		<image style="width: 100%;" mode="widthFix" src="/static/images/zongji.jpg" />
 		<view class="ctn">
 			<view class="item">
-				<text class="number">188812.12</text>
-				<text class="unit">万元</text>
+				<view class="number">{{filters.money(promotionStatisticResult.totleMoney)}}</view>
+				<view class="unit">万元</view>
 			</view>
 			<view class="item">
-				<text class="number">188812</text>
-				<text class="unit">台</text>
+				<view class="number">{{promotionStatisticResult.totleCount}}</view>
+				<view class="unit">台</view>
 			</view>
 		</view>
 	</view>
 	<view style="margin-top: -10rpx;position: relative; text-align: center;">
 		<image style="width: 473rpx; margin-top: 30px;" mode="widthFix" src="/static/images/title.png"></image>
-		<view class="ranking">
-			<image mode="widthFix" src="/static/images/first.png"></image>
-			<view class="ranking-ctn">	
-				<view class="num">100000<text>元</text></view>
-				<view class="company">浙江中力机械有限公司</view>
+		<view class="ranking" wx:for="{{promotionStatisticResult.top3StatisticRanks}}" wx:key="index">
+			<image mode="widthFix" src="/static/images/{{index}}.png"></image>
+			<view class="ranking-ctn">
+				<view class="num">{{filters.money(item.totleMoney)}}<text>万元</text></view>
+				<view class="company">{{item.userName}}</view>
 			</view>
 		</view>
-    <view class="ranking">
-			<image mode="widthFix" src="/static/images/second.png"></image>
-			<view class="ranking-ctn">	
-				<view class="num">100000<text>元</text></view>
-				<view class="company">浙江中力机械有限公司</view>
+
+		<view class="ranking ranking2" wx:for="{{promotionStatisticResult.top6StatisticRanks}}" wx:key="index">
+			<image mode="widthFix" src="/static/images/{{index+3}}.png"></image>
+			<view class="ranking-ctn ranking-ctn2">
+				<view class="num">{{filters.money(item.totleMoney)}}<text>万元</text></view>
+				<view class="company">{{item.userName}}</view>
 			</view>
 		</view>
-    <view class="ranking">
-			<image mode="widthFix" src="/static/images/third.png"></image>
-			<view class="ranking-ctn">	
-				<view class="num">100000<text>元</text></view>
-				<view class="company">浙江中力机械有限公司</view>
-			</view>
+
+		<view wx:for="{{promotionStatisticResult.top10StatisticRanks}}" wx:key="{{index}}" class="list-item super">
+			<view class="order">第{{index+7}}名</view>
+			<view class="company">{{item.userName}}</view>
+			<view class="money">{{filters.money(item.totleMoney)}}万元</view>
 		</view>
-		<view class="ranking ranking2">
-			<image mode="widthFix" src="/static/images/forth.png"></image>
-			<view class="ranking-ctn ranking-ctn2">	
-				<view class="num">100000<text>元</text></view>
-				<view class="company">浙江中力机械有限公司</view>
-			</view>
+		<view class="kuang-ctn" wx-if="{{promotionStatisticResult.statisticCurrentUserRank.inRank}}">
+			你现在暂列 <text style="color: #d31518;">{{ promotionStatisticResult.statisticCurrentUserRank.rank }}</text> 位，请继续努力加油哦！
 		</view>
-		<view class="ranking ranking2">
-			<image mode="widthFix" src="/static/images/fifth.png"></image>
-			<view class="ranking-ctn ranking-ctn2">	
-				<view class="num">100000<text>元</text></view>
-				<view class="company">浙江中力机械有限公司</view>
-			</view>
-		</view>
-		<view class="ranking ranking2">
-			<image mode="widthFix" src="/static/images/sixth.png"></image>
-			<view class="ranking-ctn ranking-ctn2">	
-				<view class="num">100000<text>元</text></view>
-				<view class="company">浙江中力机械有限公司</view>
-			</view>
-		</view>
-		<view class="list-item super">
-			<view class="order">第7名</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view class="money">123456元</view>
-		</view>
-		<view class="list-item">
-			<view class="order">第8名</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view class="money">123456元</view>
-		</view>
-		<view class="list-item">
-			<view class="order">第9名</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view class="money">123456元</view>
-		</view>
-		<view class="kuang-ctn">
-			您距离上榜还差 <text style="color: #d31518;">99000</text> 元，请继续努力加油哦！
+		<view class="kuang-ctn" wx-if="{{!promotionStatisticResult.statisticCurrentUserRank.inRank}}">
+			您距离上榜还差 <text style="color: #d31518;">{{ filters.money(promotionStatisticResult.statisticCurrentUserRank.differNum)}}</text> 万元，请继续努力加油哦！
 		</view>
 	</view>
-  <view class="list">
-    <image style="width:410rpx;margin-top: 40px;margin-bottom: 20px;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/list-title.png"></image>
-    <listItem class="item" wx:for="{{4}}" wx:key="{{index}}"></listItem>
-  </view>
+	<view class="list">
+		<image style="width:410rpx;margin-top: 40px;margin-bottom: 20px;" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/list-title.png"></image>
+		<listItem class="item" wx:for="{{promotionStatisticResult.productRanks}}" wx:key="{{index}}" productRank="{{item}}"></listItem>
+	</view>
 	<!-- 供应商排名 -->
 	<view class="supplier">
 		<image mode="widthFix" style="width: 459rpx;" src="/static/images/supplier-title2.png"></image>
 		<view>
 			<image mode="widthFix" style="width: 100%;" src="/static/images/supplier-ctn-bg.png"></image>
 			<!-- 前三名 -->
-	<view class="top-third">
-		<view>
-			<view class="company">浙江中力机械搬运设备有限公司</view><view>1000台</view>
-		</view>
-		<view>
-			<view class="company">浙江中力机械搬运设备有限公司</view><view>1000台</view>
-		</view>
-		<view>
-			<view class="company">浙江中力机械搬运设备有限公司</view><view>1000台</view>
-		</view>
-	</view>
-	<!-- 前十名 -->
-	<view class="top-ten">
-		<view>
-			<view class="num">4.</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view>1000台</view>
-		</view>
-		<view>
-			<view class="num">5.</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view>1000台</view>
-		</view>
-		<view>
-			<view class="num">6.</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view>1000台</view>
-		</view>
-		<view>
-			<view class="num">7.</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view>1000台</view>
-		</view>
-		<view>
-			<view class="num">8.</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view>1000台</view>
-		</view>
-		<view>
-			<view class="num">9.</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view>1000台</view>
-		</view>
-		<view>
-			<view class="num">10.</view>
-			<view class="company">浙江中力机械搬运设备有限公司</view>
-			<view>1000台</view>
-		</view>
-	</view>
+			<view class="top-third">
+				<view wx:for="{{promotionStatisticResult.shopStatisticRanksTop3}}" wx:key="{{index}}">
+					<view class="company">{{ item.shopName }}</view>
+					<view>{{filters.money(item.totleMoney)}}万元</view>
+				</view>
+			</view>
+			<!-- 前十名 -->
+			<view class="top-ten">
+				<view wx:for="{{promotionStatisticResult.shopStatisticRanksRemain}}" wx:key="{{index}}">
+					<view class="num">{{index+4}}.</view>
+					<view class="company">{{ item.shopName }}</view>
+					<view>{{filters.money(item.totleMoney)}}万元</view>
+				</view>
+			</view>
 		</view>
 	</view>
 </view>
-

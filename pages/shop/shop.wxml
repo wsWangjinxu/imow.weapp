@@ -5,7 +5,7 @@
     <swiper indicator-dots="true">
       <block wx:for="{{ bannerImageList }}" wx:key="index">
         <swiper-item>
-          <image mode="widthFix" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.imgSrc}}"/>
+              <image mode="aspectFill" src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{item.imgSrc}}" class="img"/>
         </swiper-item>
       </block>
     </swiper>

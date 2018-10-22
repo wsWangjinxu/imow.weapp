@@ -23,6 +23,9 @@ Component({
     isStart: {
       type: Boolean,
       value: false
+    },
+    totleCount:{
+      type: Number,
     }
   },
   data: {

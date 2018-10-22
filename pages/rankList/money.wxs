@@ -1,0 +1,12 @@
+var filters = {
+  money: function (value) {
+    if (value){
+      return Number(value/10000).toFixed(2)//此处2为保留两位小数
+    }else{
+      return "0.00";
+    };
+  }
+}
+module.exports = {
+  money: filters.money
+}

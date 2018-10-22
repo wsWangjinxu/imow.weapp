@@ -3,7 +3,7 @@
     <scroll-view scroll-x="true" class="standard-table">
         <view class="row" style="width: {{num}};">
         <view class="row-cell" style="width: 60px">序号</view>
-        <view class="row-cell">skuCode</view>
+        <view class="row-cell">sku</view>
         <view class="row-cell" style="width: 60px">已售</view>
         <view class="row-cell" style="width: 150px;">已选数量</view>
             <block wx:for="{{category}}" wx:key="{{index}}">
@@ -12,11 +12,11 @@
         </view>
         <block wx:for="{{skuList}}" wx:key="index">
             <view class="row" style="width: {{num}};">
-                <view class="row-cell" style="width: 60px">{{index}}</view>
+                <view class="row-cell" style="width: 60px">{{index+1}}</view>
                 <view class="row-cell">{{item.skuCode}}</view>
                 <view class="row-cell" style="width: 60px">{{item.saled}}</view>
                 <view class="row-cell" style="width: 150px;">
-                <van-stepper min="0" integer max="100" step="1" value="{{ item.num }}" data-id="{{index}}" bind:change="handleChange"></van-stepper></view>
+                <van-stepper min="0" integer step="1" value="{{ item.num }}" data-id="{{index}}" bind:change="handleChange"></van-stepper></view>
                 <block wx:for="{{item.skus}}" wx:for-item="child" wx:for-index="idx" wx:key="{{idx}}">
                     <view class="row-cell">{{child}}</view>
                 </block>

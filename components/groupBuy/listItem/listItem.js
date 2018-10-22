@@ -20,7 +20,18 @@ Component({
     canEdit: true
   },
 
+  
+
   methods: {
+    handleRingUp() {
+      let phone = this.data.ctn.phone
+      wx.makePhoneCall({
+        phoneNumber: String(phone),
+        success() {
+          console.log("电话拨打成功！");
+        }
+      });
+    },
     //编辑
     edit() {
       this.setData({

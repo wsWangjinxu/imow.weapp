@@ -154,8 +154,8 @@ page {
   width: 500rpx;
   font-size: 22rpx;
   position: absolute;
-  top: 87px;
-  left: 110px;
+  top: 175rpx;
+  left: 230rpx;
 }
 
 .top-third > view {
@@ -167,7 +167,7 @@ page {
 
 .top-third .company,
 .top-ten .company {
-  width: 380rpx; 
+  width: 330rpx; 
   text-align: left;
 }
 

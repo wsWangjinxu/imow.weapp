@@ -3,6 +3,7 @@
         <image src="http://imow-ht-test.oss-cn-hangzhou.aliyuncs.com/{{ctn.img}}?x-oss-process=image/resize,m_pad,l_175"></image>
         <view class="text">
             <text>{{ctn.title}}</text>
+            <text>当前拼团总数：<text style="font-weight: bold;">{{stage.current}}</text></text>
             <view>
                 <text wx:if="{{isOver}}">活动已经结束!</text>
                 <text wx:if="{{!isOver && isIng}}">距离活动结束还有：</text>

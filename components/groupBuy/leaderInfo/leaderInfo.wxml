@@ -1,16 +1,23 @@
 <view class="userInfo">
-    <image class="bg" mode="widthFix" src="{{bgUrl}}"/>
+    <image class="bg" mode="widthFix" src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/%E5%B0%8F%E7%A8%8B%E5%BA%8F/pagesgroupBuyjoinGroupBuyjoinGroupBuyTop.jpg" />
     <view class="share">
         <view>
-            <van-icon bindtap="explain" style="vertical-align: 1rpx; font-size: 55rpx; color: #ffffff;margin-right: 10rpx;" name="warn"></van-icon>
-            <button wx:if="{{hasShare}}" size="mini" open-type="share"><van-icon  style="margin-right: 10rpx;vertical-align: -2rpx;" name="share"></van-icon> <text>分享</text></button>    
-        </view> 
+            <!-- <van-icon bindtap="explain" style="vertical-align: 1rpx; font-size: 55rpx; color: #ffffff;margin-right: 10rpx;" name="warn"></van-icon> -->
+            <view><button wx:if="{{hasShare}}" size="mini" open-type="share">
+                    <van-icon style="margin-right: 10rpx;vertical-align: -2rpx;" name="share"></van-icon> <text>通知好友拼团</text>
+                </button> </view>
+
+            <view> <button size="mini" wx:if="{{hasShare}}" bindtap="ringUp">
+                    <van-icon style="margin-right: 10rpx;vertical-align: -2rpx;" name="phone"></van-icon> <text>给团长打电话</text>
+                </button>
+            </view>
+        </view>
         <view>
-            <text bindtap="ringUp">{{leaderName}}</text>
+            <!-- <text bindtap="ringUp">{{leaderName}}</text>
             <block wx:if="{{isOpen}}">
                 <image class="hand" src="/static/icons/hand.png"></image>
                 <text>点击团长名字询价参团</text>
-            </block>
-        </view>   
+            </block> -->
+        </view>
     </view>
 </view>

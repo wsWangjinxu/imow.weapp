@@ -1,10 +1,9 @@
-// components/index/navCircle.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    ctn: {
+    productRank: {
       type: Object,
       value: {}
     },
@@ -22,12 +21,5 @@ Component({
 
   },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-    handleCheckboxChange() {
-      console.log("被选中了")
-    }
-  }
+ 
 })

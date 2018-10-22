@@ -1,4 +1,5 @@
 <view wx:if="{{isLogin}}" class="my">
+    
   <view class="userInfo">
     <navigator style="align-self:flex-end;color:#626262;font-size:50rpx;" url="/pages/setting/setting"><van-icon name="setting"></van-icon></navigator> 
     <image src="{{avatarUrl}}"/>
@@ -38,6 +39,7 @@
   </view>
 </view>
 <view wx:else class="loginPane">
+  <image src="https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/%E5%B0%8F%E7%A8%8B%E5%BA%8F/loginbg.jpg" id="bg_img"/>
   <view class="login">
     <input type="text" bindinput="handleAccount"  placeholder="  请输入阿母关联账号"/>
     <input type="text" bindinput="handlePassword" placeholder="  请输入密码" password/>

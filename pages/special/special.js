@@ -81,7 +81,7 @@ Page({
       let tempData =  res.data.promotionStatisticResult
       this.setData({
         totleCount: tempData.totleCount,
-        totleMoney: (tempData.totleMoney / 10000).toFixed(2)
+        totleMoney: tempData.totleMoney 
       });
     }),
 

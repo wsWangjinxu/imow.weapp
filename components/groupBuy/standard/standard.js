@@ -54,6 +54,10 @@ Component({
 
     //确认参团
     submit() {
+      wx.showLoading({
+        title: '正在提交',
+        mask: 'true'
+      });
       let name = this.data.name;
       let phone = this.data.phone;
       let remark = this.data.remark;
@@ -110,57 +114,59 @@ Component({
 
       //获取用户的微信名和loginCode
       let that = this;
+
+     let submitJoinData = function(tempData){
+      wx.login({
+        success: function (res) {
+
+          //收集用户的数据
+          let db = {
+            name,
+            phone,
+            remark,
+            wxName: tempData.nickName,
+            skuNum: product,
+            id: that.data.promotionId,
+            code: res.code
+          }
+
+          wx.hideLoading({});
+          //通过验证以后提交拼团信息
+          joinGroupBuy("POST", db).then(res => {
+            if (res.data.status) {
+              wx.showToast({
+                title: "参团成功！",
+                icon: "success",
+                mask: true,
+                duration: 1000
+              });
+
+              //参团成功以后更新列表
+              that.triggerEvent("getList");
+            } else {
+              wx.showToast({
+                title: "参团失败！",
+                image: "/static/icons/warning-white.png",
+                mask: true,
+                duration: 1000
+              })
+            }
+          });
+        }
+      });
+     }
+
       wx.getUserInfo({
         success: function (res) {
           let tempData = res.rawData;
           //数据转换
           tempData = JSON.parse(tempData);
-          console.log(tempData);
-          //获取loginCode
-          wx.login({
-            success: function (res) {
-
-              //收集用户的数据
-              let db = {
-                name,
-                phone,
-                remark,
-                wxName: tempData.nickName,
-                skuNum: product,
-                id: that.data.promotionId,
-                code: res.code
-              }
-
-              console.log(db);
-              //通过验证以后提交拼团信息
-              joinGroupBuy("POST", db).then(res => {
-                if (res.data.status) {
-                  wx.showToast({
-                    title: "参团成功！",
-                    icon: "success",
-                    mask: true,
-                    duration: 1000
-                  });
-
-                  //参团成功以后更新列表
-                  that.triggerEvent("getList");
-                } else {
-                  wx.showToast({
-                    title: "参团失败！",
-                    image: "/static/icons/warning-white.png",
-                    mask: true,
-                    duration: 1000
-                  })
-                }
-              });
-            }
-          });
+          submitJoinData(tempData);
         },
         fail: function (err) {
-          wx.showToast({
-            title: "获取信息出错",
-            image: "/static/icons/warning-white.png"
-          })
+          submitJoinData({
+            nickName:'阿母用户'
+          });
         }
       })
     },

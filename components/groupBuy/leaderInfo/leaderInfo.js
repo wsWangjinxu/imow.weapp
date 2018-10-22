@@ -7,10 +7,7 @@ Component({
       type: Boolean,
       value: true
     },
-    bgUrl: {
-      type: String,
-      value: ""
-    },
+   
     leaderName: {
       type: String,
       value: ""

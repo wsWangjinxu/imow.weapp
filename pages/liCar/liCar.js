@@ -9,5 +9,14 @@ Page({
   //事件处理函数
   onLoad: function (options) {
       
-  }
+  },
+  ringUp() {
+    wx.makePhoneCall({
+      phoneNumber: '400-672-8288',
+      success() {
+       
+      }
+    });
+  },
+
 })

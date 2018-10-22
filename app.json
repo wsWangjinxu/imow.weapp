@@ -1,13 +1,12 @@
 {
   "pages":[ 
-    "pages/rankList/rankList",
     "pages/index/index", 
+    "pages/special/special",  
+    "pages/rankList/rankList",
     "pages/bicycle/bicycle",
     "pages/beTeamLeader/beTeamLeader",
     "pages/setMeal/setMeal",
-    "pages/special/special",  
     "pages/liCar/liCar",  
-    
     "pages/groupBuy/startGroupBuy/startGroupBuy",
     "pages/developing/developing",
     "pages/cart/cart",
@@ -64,8 +63,8 @@
       {
         "pagePath": "pages/special/special",
         "text": "双11会场",
-        "iconPath": "static/icons/heart-black.png",
-        "selectedIconPath": "static/icons/heart-red.png"
+        "iconPath": "static/icons/11.png",
+        "selectedIconPath": "static/icons/11Checked.png"
       },
       {
         "pagePath": "pages/cart/cart",

@@ -17,6 +17,7 @@
   height: 250rpx;
   flex: none;
   margin-right: 20rpx;
+  
 }
 
 .product .top .text {

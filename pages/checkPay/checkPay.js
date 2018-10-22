@@ -18,6 +18,7 @@ Page({
       //   "name": "支付宝"
       // }
     ],
+    underLineEntity:{},
     index: 0,//选择的下拉列表下标
     show: false,   //提交订单弹框
     abc: true,//true显示商家false显示自提
@@ -178,6 +179,8 @@ Page({
       let Data = res.data.data;
       let orderTotalPrice1 = Data.orderProductPrice - Data.imb - Data.couponTotleDiscount + Data.shipAmount;
       this.setData({
+        orderCode:Data.orderCode,
+        underLineEntity:Data.underLineEntity,
         shipAmount: Data.shipAmount,     
         sellerName: Data.sellerName,
         buyerName: Data.buyerName,

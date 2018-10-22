@@ -22,23 +22,23 @@
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar5.jpg'></image>
-      <navigator url="/pages/productDetail/productDetail?id=469198207479962"><view class="button">立即购买</view></navigator>
+      <view class="button" bindtap="ringUp">中力热线</view>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar6.jpg'></image>
-      <!-- <navigator url="/pages/productDetail/productDetail?id="><view class="button">立即购买</view></navigator> -->
+      <view class="button" bindtap="ringUp">中力热线</view>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar7.jpg'></image>
-      <!-- <navigator url="/pages/productDetail/productDetail?id="><view class="button">立即购买</view></navigator> -->
+      <view class="button" bindtap="ringUp">中力热线</view>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar8.jpg'></image>
-      <!-- <navigator url="/pages/productDetail/productDetail?id="><view class="button">立即购买</view></navigator> -->
+      <view class="button" bindtap="ringUp">中力热线</view>
     </view>
     <view class='product'>
       <image src='https://imow-weixin-app.oss-cn-hangzhou.aliyuncs.com/licar9.jpg'></image>
-      <!-- <navigator url="/pages/productDetail/productDetail?id="><view class="button">立即购买</view></navigator> -->
+      <view class="button" bindtap="ringUp">中力热线</view>
     </view>
   </view>
   <view class='bottom'>

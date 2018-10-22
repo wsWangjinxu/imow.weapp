@@ -3,19 +3,19 @@
     <van-icon style="font-size: 35rpx; color: #f80501;margin-right: 10rpx;" name="warn"></van-icon>
     <text  style="font-weight: bold;">已取消</text></view>
     <view style="border-bottom: 1px dashed #cccccc;">
-        <text style="width: 70rpx;">{{index}}</text>
+        <text style="width: 70rpx;">{{index+1}}</text>
         <image style="flex: none;margin-left: 10rpx;margin-right: 10rpx;" class="head" src="{{ctn.profile}}"></image>
         <view style="flex: 6;">
             <view>微信号：{{ctn.wx}}</view>
-            <view>姓名：{{ctn.name}}</view>
-            <view>电话：{{ctn.phone}}</view>
+            <view >姓名：{{ctn.name}}</view>
+            <view bindtap="handleRingUp">电话：{{ctn.phone}}   <van-icon style="vertical-align: -2rpx;" name="phone"></van-icon></view>
             <view>备注：{{ctn.remark}}</view>
         </view>
         <view style="color: #cecece;">{{ctn.time}}</view>
     </view>
     <view style="display: flex;flex-direction:row;justify-content: space-between;margin-left: 150rpx;">
         <view style="margin-right: 20rpx;">
-            <view wx:for="{{ctn.skuList}}" wx:key="index">{{item.skuCode}}*{{item.num}}</view>
+            <view wx:for="{{ctn.skuList}}" wx:key="index">{{item.skuCode}} x {{item.num}}</view>
         </view>
         <view style="align-self: flex-end;margin-bottom: 20rpx;">
             <block wx:if="{{isLeader &&  ctn.status != '已取消'}}"> 

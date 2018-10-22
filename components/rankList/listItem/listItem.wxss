@@ -8,7 +8,7 @@
   font-weight: bold;
   color: white;
   position: absolute;
-  top: 17rpx;
+  top: 28rpx;
   left: 181rpx;
   width:390rpx;
 }
@@ -71,7 +71,7 @@
 
 .list-item-top {
   position: absolute;
-  top: 100px;
+  top: 205rpx;
 }
 
 .list-item-top .leader {
@@ -108,7 +108,7 @@
 
 .distance1 {
   position: absolute;
-  top: 138px;
+  top: 275rpx;
   font-size: 22rpx;
   text-align: center;
   width: 100%;
@@ -119,8 +119,8 @@
   width: 500rpx;
   font-size: 22rpx;
   position: absolute;
-  top: 184px;
-  left: 110px;
+  top: 368rpx;
+  left: 230rpx;
 }
 
 .top-third > view {

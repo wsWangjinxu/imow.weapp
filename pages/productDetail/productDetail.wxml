@@ -56,8 +56,8 @@
   </view>
 
   <view class="box">
-    <van-row>
-      <van-col span="5">
+    <van-row wx:if="{{imbDisacount}}">
+      <van-col span="5" >
         <text>优惠</text>
       </van-col>
       <van-col span="14">
@@ -113,7 +113,7 @@
         </view>
       </van-col>
     </van-row>
-    <view class='sevenDay'>
+    <!-- <view class='sevenDay'>
       <van-row>
         <van-col span="5">
           <text>产品承诺</text>
@@ -122,7 +122,7 @@
           <text>7天无理由</text>
         </van-col>
       </van-row>
-    </view>
+    </view> -->
     <van-row>
       <van-col span="5">
         <text>支付方式</text>

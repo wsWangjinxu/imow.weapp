@@ -37,7 +37,7 @@ Page({
     //     }
     //   }
     // } else {
-    let isLogin = false;// wx.getStorageSync("isLogin");
+    let isLogin = wx.getStorageSync("isLogin");
     //判断用户已经在平台上绑定微信账号，则记录登陆状态，显示我的页面，并获取头像和昵称
     if (isLogin) {
       let _this = this;
@@ -155,10 +155,7 @@ Page({
         })
       },
       fail: function (err) {
-        wx.showToast({
-          title: "获取信息出错",
-          image: "/static/icons/warning-white.png"
-        })
+        
       },
       complete
     })

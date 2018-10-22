@@ -113,5 +113,10 @@ Page({
         productList: res.data.guessYourFavorite
       });
     });
+  },
+  swiperTap(){
+    wx.switchTab({
+      url: "/pages/special/special"
+    });
   }
 });

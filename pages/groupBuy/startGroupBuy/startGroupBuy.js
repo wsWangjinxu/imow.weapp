@@ -43,10 +43,7 @@ Page({
         })
       },
       fail: function(err) {
-        wx.showToast({
-          title: "获取信息出错",
-          image: "/static/icons/warning-white.png"
-        })
+       
       }
     })
 
